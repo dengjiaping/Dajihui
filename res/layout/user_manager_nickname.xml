@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="20dp"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout style="@style/title_bar_layout" >
+
+            <ImageView
+                android:id="@id/title_bar_showleft"
+                style="@style/title_bar_leftimage"
+                android:contentDescription="@string/none"
+                android:src="@drawable/my_back_normal" />
+
+            <TextView
+                android:id="@id/title_bar_title"
+                style="@style/title_bar_title"
+                android:text="@string/user_manager_nickname" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/input"
+            style="@style/MMEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:singleLine="true"
+            android:text="@string/user_manager_nickname_instruction" />
+
+        <Button
+            android:id="@id/publish"
+            style="@style/MMLineActionButton"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_style_one"
+            android:gravity="center"
+            android:text="@string/pub_feedback_confirm" />
+    </LinearLayout>
+
+</ScrollView>

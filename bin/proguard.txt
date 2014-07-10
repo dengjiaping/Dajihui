@@ -1,0 +1,287 @@
+# view res/layout/ac_image_pager.xml #generated:30
+# view res/layout/user_login.xml #generated:52
+# view res/layout/user_manager_myproduct.xml #generated:27
+# view res/layout/view_pager.xml #generated:7
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view res/layout/activity_ptr_list_fragment.xml #generated:6
+-keep class com.handmark.pulltorefresh.extras.listfragment.PullToRefreshListFragment { <init>(...); }
+
+# view res/layout/xianshi_huodong.xml #generated:29
+# view res/layout/xianshi_huodong_join.xml #generated:95
+# view res/layout/xianshi_qiugou_list.xml #generated:35
+# view res/layout/xianshi_shouji_leavewords_list.xml #generated:36
+# view res/layout/xianshi_xinwen_comment_list.xml #generated:37
+# view res/layout/xianshi_xinwen_list.xml #generated:35
+# view res/layout/xianshi_zhaoping_list.xml #generated:32
+# view res/layout/xianshi_zhaoshang_list.xml #generated:35
+-keep class com.handmark.pulltorefresh.library.PullToRefreshListView { <init>(...); }
+
+# view res/layout/view_pager_four_g.xml #generated:35
+# view res/layout/view_pager_index.xml #generated:35
+# view res/layout/view_pager_logo.xml #generated:35
+# view res/layout/view_pager_logo_product.xml #generated:29
+# view res/layout/view_pager_main.xml #generated:29
+# view res/layout/view_pager_pinpai.xml #generated:35
+# view res/layout/view_pager_sanma.xml #generated:35
+# view res/layout/view_pager_td.xml #generated:35
+# view res/layout/view_pager_waidan.xml #generated:35
+# view res/layout/view_pager_wuma.xml #generated:33
+# view res/layout/view_pager_yifabu.xml #generated:17
+# view res/layout/xianshi_logo_item.xml #generated:56
+# view res/layout/xianshi_sousuo.xml #generated:17
+-keep class com.handmark.pulltorefresh.library.PullToRefreshScrollView { <init>(...); }
+
+# view AndroidManifest.xml #generated:135
+-keep class com.mzhou.merchant.activity.ActivityAbout { <init>(...); }
+
+# view AndroidManifest.xml #generated:127
+-keep class com.mzhou.merchant.activity.ActivityBinderQQ { <init>(...); }
+
+# view AndroidManifest.xml #generated:191
+-keep class com.mzhou.merchant.activity.ActivityFankui { <init>(...); }
+
+# view AndroidManifest.xml #generated:119
+-keep class com.mzhou.merchant.activity.ActivityFourPhone { <init>(...); }
+
+# view AndroidManifest.xml #generated:115
+-keep class com.mzhou.merchant.activity.ActivityGX { <init>(...); }
+
+# view AndroidManifest.xml #generated:75
+-keep class com.mzhou.merchant.activity.ActivityHuoDong { <init>(...); }
+
+# view AndroidManifest.xml #generated:67
+-keep class com.mzhou.merchant.activity.ActivityHuoDongDetail { <init>(...); }
+
+# view AndroidManifest.xml #generated:83
+-keep class com.mzhou.merchant.activity.ActivityIndex { <init>(...); }
+
+# view AndroidManifest.xml #generated:319
+-keep class com.mzhou.merchant.activity.ActivityJoin { <init>(...); }
+
+# view AndroidManifest.xml #generated:323
+-keep class com.mzhou.merchant.activity.ActivityLogin { <init>(...); }
+
+# view AndroidManifest.xml #generated:143
+-keep class com.mzhou.merchant.activity.ActivityLogo { <init>(...); }
+
+# view AndroidManifest.xml #generated:123
+-keep class com.mzhou.merchant.activity.ActivityLogoProduct { <init>(...); }
+
+# view AndroidManifest.xml #generated:51
+-keep class com.mzhou.merchant.activity.ActivityMain { <init>(...); }
+
+# view AndroidManifest.xml #generated:147
+-keep class com.mzhou.merchant.activity.ActivityPP { <init>(...); }
+
+# view AndroidManifest.xml #generated:151
+-keep class com.mzhou.merchant.activity.ActivityQG { <init>(...); }
+
+# view AndroidManifest.xml #generated:163
+-keep class com.mzhou.merchant.activity.ActivitySM { <init>(...); }
+
+# view AndroidManifest.xml #generated:167
+-keep class com.mzhou.merchant.activity.ActivitySS { <init>(...); }
+
+# view AndroidManifest.xml #generated:42
+-keep class com.mzhou.merchant.activity.ActivityStart { <init>(...); }
+
+# view AndroidManifest.xml #generated:171
+-keep class com.mzhou.merchant.activity.ActivityTD { <init>(...); }
+
+# view AndroidManifest.xml #generated:139
+-keep class com.mzhou.merchant.activity.ActivityUserAgree { <init>(...); }
+
+# view AndroidManifest.xml #generated:55
+-keep class com.mzhou.merchant.activity.ActivityVideoPlayer { <init>(...); }
+
+# view AndroidManifest.xml #generated:175
+-keep class com.mzhou.merchant.activity.ActivityWD { <init>(...); }
+
+# view AndroidManifest.xml #generated:179
+-keep class com.mzhou.merchant.activity.ActivityWM { <init>(...); }
+
+# view AndroidManifest.xml #generated:187
+-keep class com.mzhou.merchant.activity.ActivityXinWen { <init>(...); }
+
+# view AndroidManifest.xml #generated:207
+-keep class com.mzhou.merchant.activity.ActivityZP { <init>(...); }
+
+# view AndroidManifest.xml #generated:183
+-keep class com.mzhou.merchant.activity.ActivityZS { <init>(...); }
+
+# view AndroidManifest.xml #generated:255
+-keep class com.mzhou.merchant.activity.CompanyContactUsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:87
+-keep class com.mzhou.merchant.activity.CompanyIntroduceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:155
+-keep class com.mzhou.merchant.activity.EditShoujiCommenActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:159
+-keep class com.mzhou.merchant.activity.EditShoujiEnterpriseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:91
+-keep class com.mzhou.merchant.activity.FabuActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:63
+-keep class com.mzhou.merchant.activity.FabuQiugouActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:59
+-keep class com.mzhou.merchant.activity.FabuShoujiCommenActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:223
+-keep class com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:231
+-keep class com.mzhou.merchant.activity.FabuZhaopinActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:99
+-keep class com.mzhou.merchant.activity.FabuZhaoshangActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:295
+-keep class com.mzhou.merchant.activity.FabushoujiCommenPreViewActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:227
+-keep class com.mzhou.merchant.activity.FabushoujiEnterprisePreViewActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:235
+-keep class com.mzhou.merchant.activity.ForgetPassWordActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:95
+-keep class com.mzhou.merchant.activity.ForgetPassWordAnActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:79
+-keep class com.mzhou.merchant.activity.ForgetPassWordModifyActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:195
+-keep class com.mzhou.merchant.activity.LoginCommenActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:103
+-keep class com.mzhou.merchant.activity.LoginEnterpriseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:303
+-keep class com.mzhou.merchant.activity.LogoItemListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:299
+-keep class com.mzhou.merchant.activity.MyProductActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:307
+-keep class com.mzhou.merchant.activity.MyProductAlreadyCheckActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:211
+-keep class com.mzhou.merchant.activity.MyProductNoCheckActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:111
+-keep class com.mzhou.merchant.activity.PicPagerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:219
+-keep class com.mzhou.merchant.activity.RegisterCommonActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:239
+-keep class com.mzhou.merchant.activity.RegisterEnterpriseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:131
+-keep class com.mzhou.merchant.activity.ShoujiCommenActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:275
+-keep class com.mzhou.merchant.activity.ShoujiEnterpriseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:287
+-keep class com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:315
+-keep class com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:243
+-keep class com.mzhou.merchant.activity.UserControlAleterPasswdActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:199
+-keep class com.mzhou.merchant.activity.UserControlCommonActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:267
+-keep class com.mzhou.merchant.activity.UserControlCompanyActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:71
+-keep class com.mzhou.merchant.activity.UserControlEnterpriseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:215
+-keep class com.mzhou.merchant.activity.UserControlEnterpriseNameActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:283
+-keep class com.mzhou.merchant.activity.UserControlFaxActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:251
+-keep class com.mzhou.merchant.activity.UserControlNameActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:279
+-keep class com.mzhou.merchant.activity.UserControlNetActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:247
+-keep class com.mzhou.merchant.activity.UserControlNicknameActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:259
+-keep class com.mzhou.merchant.activity.UserControlPhonenubActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:263
+-keep class com.mzhou.merchant.activity.UserControlQQActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:271
+-keep class com.mzhou.merchant.activity.UserControladressActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:291
+-keep class com.mzhou.merchant.activity.XinwenCommentFabuActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:311
+-keep class com.mzhou.merchant.activity.XinwenCommentListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:107
+-keep class com.mzhou.merchant.activity.XinwenContentActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:203
+-keep class com.mzhou.merchant.activity.ZhaopinContentActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:35
+-keep class com.mzhou.merchant.imageloader.MyApplication { <init>(...); }
+
+# view res/layout/my_textview.xml #generated:8
+-keep class com.mzhou.merchant.myview.CustomTextView { <init>(...); }
+
+# view res/layout/fabu_shouji.xml #generated:393
+# view res/layout/fabu_shouji_enterprise.xml #generated:393
+# view res/layout/view_pager_four_g.xml #generated:50
+# view res/layout/view_pager_index.xml #generated:52
+# view res/layout/view_pager_logo.xml #generated:49
+# view res/layout/view_pager_logo_product.xml #generated:52
+# view res/layout/view_pager_main.xml #generated:52
+# view res/layout/view_pager_pinpai.xml #generated:50
+# view res/layout/view_pager_sanma.xml #generated:50
+# view res/layout/view_pager_td.xml #generated:50
+# view res/layout/view_pager_waidan.xml #generated:50
+# view res/layout/view_pager_wuma.xml #generated:48
+# view res/layout/view_pager_yifabu.xml #generated:32
+# view res/layout/xianshi_logo_item.xml #generated:71
+# view res/layout/xianshi_sousuo.xml #generated:92
+-keep class com.mzhou.merchant.myview.MyGridView { <init>(...); }
+
+# view res/layout/xianshi_sousuo.xml #generated:77
+# view res/layout/xianshi_zhaopin_yifabu.xml #generated:32
+# view res/layout/xianshi_zhaoshang_yifabu.xml #generated:32
+-keep class com.mzhou.merchant.myview.MyListView { <init>(...); }
+
+# view res/layout/item_grid2.xml #generated:6
+-keep class com.mzhou.merchant.myview.SquareLayout { <init>(...); }
+
+# view AndroidManifest.xml #generated:338
+-keep class com.mzhou.merchant.service.DownLoadService { <init>(...); }
+
+# view res/layout/activity_main.xml #generated:2
+-keep class com.mzhou.merchant.slidemenu.SlidingMenu { <init>(...); }
+
+# view AndroidManifest.xml #generated:327
+-keep class com.tencent.tauth.AuthActivity { <init>(...); }
+
+# view res/layout/item_pager_image.xml #generated:6
+-keep class it.sephiroth.android.library.imagezoom.ImageViewTouch { <init>(...); }
+

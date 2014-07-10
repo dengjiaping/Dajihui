@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/title_bar_layout" >
+
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_user_login" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/common_member"
+            style="@style/titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_select_viewpager"
+            android:text="@string/common_member" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/enterprise_member"
+            style="@style/titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_select_viewpager"
+            android:text="@string/enterprise_member" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+</LinearLayout>

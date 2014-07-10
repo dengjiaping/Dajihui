@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout style="@style/title_bar_layout" >
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+        <TextView
+            android:id="@id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_serch" />
+    </RelativeLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_refresh_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        ptr:ptrAnimationStyle="flip" >
+        <LinearLayout
+            android:id="@+id/head_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+                <RadioButton
+                    android:id="@+id/rb_sousuo_chanpin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/product"
+                    android:textColor="#000" >
+                </RadioButton>
+                <RadioButton
+                    android:id="@+id/rb_sousuo_xinwen"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/news"
+                    android:textColor="#000" />
+            </RadioGroup>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal" >
+                <EditText
+                    android:id="@+id/edt_sousuo"
+                    style="@style/MMEditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+                <Button
+                    android:id="@+id/btn_sousuo"
+                    style="@style/MMLineActionButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/btn_style_one"
+                    android:text="@string/search" />
+            </LinearLayout>
+            <com.mzhou.merchant.myview.MyListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/orange"
+                android:dividerHeight="1dp"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="false"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false"
+                android:listSelector="@android:color/transparent"
+                android:smoothScrollbar="true"
+                android:visibility="gone" >
+            </com.mzhou.merchant.myview.MyListView>
+            <com.mzhou.merchant.myview.MyGridView
+                android:id="@id/gridview"
+                style="@style/gridview"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="4"
+                android:visibility="gone" >
+            </com.mzhou.merchant.myview.MyGridView>
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+</LinearLayout>

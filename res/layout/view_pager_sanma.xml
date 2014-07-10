@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color"
+        android:orientation="vertical" >
+
+
+            <RelativeLayout style="@style/title_bar_layout" >
+
+            <ImageView
+                android:id="@id/title_bar_showleft"
+                style="@style/title_bar_leftimage"
+                android:contentDescription="@string/none"
+                android:src="@drawable/my_back_normal" />
+
+            <TextView
+                android:id="@id/title_bar_title"
+                style="@style/title_bar_title"
+                android:text="@string/title_bar_sanma" />
+
+            <ImageView
+                android:id="@+id/title_bar_publish"
+                style="@style/title_bar_rightimage"
+                android:contentDescription="@string/none"
+                android:src="@drawable/my_publish_normal" />
+        </RelativeLayout>
+    </ScrollView>
+  <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_refresh_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_color"
+        android:fadingEdge="none"
+        ptr:ptrAnimationStyle="flip" >
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:orientation="vertical" >
+			<include layout="@layout/item_ad"/>
+            <com.mzhou.merchant.myview.MyGridView
+                android:id="@+id/gridview"
+                style="@style/gridview"
+                android:background="@color/bg_color"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="4" >
+            </com.mzhou.merchant.myview.MyGridView>
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+</LinearLayout>

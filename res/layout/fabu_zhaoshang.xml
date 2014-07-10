@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+   android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/title_bar_layout" >
+
+        <ImageView
+            android:id="@+id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@+id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_pub_zhaoshang" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_color">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/bg_color"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/pub_zhaoshang_instruction" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/mm_edit"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@id/pub_qiugou_content"
+                       style="@style/MMEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:minLines="5"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:singleLine="false" />
+ 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="@string/pub_qiugou_maxtextsize" />
+                </LinearLayout>
+<LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="@string/pub_qiugou_name"
+                        android:textColor="#000"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@id/pub_qiugou_name"
+                        style="@style/MMEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/user_manager_phonnumber2"
+                        android:textColor="#000"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@id/pub_qiugou_number"
+                        style="@style/MMEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                
+
+                <Button
+                    android:id="@id/publish"
+                    style="@style/MMLineActionButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_one"
+                    android:gravity="center"
+                    android:text="@string/publish" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

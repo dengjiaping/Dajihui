@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <com.mzhou.merchant.myview.SquareLayout
+        android:id="@+id/squarelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/linearLay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            android:orientation="vertical" >
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/none"
+                android:padding="1dp"
+                android:scaleType="fitCenter" />
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="@dimen/SmallTextSize" />
+        </LinearLayout>
+    </com.mzhou.merchant.myview.SquareLayout>
+</RelativeLayout>

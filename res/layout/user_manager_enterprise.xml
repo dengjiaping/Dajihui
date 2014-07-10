@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        style="@style/title_bar_layout"
+        android:layout_alignParentTop="true" >
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+        <TextView
+            android:id="@id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_user_center_enterprise" />
+    </RelativeLayout>
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom_linearlayout"
+        android:layout_below="@id/title_layout"
+        android:background="@color/white" >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:gravity="center"
+                android:orientation="horizontal" >
+                <ImageView
+                    android:id="@+id/user_manager_user_head"
+                    android:layout_width="80dip"
+                    android:layout_height="80dip"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="3dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/none"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_userhead_stub"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:background="@drawable/preference_first_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_userhead" />
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_userhead_stub" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_nickname_stub"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_nickname" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nickname"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_count"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_alter_count" />
+                <TextView
+                    android:id="@+id/user_manager_alter_count"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_alter_passwd"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_last_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_alter_passwd" />
+                <TextView
+                    android:id="@+id/user_manager_alter_passwd_stub"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:inputType="textPassword"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/preference_first_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_name1" />
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/display_job_contact2" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name1"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub1"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name2"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub2"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name3"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub3"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name4"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub4"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name5"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub5"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name6"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub6"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name7"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub7"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name8"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub8"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name9"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub9"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_name10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_last_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/user_manager_tv_name10"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/user_manager_tv_nub10"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_centerNub"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:layout_marginTop="15.0dip"
+                android:background="@drawable/preference_first_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_centerNub" />
+                <TextView
+                    android:id="@+id/user_manager_centerNub_stub"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_centerFax"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_centerFox" />
+                <TextView
+                    android:id="@+id/user_manager_centerFax_stub"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_company"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_company1" />
+                <TextView
+                    android:id="@+id/user_manager_tv_company"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_address1" />
+                <TextView
+                    android:id="@+id/user_manager_tv_address"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/user_manager_net"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:background="@drawable/preference_last_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+                <TextView
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="2.0"
+                    android:singleLine="true"
+                    android:text="@string/user_manager_net1" />
+                <TextView
+                    android:id="@+id/user_manager_tv_net"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/save"
+                style="@style/MMLineActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="19dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="19dp"
+                android:layout_weight="1"
+                android:background="@drawable/preference_single_item"
+                android:gravity="center"
+                android:text="@string/save"
+                android:textColor="#000" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/bottom_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/black" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@color/white" >
+            <TextView
+                android:id="@+id/product_new_push"
+                style="@style/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_press"
+                android:text="@string/user_manager_publish" />
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                android:id="@+id/product_already_push"
+                style="@style/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_press"
+                android:text="@string/user_manager_alread_publish" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

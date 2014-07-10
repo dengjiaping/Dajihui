@@ -1,0 +1,61 @@
+-optimizationpasses 2
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-verbose
+-dontpreverify
+-verbose
+-dontwarn
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-libraryjars libs/apache-mime4j-0.6.jar
+-libraryjars libs/fastjson-1.1.32.jar
+-libraryjars libs/universal-image-loader-1.8.4-with-sources.jar
+-libraryjars libs/httpmime-4.0.jar
+-libraryjars libs/android-support-v4.jar
+-dontoptimize
+-keepattributes Signature 
+-keepattributes *Annotation*
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+-keepclasseswithmembernames class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+-keepclasseswithmembernames class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+} 
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+    public <fields>;
+}
+-keep class com.mzhou.merchant.model.** { *; }
+-keep class org.apache.http.entity.mime.**  { *; } 
+-keep class org.apache.james.mime4j.**  { *; } 
+-keep class com.alibaba.fastjson.** { *; }
+
+-keep class com.tencent.open.TDialog$*
+-keep class com.tencent.open.TDialog$* {*;}
+-keep class com.tencent.open.PKDialog
+-keep class com.tencent.open.PKDialog {*;}
+-keep class com.tencent.open.PKDialog$*
+-keep class com.tencent.open.PKDialog$* {*;}
+

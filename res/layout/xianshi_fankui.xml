@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearlayout_news_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         android:background="@color/bg_color"
+        android:orientation="vertical" >
+
+<RelativeLayout style="@style/title_bar_layout" >
+
+                <ImageView
+                    android:id="@id/title_bar_showleft"
+                    style="@style/title_bar_leftimage"
+                    android:contentDescription="@string/none"
+                    android:src="@drawable/my_back_normal" />
+
+                <TextView
+                    android:id="@id/title_bar_title"
+                    style="@style/title_bar_title"
+                    android:text="@string/title_bar_fankui" />
+            </RelativeLayout>
+
+<ScrollView
+    android:id="@+id/scroll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+     android:background="@color/bg_color"
+    android:fadingEdge="none"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="@string/pub_feedback_title"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/mm_edit"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/pub_feedback_instruction"
+                    style="@style/MMEditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="130dip"
+                    android:layout_weight="1.0"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="@string/pub_feedback_instruction"
+                    android:singleLine="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/pub_qiugou_maxtextsize" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/pub_feedback_contact"
+                style="@style/MMEditText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:hint="@string/pub_feedback_contact"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@id/publish"
+                style="@style/MMLineActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_style_one"
+                android:gravity="center"
+                android:text="@string/pub_feedback_confirm" />
+        </LinearLayout>
+
+</ScrollView>
+ </LinearLayout>

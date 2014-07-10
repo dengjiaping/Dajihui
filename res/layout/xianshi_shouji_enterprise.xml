@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        style="@style/title_bar_layout"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_logopara" />
+    </RelativeLayout>
+ <LinearLayout
+     android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+             android:layout_below="@id/title_layout"
+        android:gravity="center"
+            android:orientation="vertical" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="产品已经被删除了，请返回重试" />
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="18sp"
+        android:text="返回" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_linearlayout"
+        android:layout_below="@id/title_layout"
+        android:visibility="gone"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Gallery
+                android:id="@+id/xianshi_shouji_gallery"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdge="none"
+                android:gravity="center"
+                android:paddingTop="4dp"
+                android:spacing="4dp" />
+
+            <!-- 显示手机相关信息 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5.0dip"
+                android:layout_marginRight="-5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:background="@drawable/preference_single_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/display_parameters_parameter"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_pinpai" />
+
+                        <TextView
+                            android:id="@+id/pub_product_pinpai"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_xinghao" />
+
+                        <TextView
+                            android:id="@+id/pub_product_xinghao"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_xinpian" />
+
+                        <TextView
+                            android:id="@+id/pub_product_xinpian"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_chicun" />
+
+                        <TextView
+                            android:id="@+id/pub_product_chicun"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_fenbianlv" />
+
+                        <TextView
+                            android:id="@+id/pub_product_fenbianlv"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_xitong" />
+
+                        <TextView
+                            android:id="@+id/pub_product_xitong"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_qianxiangsu" />
+
+                        <TextView
+                            android:id="@+id/pub_product_qianxiangsu"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_houxiangsu" />
+
+                        <TextView
+                            android:id="@+id/pub_product_houxiangsu"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_jishenneicun" />
+
+                        <TextView
+                            android:id="@+id/pub_product_jishenneicun"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_dianchirongliang" />
+
+                        <TextView
+                            android:id="@+id/pub_product_dianchirongliang"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/display_parameters_instruction1"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15.0dip"
+                    android:layout_marginLeft="-5.0dip"
+                    android:layout_marginRight="-5.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:background="@drawable/preference_single_item"
+                    android:gravity="center_vertical"
+                    android:minHeight="@dimen/minHeight"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/display_parameters_instruction"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textSize="@dimen/LargeTextSize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/getMoreComment"
+                style="@style/MMLineActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="19dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="19dp"
+                android:layout_weight="1"
+                android:background="@drawable/preference_single_item"
+                android:gravity="center"
+                android:text="@string/morewords"
+                android:textColor="#000" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@color/white" >
+
+            <TextView
+                android:id="@+id/about_company"
+                style="@style/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_press"
+                android:text="@string/introduce_company" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/contact_company"
+                style="@style/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_press"
+                android:text="@string/contact_company" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

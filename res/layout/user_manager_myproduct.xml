@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/title_bar_layout" 
+        android:id="@+id/user_manager_myproduct"
+        android:layout_alignParentTop="true"
+        >
+
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/already_publish_title" />
+
+         
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vPager"
+        android:layout_below="@id/user_manager_myproduct"
+        android:layout_above="@+id/bottom_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:flipInterval="30"
+        android:persistentDrawingCache="animation" />
+
+    <LinearLayout
+        android:id="@+id/bottom_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@color/white" >
+
+            <TextView
+                android:id="@+id/text1"
+                style="@style/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_select_viewpager"
+                android:text="@string/publish_ok" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/text2"
+                style="@style/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_select_viewpager"
+                android:text="@string/publish_no" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

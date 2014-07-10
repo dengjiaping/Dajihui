@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/title_bar_layout" >
+
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_news_cat_comment" />
+
+        <ImageView
+            android:id="@+id/title_bar_comment"
+            style="@style/title_bar_rightimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/title_bar_comment" />
+    </RelativeLayout>
+<TextView
+        android:id="@+id/no_comment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color"
+        android:gravity="center"
+        android:text="@string/no_comment"
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/pull_refresh_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_color"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/orange"
+        android:dividerHeight="1dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true" />
+
+    
+</LinearLayout>

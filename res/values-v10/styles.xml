@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- itemgrid 3 -->
+    <style name="item_grid3">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="item_grid4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <!-- itemgrid 4 -->
+    <style name="ad_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="ad_logo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">165dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="show_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">160dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="head_image">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="text_item">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:background">@drawable/item_press_bg</item>
+        <item name="android:textSize">@dimen/LargeTextSize</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+</resources>

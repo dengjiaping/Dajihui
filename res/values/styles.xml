@@ -1,0 +1,169 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+    <style name="titleText">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="Transparent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+    <!-- custom progressdialog style -->
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <!-- text_item style -->
+    <style name="text_item">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:background">@drawable/item_press_bg</item>
+        <item name="android:textSize">@dimen/LargeTextSize</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- publish_product style -->
+    <style name="publish_product">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/BasicTextSize</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!-- gridview style -->
+    <style name="gridview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:columnWidth">100.0dip</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:horizontalSpacing">2.0dip</item>
+        <item name="android:scrollbarStyle">insideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:verticalSpacing">4.0dip</item>
+    </style>
+    <!-- ad image style -->
+    <style name="ad_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <!-- circle dot image style -->
+    <style name="circle_dot">
+        <item name="android:layout_width">9.0dip</item>
+        <item name="android:layout_height">9.0dip</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:background">@drawable/ratio_img_style</item>
+    </style>
+    <!-- title_bar style -->
+    <style name="title_bar_leftimage">
+        <item name="android:background">@drawable/btn_common</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="title_bar_rightimage">
+        <item name="android:background">@drawable/btn_common</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    <style name="title_bar_layout">
+        <item name="android:background">@drawable/titlebar_backgroud</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">44.0dip</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="title_bar_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/header_title_text_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    <!-- 页面头部  操作按钮样式 -->
+    <style name="header_button_operate" parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textSize">@dimen/header_text_size</item>
+        <item name="android:textColor">@color/header_button_text_color</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">9dip</item>
+        <item name="android:background">@drawable/btn_operation_selector</item>
+        <item name="android:text">操作</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="MMFontPreferenceLarge">
+        <item name="android:textAppearance">@style/MMPreferenceTextLarge</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="MMPreferenceTextLarge">
+        <item name="android:textSize">@dimen/LargeTextSize</item>
+        <item name="android:textColor">@color/mm_pref_title</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="MMLineEditPass" parent="@style/MMLineEditText">
+        <item name="android:password">true</item>
+        <item name="android:textSize">@dimen/TitleTextSize</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+    <style name="MMLineEditText" parent="@style/MMEditText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textSize">@dimen/TitleTextSize</item>
+        <item name="android:layout_height">40.0dip</item>
+    </style>
+    <style name="MMEditText">
+        <item name="android:textSize">@dimen/TitleTextSize</item>
+        <item name="android:textColorHint">@color/lightgrey</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/preference_single_item</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">40.0dip</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="MMLineActionButton" parent="@style/MMLineButton"></style>
+    <style name="MMLineButton" parent="@style/MMButton">
+        <item name="android:textSize">@dimen/TitleTextSize</item>
+        <item name="android:textColor">@color/mm_style_two_btn_text</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="MMButton">
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:textColor">@color/mm_btn_text</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">40.0dip</item>
+        <item name="android:minHeight">40.0dip</item>
+    </style>
+</resources>

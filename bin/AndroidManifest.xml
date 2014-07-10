@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mzhou.merchant.activity"
+    android:installLocation="auto"
+    android:versionCode="2"
+    android:versionName="2.7.3" >
+    
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:largestWidthLimitDp="800"
+        android:normalScreens="true"
+        android:requiresSmallestWidthDp="320"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <application
+        android:name="com.mzhou.merchant.imageloader.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/tubiao"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityStart"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityMain"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityVideoPlayer"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabuShoujiCommenActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabuQiugouActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityHuoDongDetail"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlEnterpriseActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityHuoDong"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ForgetPassWordModifyActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityIndex"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.CompanyIntroduceActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabuActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ForgetPassWordAnActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabuZhaoshangActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.LoginEnterpriseActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.XinwenContentActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.PicPagerActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityGX"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityFourPhone"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityLogoProduct"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityBinderQQ"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ShoujiCommenActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityAbout"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityUserAgree"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityLogo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityPP"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityQG"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.EditShoujiCommenActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.EditShoujiEnterpriseActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivitySM"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivitySS"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityTD"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityWD"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityWM"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityZS"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityXinWen"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityFankui"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.LoginCommenActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlCommonActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ZhaopinContentActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityZP"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.MyProductNoCheckActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlEnterpriseNameActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.RegisterCommonActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabushoujiEnterprisePreViewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabuZhaopinActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ForgetPassWordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.RegisterEnterpriseActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlAleterPasswdActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlNicknameActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlNameActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.CompanyContactUsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlPhonenubActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlQQActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlCompanyActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControladressActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ShoujiEnterpriseActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlNetActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.UserControlFaxActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.XinwenCommentFabuActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.FabushoujiCommenPreViewActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.MyProductActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.LogoItemListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.MyProductAlreadyCheckActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.XinwenCommentListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityJoin"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityLogin"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent100523165" />
+            </intent-filter>
+        </activity>
+        <service android:name="com.mzhou.merchant.service.DownLoadService" />
+    </application>
+</manifest>

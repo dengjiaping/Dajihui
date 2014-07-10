@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+     android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color"
+        android:orientation="vertical" >
+
+        <RelativeLayout style="@style/title_bar_layout" >
+
+            <ImageView
+                android:id="@id/title_bar_showleft"
+                style="@style/title_bar_leftimage"
+                android:contentDescription="@string/none"
+                android:src="@drawable/my_back_normal" />
+
+            <TextView
+                android:id="@id/title_bar_title"
+                style="@style/title_bar_title"
+                android:text="@string/display_news_comment" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-5.0dip"
+        android:layout_marginRight="-5.0dip"
+        android:layout_marginTop=" 5.0dip"
+        android:background="@drawable/preference_single_item"
+        android:minHeight="@dimen/PreferenceItemHeight"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/display_news_comment_content"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mm_edit"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/display_news_comment_content"
+                style="@style/MMEditText"
+                android:layout_width="fill_parent"
+                android:layout_height="130.0dip"
+                android:background="@null"
+                android:gravity="top"
+                android:singleLine="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/pub_qiugou_maxtextsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:text="@string/display_news_comment_name"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/display_news_comment_name"
+                style="@style/MMEditText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <Button
+            android:id="@id/publish"
+            style="@style/MMLineActionButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_style_one"
+            android:gravity="center"
+            android:text="@string/pub_feedback_confirm" />
+    </LinearLayout>
+
+</LinearLayout>

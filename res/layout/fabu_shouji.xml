@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/title_bar_layout" >
+
+        <ImageView
+            android:id="@+id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@+id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_pub_chanpin" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        android:fadingEdge="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+             
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp" >
+
+                    <TextView
+                        style="@style/publish_product"
+                         android:textColor="@color/blue"
+                         android:textSize="18sp"
+                        android:text="@string/pub_product_leibie" />
+
+                    <LinearLayout
+                        android:id="@+id/user_manager_category"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/preference_single_item"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/PreferenceItemHeight"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/user_manager_category_stub"
+                            style="@style/MMFontPreferenceLarge"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5.0dip"
+                            android:layout_marginLeft="6.0dip"
+                            android:layout_marginRight="10.0dip"
+                            android:layout_marginTop="5.0dip"
+                            android:layout_weight="1"
+                            android:singleLine="true"
+                            android:textColor="#666"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/category_postion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center"
+                            android:layout_marginRight="2.0dip"
+                            android:clickable="false"
+                            android:contentDescription="@string/none"
+                            android:focusable="false"
+                            android:src="@drawable/mm_submenu" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_pinpai" />
+
+                        <EditText
+                            android:id="@+id/pub_product_pingpai"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="大机汇"
+                            android:maxLength="10"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_xinghao" />
+
+                        <EditText
+                            android:id="@+id/pub_product_xinghao"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="10"
+                            android:hint="A888"
+                            android:singleLine="true" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_xinpian" />
+
+                        <EditText
+                            android:id="@+id/pub_product_xinpian"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:maxLength="10"
+                            android:layout_height="wrap_content"
+                            android:hint="MTK6595"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_chicun" />
+
+                        <EditText
+                            android:id="@+id/pub_product_chicun"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="10"
+                            android:hint="5.1英寸"
+                            android:singleLine="true" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_fenbianlv" />
+
+                        <EditText
+                            android:id="@+id/pub_product_fenbianlv"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="1280*1920"
+                            android:maxLength="10"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_xitong" />
+
+                        <EditText
+                            android:id="@+id/pub_product_xitong"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="10"
+                            android:hint="安卓4.3"
+                            android:singleLine="true" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_qianxiangsu" />
+
+                        <EditText
+                            android:id="@+id/pub_product_qianxiangsu"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="10"
+                            android:hint="500万"
+                            android:singleLine="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/publish_product"
+                            android:text="@string/pub_product_houxiangsu" />
+
+                        <EditText
+                            android:id="@+id/pub_product_houxiangsu"
+                            style="@style/MMLineEditText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="10"
+                            android:hint="1300万"
+                            android:singleLine="true" />
+                    </LinearLayout>
+                </LinearLayout>
+ <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:padding="4dp" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/publish_product"
+                        android:text="@string/pub_product_jishenneicun" />
+
+                    <EditText
+                        android:id="@+id/pub_product_rom"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="4+2"
+                        android:maxLength="10"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/publish_product"
+                        android:text="@string/pub_product_dianchirongliang" />
+
+                    <EditText
+                        android:id="@+id/pub_product_ah"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="10"
+                        android:hint="2400毫安"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pub_product_instruction"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                  
+                    android:background="@drawable/mm_edit"
+                    android:layout_margin="4dp"
+                    android:orientation="vertical" >
+
+                
+                    <EditText
+                        android:id="@+id/pub_product_jianjie"
+                        style="@style/MMEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:minLines="5"
+                        android:maxLength="1000"
+                        android:singleLine="false"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="@string/pub_qiugou_maxtextsize" />
+                </LinearLayout>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pub_product_uploadpicture"
+                        android:textColor="@color/blue"
+                        android:textSize="18sp" />
+				<RelativeLayout 
+				   
+				     android:layout_width="match_parent"
+                        android:layout_height="60dp"
+				    >
+          
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                         android:gravity="center"
+                         android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/imageview_add"
+                        android:text="@string/pub_product_uploadpicture_toast"
+                        android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imageview_add"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/none"
+                    android:src="@drawable/roominfo_add_btn_normal"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                      android:layout_alignParentRight="true"
+                    android:padding="2dp"
+                  />
+</RelativeLayout>
+                <com.mzhou.merchant.myview.MyGridView
+                    android:id="@+id/publish_product_gridview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/btn_style_two_pressed"
+                    android:horizontalSpacing="6dp"
+                    android:listSelector="@null"
+                    android:numColumns="5"
+                    android:verticalSpacing="2dp" >
+                </com.mzhou.merchant.myview.MyGridView>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="@string/pub_qiugou_name"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@+id/pub_product_name"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="20"
+                        android:singleLine="true"
+                        android:textSize="@dimen/LargeTextSize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="@string/pub_qiugou_phone"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@+id/pub_product_number"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="20"
+                        android:singleLine="true"
+                        android:textSize="@dimen/LargeTextSize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="@string/pub_qiugou_number"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@+id/pub_product_email"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textSize="@dimen/LargeTextSize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="@string/pub_qiugou_company"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@+id/pub_product_companyName"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxLength="20"
+                        android:textSize="@dimen/LargeTextSize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="@string/pub_qiugou_address"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@+id/pub_product_address"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxLength="20"
+                        android:textSize="@dimen/LargeTextSize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="4dp" >
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:text="@string/pub_qiugou_net"
+                        android:textSize="@dimen/LargeTextSize" />
+
+                    <EditText
+                        android:id="@+id/pub_product_net"
+                        style="@style/MMLineEditText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:maxLength="20"
+                        android:textSize="@dimen/LargeTextSize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:padding="4dp" >
+
+                    <Button
+                        android:id="@+id/preview"
+                        style="@style/MMLineActionButton"
+                        android:layout_width="fill_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_style_one"
+                        android:text="@string/preview" />
+
+                    <Button
+                        android:id="@+id/publish"
+                        style="@style/MMLineActionButton"
+                        android:layout_width="fill_parent"
+                        android:layout_gravity="center"
+                        
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_style_one"
+                        android:text="@string/publish" />
+                </LinearLayout>
+            </LinearLayout>
+    </ScrollView>
+</LinearLayout>

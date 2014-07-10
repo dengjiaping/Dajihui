@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="category2">
+        <item>品牌</item>
+        <item>五码</item>
+        <item>三码</item>
+        <item>外单</item>
+        <item>手表</item>
+        <item>个性</item>
+    </string-array>
+    <string-array name="category_en">
+        <item>2G 3G</item>
+        <item>4G手机</item>
+    </string-array>
+    <string-array name="user_category">
+        <item>集 成</item>
+        <item>省 包</item>
+        <item>地 包</item>
+        <item>电 购</item>
+        <item>卖 场</item>
+        <item>网 购</item>
+        <item>运营商</item>
+        <item>外 单</item>
+        <item>其 它</item>
+    </string-array>
+    <string-array name="limitdays">
+        <item>一 周</item>
+        <item>二 周</item>
+        <item>三 周</item>
+        <item>一个月</item>
+        <item>三个月</item>
+        <item>半 年</item>
+        <item>一 年</item>
+    </string-array>
+    <!-- Used in app/dialog examples -->
+    <string-array name="select_dialog_items">
+        <item>Command one</item>
+        <item>Command two</item>
+        <item>Command three</item>
+        <item>Command four</item>
+    </string-array>
+    <string-array name="select_dialog_items2">
+        <item>Map</item>
+        <item>Satellite</item>
+        <item>Traffic</item>
+        <item>Street view</item>
+    </string-array>
+    <string-array name="select_dialog_items3">
+        <item>Every Monday</item>
+        <item>Every Tuesday</item>
+        <item>Every Wednesday</item>
+        <item>Every Thursday</item>
+        <item>Every Friday</item>
+        <item>Every Saturday</item>
+        <item>Every Sunday</item>
+    </string-array>
+    <!-- Used in app/menu examples -->
+    <string-array name="entries_list_preference">
+        <item>Alpha Option 01</item>
+        <item>Beta Option 02</item>
+        <item>Charlie Option 03</item>
+    </string-array>
+    <!-- Used in app/menu examples -->
+    <string-array name="entryvalues_list_preference">
+        <item>alpha</item>
+        <item>beta</item>
+        <item>charlie</item>
+    </string-array>
+    <!-- Used in app/Sample Device Admin -->
+    <string-array name="password_qualities">
+        <item>Unspecified</item>
+        <item>Something</item>
+        <item>Numeric</item>
+        <item>Alphabetic</item>
+        <item>Alphanumeric</item>
+    </string-array>
+    
+    
+    <declare-styleable name="PullToRefresh">
+
+        <!-- A drawable to use as the background of the Refreshable View -->
+        <attr name="ptrRefreshableViewBackground" format="reference|color" />
+
+        <!-- A drawable to use as the background of the Header and Footer Loading Views -->
+        <attr name="ptrHeaderBackground" format="reference|color" />
+
+        <!-- Text Color of the Header and Footer Loading Views -->
+        <attr name="ptrHeaderTextColor" format="reference|color" />
+
+        <!-- Text Color of the Header and Footer Loading Views Sub Header -->
+        <attr name="ptrHeaderSubTextColor" format="reference|color" />
+
+        <!-- Mode of Pull-to-Refresh that should be used -->
+        <attr name="ptrMode">
+            <flag name="disabled" value="0x0" />
+            <flag name="pullFromStart" value="0x1" />
+            <flag name="pullFromEnd" value="0x2" />
+            <flag name="both" value="0x3" />
+            <flag name="manualOnly" value="0x4" />
+
+            <!-- These last two are depreacted -->
+            <flag name="pullDownFromTop" value="0x1" />
+            <flag name="pullUpFromBottom" value="0x2" />
+        </attr>
+
+        <!-- Whether the Indicator overlay(s) should be used -->
+        <attr name="ptrShowIndicator" format="reference|boolean" />
+
+        <!-- Drawable to use as Loading Indicator. Changes both Header and Footer. -->
+        <attr name="ptrDrawable" format="reference" />
+
+        <!-- Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. -->
+        <attr name="ptrDrawableStart" format="reference" />
+
+        <!-- Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. -->
+        <attr name="ptrDrawableEnd" format="reference" />
+
+        <!-- Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. -->
+        <attr name="ptrOverScroll" format="reference|boolean" />
+
+        <!-- Base text color, typeface, size, and style for Header and Footer Loading Views -->
+        <attr name="ptrHeaderTextAppearance" format="reference" />
+
+        <!-- Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header -->
+        <attr name="ptrSubHeaderTextAppearance" format="reference" />
+
+        <!-- Style of Animation should be used displayed when pulling. -->
+        <attr name="ptrAnimationStyle">
+            <flag name="rotate" value="0x0" />
+            <flag name="flip" value="0x1" />
+        </attr>
+
+        <!-- Whether the user can scroll while the View is Refreshing -->
+        <attr name="ptrScrollingWhileRefreshingEnabled" format="reference|boolean" />
+
+        <!--
+        	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
+        	able to scroll while refreshing, and behaves better. It acheives this by adding
+        	Header and/or Footer Views to the ListView.
+        -->
+        <attr name="ptrListViewExtrasEnabled" format="reference|boolean" />
+
+        <!--
+        	Whether the Drawable should be continually rotated as you pull. This only
+        	takes effect when using the 'Rotate' Animation Style.
+        -->
+        <attr name="ptrRotateDrawableWhilePulling" format="reference|boolean" />
+
+        <!-- BELOW HERE ARE DEPRECEATED. DO NOT USE. -->
+        <attr name="ptrAdapterViewBackground" format="reference|color" />
+        <attr name="ptrDrawableTop" format="reference" />
+        <attr name="ptrDrawableBottom" format="reference" />
+    </declare-styleable>
+</resources>

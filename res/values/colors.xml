@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="orange_pager">#c5471c</color>
+    <color name="blue">#0066FF</color>
+    <color name="orange">#FFA500</color> 
+    <color name="orange_red">#ff4500</color> 
+    <color name="grid_backgroud">#666666</color>
+    <color name="transparent">#00000000</color>
+    <color name="no_color">#00000000</color>
+    <color name="bg_color">#F4F3F3</color>
+    <color name="bg_color_deep">#E5E5E5</color>
+    <color name="black">#000000</color>
+    <color name="text_color">#434343</color>
+    <color name="black_half">#50000000</color>
+    <color name="list_divider">#FFA500</color>
+    <color name="focus_color">#a6a6a6</color>
+    <color name="grid_bg_color">#666666</color>
+    <color name="header_button_text_color">#e5e9ec</color>
+    <color name="lightgrey">#ff888888</color>
+</resources>

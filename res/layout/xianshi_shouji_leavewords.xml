@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout_news_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+     android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/title_bar_layout" >
+
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@id/title_bar_title"
+            style="@style/title_bar_title"
+            android:text="@string/title_bar_user_leavewords" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         android:layout_marginTop="15.0dip"
+         android:background="@color/bg_color"
+        android:fadingEdge="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-5.0dip"
+            android:layout_marginRight="-5.0dip"
+            android:layout_marginTop="5.0dip"
+            
+            android:background="@drawable/preference_single_item"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/PreferenceItemHeight"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/display_parameters_leavecontent"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mm_edit"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/display_parameters_leavecontent"
+                    style="@style/MMEditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:minHeight="80dp"
+                    android:singleLine="false"
+                    android:textSize="@dimen/LargeTextSize" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/pub_qiugou_maxtextsize" />
+            </LinearLayout>
+
+         
+                <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+               	android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/user_manager_category"
+                    android:textSize="@dimen/LargeTextSize" />
+
+                <LinearLayout
+                android:id="@+id/user_manager_category"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/preference_single_item"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/PreferenceItemHeight"
+                android:orientation="horizontal" >
+
+                 
+
+                <TextView
+                    android:id="@+id/user_manager_category_stub"
+                    style="@style/MMFontPreferenceLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5.0dip"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:textSize="16sp"
+                    android:textColor="#666"
+                     />
+
+                <ImageView
+                    android:id="@+id/category_postion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="2.0dip"
+                    android:clickable="false"
+                    android:contentDescription="@string/none"
+                    android:focusable="false"
+                    android:src="@drawable/mm_submenu" />
+            </LinearLayout>
+            </LinearLayout>
+
+         
+
+                 
+
+           
+          
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/user_manager_name1"
+                    android:textSize="@dimen/LargeTextSize" />
+
+                <EditText
+                    android:id="@+id/user_manager_nickname"
+                    style="@style/MMEditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="@dimen/LargeTextSize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/user_manager_phonnumber2"
+                    android:textSize="@dimen/LargeTextSize" />
+
+                <EditText
+                    android:id="@+id/user_manager_leaveqq"
+                    style="@style/MMEditText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="@dimen/LargeTextSize" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/publish"
+                style="@style/MMLineActionButton"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="right|center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_style_one"
+                android:text="@string/publish" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

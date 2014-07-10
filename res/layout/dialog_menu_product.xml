@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#333333"
+    android:orientation="vertical" >
+    <Button
+        android:id="@+id/look"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/menu_single_item"
+        android:text="@string/look"
+        android:textColor="#222222"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/menu_single_item"
+        android:text="@string/edit"
+        android:textColor="#222222"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/menu_single_item"
+        android:text="@string/delete"
+        android:textColor="#222222"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/menu_single_item"
+        android:text="@string/refresh"
+        android:textColor="#222222"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_style_one"
+        android:text="@string/cancel"
+        android:textColor="#FFF"
+        android:textSize="18sp" />
+</LinearLayout>

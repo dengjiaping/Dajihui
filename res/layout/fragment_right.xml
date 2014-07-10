@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_color_deep"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color_deep"
+        android:orientation="vertical" >
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            layout="@layout/utils_line" >
+        </include>
+        <TextView
+            android:id="@+id/title_bar_user_center"
+            style="@style/text_item"
+            android:text="@string/title_bar_user_center" />
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            layout="@layout/utils_line" >
+        </include>
+        <TextView
+            android:id="@+id/title_bar_activity"
+            style="@style/text_item"
+            android:text="@string/title_bar_activity" />
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            layout="@layout/utils_line" >
+        </include>
+          <TextView
+            android:id="@+id/title_bar_fankui"
+            style="@style/text_item"
+            android:text="@string/title_bar_fankui" />
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            layout="@layout/utils_line" >
+        </include>
+        <TextView
+            android:id="@+id/title_bar_about"
+            style="@style/text_item"
+            android:text="@string/title_bar_about" />
+      
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+              android:visibility="gone"
+            layout="@layout/utils_line" >
+        </include>
+        <TextView
+            android:id="@+id/title_bar_version"
+            style="@style/text_item"
+            android:visibility="gone"
+            android:text="@string/title_bar_version" />
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            layout="@layout/utils_line" >
+        </include>
+        <TextView
+            android:id="@+id/title_bar_exit"
+            style="@style/text_item"
+            android:text="@string/title_bar_exit" />
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            layout="@layout/utils_line" >
+        </include>
+    </LinearLayout>
+</ScrollView>

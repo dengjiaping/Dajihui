@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">大机汇</string>
+    <string name="rootdir">/djh</string>
+    <string name="dbdir">/db</string>
+    <string name="none"></string>
+    <string name="xianshi_logo_intro1">\n\n该企业还没有上传产品\n\n请注册企业会员发布\n\n</string>
+    <string name="xianshi_logo_intro2">立刻注册</string>
+    <string name="call_btn">拨打电话</string>
+    <string name="logo_instruction">以下logo排名不分先后</string>
+    <string name="publish">发布</string>
+    <string name="fabu_activity_small">截止时间小于开展时间</string>
+    <string name="fabu_activity_bigger">开展时间大于截止时间</string>
+    <string name="moreItem">查看评论</string>
+    <string name="morewords">查看留言</string>
+    <string name="about_company">关于公司</string>
+    <string name="introduce_company">公司简介</string>
+    <string name="contact_company">联系方式</string>
+    <string name="contact_como">联系方式</string>
+    <string name="no_comment">下拉刷新获取网络数据！</string>
+    <string name="qq_login">使用QQ号码登录</string>
+    <string name="main_intro">此页面只显示最新三天上传的产品</string>
+    <string name="publish_ok">已发布</string>
+    <string name="publish_no">待审核</string>
+    <string name="binder_btn_ok">绑定</string>
+    <string name="binder_btn_cancel">取消</string>
+    <string name="edit_product_info">修改产品信息</string>
+    <string name="binder_qq">授权管理</string>
+    <string name="preview">预览</string>
+    <string name="refresh_ok">刷新成功</string>
+    <string name="refresh_no">刷新失败</string>
+    <string name="save">保存</string>
+    <string name="nosdcard">没有SD卡或SD卡被卸载！</string>
+    <string name="search">搜一下</string>
+    <string name="tv_viewpager">您发布的产品会在3小时之内通过审核！</string>
+    <string name="product">产品</string>
+    <string name="news">新闻</string>
+    <string name="ad_toast">网络数据获取失败，请重试！</string>
+    <string name="isloginstatus">已登陆</string>
+    <string name="nologinstatus">登录会员</string>
+    <string name="enterprise_member">企业会员</string>
+    <string name="common_member">普通会员</string>
+    <string name="nickname">游客</string>
+    <string name="time">时间：</string>
+    <string name="contact_name">联系人：</string>
+    <string name="contact">联系方式：</string>
+    <string name="from">来自：</string>
+    <string name="cannotchange">不能更改</string>
+    <string name="spilt">||</string>
+    <string name="cuputer_pic">拍照</string>
+    <string name="cancel">取消</string>
+    <string name="refresh">刷新</string>
+    <string name="delete">删除</string>
+    <string name="look">查看</string>
+    <string name="edit">修改</string>
+    <string name="local">从手机相册选择</string>
+    <string name="search_null">搜索关键字不为空！</string>
+    <string name="result_null">没有搜索到相关数据！</string>
+    <string name="name1">联系人1</string>
+    <string name="name2">联系人2</string>
+    <string name="name3">联系人3</string>
+    <string name="name4">联系人4</string>
+    <string name="name5">联系人5</string>
+    <string name="name6">联系人6</string>
+    <string name="name7">联系人7</string>
+    <string name="name8">联系人8</string>
+    <string name="name9">联系人9</string>
+    <string name="name10">联系人10</string>
+    <string name="nub1">联系电话1</string>
+    <string name="nub2">联系电话2</string>
+    <string name="nub3">联系电话3</string>
+    <string name="nub4">联系电话4</string>
+    <string name="nub5">联系电话5</string>
+    <string name="nub6">联系电话6</string>
+    <string name="nub7">联系电话7</string>
+    <string name="nub8">联系电话8</string>
+    <string name="nub9">联系电话9</string>
+    <string name="nub10">联系电话10</string>
+    <string name="user_agree_content">\t\t请仔细阅读并接受“大机汇”软件服务条款\n\n
+\t\t在注册前，请阅读以下说明。如您继续注册，“大机汇”软件视同您已阅读及接受以下条款：\n
+1、“大机汇”软件会员说明：\n
+\t\t“大机汇”软件是手机行业权威B2B广告平台——为客户提供权威信息服务、及全方位移动网络营销服务。“大机汇”软件目前提供二类会员，即普通会员：以个人为单位。企业会员：以公司为单位。面向手机厂商，国内省包，地包，经销商、卖场，网络，外单等等，用户服务。\n\n
+\t\t“大机汇”软件，各项服务的所有权和运作权，归深圳市茂桥科技有限公司。成为“大机汇”软件会员，您需要同意本软件各项服务条款，并应具备一定的手机上网条件。\n\n
+2、注册服务条件\n
+\t\t基于“大机汇”软件提供的软件服务的商业性和时效性，“服务”仅供能够根据相关法律订立具有法律约束力的合约的个人或公司使用。因此，您的年龄必须在十八周岁或以上，才可使用本公司服务。\n 
+\t\t（1）会员对其发布的信息负责，应提供真实、准确、完整的资料，不得发布不真实的、有歧义的信息，绝对禁止发布误导性的、恶意的消息。\n
+\t\t（2）会员有义务维护并及时更新注册资料，保证会员各项资料信息真实、准确、完整。\n
+\t\t（3）会员应妥善管理帐号及密码信息，不借予他人使用。如会员帐号密码丢失或被盗，应及时在本软件找回帐号密码、并重新设置密码，或重新申请帐号。会员因自身原因造成帐号密码丢失、被盗及造成的各项损失，应自行承担责任。\n
+\t\t（4）“大机汇”软件向会员提供的各类信息之编辑、传播的知识产权，全部由“大机汇”软件拥有；未经本软件事先以书面同意，任何人或公司不得以各种形式复制、散布、出售、出版、广播、转播各类信息。\n
+\t\t（5）会员发布的图片，不得侵犯任何第三方对该物品享有的物权或版权、专利、商标、商业秘密或其他知识产权，或隐私权、名誉。如有侵犯,必须会员自行承担责任。\n
+\t\t（6）会员不得发布含有淫秽、或包含任何儿童色情内容。\n
+\t\t（7）如发现会员提供的资料包含有不正确的、或违反法律法规的信息，“大机汇”软件将发出警告，并保留停止或终止该会员资格的权利。\n
+\t\t（8）会员上传的图片或信息“大机汇”软件有权可以用作宣传本软件广告使用。\n
+\t\t（9）会员如违反本协议而造成“大机汇”软件的经济损失，本软件有权追究会员经济责任与法律责任。\n\n
+3、会员权利与义务\n
+\t\t会员的所有行为必须符合国家法律的规定，并请仔细阅读“大机汇”软件各项规定和条款。如违反国家法律规定和本协议，出现任何纠纷及不良结果，将由个人会电或公司会员独立承担所有责任。\n
+\t\t如有问题，请与“大机汇”软件服务部门联系：heying83@126.com。会员可随时对“大机汇”软件的服务提出批评、建议。\n
+4. 诉讼。 \n
+\t\t因本协议或本软件服务所引起或与其有关的任何争议，应向当地区人民法院提起诉讼，并以中华人民共和国法律为管辖法律。\n\n</string>
+    <string name="contact_string">\t\t联系我们\n\t\t\t\tE-mail:heying83@126.com\n\t\t\t\tQQ：23670726\n\t\t\t\t地址：深圳福田区华强北</string>
+    <string name="title_string">深圳市茂桥科技有限公司</string>
+    <string name="change_string"> “共赢” “专业” “时尚” “高效”</string>
+    <string name="aboutus_string1">\t\t简称茂桥科技，公司成立于2013年8月，是一家专注：电子，通信，硬软件，广告的高新科技产品领域公司。 </string>
+    <string name="aboutus_string2">\t\t2014年，旗下历时6个月研发的移动互联网产品“大机汇”软件，即手机B2B平台！“大机汇”是茂桥科技的重头产品，针对全球手机生产基地深圳及其它国内地区手机厂商，提供全方位的产品展示和拓展销售渠道，让产品第一时间呈现在商家面前，24小时在线，让商家随时随地深入了解产品，就像一个永不落幕的手机展会，从而使厂商与商家快速达成交易。 </string>
+    <string name="aboutus_string3">\t\t随着互联网B2B的平台发展，我们更应该关注行业的细分市场“大机汇”，B2B 平台是为了我们中华民族手机而诞生的。移动互联网的普及，手机APP 也成为了网民的沟通习惯，“大机汇”平台也是其中一员，实现了厂商与商家沟通桥梁，也是下游商家快速了解上游厂商不可缺少的工具。“大机汇”实现了 “共赢” “专业” “时尚” “高效” 并重的新兴手机移动B2B平台，为国产手机作更多贡献！</string>
+    <!-- Toast Infomation -->
+    <string name="saveuserinfo">正在保存用户信息！</string>
+    <string name="exitok">退出成功!</string>
+    <string name="exitfail">您未登录会员，不能退出!</string>
+    <string name="timeout">连接网络超时,请重试!</string>
+    <string name="nowifi">网络未连接，请连接网络后重试！</string>
+    <string name="searching">正在搜索&#8230;</string>
+    <string name="logining">正在登陆&#8230;</string>
+    <string name="registering">正在注册&#8230;</string>
+    <string name="publishing">正在发布&#8230;</string>
+    <string name="publishing_product">正在上传&#8230;</string>
+    <string name="publishing_job">正在发布招聘信息！</string>
+    <string name="publishing_huodong">正在发布活动！</string>
+    <string name="join_huodong">正在提交&#8230;</string>
+    <string name="publishing_comment">正在发布评论！</string>
+    <string name="publishing_leavewords">正在发布留言信息！</string>
+    <string name="loading">正在加载&#8230;</string>
+    <string name="bindering">正在绑定&#8230;</string>
+    <string name="upload">正在上传&#8230;</string>
+    <!-- already_publish -->
+    <string name="already_publish_title">我发布的产品</string>
+    <string name="logo_item_tiltle">品牌Logo</string>
+    <!-- user_manager -->
+    <string name="user_manager_category">类别</string>
+    <string name="user_manager_nickname">昵称</string>
+    <string name="user_manager_nickname_instruction">一个好的昵称会让更多人的记住您哦！</string>
+    <string name="user_manager_nickname_stub">浮萍人生</string>
+    <string name="user_manager_userhead">头像</string>
+    <string name="user_manager_userhead_stub">点击更改头像</string>
+    <string name="user_manager_alter_passwd">密码</string>
+    <string name="user_manager_alter_count">账号</string>
+    <string name="user_manager_alter_passwd1">更改密码</string>
+    <string name="user_manager_alter_passwd2">请输入旧密码</string>
+    <string name="user_manager_alter_passwd3">请输入新密码</string>
+    <string name="user_manager_alter_passwd4">请确认新密码</string>
+    <string name="user_manager_alter_instruction1">旧密码与新密码相同，请重新设置！</string>
+    <string name="user_manager_alter_instruction2">两次输入新密码不相同，请修改设置！</string>
+    <string name="user_manager_alter_instruction3">修改密码成功！</string>
+    <string name="user_manager_alter_passwd_stub">点击更改密码</string>
+    <string name="user_manager_myproduct">我的发布</string>
+    <string name="user_manager_myproduct_stub">点击查看</string>
+    <string name="user_manager_publish">发布产品</string>
+    <string name="user_manager_alread_publish">已发布产品</string>
+    <string name="user_manager_publish_stub">点击发布</string>
+    <string name="user_manager_name">联系人：</string>
+    <string name="user_manager_name1">联系人</string>
+    <string name="user_manager_name_instruction">填写真实姓名，方便发布产品信息和评论信息哦！</string>
+    <string name="user_manager_phonnumber">手机号码：</string>
+    <string name="user_manager_phonnumber2">手机/QQ</string>
+    <string name="user_manager_phonnumber3">手机/QQ:</string>
+    <string name="user_manager_phonnumber_instruction">请输入有效的手机号码或电话号码!</string>
+    <string name="user_manager_fax_instruction">请输入有效的传真号码!</string>
+    <string name="user_manager_phonnumber1">手机号码</string>
+    <string name="user_manager_centerNub">公司总机</string>
+    <string name="user_manager_centerFox">公司传真</string>
+    <string name="user_manager_qq">QQ/邮箱：</string>
+    <string name="user_manager_qq1">QQ/邮箱</string>
+    <string name="user_manager_qq1_instruction">请输入有效的QQ号码，或者有效的邮箱地址！</string>
+    <string name="user_manager_company">公司名称：</string>
+    <string name="user_manager_company1">公司名称</string>
+    <string name="user_manager_fax">公司传真</string>
+    <string name="user_manager_company1_instruction">请输入合法的公司名称！</string>
+    <string name="user_manager_address">公司地址：</string>
+    <string name="user_manager_address1">公司地址</string>
+    <string name="user_manager_address1_instruction">请输入精确的公司地址！</string>
+    <string name="user_manager_net">公司网址：</string>
+    <string name="user_manager_net1">公司网址</string>
+    <string name="user_manager_net1_instruction">公司网址为选填项！</string>
+    <!-- user_register -->
+    <string name="user_register_title">注册普通会员</string>
+    <string name="user_register_enterprise">注册企业会员</string>
+    <string name="user_register_nickname">常用昵称</string>
+    <string name="user_register_nickname_hint">请输入常用昵称</string>
+    <string name="user_register_count">会员账号</string>
+    <string name="user_register_count_hint1">请用邮箱注册</string>
+    <string name="user_register_count_hint">请输入有效邮箱</string>
+    <string name="user_register_passwd">登录密码</string>
+    <string name="user_register_passwd_hint">请输入登录密码</string>
+    <string name="user_register_passwd_confirm">确认密码</string>
+    <string name="user_register_passwd_protect1">密保问题:\t\t您的生日日期是？</string>
+    <string name="user_register_passwd_protect2">密保答案</string>
+    <string name="user_register_passwd_confirm_hint">请再次输入密码</string>
+    <string name="user_register_passwd_pro1">例如：19881010</string>
+    <string name="user_register_category">选择分类</string>
+    <string name="user_register_category_hint">集成</string>
+    <string name="user_register_button">注			册</string>
+    <string name="user_register_error">两次输入的密码不一致！</string>
+    <string name="user_register_no_agree">未同意用户版权协议</string>
+    <string name="user_register_username_is_null">用户名不能为空</string>
+    <string name="user_register_password_is_null">用户名不能为空</string>
+    <!-- user_login -->
+    <string name="user_login_username">会员账号</string>
+    <string name="user_login_username_commen">普通会员</string>
+    <string name="user_login_username_en">企业会员</string>
+    <string name="binder_dialog_intro">方便邮箱账号或QQ号直接登录</string>
+    <string name="user_login_username_hint">请输入会员账号</string>
+    <string name="binder_dialog_email">请输入邮箱账号</string>
+    <string name="binder_dialog_pw">请输入邮箱密码</string>
+    <string name="user_login_password">会员密码</string>
+    <string name="user_login_password_hint">请输入会员密码</string>
+    <string name="user_login_fogetpasswad">忘记密码</string>
+    <string name="user_login_fogetpasswad_title">忘记密码</string>
+    <string name="user_login_fogetpasswad_info">请选择您的账号类型：</string>
+    <string name="user_login_fogetpasswad_way1">请输入你的账号(邮箱)：</string>
+    <string name="user_login_fogetpasswad_q">您的生日日期是?</string>
+    <string name="user_login_fogetpasswad_way2">方式二：拨打打电话13423453456联系我们帮您找回密码。</string>
+    <string name="user_login_fogetpasswad_button">下一步</string>
+    <string name="user_login_savepasswad">记住密码</string>
+    <string name="user_login_loginself">自动登录</string>
+    <string name="user_register_agree">用户版权协议</string>
+    <string name="user_login_login">登录</string>
+    <string name="user_login_register">注册账号</string>
+    <string name="user_login_way">用微信号登录</string>
+    <!-- title_bar -->
+    <string name="title_bar_user_login">登录会员</string>
+    <string name="title_bar_user_name">游客</string>
+    <string name="title_bar_index">产品首页</string>
+    <string name="title_bar_main">今日手机招商</string>
+    <string name="title_bar_zhaoshang">最新供应信息</string>
+    <string name="title_bar_qiugou">最新求购信息</string>
+    <string name="title_bar_sanma">三码（高仿）</string>
+    <string name="title_bar_wuma">五码（刻五）</string>
+    <string name="title_bar_gexing">个性手机</string>
+    <string name="title_bar_waidan">外单手机</string>
+    <string name="title_bar_td">手表手机</string>
+    <string name="title_bar_pinpai">品牌（国内）</string>
+    <string name="title_bar_logo">品牌厂家</string>
+    <string name="title_bar_logo_product">品牌产品</string>
+    <string name="title_bar_four_phone">4G\t手机</string>
+    <string name="title_bar_news">手机\tIT\t资讯</string>
+    <string name="title_bar_news_comment">评论</string>
+    <string name="title_bar_news_cat_comment">精彩评论</string>
+    <string name="title_bar_serch">手机搜索</string>
+    <string name="title_bar_zhaopin">招聘信息</string>
+    <string name="title_bar_user_showParameters">手机详细参数</string>
+    <string name="title_bar_user_showleavewords">精彩留言</string>
+    <string name="title_bar_preview">预览</string>
+    <string name="title_bar_user_leavewords">留言</string>
+    <string name="title_bar_user_center">会员中心</string>
+    <string name="title_bar_user_center_enterprise">企业会员中心</string>
+    <string name="title_bar_activity">组织活动</string>
+    <string name="title_bar_fankui">意见反馈</string>
+    <string name="title_bar_version">当前版本\t\t\t</string>
+    <string name="title_bar_about">关于我们</string>
+    <string name="title_bar_logopara">品牌手机参数</string>
+    <string name="title_bar_exit">退出会员</string>
+    <string name="title_bar_pub_qiugou">发布求购信息</string>
+    <string name="title_bar_pub_chanpin">发布产品信息</string>
+    <string name="title_bar_pub_enterprise">发布产品信息</string>
+    <string name="title_bar_pub_zhaoshang">发布招商信息</string>
+    <string name="title_bar_pub_zhaopin">发布招聘信息</string>
+    <string name="title_bar_pub_huodong">发布活动</string>
+    <string name="title_bar_already_zhaoshang">已发布招商信息</string>
+    <string name="title_bar_already_zhaopin">已发布招聘信息</string>
+    <string name="title_bar_already_qiugou">已发布求购信息</string>
+    <string name="title_bar_already_chanpin">已发布产品信息</string>
+    <!-- pub_feedback -->
+    <string name="pub_feedback_confirm">确定</string>
+    <string name="pub_feedback_contact">联系方式：QQ/电话/Emial邮箱</string>
+    <string name="pub_feedback_title">问题描述</string>
+    <string name="pub_feedback_instruction">例如：\n1.打开软件好慢 \n2.招商信息重复\n3.有些与手机无关信息\n4.软件经常崩溃</string>
+    <!-- pub_zhaoshang -->
+    <string name="pub_zhaoshang_instruction">发布文字招商信息提示： \n 1.一定要当天心机开盘才发布\n2.不得重复发布招商信息\n3.不得发布其他与新机无关信息</string>
+    <!-- pub_qiugou -->
+    <string name="pub_qiugou_instruction">发布求购信息提示： \n1.当天不得发布重复求购信息\n2.不得发布与手机无关信息 </string>
+    <string name="pub_qiugou_maxtextsize">（200字） </string>
+    <string name="pub_qiugou_number">QQ/邮箱</string>
+    <string name="pub_qiugou_phone">手机号码</string>
+    <string name="pub_qiugou_name">联系人</string>
+    <string name="pub_qiugou_company">公司名称 </string>
+    <string name="pub_qiugou_address">公司地址  </string>
+    <string name="pub_qiugou_net">公司网址  </string>
+    <!-- pub_product -->
+    <string name="pub_cannot_null">产品信息不能为空！</string>
+    <string name="pub_product_leibie1">类别</string>
+    <string name="pub_product_leibie">类别选择: </string>
+    <string name="pub_product_pinpai">品牌 :</string>
+    <string name="pub_product_xinghao">型号: </string>
+    <string name="pub_product_xinpian">芯片: </string>
+    <string name="pub_product_chicun">尺寸: </string>
+    <string name="pub_product_xitong">系统: </string>
+    <string name="pub_product_fenbianlv">分辨率:</string>
+    <string name="pub_product_qianxiangsu">前像素: </string>
+    <string name="pub_product_houxiangsu">后像素 :</string>
+    <string name="pub_product_jishenneicun">机身内存:</string>
+    <string name="pub_product_dianchirongliang">电池容量:</string>
+    <string name="pub_product_instruction">普通简介 </string>
+    <string name="pub_product_uploadpicture">上传图片 </string>
+    <string name="pub_product_uploadpicture_toast">第1张图片竖着拍,第2-5张横着拍\n点击图片可以预览/删除/重拍 </string>
+    <string name="pub_product_uploadvideo">上传视频 </string>
+    <string name="pub_product_record_video">录制 </string>
+    <string name="pub_product_del_video">移除 </string>
+    <string name="pub_product_re_video">重录 </string>
+    <string name="pub_product_pre_video">播放 </string>
+    <string name="pub_product_max_video">视频文件大于10M,请重新录制 </string>
+    <!-- display_parameters -->
+    <string name="display_parameters_video">演示视频:</string>
+    <string name="display_parameters_video1">演示视频</string>
+    <string name="display_parameters_instruction">普通简介:</string>
+    <string name="display_parameters_instruction1">普通简介</string>
+    <string name="display_parameters_parameter">详细参数</string>
+    <string name="display_parameters_leavewords">在线留言</string>
+    <string name="display_parameters_leavebuy">买家留言</string>
+    <string name="display_parameters_leavecontent">留言内容</string>
+    <!-- display_news -->
+    <string name="display_news_title">新闻标题</string>
+    <string name="display_news_time">时间：2013年5月30日</string>
+    <string name="display_news_channel">来自中华网</string>
+    <string name="display_news_content">关于中国手机：手机中国是一个实现了专业、时尚、品位并重的新兴手机媒体。相对于传统手机媒体不同之处在于,手机中国不仅提供指导消费、倡导应用,同时还在引领着手机的时尚与品位。</string>
+    <string name="display_news_comment">发表评论</string>
+    <string name="display_news_comment_name">评论者</string>
+    <string name="display_news_comment_content">评论内容</string>
+    <string name="display_news_comment_perfect">精彩评论</string>
+    <!-- display_huodong -->
+    <string name="title_bar_huodong_title">活动主题：</string>
+    <string name="title_bar_huodong_content">活动说明:</string>
+    <string name="title_bar_huodong_join">参加活动</string>
+    <string name="title_bar_huodong_join_name">参加人:</string>
+    <string name="title_bar_huodong_join_number1">电话:</string>
+    <string name="title_bar_huodong_join_number">联系电话:</string>
+    <string name="title_bar_huodong_join_already">以下为已参加人员:</string>
+    <string name="title_bar_huodong_detail">活动详细信息</string>
+    <string name="activity_stime">开展时间:</string>
+    <string name="activity_etime">截止时间:</string>
+    <string name="activity_topic">活动主题:</string>
+    <string name="activity_address">活动地点:</string>
+    <string name="activity_introduce">活动说明:</string>
+    <string name="activity_name">活动发起人:</string>
+    <string name="activity_contact">联系电话:</string>
+    <string name="activity_join">加入</string>
+    <string name="activity_join_now">确定</string>
+    <string name="activity_topic_null">活动主题未填写</string>
+    <string name="activity_stime_null">活动开展未填写</string>
+    <string name="activity_name_null">参加人未填写</string>
+    <string name="activity_contact_null">联系方式未填写</string>
+    <!-- view_pager_main -->
+    <!-- display_job -->
+    <string name="display_job_station">招聘岗位:</string>
+    <string name="display_job_require">职位要求:</string>
+    <string name="display_job_contact">联系电话:</string>
+    <string name="display_job_contact2">联系电话</string>
+    <string name="display_job_contact3">操作</string>
+    <string name="display_job_timestop">到期时间:</string>
+    <string name="display_job_timestop1">到期时间</string>
+    <string name="display_job_timestart">发布时间</string>
+    <!-- view_pager_main -->
+    <string name="xianshi_zhaoping_spinner">请选择到期时间</string>
+    <string name="fabushouji_spinner">请选择产品种类</string>
+    <string name="descr_image">Image</string>
+    <string name="no_sdcard">没有SD卡或SD卡被卸载！</string>
+    <string name="time_zh">yyyy年MM月dd日  HH时mm分ss秒</string>
+    <string name="picSize_null">请选择图片!</string>
+    <!-- <string name="picSize_big">图片总量大于10M，请压缩后再上传！</string> -->
+    <!-- <string name="picSize_small">单张图片大小建议不能超过2M!</string> -->
+    <string name="brand_null">品牌不能为空！</string>
+    <string name="introduce_null">产品简介不能为空！</string>
+    <string name="picCount_low">上传产品图片必须为 5 张！</string>
+    <string name="about_company_no_intro">未上传公司简介到服务器！</string>
+    <string name="exit_process">再按一次退出程序</string>
+    <string name="to_login">(自动跳转到登陆界面)</string>
+    <string name="version">当前版本\t\t\t</string>
+    <string name="menu_item_pause_on_scroll">Pause on scroll</string>
+    <string name="menu_item_pause_on_fling">Pause on fling</string>
+    <string name="menu_item_clear_memory_cache">Clear memory cache</string>
+    <string name="menu_item_clear_disc_cache">Clear disc cache</string>
+    <string name="bind_mcontact_voice_verify_defaultLanguage">English</string>
+
+    <attr name="textwidth" format="integer" />
+    <attr name="typeface">
+        <enum name="normal" value="0" />
+        <enum name="sans" value="1" />
+        <enum name="serif" value="2" />
+        <enum name="monospace" value="3" />
+    </attr>
+
+    <declare-styleable name="CYTextView">
+        <attr name="textwidth" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="lineSpacingExtra" format="dimension" />
+        <attr name="typeface" />
+    </declare-styleable>
+
+</resources>
