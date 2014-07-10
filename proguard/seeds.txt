@@ -3,6 +3,7 @@ android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.Fragment$SavedState
 android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentActivity
+android.support.v4.app.FragmentActivity: FragmentActivity()
 android.support.v4.app.FragmentManagerState
 android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentState
@@ -2472,6 +2473,850 @@ com.alibaba.fastjson.util.UTF8Decoder$Surrogate: boolean neededFor(int)
 com.alibaba.fastjson.util.UTF8Decoder$Surrogate: char high(int)
 com.alibaba.fastjson.util.UTF8Decoder$Surrogate: char low(int)
 com.alibaba.fastjson.util.UTF8Decoder$Surrogate: void <clinit>()
+com.handmark.pulltorefresh.library.PullToRefreshAdapterViewBase
+com.handmark.pulltorefresh.library.PullToRefreshAdapterViewBase: PullToRefreshAdapterViewBase(android.content.Context)
+com.handmark.pulltorefresh.library.PullToRefreshAdapterViewBase: PullToRefreshAdapterViewBase(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.PullToRefreshAdapterViewBase: PullToRefreshAdapterViewBase(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode)
+com.handmark.pulltorefresh.library.PullToRefreshAdapterViewBase: PullToRefreshAdapterViewBase(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode,com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle)
+com.handmark.pulltorefresh.library.PullToRefreshBase
+com.handmark.pulltorefresh.library.PullToRefreshBase: PullToRefreshBase(android.content.Context)
+com.handmark.pulltorefresh.library.PullToRefreshBase: PullToRefreshBase(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.PullToRefreshBase: PullToRefreshBase(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode)
+com.handmark.pulltorefresh.library.PullToRefreshBase: PullToRefreshBase(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode,com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle)
+com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle: com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle ROTATE
+com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle: com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle FLIP
+com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle: com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle[] values()
+com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle: com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle valueOf(java.lang.String)
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode DISABLED
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode PULL_FROM_START
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode PULL_FROM_END
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode BOTH
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode MANUAL_REFRESH_ONLY
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode PULL_DOWN_TO_REFRESH
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode PULL_UP_TO_REFRESH
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode[] values()
+com.handmark.pulltorefresh.library.PullToRefreshBase$Mode: com.handmark.pulltorefresh.library.PullToRefreshBase$Mode valueOf(java.lang.String)
+com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation: com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation VERTICAL
+com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation: com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation HORIZONTAL
+com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation: com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation[] values()
+com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation: com.handmark.pulltorefresh.library.PullToRefreshBase$Orientation valueOf(java.lang.String)
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State RESET
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State PULL_TO_REFRESH
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State RELEASE_TO_REFRESH
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State REFRESHING
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State MANUAL_REFRESHING
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State OVERSCROLLING
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State[] values()
+com.handmark.pulltorefresh.library.PullToRefreshBase$State: com.handmark.pulltorefresh.library.PullToRefreshBase$State valueOf(java.lang.String)
+com.handmark.pulltorefresh.library.PullToRefreshExpandableListView
+com.handmark.pulltorefresh.library.PullToRefreshExpandableListView: PullToRefreshExpandableListView(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.PullToRefreshGridView
+com.handmark.pulltorefresh.library.PullToRefreshGridView: PullToRefreshGridView(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.PullToRefreshHorizontalScrollView
+com.handmark.pulltorefresh.library.PullToRefreshHorizontalScrollView: PullToRefreshHorizontalScrollView(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.PullToRefreshListView
+com.handmark.pulltorefresh.library.PullToRefreshListView: PullToRefreshListView(android.content.Context)
+com.handmark.pulltorefresh.library.PullToRefreshListView: PullToRefreshListView(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.PullToRefreshListView: PullToRefreshListView(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode)
+com.handmark.pulltorefresh.library.PullToRefreshListView: PullToRefreshListView(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode,com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle)
+com.handmark.pulltorefresh.library.PullToRefreshScrollView
+com.handmark.pulltorefresh.library.PullToRefreshScrollView: PullToRefreshScrollView(android.content.Context)
+com.handmark.pulltorefresh.library.PullToRefreshScrollView: PullToRefreshScrollView(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.PullToRefreshScrollView: PullToRefreshScrollView(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode)
+com.handmark.pulltorefresh.library.PullToRefreshScrollView: PullToRefreshScrollView(android.content.Context,com.handmark.pulltorefresh.library.PullToRefreshBase$Mode,com.handmark.pulltorefresh.library.PullToRefreshBase$AnimationStyle)
+com.handmark.pulltorefresh.library.PullToRefreshWebView
+com.handmark.pulltorefresh.library.PullToRefreshWebView: PullToRefreshWebView(android.content.Context,android.util.AttributeSet)
+com.handmark.pulltorefresh.library.extras.PullToRefreshWebView2
+com.handmark.pulltorefresh.library.extras.PullToRefreshWebView2: PullToRefreshWebView2(android.content.Context,android.util.AttributeSet)
+com.mzhou.merchant.activity.ActivityAbout
+com.mzhou.merchant.activity.ActivityAbout: ActivityAbout()
+com.mzhou.merchant.activity.ActivityBinderQQ
+com.mzhou.merchant.activity.ActivityBinderQQ: ActivityBinderQQ()
+com.mzhou.merchant.activity.ActivityFankui
+com.mzhou.merchant.activity.ActivityFankui: ActivityFankui()
+com.mzhou.merchant.activity.ActivityFourPhone
+com.mzhou.merchant.activity.ActivityFourPhone: ActivityFourPhone()
+com.mzhou.merchant.activity.ActivityGX
+com.mzhou.merchant.activity.ActivityGX: ActivityGX()
+com.mzhou.merchant.activity.ActivityHuoDong
+com.mzhou.merchant.activity.ActivityHuoDong: ActivityHuoDong()
+com.mzhou.merchant.activity.ActivityHuoDongDetail
+com.mzhou.merchant.activity.ActivityHuoDongDetail: ActivityHuoDongDetail()
+com.mzhou.merchant.activity.ActivityIndex
+com.mzhou.merchant.activity.ActivityIndex: ActivityIndex()
+com.mzhou.merchant.activity.ActivityJoin
+com.mzhou.merchant.activity.ActivityJoin: ActivityJoin()
+com.mzhou.merchant.activity.ActivityLogin
+com.mzhou.merchant.activity.ActivityLogin: ActivityLogin()
+com.mzhou.merchant.activity.ActivityLogo
+com.mzhou.merchant.activity.ActivityLogo: ActivityLogo()
+com.mzhou.merchant.activity.ActivityLogoProduct
+com.mzhou.merchant.activity.ActivityLogoProduct: ActivityLogoProduct()
+com.mzhou.merchant.activity.ActivityMain
+com.mzhou.merchant.activity.ActivityMain: ActivityMain()
+com.mzhou.merchant.activity.ActivityPP
+com.mzhou.merchant.activity.ActivityPP: ActivityPP()
+com.mzhou.merchant.activity.ActivityQG
+com.mzhou.merchant.activity.ActivityQG: ActivityQG()
+com.mzhou.merchant.activity.ActivitySM
+com.mzhou.merchant.activity.ActivitySM: ActivitySM()
+com.mzhou.merchant.activity.ActivitySS
+com.mzhou.merchant.activity.ActivitySS: ActivitySS()
+com.mzhou.merchant.activity.ActivityStart
+com.mzhou.merchant.activity.ActivityStart: ActivityStart()
+com.mzhou.merchant.activity.ActivityTD
+com.mzhou.merchant.activity.ActivityTD: ActivityTD()
+com.mzhou.merchant.activity.ActivityUserAgree
+com.mzhou.merchant.activity.ActivityUserAgree: ActivityUserAgree()
+com.mzhou.merchant.activity.ActivityVideoPlayer
+com.mzhou.merchant.activity.ActivityVideoPlayer: ActivityVideoPlayer()
+com.mzhou.merchant.activity.ActivityWD
+com.mzhou.merchant.activity.ActivityWD: ActivityWD()
+com.mzhou.merchant.activity.ActivityWM
+com.mzhou.merchant.activity.ActivityWM: ActivityWM()
+com.mzhou.merchant.activity.ActivityXinWen
+com.mzhou.merchant.activity.ActivityXinWen: ActivityXinWen()
+com.mzhou.merchant.activity.ActivityZP
+com.mzhou.merchant.activity.ActivityZP: ActivityZP()
+com.mzhou.merchant.activity.ActivityZS
+com.mzhou.merchant.activity.ActivityZS: ActivityZS()
+com.mzhou.merchant.activity.CompanyContactUsActivity
+com.mzhou.merchant.activity.CompanyContactUsActivity: CompanyContactUsActivity()
+com.mzhou.merchant.activity.CompanyIntroduceActivity
+com.mzhou.merchant.activity.CompanyIntroduceActivity: CompanyIntroduceActivity()
+com.mzhou.merchant.activity.EditShoujiCommenActivity
+com.mzhou.merchant.activity.EditShoujiCommenActivity: EditShoujiCommenActivity()
+com.mzhou.merchant.activity.EditShoujiEnterpriseActivity
+com.mzhou.merchant.activity.EditShoujiEnterpriseActivity: EditShoujiEnterpriseActivity()
+com.mzhou.merchant.activity.FabuActivity
+com.mzhou.merchant.activity.FabuActivity: FabuActivity()
+com.mzhou.merchant.activity.FabuQiugouActivity
+com.mzhou.merchant.activity.FabuQiugouActivity: FabuQiugouActivity()
+com.mzhou.merchant.activity.FabuShoujiCommenActivity
+com.mzhou.merchant.activity.FabuShoujiCommenActivity: FabuShoujiCommenActivity()
+com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity
+com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity: FabuShoujiEnterpriseActivity()
+com.mzhou.merchant.activity.FabuZhaopinActivity
+com.mzhou.merchant.activity.FabuZhaopinActivity: FabuZhaopinActivity()
+com.mzhou.merchant.activity.FabuZhaoshangActivity
+com.mzhou.merchant.activity.FabuZhaoshangActivity: FabuZhaoshangActivity()
+com.mzhou.merchant.activity.FabushoujiCommenPreViewActivity
+com.mzhou.merchant.activity.FabushoujiCommenPreViewActivity: FabushoujiCommenPreViewActivity()
+com.mzhou.merchant.activity.FabushoujiEnterprisePreViewActivity
+com.mzhou.merchant.activity.FabushoujiEnterprisePreViewActivity: FabushoujiEnterprisePreViewActivity()
+com.mzhou.merchant.activity.ForgetPassWordActivity
+com.mzhou.merchant.activity.ForgetPassWordActivity: ForgetPassWordActivity()
+com.mzhou.merchant.activity.ForgetPassWordAnActivity
+com.mzhou.merchant.activity.ForgetPassWordAnActivity: ForgetPassWordAnActivity()
+com.mzhou.merchant.activity.ForgetPassWordModifyActivity
+com.mzhou.merchant.activity.ForgetPassWordModifyActivity: ForgetPassWordModifyActivity()
+com.mzhou.merchant.activity.LoginCommenActivity
+com.mzhou.merchant.activity.LoginCommenActivity: LoginCommenActivity()
+com.mzhou.merchant.activity.LoginEnterpriseActivity
+com.mzhou.merchant.activity.LoginEnterpriseActivity: LoginEnterpriseActivity()
+com.mzhou.merchant.activity.LogoItemListActivity
+com.mzhou.merchant.activity.LogoItemListActivity: LogoItemListActivity()
+com.mzhou.merchant.activity.MyProductActivity
+com.mzhou.merchant.activity.MyProductActivity: MyProductActivity()
+com.mzhou.merchant.activity.MyProductAlreadyCheckActivity
+com.mzhou.merchant.activity.MyProductAlreadyCheckActivity: MyProductAlreadyCheckActivity()
+com.mzhou.merchant.activity.MyProductNoCheckActivity
+com.mzhou.merchant.activity.MyProductNoCheckActivity: MyProductNoCheckActivity()
+com.mzhou.merchant.activity.PicPagerActivity
+com.mzhou.merchant.activity.PicPagerActivity: PicPagerActivity()
+com.mzhou.merchant.activity.RegisterCommonActivity
+com.mzhou.merchant.activity.RegisterCommonActivity: RegisterCommonActivity()
+com.mzhou.merchant.activity.RegisterEnterpriseActivity
+com.mzhou.merchant.activity.RegisterEnterpriseActivity: RegisterEnterpriseActivity()
+com.mzhou.merchant.activity.ShoujiCommenActivity
+com.mzhou.merchant.activity.ShoujiCommenActivity: ShoujiCommenActivity()
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity: ShoujiEnterpriseActivity()
+com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity
+com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity: ShoujiLeaveWordsFabuActivity()
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity: ShoujiLeaveWordsListActivity()
+com.mzhou.merchant.activity.UserControlAleterPasswdActivity
+com.mzhou.merchant.activity.UserControlAleterPasswdActivity: UserControlAleterPasswdActivity()
+com.mzhou.merchant.activity.UserControlCommonActivity
+com.mzhou.merchant.activity.UserControlCommonActivity: UserControlCommonActivity()
+com.mzhou.merchant.activity.UserControlCompanyActivity
+com.mzhou.merchant.activity.UserControlCompanyActivity: UserControlCompanyActivity()
+com.mzhou.merchant.activity.UserControlEnterpriseActivity
+com.mzhou.merchant.activity.UserControlEnterpriseActivity: UserControlEnterpriseActivity()
+com.mzhou.merchant.activity.UserControlEnterpriseNameActivity
+com.mzhou.merchant.activity.UserControlEnterpriseNameActivity: UserControlEnterpriseNameActivity()
+com.mzhou.merchant.activity.UserControlFaxActivity
+com.mzhou.merchant.activity.UserControlFaxActivity: UserControlFaxActivity()
+com.mzhou.merchant.activity.UserControlNameActivity
+com.mzhou.merchant.activity.UserControlNameActivity: UserControlNameActivity()
+com.mzhou.merchant.activity.UserControlNetActivity
+com.mzhou.merchant.activity.UserControlNetActivity: UserControlNetActivity()
+com.mzhou.merchant.activity.UserControlNicknameActivity
+com.mzhou.merchant.activity.UserControlNicknameActivity: UserControlNicknameActivity()
+com.mzhou.merchant.activity.UserControlPhonenubActivity
+com.mzhou.merchant.activity.UserControlPhonenubActivity: UserControlPhonenubActivity()
+com.mzhou.merchant.activity.UserControlQQActivity
+com.mzhou.merchant.activity.UserControlQQActivity: UserControlQQActivity()
+com.mzhou.merchant.activity.UserControladressActivity
+com.mzhou.merchant.activity.UserControladressActivity: UserControladressActivity()
+com.mzhou.merchant.activity.XinwenCommentFabuActivity
+com.mzhou.merchant.activity.XinwenCommentFabuActivity: XinwenCommentFabuActivity()
+com.mzhou.merchant.activity.XinwenCommentListActivity
+com.mzhou.merchant.activity.XinwenCommentListActivity: XinwenCommentListActivity()
+com.mzhou.merchant.activity.XinwenContentActivity
+com.mzhou.merchant.activity.XinwenContentActivity: XinwenContentActivity()
+com.mzhou.merchant.activity.ZhaopinContentActivity
+com.mzhou.merchant.activity.ZhaopinContentActivity: ZhaopinContentActivity()
+com.mzhou.merchant.dao.biz.ActivityManager
+com.mzhou.merchant.dao.biz.AttactManager
+com.mzhou.merchant.dao.biz.JobManager
+com.mzhou.merchant.dao.biz.NewsManager
+com.mzhou.merchant.dao.biz.ProductsManager
+com.mzhou.merchant.dao.biz.SearchManager
+com.mzhou.merchant.dao.biz.UserManager
+com.mzhou.merchant.imageloader.MyApplication
+com.mzhou.merchant.imageloader.MyApplication: MyApplication()
+com.mzhou.merchant.model.AboutCompany
+com.mzhou.merchant.model.AboutCompany: long serialVersionUID
+com.mzhou.merchant.model.AboutCompany: java.lang.String cotitle
+com.mzhou.merchant.model.AboutCompany: java.lang.String cocontent
+com.mzhou.merchant.model.AboutCompany: java.lang.String copic
+com.mzhou.merchant.model.AboutCompany: java.lang.String getCotitle()
+com.mzhou.merchant.model.AboutCompany: void setCotitle(java.lang.String)
+com.mzhou.merchant.model.AboutCompany: java.lang.String getCocontent()
+com.mzhou.merchant.model.AboutCompany: void setCocontent(java.lang.String)
+com.mzhou.merchant.model.AboutCompany: java.lang.String getCopic()
+com.mzhou.merchant.model.AboutCompany: void setCopic(java.lang.String)
+com.mzhou.merchant.model.AboutCompany: java.lang.String toString()
+com.mzhou.merchant.model.AboutCompany: AboutCompany(java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.AboutCompany: AboutCompany()
+com.mzhou.merchant.model.ActivityBean
+com.mzhou.merchant.model.ActivityBean: long serialVersionUID
+com.mzhou.merchant.model.ActivityBean: java.lang.String id
+com.mzhou.merchant.model.ActivityBean: java.lang.String title
+com.mzhou.merchant.model.ActivityBean: java.lang.String content
+com.mzhou.merchant.model.ActivityBean: java.lang.String address
+com.mzhou.merchant.model.ActivityBean: java.lang.String ctime
+com.mzhou.merchant.model.ActivityBean: java.lang.String lasttime
+com.mzhou.merchant.model.ActivityBean: java.lang.String applytime
+com.mzhou.merchant.model.ActivityBean: java.lang.String contact
+com.mzhou.merchant.model.ActivityBean: java.lang.String phone
+com.mzhou.merchant.model.ActivityBean: java.lang.String uid
+com.mzhou.merchant.model.ActivityBean: java.lang.String is_en
+com.mzhou.merchant.model.ActivityBean: ActivityBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String toString()
+com.mzhou.merchant.model.ActivityBean: java.lang.String getId()
+com.mzhou.merchant.model.ActivityBean: void setId(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getTitle()
+com.mzhou.merchant.model.ActivityBean: void setTitle(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getContent()
+com.mzhou.merchant.model.ActivityBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getAddress()
+com.mzhou.merchant.model.ActivityBean: void setAddress(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getCtime()
+com.mzhou.merchant.model.ActivityBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getLasttime()
+com.mzhou.merchant.model.ActivityBean: void setLasttime(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getApplytime()
+com.mzhou.merchant.model.ActivityBean: void setApplytime(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getContact()
+com.mzhou.merchant.model.ActivityBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getPhone()
+com.mzhou.merchant.model.ActivityBean: void setPhone(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getUid()
+com.mzhou.merchant.model.ActivityBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: java.lang.String getIs_en()
+com.mzhou.merchant.model.ActivityBean: void setIs_en(java.lang.String)
+com.mzhou.merchant.model.ActivityBean: ActivityBean()
+com.mzhou.merchant.model.ActivityMemberBean
+com.mzhou.merchant.model.ActivityMemberBean: long serialVersionUID
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String id
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String contact
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String phone
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String is_en
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String uid
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String initiator
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String ctime
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String activity_id
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getId()
+com.mzhou.merchant.model.ActivityMemberBean: void setId(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getContact()
+com.mzhou.merchant.model.ActivityMemberBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: ActivityMemberBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getPhone()
+com.mzhou.merchant.model.ActivityMemberBean: void setPhone(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getIs_en()
+com.mzhou.merchant.model.ActivityMemberBean: void setIs_en(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getUid()
+com.mzhou.merchant.model.ActivityMemberBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getInitiator()
+com.mzhou.merchant.model.ActivityMemberBean: void setInitiator(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getCtime()
+com.mzhou.merchant.model.ActivityMemberBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String getActivity_id()
+com.mzhou.merchant.model.ActivityMemberBean: void setActivity_id(java.lang.String)
+com.mzhou.merchant.model.ActivityMemberBean: java.lang.String toString()
+com.mzhou.merchant.model.ActivityMemberBean: ActivityMemberBean()
+com.mzhou.merchant.model.AdBean
+com.mzhou.merchant.model.AdBean: long serialVersionUID
+com.mzhou.merchant.model.AdBean: java.lang.String id
+com.mzhou.merchant.model.AdBean: java.lang.String pic
+com.mzhou.merchant.model.AdBean: java.lang.String url
+com.mzhou.merchant.model.AdBean: java.lang.String type
+com.mzhou.merchant.model.AdBean: java.lang.String order_sort
+com.mzhou.merchant.model.AdBean: java.lang.String position
+com.mzhou.merchant.model.AdBean: java.lang.String name
+com.mzhou.merchant.model.AdBean: java.lang.String category
+com.mzhou.merchant.model.AdBean: AdBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.AdBean: AdBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String getCategory()
+com.mzhou.merchant.model.AdBean: void setCategory(java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String getName()
+com.mzhou.merchant.model.AdBean: void setName(java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String toString()
+com.mzhou.merchant.model.AdBean: java.lang.String getId()
+com.mzhou.merchant.model.AdBean: void setId(java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String getPic()
+com.mzhou.merchant.model.AdBean: void setPic(java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String getUrl()
+com.mzhou.merchant.model.AdBean: void setUrl(java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String getType()
+com.mzhou.merchant.model.AdBean: void setType(java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String getOrder_sort()
+com.mzhou.merchant.model.AdBean: void setOrder_sort(java.lang.String)
+com.mzhou.merchant.model.AdBean: java.lang.String getPosition()
+com.mzhou.merchant.model.AdBean: void setPosition(java.lang.String)
+com.mzhou.merchant.model.AdBean: AdBean()
+com.mzhou.merchant.model.AllBean
+com.mzhou.merchant.model.AllBean: long serialVersionUID
+com.mzhou.merchant.model.AllBean: java.lang.String status
+com.mzhou.merchant.model.AllBean: java.lang.String msg
+com.mzhou.merchant.model.AllBean: java.lang.String uid
+com.mzhou.merchant.model.AllBean: com.mzhou.merchant.model.info info
+com.mzhou.merchant.model.AllBean: com.mzhou.merchant.model.info getInfo()
+com.mzhou.merchant.model.AllBean: void setInfo(com.mzhou.merchant.model.info)
+com.mzhou.merchant.model.AllBean: AllBean(java.lang.String,java.lang.String,java.lang.String,com.mzhou.merchant.model.info)
+com.mzhou.merchant.model.AllBean: java.lang.String toString()
+com.mzhou.merchant.model.AllBean: java.lang.String getStatus()
+com.mzhou.merchant.model.AllBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.AllBean: java.lang.String getMsg()
+com.mzhou.merchant.model.AllBean: void setMsg(java.lang.String)
+com.mzhou.merchant.model.AllBean: java.lang.String getUid()
+com.mzhou.merchant.model.AllBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.AllBean: long getSerialversionuid()
+com.mzhou.merchant.model.AllBean: AllBean()
+com.mzhou.merchant.model.AttactBean
+com.mzhou.merchant.model.AttactBean: long serialVersionUID
+com.mzhou.merchant.model.AttactBean: java.lang.String content
+com.mzhou.merchant.model.AttactBean: java.lang.String email
+com.mzhou.merchant.model.AttactBean: java.lang.String contact
+com.mzhou.merchant.model.AttactBean: java.lang.String ctime
+com.mzhou.merchant.model.AttactBean: java.lang.String category
+com.mzhou.merchant.model.AttactBean: java.lang.String getCategory()
+com.mzhou.merchant.model.AttactBean: void setCategory(java.lang.String)
+com.mzhou.merchant.model.AttactBean: java.lang.String getContent()
+com.mzhou.merchant.model.AttactBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.AttactBean: java.lang.String getEmail()
+com.mzhou.merchant.model.AttactBean: void setEmail(java.lang.String)
+com.mzhou.merchant.model.AttactBean: java.lang.String getContact()
+com.mzhou.merchant.model.AttactBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.AttactBean: java.lang.String getCtime()
+com.mzhou.merchant.model.AttactBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.AttactBean: AttactBean()
+com.mzhou.merchant.model.BackBean
+com.mzhou.merchant.model.BackBean: long serialVersionUID
+com.mzhou.merchant.model.BackBean: java.lang.String status
+com.mzhou.merchant.model.BackBean: java.lang.String msg
+com.mzhou.merchant.model.BackBean: java.lang.String uid
+com.mzhou.merchant.model.BackBean: BackBean(java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.BackBean: java.lang.String toString()
+com.mzhou.merchant.model.BackBean: java.lang.String getStatus()
+com.mzhou.merchant.model.BackBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.BackBean: java.lang.String getMsg()
+com.mzhou.merchant.model.BackBean: void setMsg(java.lang.String)
+com.mzhou.merchant.model.BackBean: java.lang.String getUid()
+com.mzhou.merchant.model.BackBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.BackBean: long getSerialversionuid()
+com.mzhou.merchant.model.BackBean: BackBean()
+com.mzhou.merchant.model.CategoryBean
+com.mzhou.merchant.model.CategoryBean: long serialVersionUID
+com.mzhou.merchant.model.CategoryBean: java.lang.String id
+com.mzhou.merchant.model.CategoryBean: java.lang.String name
+com.mzhou.merchant.model.CategoryBean: java.lang.String getId()
+com.mzhou.merchant.model.CategoryBean: void setId(java.lang.String)
+com.mzhou.merchant.model.CategoryBean: java.lang.String getName()
+com.mzhou.merchant.model.CategoryBean: void setName(java.lang.String)
+com.mzhou.merchant.model.CategoryBean: java.lang.String toString()
+com.mzhou.merchant.model.CategoryBean: CategoryBean(java.lang.String,java.lang.String)
+com.mzhou.merchant.model.CategoryBean: CategoryBean()
+com.mzhou.merchant.model.GetAnswerBean
+com.mzhou.merchant.model.GetAnswerBean: long serialVersionUID
+com.mzhou.merchant.model.GetAnswerBean: java.lang.String status
+com.mzhou.merchant.model.GetAnswerBean: java.lang.String oldpw
+com.mzhou.merchant.model.GetAnswerBean: java.lang.String msg
+com.mzhou.merchant.model.GetAnswerBean: java.lang.String getStatus()
+com.mzhou.merchant.model.GetAnswerBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.GetAnswerBean: java.lang.String getOldpw()
+com.mzhou.merchant.model.GetAnswerBean: void setOldpw(java.lang.String)
+com.mzhou.merchant.model.GetAnswerBean: GetAnswerBean(java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.GetAnswerBean: java.lang.String toString()
+com.mzhou.merchant.model.GetAnswerBean: java.lang.String getMsg()
+com.mzhou.merchant.model.GetAnswerBean: void setMsg(java.lang.String)
+com.mzhou.merchant.model.GetAnswerBean: GetAnswerBean()
+com.mzhou.merchant.model.GetNewPwBean
+com.mzhou.merchant.model.GetNewPwBean: long serialVersionUID
+com.mzhou.merchant.model.GetNewPwBean: java.lang.String status
+com.mzhou.merchant.model.GetNewPwBean: java.lang.String msg
+com.mzhou.merchant.model.GetNewPwBean: java.lang.String info
+com.mzhou.merchant.model.GetNewPwBean: java.lang.String getStatus()
+com.mzhou.merchant.model.GetNewPwBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.GetNewPwBean: java.lang.String getMsg()
+com.mzhou.merchant.model.GetNewPwBean: void setMsg(java.lang.String)
+com.mzhou.merchant.model.GetNewPwBean: java.lang.String getInfo()
+com.mzhou.merchant.model.GetNewPwBean: void setInfo(java.lang.String)
+com.mzhou.merchant.model.GetNewPwBean: java.lang.String toString()
+com.mzhou.merchant.model.GetNewPwBean: GetNewPwBean(java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.GetNewPwBean: GetNewPwBean()
+com.mzhou.merchant.model.GetQuestionBean
+com.mzhou.merchant.model.GetQuestionBean: long serialVersionUID
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String uid
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String username
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String question
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String msg
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String status
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String getUid()
+com.mzhou.merchant.model.GetQuestionBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String getUsername()
+com.mzhou.merchant.model.GetQuestionBean: void setUsername(java.lang.String)
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String getQuestion()
+com.mzhou.merchant.model.GetQuestionBean: void setQuestion(java.lang.String)
+com.mzhou.merchant.model.GetQuestionBean: GetQuestionBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String toString()
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String getStatus()
+com.mzhou.merchant.model.GetQuestionBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.GetQuestionBean: java.lang.String getMsg()
+com.mzhou.merchant.model.GetQuestionBean: void setMsg(java.lang.String)
+com.mzhou.merchant.model.GetQuestionBean: GetQuestionBean()
+com.mzhou.merchant.model.GroupUsers
+com.mzhou.merchant.model.GroupUsers: java.lang.String id
+com.mzhou.merchant.model.GroupUsers: java.lang.String name
+com.mzhou.merchant.model.GroupUsers: java.lang.String number
+com.mzhou.merchant.model.GroupUsers: java.util.List users
+com.mzhou.merchant.model.GroupUsers: GroupUsers()
+com.mzhou.merchant.model.GroupUsers: GroupUsers(java.lang.String,java.lang.String,java.lang.String,java.util.List)
+com.mzhou.merchant.model.GroupUsers: java.lang.String toString()
+com.mzhou.merchant.model.GroupUsers: java.lang.String getId()
+com.mzhou.merchant.model.GroupUsers: void setId(java.lang.String)
+com.mzhou.merchant.model.GroupUsers: java.lang.String getName()
+com.mzhou.merchant.model.GroupUsers: void setName(java.lang.String)
+com.mzhou.merchant.model.GroupUsers: java.lang.String getNumber()
+com.mzhou.merchant.model.GroupUsers: void setNumber(java.lang.String)
+com.mzhou.merchant.model.GroupUsers: java.util.List getUsers()
+com.mzhou.merchant.model.GroupUsers: void setUsers(java.util.List)
+com.mzhou.merchant.model.JobBean
+com.mzhou.merchant.model.JobBean: long serialVersionUID
+com.mzhou.merchant.model.JobBean: java.lang.String id
+com.mzhou.merchant.model.JobBean: java.lang.String position
+com.mzhou.merchant.model.JobBean: java.lang.String content
+com.mzhou.merchant.model.JobBean: java.lang.String contact
+com.mzhou.merchant.model.JobBean: java.lang.String phone
+com.mzhou.merchant.model.JobBean: java.lang.String ctime
+com.mzhou.merchant.model.JobBean: java.lang.String getId()
+com.mzhou.merchant.model.JobBean: void setId(java.lang.String)
+com.mzhou.merchant.model.JobBean: java.lang.String getPosition()
+com.mzhou.merchant.model.JobBean: void setPosition(java.lang.String)
+com.mzhou.merchant.model.JobBean: java.lang.String getContent()
+com.mzhou.merchant.model.JobBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.JobBean: java.lang.String getContact()
+com.mzhou.merchant.model.JobBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.JobBean: java.lang.String getPhone()
+com.mzhou.merchant.model.JobBean: void setPhone(java.lang.String)
+com.mzhou.merchant.model.JobBean: java.lang.String getCtime()
+com.mzhou.merchant.model.JobBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.JobBean: java.lang.String toString()
+com.mzhou.merchant.model.JobBean: JobBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.JobBean: JobBean()
+com.mzhou.merchant.model.JobItemBean
+com.mzhou.merchant.model.JobItemBean: long serialVersionUID
+com.mzhou.merchant.model.JobItemBean: java.lang.String id
+com.mzhou.merchant.model.JobItemBean: java.lang.String position
+com.mzhou.merchant.model.JobItemBean: java.lang.String content
+com.mzhou.merchant.model.JobItemBean: java.lang.String company
+com.mzhou.merchant.model.JobItemBean: java.lang.String address
+com.mzhou.merchant.model.JobItemBean: java.lang.String ctime
+com.mzhou.merchant.model.JobItemBean: java.lang.String lasttime
+com.mzhou.merchant.model.JobItemBean: java.lang.String email
+com.mzhou.merchant.model.JobItemBean: java.lang.String contact
+com.mzhou.merchant.model.JobItemBean: java.lang.String phone
+com.mzhou.merchant.model.JobItemBean: java.lang.String uid
+com.mzhou.merchant.model.JobItemBean: java.lang.String getId()
+com.mzhou.merchant.model.JobItemBean: void setId(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getPosition()
+com.mzhou.merchant.model.JobItemBean: void setPosition(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getContent()
+com.mzhou.merchant.model.JobItemBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getCompany()
+com.mzhou.merchant.model.JobItemBean: void setCompany(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getAddress()
+com.mzhou.merchant.model.JobItemBean: void setAddress(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getCtime()
+com.mzhou.merchant.model.JobItemBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getLasttime()
+com.mzhou.merchant.model.JobItemBean: void setLasttime(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getEmail()
+com.mzhou.merchant.model.JobItemBean: void setEmail(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getContact()
+com.mzhou.merchant.model.JobItemBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getPhone()
+com.mzhou.merchant.model.JobItemBean: void setPhone(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String getUid()
+com.mzhou.merchant.model.JobItemBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.JobItemBean: java.lang.String toString()
+com.mzhou.merchant.model.JobItemBean: JobItemBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.JobItemBean: JobItemBean()
+com.mzhou.merchant.model.NewsBean
+com.mzhou.merchant.model.NewsBean: long serialVersionUID
+com.mzhou.merchant.model.NewsBean: java.lang.String title
+com.mzhou.merchant.model.NewsBean: java.lang.String pic
+com.mzhou.merchant.model.NewsBean: java.lang.String ctime
+com.mzhou.merchant.model.NewsBean: java.lang.String source
+com.mzhou.merchant.model.NewsBean: java.lang.String id
+com.mzhou.merchant.model.NewsBean: java.lang.String getTitle()
+com.mzhou.merchant.model.NewsBean: void setTitle(java.lang.String)
+com.mzhou.merchant.model.NewsBean: java.lang.String getPic()
+com.mzhou.merchant.model.NewsBean: void setPic(java.lang.String)
+com.mzhou.merchant.model.NewsBean: java.lang.String getCtime()
+com.mzhou.merchant.model.NewsBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.NewsBean: java.lang.String getSource()
+com.mzhou.merchant.model.NewsBean: void setSource(java.lang.String)
+com.mzhou.merchant.model.NewsBean: java.lang.String getId()
+com.mzhou.merchant.model.NewsBean: void setId(java.lang.String)
+com.mzhou.merchant.model.NewsBean: java.lang.String toString()
+com.mzhou.merchant.model.NewsBean: NewsBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.NewsBean: NewsBean()
+com.mzhou.merchant.model.NewsByIdBean
+com.mzhou.merchant.model.NewsByIdBean: long serialVersionUID
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String title
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String ctime
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String source
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String content
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String id
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String pic
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String getTitle()
+com.mzhou.merchant.model.NewsByIdBean: void setTitle(java.lang.String)
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String getCtime()
+com.mzhou.merchant.model.NewsByIdBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String getSource()
+com.mzhou.merchant.model.NewsByIdBean: void setSource(java.lang.String)
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String getContent()
+com.mzhou.merchant.model.NewsByIdBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String getId()
+com.mzhou.merchant.model.NewsByIdBean: void setId(java.lang.String)
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String getPic()
+com.mzhou.merchant.model.NewsByIdBean: void setPic(java.lang.String)
+com.mzhou.merchant.model.NewsByIdBean: long getSerialversionuid()
+com.mzhou.merchant.model.NewsByIdBean: java.lang.String toString()
+com.mzhou.merchant.model.NewsByIdBean: NewsByIdBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.NewsByIdBean: NewsByIdBean()
+com.mzhou.merchant.model.NewsCommentBean
+com.mzhou.merchant.model.NewsCommentBean: long serialVersionUID
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String content
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String ctime
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String news_id
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String commenter
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String getContent()
+com.mzhou.merchant.model.NewsCommentBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String getCtime()
+com.mzhou.merchant.model.NewsCommentBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String getNews_id()
+com.mzhou.merchant.model.NewsCommentBean: void setNews_id(java.lang.String)
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String getCommenter()
+com.mzhou.merchant.model.NewsCommentBean: void setCommenter(java.lang.String)
+com.mzhou.merchant.model.NewsCommentBean: java.lang.String toString()
+com.mzhou.merchant.model.NewsCommentBean: NewsCommentBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.NewsCommentBean: NewsCommentBean()
+com.mzhou.merchant.model.ProductCommentBean
+com.mzhou.merchant.model.ProductCommentBean: long serialVersionUID
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String id
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String content
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String ctime
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String category
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String contact
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String nickname
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String getId()
+com.mzhou.merchant.model.ProductCommentBean: void setId(java.lang.String)
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String getContent()
+com.mzhou.merchant.model.ProductCommentBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String getCtime()
+com.mzhou.merchant.model.ProductCommentBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String getContact()
+com.mzhou.merchant.model.ProductCommentBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String getNickname()
+com.mzhou.merchant.model.ProductCommentBean: void setNickname(java.lang.String)
+com.mzhou.merchant.model.ProductCommentBean: ProductCommentBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String toString()
+com.mzhou.merchant.model.ProductCommentBean: java.lang.String getCategory()
+com.mzhou.merchant.model.ProductCommentBean: void setCategory(java.lang.String)
+com.mzhou.merchant.model.ProductCommentBean: ProductCommentBean()
+com.mzhou.merchant.model.ProductsBean
+com.mzhou.merchant.model.ProductsBean: long serialVersionUID
+com.mzhou.merchant.model.ProductsBean: java.lang.String id
+com.mzhou.merchant.model.ProductsBean: java.lang.String ctime
+com.mzhou.merchant.model.ProductsBean: java.lang.String classid
+com.mzhou.merchant.model.ProductsBean: java.lang.String brand
+com.mzhou.merchant.model.ProductsBean: java.lang.String is_en
+com.mzhou.merchant.model.ProductsBean: java.lang.String is_show
+com.mzhou.merchant.model.ProductsBean: java.lang.String pic
+com.mzhou.merchant.model.ProductsBean: java.lang.String order_sort
+com.mzhou.merchant.model.ProductsBean: java.lang.String category
+com.mzhou.merchant.model.ProductsBean: java.lang.String getId()
+com.mzhou.merchant.model.ProductsBean: void setId(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getCtime()
+com.mzhou.merchant.model.ProductsBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getClassid()
+com.mzhou.merchant.model.ProductsBean: void setClassid(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getBrand()
+com.mzhou.merchant.model.ProductsBean: void setBrand(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getIs_en()
+com.mzhou.merchant.model.ProductsBean: void setIs_en(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getIs_show()
+com.mzhou.merchant.model.ProductsBean: void setIs_show(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getPic()
+com.mzhou.merchant.model.ProductsBean: void setPic(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getOrder_sort()
+com.mzhou.merchant.model.ProductsBean: void setOrder_sort(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: java.lang.String getCategory()
+com.mzhou.merchant.model.ProductsBean: void setCategory(java.lang.String)
+com.mzhou.merchant.model.ProductsBean: ProductsBean()
+com.mzhou.merchant.model.ProductsBean: java.lang.String toString()
+com.mzhou.merchant.model.ProductsByIdBean
+com.mzhou.merchant.model.ProductsByIdBean: long serialVersionUID
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String id
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String content
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String ctime
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String classid
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String uid
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String brand
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String type
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String chip
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String size
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String system
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String pic
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String contact
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String phone
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String qq
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String company
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String address
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String net
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String prec_pixel
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String next_pixel
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String distinguish
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String rom
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String ah
+com.mzhou.merchant.model.ProductsByIdBean: ProductsByIdBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String toString()
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getId()
+com.mzhou.merchant.model.ProductsByIdBean: void setId(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getContent()
+com.mzhou.merchant.model.ProductsByIdBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getCtime()
+com.mzhou.merchant.model.ProductsByIdBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getClassid()
+com.mzhou.merchant.model.ProductsByIdBean: void setClassid(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getUid()
+com.mzhou.merchant.model.ProductsByIdBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getBrand()
+com.mzhou.merchant.model.ProductsByIdBean: void setBrand(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getType()
+com.mzhou.merchant.model.ProductsByIdBean: void setType(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getChip()
+com.mzhou.merchant.model.ProductsByIdBean: void setChip(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getSize()
+com.mzhou.merchant.model.ProductsByIdBean: void setSize(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getSystem()
+com.mzhou.merchant.model.ProductsByIdBean: void setSystem(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getPic()
+com.mzhou.merchant.model.ProductsByIdBean: void setPic(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getContact()
+com.mzhou.merchant.model.ProductsByIdBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getPhone()
+com.mzhou.merchant.model.ProductsByIdBean: void setPhone(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getQq()
+com.mzhou.merchant.model.ProductsByIdBean: void setQq(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getCompany()
+com.mzhou.merchant.model.ProductsByIdBean: void setCompany(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getAddress()
+com.mzhou.merchant.model.ProductsByIdBean: void setAddress(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getNet()
+com.mzhou.merchant.model.ProductsByIdBean: void setNet(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getPrec_pixel()
+com.mzhou.merchant.model.ProductsByIdBean: void setPrec_pixel(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getNext_pixel()
+com.mzhou.merchant.model.ProductsByIdBean: void setNext_pixel(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getDistinguish()
+com.mzhou.merchant.model.ProductsByIdBean: void setDistinguish(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getRom()
+com.mzhou.merchant.model.ProductsByIdBean: void setRom(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: java.lang.String getAh()
+com.mzhou.merchant.model.ProductsByIdBean: void setAh(java.lang.String)
+com.mzhou.merchant.model.ProductsByIdBean: ProductsByIdBean()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: long serialVersionUID
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String id
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String ctime
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String content
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String classid
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String is_en
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String is_show
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String brand
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String pic
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String type
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String chip
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String size
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String system
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String uid
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String company
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String address
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String net
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String prec_pixel
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String next_pixel
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String distinguish
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String contact
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String fax
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String center
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String rom
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String ah
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String videopic
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: ProductsEnterpriseByIdBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String toString()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getVideopic()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setVideopic(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getId()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setId(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getCtime()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setCtime(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getContent()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setContent(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getClassid()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setClassid(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getIs_en()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setIs_en(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getIs_show()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setIs_show(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getBrand()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setBrand(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getPic()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setPic(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getType()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setType(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getChip()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setChip(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getSize()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setSize(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getSystem()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setSystem(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getUid()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getCompany()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setCompany(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getAddress()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setAddress(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getNet()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setNet(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getPrec_pixel()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setPrec_pixel(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getNext_pixel()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setNext_pixel(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getDistinguish()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setDistinguish(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getContact()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getFax()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setFax(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getCenter()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setCenter(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getRom()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setRom(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: java.lang.String getAh()
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: void setAh(java.lang.String)
+com.mzhou.merchant.model.ProductsEnterpriseByIdBean: ProductsEnterpriseByIdBean()
+com.mzhou.merchant.model.PublishProductBean
+com.mzhou.merchant.model.PublishProductBean: long serialVersionUID
+com.mzhou.merchant.model.PublishProductBean: java.lang.String id
+com.mzhou.merchant.model.PublishProductBean: java.lang.String status
+com.mzhou.merchant.model.PublishProductBean: java.lang.String msg
+com.mzhou.merchant.model.PublishProductBean: PublishProductBean()
+com.mzhou.merchant.model.PublishProductBean: PublishProductBean(java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.PublishProductBean: java.lang.String toString()
+com.mzhou.merchant.model.PublishProductBean: java.lang.String getId()
+com.mzhou.merchant.model.PublishProductBean: void setId(java.lang.String)
+com.mzhou.merchant.model.PublishProductBean: java.lang.String getStatus()
+com.mzhou.merchant.model.PublishProductBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.PublishProductBean: java.lang.String getMsg()
+com.mzhou.merchant.model.PublishProductBean: void setMsg(java.lang.String)
+com.mzhou.merchant.model.User
+com.mzhou.merchant.model.User: java.lang.Long id
+com.mzhou.merchant.model.User: java.lang.String name
+com.mzhou.merchant.model.User: java.lang.String number
+com.mzhou.merchant.model.User: java.lang.Long getId()
+com.mzhou.merchant.model.User: void setId(java.lang.Long)
+com.mzhou.merchant.model.User: java.lang.String getName()
+com.mzhou.merchant.model.User: void setName(java.lang.String)
+com.mzhou.merchant.model.User: java.lang.String getNumber()
+com.mzhou.merchant.model.User: void setNumber(java.lang.String)
+com.mzhou.merchant.model.User: java.lang.String toString()
+com.mzhou.merchant.model.User: User(java.lang.Long,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.User: User()
+com.mzhou.merchant.model.info
+com.mzhou.merchant.model.info: long serialVersionUID
+com.mzhou.merchant.model.info: java.lang.String category
+com.mzhou.merchant.model.info: java.lang.String username
+com.mzhou.merchant.model.info: java.lang.String nickname
+com.mzhou.merchant.model.info: java.lang.String contact
+com.mzhou.merchant.model.info: java.lang.String password
+com.mzhou.merchant.model.info: java.lang.String phonenub
+com.mzhou.merchant.model.info: java.lang.String email
+com.mzhou.merchant.model.info: java.lang.String company
+com.mzhou.merchant.model.info: java.lang.String headurl
+com.mzhou.merchant.model.info: java.lang.String address
+com.mzhou.merchant.model.info: java.lang.String net
+com.mzhou.merchant.model.info: java.lang.String fax
+com.mzhou.merchant.model.info: java.lang.String center
+com.mzhou.merchant.model.info: java.lang.String uid
+com.mzhou.merchant.model.info: info(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String toString()
+com.mzhou.merchant.model.info: java.lang.String getCategory()
+com.mzhou.merchant.model.info: void setCategory(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getUsername()
+com.mzhou.merchant.model.info: void setUsername(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getNickname()
+com.mzhou.merchant.model.info: void setNickname(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getContact()
+com.mzhou.merchant.model.info: void setContact(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getPassword()
+com.mzhou.merchant.model.info: void setPassword(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getPhonenub()
+com.mzhou.merchant.model.info: void setPhonenub(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getEmail()
+com.mzhou.merchant.model.info: void setEmail(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getCompany()
+com.mzhou.merchant.model.info: void setCompany(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getHeadurl()
+com.mzhou.merchant.model.info: void setHeadurl(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getAddress()
+com.mzhou.merchant.model.info: void setAddress(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getNet()
+com.mzhou.merchant.model.info: void setNet(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getFax()
+com.mzhou.merchant.model.info: void setFax(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getCenter()
+com.mzhou.merchant.model.info: void setCenter(java.lang.String)
+com.mzhou.merchant.model.info: java.lang.String getUid()
+com.mzhou.merchant.model.info: void setUid(java.lang.String)
+com.mzhou.merchant.model.info: info()
+com.mzhou.merchant.myview.CustomTextView
+com.mzhou.merchant.myview.CustomTextView: CustomTextView(android.content.Context,android.util.AttributeSet)
 com.mzhou.merchant.myview.MyGridView
 com.mzhou.merchant.myview.MyGridView: MyGridView(android.content.Context,android.util.AttributeSet)
 com.mzhou.merchant.myview.MyGridView: MyGridView(android.content.Context)

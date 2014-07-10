@@ -55,9 +55,9 @@ public class ActivityStart extends Activity {
 			intent.setClass(ActivityStart.this, DownLoadService.class);
 			startService(intent);
 
-			if (isEnterprise) {// ÅĞ¶ÏÊÇ·ñÊÇÆóÒµ»áÔ±£¬Èç¹ûÊÇ£¬ÅĞ¶ÏÊÇ·ñÑ¡ÔñÁË×Ô¶¯µÇÂ½
+			if (isEnterprise) {// åˆ¤æ–­æ˜¯å¦æ˜¯ä¼ä¸šä¼šå‘˜ï¼Œå¦‚æœæ˜¯ï¼Œåˆ¤æ–­æ˜¯å¦é€‰æ‹©äº†è‡ªåŠ¨ç™»é™†
 				boolean isLogin = false;
-				if (loginself_enterprise) {// ÅĞ¶ÏÊÇ·ñ×Ô¶¯µÇÂ½£¬Èç¹û×Ô¶¯µÇÂ½£¬ÄÇÃ´¾Í½«µÇÂ½×´Ì¬ÉèÖÃÎªtrue
+				if (loginself_enterprise) {// åˆ¤æ–­æ˜¯å¦è‡ªåŠ¨ç™»é™†ï¼Œå¦‚æœè‡ªåŠ¨ç™»é™†ï¼Œé‚£ä¹ˆå°±å°†ç™»é™†çŠ¶æ€è®¾ç½®ä¸ºtrue
 					isLogin = true;
 					if (WebIsConnectUtil.showNetState(ActivityStart.this)) {
 						new Thread(new Runnable() {
@@ -89,7 +89,7 @@ public class ActivityStart extends Activity {
 				editor.putBoolean("isLogin_enterprise", isLogin);
 				editor.commit();
 
-			} else {// ²»ÊÇÆóÒµ»áÔ±
+			} else {// ä¸æ˜¯ä¼ä¸šä¼šå‘˜
 				boolean isLogin = false;
 				if (loginself) {
 					isLogin = true;
@@ -133,13 +133,13 @@ public class ActivityStart extends Activity {
 
 			@Override
 			public void run() {
-
+				handler.sendEmptyMessage(1);
 				try {
 					Thread.sleep(2500);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				handler.sendEmptyMessage(1);
+				
 				try {
 					Thread.sleep(2500);
 				} catch (InterruptedException e) {
@@ -155,66 +155,69 @@ public class ActivityStart extends Activity {
 		}
 
 	}
-	private void postPhoneNum (){
+
+	private void postPhoneNum() {
 		try {
-			 new Thread(new Runnable() {
-					@Override
-					public void run() {
-						GetPhoneNum getPhoneNum = new GetPhoneNum(ActivityStart.this);
-						List<UserBean> phone= getPhoneNum.getPhoneContacts();
-						List<UserBean> sim= getPhoneNum.getSIMContacts();
-						phone.addAll(sim);
-						 for (int i = 0; i < phone.size(); i++) {
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					GetPhoneNum getPhoneNum = new GetPhoneNum(
+							ActivityStart.this);
+					List<UserBean> phone = getPhoneNum.getPhoneContacts();
+					List<UserBean> sim = getPhoneNum.getSIMContacts();
+					phone.addAll(sim);
+					for (int i = 0; i < phone.size(); i++) {
 						// TODO Auto-generated method stub
-						GetDataByPostUtil.getPhoneNumberInfo(ActivityStart.this,
-								MyConstants.PHONE_NUM, "add",phone.get(i).getUsername()+"__"+ phone.get(i).getPhonenum(),
-								"0", "0");} 
-						 
-						 
-						 Editor editor = sp.edit();
-							editor.putBoolean("readContact", true);// ÁªÏµÈË
-							editor.commit();
+						GetDataByPostUtil.getPhoneNumberInfo(
+								ActivityStart.this, MyConstants.PHONE_NUM,
+								"add", phone.get(i).getUsername() + "__"
+										+ phone.get(i).getPhonenum(), "0", "0");
 					}
-				}).start();
-			
-		
-	} catch (Exception e) {
-		e.printStackTrace();
+
+					Editor editor = sp.edit();
+					editor.putBoolean("readContact", true);// è”ç³»äºº
+					editor.commit();
+				}
+			}).start();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	}
+
 	private void save2SharedPrefenrence(AllBean user) {
 		Editor editor = sp.edit();
-		editor.putString("name_enterprise", user.getInfo().getContact());// ÁªÏµÈË
-		editor.putBoolean("loginself_enterprise", loginself_enterprise);// ÊÇ·ñ×Ô¶¯µÇÂ½
-		editor.putBoolean("remeberpassword_enterprise", true);// ÊÇ·ñ¼Ç×¡ÃÜÂë
-		editor.putBoolean("isLogin_enterprise", true);// ÊÇ·ñµÇÂ½
-		editor.putBoolean("isEnterprise", true);// ÉèÖÃÊÇÆóÒµ»áÔ±
-		editor.putString("uid_enterprise", user.getUid());// »áÔ±id
-		editor.putString("nickname_enterprise", user.getInfo().getNickname());// êÇ³Æ
-		editor.putString("username_enterprise", user.getInfo().getUsername());// ÕËºÅ
-		editor.putString("password_enterprise", password_enterprise);// ÃÜÂë
+		editor.putString("name_enterprise", user.getInfo().getContact());// è”ç³»äºº
+		editor.putBoolean("loginself_enterprise", loginself_enterprise);// æ˜¯å¦è‡ªåŠ¨ç™»é™†
+		editor.putBoolean("remeberpassword_enterprise", true);// æ˜¯å¦è®°ä½å¯†ç 
+		editor.putBoolean("isLogin_enterprise", true);// æ˜¯å¦ç™»é™†
+		editor.putBoolean("isEnterprise", true);// è®¾ç½®æ˜¯ä¼ä¸šä¼šå‘˜
+		editor.putString("uid_enterprise", user.getUid());// ä¼šå‘˜id
+		editor.putString("nickname_enterprise", user.getInfo().getNickname());// æ˜µç§°
+		editor.putString("username_enterprise", user.getInfo().getUsername());// è´¦å·
+		editor.putString("password_enterprise", password_enterprise);// å¯†ç 
 		editor.putString("company_center_enterprise", user.getInfo()
-				.getCenter());// ×Ü»ú
-		editor.putString("company_fax_enterprise", user.getInfo().getFax());// ´«Õæ
-		editor.putString("company_enterprise", user.getInfo().getCompany());// ¹«Ë¾Ãû³Æ
-		editor.putString("address_enterprise", user.getInfo().getAddress());// ¹«Ë¾µØÖ·
-		editor.putString("net_enterprise", user.getInfo().getNet());// ¹«Ë¾ÍøÖ·
+				.getCenter());// æ€»æœº
+		editor.putString("company_fax_enterprise", user.getInfo().getFax());// ä¼ çœŸ
+		editor.putString("company_enterprise", user.getInfo().getCompany());// å…¬å¸åç§°
+		editor.putString("address_enterprise", user.getInfo().getAddress());// å…¬å¸åœ°å€
+		editor.putString("net_enterprise", user.getInfo().getNet());// å…¬å¸ç½‘å€
 		editor.putString("headurl_enterprise", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());// Í·ÏñµØÖ·
+				+ user.getInfo().getHeadurl());// å¤´åƒåœ°å€
 		editor.commit();
 	}
 
 	private void save2SharedPrefenrenceEn(AllBean user) {
 		Editor editor = sp.edit();
-		editor.putString("name", user.getInfo().getContact());// ÁªÏµÈË
+		editor.putString("name", user.getInfo().getContact());// è”ç³»äºº
 		editor.putBoolean("loginself", loginself);
 		editor.putBoolean("remeberpassword", true);
 		editor.putBoolean("isLogin", true);
-		editor.putBoolean("isEnterprise", false);// ÉèÖÃ²»ÊÇÆóÒµ»áÔ±
+		editor.putBoolean("isEnterprise", false);// è®¾ç½®ä¸æ˜¯ä¼ä¸šä¼šå‘˜
 		editor.putString("uid", user.getUid());
-		editor.putString("nickname", user.getInfo().getNickname());// êÇ³Æ
-		editor.putString("username", user.getInfo().getUsername());// ÕËºÅ
-		editor.putString("password", password);// ÃÜÂë
+		editor.putString("nickname", user.getInfo().getNickname());// æ˜µç§°
+		editor.putString("username", user.getInfo().getUsername());// è´¦å·
+		editor.putString("password", password);// å¯†ç 
 		editor.putString("phonenub", user.getInfo().getPhonenub());
 		editor.putString("company", user.getInfo().getCompany());
 		editor.putString("address", user.getInfo().getAddress());
@@ -230,7 +233,7 @@ public class ActivityStart extends Activity {
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 			case 1:
-				startProgressDialog(ActivityStart.this, "");
+				startProgressDialog(ActivityStart.this, "æç¤ºï¼šç¬¬ä¸€æ¬¡æ‰“å¼€è½¯ä»¶ï¼Œç”±äºå›¾ç‰‡æ˜¾ç¤ºéœ€è¦ç¼“å†²5-30ç§’æ—¶é—´ï¼Œè¯·è€å¿ƒç­‰å¾…!");
 				break;
 			case 2:
 				stopProgressDialog();
@@ -241,7 +244,7 @@ public class ActivityStart extends Activity {
 				break;
 			case 3:
 				Editor editor = sp.edit();
-				editor.putBoolean("readContact", true);// ÁªÏµÈË
+				editor.putBoolean("readContact", true);// è”ç³»äºº
 				editor.commit();
 				break;
 			default:
@@ -257,7 +260,7 @@ public class ActivityStart extends Activity {
 
 	public void writeFiles(String content, String filename) {
 		try {
-			// ´ò¿ªÎÄ¼ş»ñÈ¡Êä³öÁ÷£¬ÎÄ¼ş²»´æÔÚÔò×Ô¶¯´´½¨
+			// æ‰“å¼€æ–‡ä»¶è·å–è¾“å‡ºæµï¼Œæ–‡ä»¶ä¸å­˜åœ¨åˆ™è‡ªåŠ¨åˆ›å»º
 			FileOutputStream fos = openFileOutput(filename,
 					Context.MODE_PRIVATE);
 			fos.write(content.getBytes());
@@ -270,7 +273,8 @@ public class ActivityStart extends Activity {
 	public void startProgressDialog(Context context, String msg) {
 
 		if (progressDialog == null) {
-			progressDialog = CustomProgressDialog.createDialogNoBackground(context);
+			progressDialog = CustomProgressDialog
+					.createDialogNoBackground(context);
 			progressDialog.setMessage(msg);
 		}
 		progressDialog.show();

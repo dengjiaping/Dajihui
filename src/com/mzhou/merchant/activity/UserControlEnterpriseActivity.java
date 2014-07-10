@@ -51,61 +51,61 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class UserControlEnterpriseActivity extends Activity {
-	private ImageView title_bar_showleft;// ·µ»Ø
-	private ImageView user_manager_user_head;// Í·Ïñ
-	private TextView product_already_push;// µ×²¿À¸ÒÑ·¢²¼
-	private TextView product_new_push;// µ×²¿À¸ĞÂ·¢²¼
+	private ImageView title_bar_showleft;// è¿”å›
+	private ImageView user_manager_user_head;// å¤´åƒ
+	private TextView product_already_push;// åº•éƒ¨æ å·²å‘å¸ƒ
+	private TextView product_new_push;// åº•éƒ¨æ æ–°å‘å¸ƒ
 
-	private LinearLayout user_manager_nickname_stub;// êÇ³Æ
-	private LinearLayout user_manager_userhead_stub;// ¸ü»»Í·Ïñ
-	private LinearLayout user_manager_alter_passwd;// ¸ü»»ÃÜÂë
-	private LinearLayout user_manager_count;// ²»¿É¸ü¸ÄÕËºÅ
-	private LinearLayout user_manager_name1;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name2;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name3;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name4;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name5;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name6;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name7;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name8;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name9;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout user_manager_name10;// ÁªÏµÈË---Ôö¼Ó
-	private LinearLayout company_center_enterprise;// ×Ü»ú
-	private LinearLayout user_manager_centerFax;// ´«Õæ
-	private LinearLayout user_manager_company;// ¹«Ë¾Ãû³Æ
-	private LinearLayout user_manager_address;// ¹«Ë¾µØÖ·
-	private LinearLayout user_manager_net;// ¹«Ë¾ÍøÖ·
+	private LinearLayout user_manager_nickname_stub;// æ˜µç§°
+	private LinearLayout user_manager_userhead_stub;// æ›´æ¢å¤´åƒ
+	private LinearLayout user_manager_alter_passwd;// æ›´æ¢å¯†ç 
+	private LinearLayout user_manager_count;// ä¸å¯æ›´æ”¹è´¦å·
+	private LinearLayout user_manager_name1;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name2;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name3;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name4;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name5;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name6;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name7;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name8;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name9;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout user_manager_name10;// è”ç³»äºº---å¢åŠ 
+	private LinearLayout company_center_enterprise;// æ€»æœº
+	private LinearLayout user_manager_centerFax;// ä¼ çœŸ
+	private LinearLayout user_manager_company;// å…¬å¸åç§°
+	private LinearLayout user_manager_address;// å…¬å¸åœ°å€
+	private LinearLayout user_manager_net;// å…¬å¸ç½‘å€
 
-	private Button save;// ±£´æ
+	private Button save;// ä¿å­˜
 	private Context context;
-	private TextView nicknameTextView;// êÇ³Æ
-	private TextView user_manager_alter_passwd_stub;// ÃÜÂë
-	private TextView user_manager_alter_count;// ÕËºÅ
-	private TextView user_manager_tv_name1;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name2;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name3;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name4;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name5;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name6;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name7;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name8;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name9;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_name10;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub1;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub2;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub3;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub4;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub5;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub6;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub7;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub8;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub9;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_tv_nub10;// ÁªÏµÈË£º£¿£¿
-	private TextView user_manager_centerNub_stub;// ×Ü»ú
-	private TextView user_manager_centerFax_stub;// ´«Õæ
-	private TextView user_manager_tv_company;// ¹«Ë¾Ãû³Æ
-	private TextView user_manager_tv_address;// ¹«Ë¾µØÖ·
-	private TextView user_manager_tv_net;// ¹«Ë¾ÍøÖ·
+	private TextView nicknameTextView;// æ˜µç§°
+	private TextView user_manager_alter_passwd_stub;// å¯†ç 
+	private TextView user_manager_alter_count;// è´¦å·
+	private TextView user_manager_tv_name1;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name2;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name3;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name4;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name5;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name6;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name7;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name8;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name9;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_name10;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub1;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub2;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub3;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub4;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub5;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub6;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub7;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub8;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub9;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_tv_nub10;// è”ç³»äººï¼šï¼Ÿï¼Ÿ
+	private TextView user_manager_centerNub_stub;// æ€»æœº
+	private TextView user_manager_centerFax_stub;// ä¼ çœŸ
+	private TextView user_manager_tv_company;// å…¬å¸åç§°
+	private TextView user_manager_tv_address;// å…¬å¸åœ°å€
+	private TextView user_manager_tv_net;// å…¬å¸ç½‘å€
 
 	private static SharedPreferences sp;
 	public static UserManager userManager = null;
@@ -165,7 +165,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 */
+*/
 	private void loadButton() {
 		title_bar_showleft = (ImageView) findViewById(R.id.title_bar_showleft);
 		user_manager_user_head = (ImageView) findViewById(R.id.user_manager_user_head);
@@ -226,7 +226,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * ÉèÖÃ·µ»ØÀ´µÄÖµ£¬ÓÃsharedPreferenceÀ´È¥³öÀ´
+	 * è®¾ç½®è¿”å›æ¥çš„å€¼ï¼Œç”¨sharedPreferenceæ¥å»å‡ºæ¥
 	 */
 	private void setData() {
 		imageLoader.displayImage(headurl_enterprise, user_manager_user_head,
@@ -250,7 +250,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * ÉèÖÃÁªÏµÈËµÄÖµ
+	 * è®¾ç½®è”ç³»äººçš„å€¼
 	 * 
 	 * @param json_name
 	 */
@@ -371,11 +371,11 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * »ñµÃÕÕÆ¬µÄ¾ø¶ÔÂ·¾¶
+	 * è·å¾—ç…§ç‰‡çš„ç»å¯¹è·¯å¾„
 	 * 
 	 * @param uri
-	 *            ÅÄÕÕ»òÕßÑ¡È¡ÕÕÆ¬·µ»ØµÄÊı¾İ
-	 * @return ·µ»Ø×Ö·û´®
+	 *            æ‹ç…§æˆ–è€…é€‰å–ç…§ç‰‡è¿”å›çš„æ•°æ®
+	 * @return è¿”å›å­—ç¬¦ä¸²
 	 */
 	private String getImagePath(final Uri uri) {
 		String[] projection = { MediaStore.Images.Media.DATA };
@@ -401,7 +401,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * ¼ÓÔØÍêÁËËùÓĞµÄButtonÖ®ºó£¬¼àÌıËùÓĞµÄButton \nÍË³öµ±Ç°activityµÄÊ±ºò½«ËùÓĞµÄÊı¾İ¶¼±£´æÆğÀ´ \n²¢ÇÒÓÃ¶àÏß³Ì´¦ÀíÌá½»ÉÏÈ¥
+	 * åŠ è½½å®Œäº†æ‰€æœ‰çš„Buttonä¹‹åï¼Œç›‘å¬æ‰€æœ‰çš„Button \né€€å‡ºå½“å‰activityçš„æ—¶å€™å°†æ‰€æœ‰çš„æ•°æ®éƒ½ä¿å­˜èµ·æ¥ \nå¹¶ä¸”ç”¨å¤šçº¿ç¨‹å¤„ç†æäº¤ä¸Šå»
 	 */
 	private void listenerButton() {
 		title_bar_showleft.setOnClickListener(new OnClickListener() {
@@ -448,17 +448,16 @@ public class UserControlEnterpriseActivity extends Activity {
 						intent.setClass(UserControlEnterpriseActivity.this,
 								FabuShoujiEnterpriseActivity.class);
 						startActivity(intent);
-					}else {
+					} else {
 						showdialog();
 					}
-				}else {
+				} else {
 					Intent intent = new Intent();
 					intent.setClass(UserControlEnterpriseActivity.this,
 							FabuShoujiEnterpriseActivity.class);
 					startActivity(intent);
 				}
-				
-				
+
 			}
 		});
 		user_manager_user_head.setOnClickListener(new OnClickListener() {
@@ -474,12 +473,8 @@ public class UserControlEnterpriseActivity extends Activity {
 					Intent intent = new Intent();
 					intent.setClass(UserControlEnterpriseActivity.this,
 							PicPagerActivity.class);
-					intent.putExtra(
-							MyConstants.Extra.IMAGES,
-							imageUrls);
-					intent.putExtra(
-							MyConstants.Extra.IMAGE_POSITION,
-							0);
+					intent.putExtra(MyConstants.Extra.IMAGES, imageUrls);
+					intent.putExtra(MyConstants.Extra.IMAGE_POSITION, 0);
 					startActivity(intent);
 				} else {
 					String[] imageUrls = new String[1];
@@ -488,12 +483,8 @@ public class UserControlEnterpriseActivity extends Activity {
 						Intent intent = new Intent();
 						intent.setClass(UserControlEnterpriseActivity.this,
 								PicPagerActivity.class);
-						intent.putExtra(
-								MyConstants.Extra.IMAGES,
-								imageUrls);
-						intent.putExtra(
-								MyConstants.Extra.IMAGE_POSITION,
-								0);
+						intent.putExtra(MyConstants.Extra.IMAGES, imageUrls);
+						intent.putExtra(MyConstants.Extra.IMAGE_POSITION, 0);
 						startActivity(intent);
 					}
 				}
@@ -786,15 +777,15 @@ public class UserControlEnterpriseActivity extends Activity {
 				if (fromqq) {
 					if (isBinder_enterprise) {
 						save2Server();
-					}else {
+					} else {
 						showdialog();
 					}
-				}else {
+				} else {
 					save2Server();
 				}
-				
+
 			}
-			
+
 			private void save2Server() {
 				if (WebIsConnectUtil
 						.showNetState(UserControlEnterpriseActivity.this)) {
@@ -880,7 +871,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * É¾³ıÄ¿Â¼
+	 * åˆ é™¤ç›®å½•
 	 * 
 	 * @param dir
 	 * @return
@@ -897,79 +888,110 @@ public class UserControlEnterpriseActivity extends Activity {
 		}
 		return dir.delete();
 	}
+
 	private void showdialog() {
-		 final Dialog dialog = new Dialog(context);
-		 dialog.setTitle("°ó¶¨Ö¸¶¨ÕËºÅ");
-		 dialog.setCancelable(false);
-		 dialog.setContentView(R.layout.activity_binderdialog);
-		 dialog.show();
-		 final EditText un = (EditText) dialog.findViewById(R.id.user_login_username_hint);
-		 final EditText pw = (EditText) dialog.findViewById(R.id.user_login_password_hint);
-		 Button binder = (Button) dialog.findViewById(R.id.binder_ok);
-		 Button binder_cancel = (Button) dialog.findViewById(R.id.binder_cancel);
-		 
-		 binder.setOnClickListener(new OnClickListener() {
+		final Dialog dialog = new Dialog(context);
+		dialog.setTitle("ç»‘å®šæŒ‡å®šè´¦å·");
+		dialog.setCancelable(false);
+		dialog.setContentView(R.layout.activity_binderdialog_en);
+		dialog.show();
+		final EditText un = (EditText) dialog
+				.findViewById(R.id.user_login_username_hint);
+		final EditText pw = (EditText) dialog
+				.findViewById(R.id.user_login_password_hint);
+		Button binder = (Button) dialog.findViewById(R.id.binder_ok);
+		Button binder_cancel = (Button) dialog.findViewById(R.id.binder_cancel);
+
+		binder.setOnClickListener(new OnClickListener() {
 
 			@Override
-			public void onClick(View arg0) { 
-				if (un.getText().toString().equals("") && pw.getText().toString().equals("")) {
-					MyUtlis.toastInfo(context, "ÕËºÅ»òÃÜÂëÎª¿Õ£¡");
-				}else {
-				 userManager.Binder(context, MyConstants.EN_LOGIN_URL, openid_enterprise, un.getText().toString(),  pw.getText().toString());
-				 userManager.getQQBinder(new IgetQQBinder() {
-					
-					@Override
-					public void getBinderInfo(AllBean userBean) {
-						if (userBean != null) {
-							MyUtlis.toastInfo(context, userBean.getMsg().toString());
-							if (userBean.getStatus().equals("true")) {
-								isBinder_enterprise =true;
-								user_manager_alter_passwd_stub.setText(pw.getText().toString());
-								user_manager_alter_count.setText(un.getText().toString());
-								user_manager_centerNub_stub.setText(userBean.getInfo().getCenter());
-								user_manager_centerFax_stub.setText(userBean.getInfo().getFax());
-								user_manager_tv_company.setText( userBean.getInfo().getCompany());
-								user_manager_tv_address.setText(userBean.getInfo().getAddress());
-								user_manager_tv_net.setText(userBean.getInfo().getNet());
-								user_manager_alter_passwd_stub.setText(pw.getText().toString());
-								user_manager_alter_count.setText(pw.getText().toString());
-								String json_name = userBean.getInfo().getContact();
-								setName(json_name);
-								Editor editor = sp.edit();
-								editor.putString("name_enterprise", userBean.getInfo().getContact());// ÁªÏµÈË
-								editor.putBoolean("isBinder_enterprise", true);// ÉèÖÃÊÇ·ñ°ó¶¨
-								editor.putString("uid_enterprise", userBean.getUid());// »áÔ±id
-								editor.putString("company_center_enterprise", userBean.getInfo()
-										.getCenter());// ×Ü»ú
-								editor.putString("company_fax_enterprise", userBean.getInfo().getFax());// ´«Õæ
-								editor.putString("company_enterprise", userBean.getInfo().getCompany());// ¹«Ë¾Ãû³Æ
-								editor.putString("address_enterprise", userBean.getInfo().getAddress());// ¹«Ë¾µØÖ·
-								editor.putString("net_enterprise", userBean.getInfo().getNet());// ¹«Ë¾ÍøÖ·
-								editor.putString("username_enterprise", un.getText().toString());
-								editor.putString("password_enterprise", pw.getText().toString());
-								editor.commit();
-							}else {
-								Editor editor = sp.edit();
-								editor.putBoolean("isBinder_enterprise", false);
-								editor.commit();
-								isBinder_enterprise = false;
+			public void onClick(View arg0) {
+				if (un.getText().toString().equals("")
+						&& pw.getText().toString().equals("")) {
+					MyUtlis.toastInfo(context, "è´¦å·æˆ–å¯†ç ä¸ºç©ºï¼");
+				} else {
+					userManager.Binder(context, MyConstants.EN_LOGIN_URL,
+							openid_enterprise, un.getText().toString(), pw
+									.getText().toString());
+					userManager.getQQBinder(new IgetQQBinder() {
+
+						@Override
+						public void getBinderInfo(AllBean userBean) {
+							if (userBean != null) {
+								MyUtlis.toastInfo(context, userBean.getMsg()
+										.toString());
+								if (userBean.getStatus().equals("true")) {
+									isBinder_enterprise = true;
+									user_manager_alter_passwd_stub.setText(pw
+											.getText().toString());
+									user_manager_alter_count.setText(un
+											.getText().toString());
+									user_manager_centerNub_stub
+											.setText(userBean.getInfo()
+													.getCenter());
+									user_manager_centerFax_stub
+											.setText(userBean.getInfo()
+													.getFax());
+									user_manager_tv_company.setText(userBean
+											.getInfo().getCompany());
+									user_manager_tv_address.setText(userBean
+											.getInfo().getAddress());
+									user_manager_tv_net.setText(userBean
+											.getInfo().getNet());
+									user_manager_alter_passwd_stub.setText(pw
+											.getText().toString());
+									user_manager_alter_count.setText(pw
+											.getText().toString());
+									String json_name = userBean.getInfo()
+											.getContact();
+									setName(json_name);
+									Editor editor = sp.edit();
+									editor.putString("name_enterprise",
+											userBean.getInfo().getContact());// è”ç³»äºº
+									editor.putBoolean("isBinder_enterprise",
+											true);// è®¾ç½®æ˜¯å¦ç»‘å®š
+									editor.putString("uid_enterprise",
+											userBean.getUid());// ä¼šå‘˜id
+									editor.putString(
+											"company_center_enterprise",
+											userBean.getInfo().getCenter());// æ€»æœº
+									editor.putString("company_fax_enterprise",
+											userBean.getInfo().getFax());// ä¼ çœŸ
+									editor.putString("company_enterprise",
+											userBean.getInfo().getCompany());// å…¬å¸åç§°
+									editor.putString("address_enterprise",
+											userBean.getInfo().getAddress());// å…¬å¸åœ°å€
+									editor.putString("net_enterprise", userBean
+											.getInfo().getNet());// å…¬å¸ç½‘å€
+									editor.putString("username_enterprise", un
+											.getText().toString());
+									editor.putString("password_enterprise", pw
+											.getText().toString());
+									editor.commit();
+								} else {
+									Editor editor = sp.edit();
+									editor.putBoolean("isBinder_enterprise",
+											false);
+									editor.commit();
+									isBinder_enterprise = false;
+								}
 							}
 						}
-					}
-				});
-				dialog.dismiss();
+					});
+					dialog.dismiss();
 				}
 			}
 		});
-		 binder_cancel.setOnClickListener(new OnClickListener() {
-			
+		binder_cancel.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View arg0) {
 				dialog.dismiss();
-				
+
 			}
 		});
 	}
+
 	@Override
 	protected void onDestroy() {
 		if (file.exists() && file != null) {
@@ -986,7 +1008,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * Éú³ÉJsonÃû³Æ×Ö·û´®£¬ĞòÁĞ»¯
+	 * ç”ŸæˆJsonåç§°å­—ç¬¦ä¸²ï¼Œåºåˆ—åŒ–
 	 * 
 	 * @return
 	 */
@@ -1049,7 +1071,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * ½âÎöÁªÏµÈËJsonÊı¾İ
+	 * è§£æè”ç³»äººJsonæ•°æ®
 	 * 
 	 * @param string
 	 * @return

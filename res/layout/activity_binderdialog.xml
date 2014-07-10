@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:background="@null"
             android:minWidth="50.0dip"
-            android:text="@string/user_login_username"
+            android:text="@string/user_login_username_commen"
             android:textColor="@color/black" />
         <EditText
             android:id="@+id/user_login_username_hint"
@@ -30,7 +30,7 @@
             android:layout_marginLeft="10.0dip"
             android:layout_weight="1.0"
             android:background="@null"
-            android:hint="@string/user_login_username_hint" />
+            android:hint="@string/user_binder_username_hint" />
     </LinearLayout>
     <LinearLayout
         style="@style/MMLineEditText"
@@ -52,7 +52,7 @@
             android:layout_marginLeft="10.0dip"
             android:layout_weight="1.0"
             android:background="@null"
-            android:hint="@string/user_login_password_hint" />
+            android:hint="@string/user_binder_pw_hint" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"

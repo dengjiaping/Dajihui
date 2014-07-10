@@ -144,9 +144,9 @@ public class XianshiIndex extends Fragment {
 	}
 
 	private String getVersionName() throws Exception {
-		// »ñÈ¡packagemanagerµÄÊµÀı
+		// ï¿½ï¿½È¡packagemanagerï¿½ï¿½Êµï¿½ï¿½
 		PackageManager packageManager = getActivity().getPackageManager();
-		// getPackageName()ÊÇÄãµ±Ç°ÀàµÄ°üÃû£¬0´ú±íÊÇ»ñÈ¡°æ±¾ĞÅÏ¢
+		// getPackageName()ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½Ç»ï¿½È¡ï¿½æ±¾ï¿½ï¿½Ï¢
 		PackageInfo packInfo = packageManager.getPackageInfo(getActivity()
 				.getPackageName(), 0);
 		String version = packInfo.versionName;
@@ -159,10 +159,10 @@ public class XianshiIndex extends Fragment {
 				//set Dialog show
  				final String url = (String) msg.obj;
 
- 		    	AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
- 		        builder.setTitle("ĞÂ°æ±¾ÌáÊ¾");
- 		        builder.setMessage("ÓĞĞÂ°æ±¾·¢²¼£¬Çë¸üĞÂÊ¹ÓÃ!");
- 		        builder.setPositiveButton("Á¢¼´¸üĞÂ", new android.content.DialogInterface.OnClickListener(){
+ 				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+ 				  builder.setTitle("æ–°ç‰ˆæœ¬æç¤º");
+ 				  builder.setMessage("æœ‰æ–°ç‰ˆæœ¬å‘å¸ƒï¼Œè¯·æ›´æ–°ä½¿ç”¨!");
+ 				  builder.setPositiveButton("ç«‹å³æ›´æ–°",  new android.content.DialogInterface.OnClickListener(){
 
  					public void onClick(DialogInterface dialog, int which) { 
  						Intent viewIntent = new Intent(
@@ -173,7 +173,7 @@ public class XianshiIndex extends Fragment {
  		        	
  		        });
  		        
- 		        builder.setNegativeButton("È¡Ïû", new android.content.DialogInterface.OnClickListener(){
+ 		        builder.setNegativeButton("å–æ¶ˆ", new android.content.DialogInterface.OnClickListener(){
 
  					public void onClick(DialogInterface dialog, int which) {
  					}
@@ -210,7 +210,7 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½
 	 * 
 	 */
 	private void init() {
@@ -240,7 +240,7 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ¼ÓÔØĞèÒªµÄ¿Ø¼ş
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ä¿Ø¼ï¿½
 	 * 
 	 * @param mView
 	 */
@@ -263,7 +263,7 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ¼àÌı¹ã¸æºÍ²úÆ·ÊÂ¼ş
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í²ï¿½Æ·ï¿½Â¼ï¿½
 	 */
 	private void listenerButton() {
 
@@ -290,7 +290,7 @@ public class XianshiIndex extends Fragment {
 		});
 
 		/**
-		 * ¹ã¸æÍ¼Æ¬¼àÌıÊÂ¼ş
+		 * ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 		 */
 
 		viewFlipper.setOnClickListener(clickListener);
@@ -304,7 +304,7 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * Ë¢ĞÂ¼àÌı
+	 * Ë¢ï¿½Â¼ï¿½ï¿½ï¿½
 	 */
 	private void refreshListener() {
 		// Set a listener to be invoked when the list should be refreshed.
@@ -411,7 +411,7 @@ public class XianshiIndex extends Fragment {
 	};
 
 	/**
-	 * µ½»º´æÀïÃæÈ¡Êı¾İ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @author user
 	 * 
@@ -474,7 +474,7 @@ public class XianshiIndex extends Fragment {
 	};
 
 	/**
-	 * ÏÂÒ»¸öÍ¼Æ¬
+	 * ï¿½ï¿½Ò»ï¿½ï¿½Í¼Æ¬
 	 */
 	private void showNextView() {
 
@@ -496,7 +496,7 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ÉÏÒ»¸öÍ¼Æ¬
+	 * ï¿½ï¿½Ò»ï¿½ï¿½Í¼Æ¬
 	 */
 	private void showPreviousView() {
 		displayRatio_selelct(currentPage);
@@ -517,7 +517,7 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ¸ù¾İĞ¡Ô²µãµÄidÀ´ÏÔÊ¾Ğ¡Ô²µã
+	 * ï¿½ï¿½ï¿½ï¿½Ğ¡Ô²ï¿½ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½Ê¾Ğ¡Ô²ï¿½ï¿½
 	 * 
 	 * @param id
 	 */

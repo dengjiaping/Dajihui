@@ -200,6 +200,11 @@
     <string name="user_login_username_en">企业会员</string>
     <string name="binder_dialog_intro">方便邮箱账号或QQ号直接登录</string>
     <string name="user_login_username_hint">请输入会员账号</string>
+    
+    
+    <string name="user_binder_username_hint">邮箱作账号</string>
+    <string name="user_binder_pw_hint">请设置密码</string>
+    
     <string name="binder_dialog_email">请输入邮箱账号</string>
     <string name="binder_dialog_pw">请输入邮箱密码</string>
     <string name="user_login_password">会员密码</string>

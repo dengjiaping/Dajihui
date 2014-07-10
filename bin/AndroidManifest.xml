@@ -3,7 +3,7 @@
     package="com.mzhou.merchant.activity"
     android:installLocation="auto"
     android:versionCode="2" 
-    android:versionName="2.7.3" >
+    android:versionName="2.7.4" >
     
     <uses-sdk
         android:minSdkVersion="8"
