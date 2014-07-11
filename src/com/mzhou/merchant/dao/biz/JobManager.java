@@ -37,7 +37,7 @@ public class JobManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡ÕĞÆ¸ËùÓĞµÄĞÅÏ¢
+	 * è·å–æ‹›è˜æ‰€æœ‰çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -153,10 +153,10 @@ public class JobManager extends Activity {
 	private IBackInfo backInfo;
 
 	/**
-	 * ½Ó¿ÚµÄÊµÏÖ·½·¨£¬½«½Ó¿Ú´«µİ³öÀ´£¬È»ºóÔÚĞèÒªÊµÏÖµÄµØ·½È¥ÊµÏÖ
+	 * æ¥å£çš„å®ç°æ–¹æ³•ï¼Œå°†æ¥å£ä¼ é€’å‡ºæ¥ï¼Œç„¶ååœ¨éœ€è¦å®ç°çš„åœ°æ–¹å»å®ç°
 	 * 
 	 * @param igetUserInfo
-	 *            ĞèÒªÊµÏÖµÄ½Ó¿Ú »ñÈ¡ÓÃ»§ĞÅÏ¢µÄ»Øµ÷·½·¨
+	 *            éœ€è¦å®ç°çš„æ¥å£ è·å–ç”¨æˆ·ä¿¡æ¯çš„å›è°ƒæ–¹æ³•
 	 * 
 	 */
 	public void getJobInfoIml(IgetJobInfo igetJobInfo) {

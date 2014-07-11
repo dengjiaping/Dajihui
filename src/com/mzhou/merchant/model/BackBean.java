@@ -4,9 +4,9 @@ import java.io.Serializable;
 public class BackBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	private String status; //×´Ì¬
-	private String msg; //ÏûÏ¢
-	private String uid; //id
+	private String status; 
+	private String msg; 
+	private String uid; 
 
  
 	public BackBean(String status, String msg, String uid)

@@ -4,33 +4,33 @@ import java.io.Serializable;
 public class ProductsEnterpriseByIdBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	private String id; //锟斤拷品id
-	private String ctime;  //锟斤拷锟斤拷锟斤拷品锟斤拷时锟斤拷
-	private String content;  //锟斤拷品锟斤拷锟�	
-	private String classid;//锟斤拷锟絠d
+	private String id;  
+	private String ctime;  
+	private String content;   
+	private String classid; 
 	private String is_en;
 	private String is_show;
-	private String brand;//品锟斤拷
-	private String pic;//图片锟斤拷址 
-	private String type;//锟酵猴拷
-	private String chip;//芯片
-	private String size;//锟竭达拷
-	private String system;//系统
-	private String uid;//锟矫伙拷id
-	private String company;//锟斤拷司锟斤拷锟�	
-	private String address;//锟斤拷司锟斤拷址
-	private String net;//锟斤拷司锟斤拷址
-	private String prec_pixel;//前锟斤拷锟斤拷
-	private String next_pixel;//锟斤拷锟斤拷锟斤拷
-	private String distinguish;//锟街憋拷锟斤拷
-	private String contact;//锟斤拷系锟斤拷
-	private String fax;//锟斤拷锟斤拷
-	private String center;//锟杰伙拷
-	private String rom; //锟斤拷锟斤拷锟节达拷
-	private String ah;//锟斤拷锟斤拷锟斤拷锟�
+	private String brand; 
+	private String pic; 
+	private String type; 
+	private String chip; 
+	private String size; 
+	private String system; 
+	private String uid; 
+	private String company; 
+	private String address; 
+	private String net; 
+	private String prec_pixel; 
+	private String next_pixel; 
+	private String distinguish; 
+	private String contact; 
+	private String fax; 
+	private String center; 
+	private String rom; 
+	private String ah; 
 	private String videopic;
-	 
-	 
+
+
  
 	public ProductsEnterpriseByIdBean(String id, String ctime, String content,
 			String classid, String is_en, String is_show, String brand,
@@ -284,5 +284,5 @@ public class ProductsEnterpriseByIdBean implements Serializable
 	public ProductsEnterpriseByIdBean() {
 		super();
 	}
-	 
+
 }

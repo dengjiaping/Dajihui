@@ -33,7 +33,7 @@ public class MyJobAdapter extends BaseAdapter {
 
 	private int clickTemp = -1;
 
-	// 标识选择的Item
+	// 鏍囪瘑閫夋嫨鐨処tem
 	public void setSeclection(int position) {
 		clickTemp = position;
 	}

@@ -5,7 +5,6 @@ public class ProductCommentBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 留言时间，留言内容，联系人，联系方式，类别
 	 */
 	private String id;
 	private String content;

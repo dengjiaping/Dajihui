@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import android.util.Log;
 
 /**
- * Author: Mzhou Date:2014-7-8����12:47:24</br> Desc:</br>
  * 
  */
 
@@ -20,7 +19,7 @@ public class CustomTextView extends TextView {
 	public Context mContext = null;
 	public Paint mPaint = null;
 	public int mTextHeight = 1920;
-//	public int mTextHeight = 1080;
+	// public int mTextHeight = 1080;
 	public int mBaikeTextHeight = 0;
 	public int mTextWidth = 1920;
 	public String mText = "";
@@ -118,8 +117,6 @@ public class CustomTextView extends TextView {
 
 		ArrayList<LinePar> tempLineArray = new ArrayList<LinePar>();
 
-		// ���ַ����һ��ѭ��
-
 		for (int i = 0; i < mTextStr.length(); i++) {
 
 			char ch = mTextStr.charAt(i);
@@ -136,7 +133,6 @@ public class CustomTextView extends TextView {
 
 			/*
 			 * 
-			 * ����ǻ��з���һ�е���Ϣ�����б���
 			 */
 
 			if (ch == '\n' && tempStart != i) {
@@ -169,9 +165,6 @@ public class CustomTextView extends TextView {
 
 					/*
 					 * 
-					 * �������ʱ�ġ���һ�е�һ���ַ�����жϣ�����ǡ��ɶԳ��ֱ�㡱���������
-					 * 
-					 * ����һ�е��ַ���������죬���߲�����
 					 */
 
 					if (BaikeConstant.isLeftPunctuation(ch) == true) {
@@ -205,11 +198,6 @@ public class CustomTextView extends TextView {
 
 					} else if (BaikeConstant.isRightPunctuation(ch) == true) {
 
-						/*
-						 * 
-						 * �������ʱ�ġ���һ�е�һ���ַ�����жϣ�����ǡ��ɶԳ��ֱ�㡱���Ҳ���
-						 */
-
 						Log.i(TAG,
 
 						"the char is the right half of the punctuation");
@@ -235,19 +223,6 @@ public class CustomTextView extends TextView {
 							&& BaikeConstant
 
 							.isLeftPunctuation(nextChar) == false) {
-
-								/*
-								 * 
-								 * �������ʱ�ġ���һ�е�һ���ַ�����жϣ�����ǡ��ɶԳ��ֱ�㡱���Ҳ���
-								 * 
-								 * 
-								 * 
-								 * ���ң�������һ���ַ��ǡ�Ӣ�ı�㡱�������ı�㡱�����Ҳ��㡱
-								 * 
-								 * 
-								 * 
-								 * ���?����������㶼������һ�н��л���
-								 */
 
 								String nextStr = String.valueOf(nextChar);
 
@@ -277,19 +252,6 @@ public class CustomTextView extends TextView {
 
 							} else {
 
-								/*
-								 * 
-								 * �������ʱ�ġ���һ�е�һ���ַ�����жϣ�����ǡ��ɶԳ��ֱ�㡱���Ҳ���
-								 * 
-								 * 
-								 * 
-								 * ���ң�������һ���ַ��ǡ�����㡱���Ǳ����ַ�
-								 * 
-								 * 
-								 * 
-								 * ���?ֻ���Ҳ��������һ�н��л���
-								 */
-
 								float tempWordSpaceOffset = (float) (tempLineWidth - mTextWidth)
 
 								/ (float) (i - tempStart);
@@ -306,11 +268,6 @@ public class CustomTextView extends TextView {
 
 						/*
 						 * 
-						 * �����һ�еĵ�һ���ַ��ǡ��������ֵı�㡱�͡��Ǳ���ַ�
-						 */
-
-						/*
-						 * 
 						 * if the char is not the left And Right half of the
 						 * 
 						 * punctuation.
@@ -319,13 +276,6 @@ public class CustomTextView extends TextView {
 						if (BaikeConstant.isHalfPunctuation(ch) == true
 
 						|| BaikeConstant.isPunctuation(ch) == true) {
-
-							/*
-							 * 
-							 * �����һ�еĵ�һ���ַ��ǡ��������ֵı�㡱
-							 * 
-							 * ������һ�н��л���
-							 */
 
 							/*
 							 * 
@@ -346,11 +296,6 @@ public class CustomTextView extends TextView {
 
 							/*
 							 * 
-							 * �����һ�еĵ�һ���ַ��ǡ��Ǳ�㡱
-							 */
-
-							/*
-							 * 
 							 * If the current character is not a punctuation
 							 */
 
@@ -359,19 +304,6 @@ public class CustomTextView extends TextView {
 								char preChar = mTextStr.charAt(i - 1);
 
 								if (BaikeConstant.isLeftPunctuation(preChar) == true) {
-
-									/*
-									 * 
-									 * �����һ�еĵ�һ���ַ��ǡ��Ǳ�㡱
-									 * 
-									 * 
-									 * 
-									 * ��һ���ַ�(����β���ַ�)���������
-									 * 
-									 * 
-									 * 
-									 * ���?�����ַ�ȫ��������һ�н��л���
-									 */
 
 									String preStr = String.valueOf(preChar);
 
@@ -410,19 +342,6 @@ public class CustomTextView extends TextView {
 									tempWordSpaceOffset, tempLineArray);
 
 								} else {
-
-									/*
-									 * 
-									 * �����һ�еĵ�һ���ַ��ǡ��Ǳ�㡱
-									 * 
-									 * 
-									 * 
-									 * ��һ���ַ�(����β���ַ�)���ǡ�������㡱
-									 * 
-									 * 
-									 * 
-									 * ���?��һ�еĵ�һ���ַ������һ��(����������)
-									 */
 
 									i--;
 

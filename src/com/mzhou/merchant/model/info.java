@@ -4,19 +4,19 @@ import java.io.Serializable;
 public class info implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	private String category;// 类别
-	private String username; //帐号
-	private String nickname; //昵称
-	private String contact; //联系人
-	private String password;//密码
-	private String phonenub;// 手机号码
-	private String email; //邮箱
-	private String company; //公司名称
-	private String headurl; //头像地址
-	private String address; //公司地址
-	private String net; //公司网址
-	private String fax; //传真
-	private String center;//总机
+	private String category; 
+	private String username;  
+	private String nickname;  
+	private String contact;  
+	private String password; 
+	private String phonenub; 
+	private String email; 
+	private String company; 
+	private String headurl; 
+	private String address; 
+	private String net; 
+	private String fax;  
+	private String center; 
 	private String uid;
 	 
 	public info(String category, String username, String nickname, String contact, String password, String phonenub,

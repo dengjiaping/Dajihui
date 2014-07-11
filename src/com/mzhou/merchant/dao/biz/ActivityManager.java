@@ -28,7 +28,7 @@ public class ActivityManager extends Activity {
 	private CustomProgressDialog progressDialog = null;
 
 	/**
-	 * ·¢²¼»î¶¯ »ñÈ¡»î¶¯ÁĞ±í
+	 * å‘å¸ƒæ´»åŠ¨ è·å–æ´»åŠ¨åˆ—è¡¨
 	 */
 	public ActivityManager() {
 	}
@@ -63,7 +63,7 @@ public class ActivityManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡»î¶¯ËùÓĞµÄĞÅÏ¢
+	 * è·å–æ´»åŠ¨æ‰€æœ‰çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -107,7 +107,7 @@ public class ActivityManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡»î¶¯ÏêÏ¸µÄĞÅÏ¢
+	 * è·å–æ´»åŠ¨è¯¦ç»†çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -152,7 +152,7 @@ public class ActivityManager extends Activity {
 	}
 
 	/**
-	 * ·¢²¼»î¶¯ĞÅÏ¢
+	 * å‘å¸ƒæ´»åŠ¨ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -205,7 +205,7 @@ public class ActivityManager extends Activity {
 	}
 
 	/**
-	 * ²Î¼Ó»î¶¯
+	 * å‚åŠ æ´»åŠ¨
 	 * 
 	 * @author user
 	 * 
@@ -258,7 +258,7 @@ public class ActivityManager extends Activity {
 	}
 
 	/**
-	 * ²Î¼Ó»î¶¯ÈËÔ±ÁĞ±í
+	 * å‚åŠ æ´»åŠ¨äººå‘˜åˆ—è¡¨
 	 * 
 	 * @author user
 	 * 
@@ -309,10 +309,10 @@ public class ActivityManager extends Activity {
 	private IgetActivityMemberInfo getActivityMemberInfo;
 
 	/**
-	 * ½Ó¿ÚµÄÊµÏÖ·½·¨£¬½«½Ó¿Ú´«µİ³öÀ´£¬È»ºóÔÚĞèÒªÊµÏÖµÄµØ·½È¥ÊµÏÖ
+	 * æ¥å£çš„å®ç°æ–¹æ³•ï¼Œå°†æ¥å£ä¼ é€’å‡ºæ¥ï¼Œç„¶ååœ¨éœ€è¦å®ç°çš„åœ°æ–¹å»å®ç°
 	 * 
 	 * @param igetUserInfo
-	 *            ĞèÒªÊµÏÖµÄ½Ó¿Ú »ñÈ¡ÓÃ»§ĞÅÏ¢µÄ»Øµ÷·½·¨
+	 *            éœ€è¦å®ç°çš„æ¥å£ è·å–ç”¨æˆ·ä¿¡æ¯çš„å›è°ƒæ–¹æ³•
 	 * 
 	 */
 	public void getActivityInfoIml(IgetActivityInfo igetActivityInfo) {

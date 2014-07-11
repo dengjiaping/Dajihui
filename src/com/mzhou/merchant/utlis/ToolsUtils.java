@@ -12,7 +12,7 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 
 /**
- * Author: Mzhou Date:2014-4-28ÏÂÎç6:26:21</br> Desc:</br>
+ * Author: Mzhou Date:2014-4-28ä¸‹åˆ6:26:21</br> Desc:</br>
  * 
  */
 public class ToolsUtils {

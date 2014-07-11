@@ -13,8 +13,8 @@ public class CustomMultiPartEntity extends MultipartEntity {
  
 	public final ProgressListener listener;
 /**
- * Í¨¹ı½ø¶ÈÌõ¼àÌıÉÏ´«ÎÄ¼ş
- * @param listener ½ø¶ÈÌõ¼àÌı½Ó¿Ú
+ * é€šè¿‡è¿›åº¦æ¡ç›‘å¬ä¸Šä¼ æ–‡ä»¶
+ * @param listener è¿›åº¦æ¡ç›‘å¬æ¥å£
  */
 	public CustomMultiPartEntity(final ProgressListener listener) {
 		super();

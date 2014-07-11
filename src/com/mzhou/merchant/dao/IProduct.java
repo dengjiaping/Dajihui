@@ -12,14 +12,14 @@ import com.mzhou.merchant.model.PublishProductBean;
 
 public class IProduct {
 	/**
-	 * »ñÈ¡²úÆ·ĞÅÏ¢½Ó¿Ú
+	 * è·å–äº§å“ä¿¡æ¯æ¥å£
 	 */
 	public interface IgetProductInfo {
 		public void getProductInfo(List<ProductsBean> productsBeans);
 	}
 
 	/**
-	 * »ñÈ¡²úÆ·Àà±ğ½Ó¿Ú
+	 * è·å–äº§å“ç±»åˆ«æ¥å£
 	 * 
 	 * @author user
 	 * 
@@ -29,7 +29,7 @@ public class IProduct {
 	}
 
 	/**
-	 * ¸ù¾İ²úÆ·id»ñÈ¡²úÆ·ĞÅÏ¢
+	 * æ ¹æ®äº§å“idè·å–äº§å“ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -39,7 +39,7 @@ public class IProduct {
 	}
 
 	/**
-	 * ¸ù¾İ²úÆ·id»ñÈ¡ÆóÒµ²úÆ·
+	 * æ ¹æ®äº§å“idè·å–ä¼ä¸šäº§å“
 	 * 
 	 * @author user
 	 * 
@@ -50,7 +50,7 @@ public class IProduct {
 	}
 
 	/**
-	 * ·¢²¼²úÆ·ĞÅÏ¢
+	 * å‘å¸ƒäº§å“ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -60,7 +60,7 @@ public class IProduct {
 	}
 
 	/**
-	 * »ñÈ¡ÆÀÂÛ
+	 * è·å–è¯„è®º
 	 * 
 	 * @author user
 	 * 
@@ -70,7 +70,7 @@ public class IProduct {
 	}
 
 	/**
-	 * »ñÈ¡¹«Ë¾¼ò½é
+	 * è·å–å…¬å¸ç®€ä»‹
 	 * 
 	 * @author user
 	 * 
@@ -79,7 +79,7 @@ public class IProduct {
 		public void getCompanyInfo(AboutCompany aboutCompany);
 	}
 	/**
-	 * É¾³ı²úÆ·
+	 * åˆ é™¤äº§å“
 	 * @author Mzhou
 	 *
 	 */

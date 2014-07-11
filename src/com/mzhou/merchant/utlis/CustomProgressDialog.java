@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
  /**
-  * 自定义进度条
+  * 鑷畾涔夎繘搴︽潯
   * @author user
   *
   */
@@ -59,7 +59,7 @@ public class CustomProgressDialog extends Dialog {
 
 	/**
 	 * 
-	 * [Summary] setTitile 标题
+	 * [Summary] setTitile 鏍囬
 	 * 
 	 * @param strTitle
 	 * @return
@@ -71,7 +71,7 @@ public class CustomProgressDialog extends Dialog {
 
 	/**
 	 * 
-	 * [Summary] setMessage 提示内容
+	 * [Summary] setMessage 鎻愮ず鍐呭
 	 * 
 	 * @param strMessage
 	 * @return

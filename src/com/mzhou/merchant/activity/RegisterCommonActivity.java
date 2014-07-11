@@ -102,7 +102,7 @@ public class RegisterCommonActivity extends Activity {
 							final String pw_pro_an = getEditText(user_register_passwd_an);
 							userManager.Register(RegisterCommonActivity.this,
 									MyConstants.LOGIN_URL, username, password,
-									username, "Àà±ð", pw_pro, pw_pro_an);
+									username, "ç±»åˆ«", pw_pro, pw_pro_an);
 							userManager.getUserInfoIml(new IgetUserInfo() {
 
 								@Override

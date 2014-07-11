@@ -1,7 +1,7 @@
 package com.mzhou.merchant.myview;
 
 /**
- *Author: Mzhou    Date:2014-7-8ÏÂÎç1:45:07</br>
+ *Author: Mzhou    Date:2014-7-8ä¸‹åˆ1:45:07</br>
  *Desc:</br>
  *
  */

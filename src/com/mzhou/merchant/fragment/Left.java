@@ -136,7 +136,7 @@ public class Left extends Fragment {
 		title_bar_zhaopin = (TextView) view
 				.findViewById(R.id.title_bar_zhaopin);
 		title_bar_index = (TextView) view.findViewById(R.id.title_bar_ind);
-		if (isEnterprise) {// ÅĞ¶ÏÊÇ·ñÊÇÆóÒµ»áÔ±µÇÂ½£¬Èç¹ûÊÇÆóÒµ»áÔ±£¬ÉèÖÃÆóÒµ»áÔ±µÄĞÅÏ¢£¬·ñÔò£¬ÆÕÍ¨»áÔ±
+		if (isEnterprise) {// åˆ¤æ–­æ˜¯å¦æ˜¯ä¼ä¸šä¼šå‘˜ç™»é™†ï¼Œå¦‚æœæ˜¯ä¼ä¸šä¼šå‘˜ï¼Œè®¾ç½®ä¼ä¸šä¼šå‘˜çš„ä¿¡æ¯ï¼Œå¦åˆ™ï¼Œæ™®é€šä¼šå‘˜
 			if (isLogin_enterprise) {
 				title_bar_user_name.setText(nickname_enterprise);
 				title_bar_user_login.setText(getResources().getString(
@@ -174,8 +174,8 @@ public class Left extends Fragment {
 			@Override
 			public void onClick(View v) {
 
-				if (isEnterprise) {// ÅĞ¶ÏÊÇ·ñÊÇÆóÒµ»áÔ±
-					if (isLogin_enterprise) {// ÅĞ¶ÏÆóÒµ»áÔ±ÊÇ·ñÒÑ¾­µÇÂ½
+				if (isEnterprise) {// åˆ¤æ–­æ˜¯å¦æ˜¯ä¼ä¸šä¼šå‘˜
+					if (isLogin_enterprise) {// åˆ¤æ–­ä¼ä¸šä¼šå‘˜æ˜¯å¦å·²ç»ç™»é™†
 						
 						Intent intent = new Intent();
 						intent.setClass(getActivity(),

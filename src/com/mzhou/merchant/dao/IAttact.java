@@ -6,7 +6,7 @@ import com.mzhou.merchant.model.AttactBean;
 
 public class IAttact {
 	/**
-	 * 定义招商接口
+	 * 瀹氫箟鎷涘晢鎺ュ彛
 	 */
 	public interface IgetAttactInfo {
 		public void getAttactInfo(List<AttactBean> attactBeans);

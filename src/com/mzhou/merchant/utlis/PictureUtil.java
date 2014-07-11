@@ -41,47 +41,47 @@ public class PictureUtil {
 	}
 	private static Bitmap getimage(String srcPath) {  
         BitmapFactory.Options newOpts = new BitmapFactory.Options();  
-        //¿ªÊ¼¶ÁÈëÍ¼Æ¬£¬´ËÊ±°Ñoptions.inJustDecodeBounds Éè»ØtrueÁË  
+        //å¼€å§‹è¯»å…¥å›¾ç‰‡ï¼Œæ­¤æ—¶æŠŠoptions.inJustDecodeBounds è®¾å›trueäº†  
         newOpts.inJustDecodeBounds = true;  
-        Bitmap bitmap = BitmapFactory.decodeFile(srcPath,newOpts);//´ËÊ±·µ»ØbmÎª¿Õ  
+        Bitmap bitmap = BitmapFactory.decodeFile(srcPath,newOpts);//æ­¤æ—¶è¿”å›bmä¸ºç©º  
           
         newOpts.inJustDecodeBounds = false;  
         int w = newOpts.outWidth;  
         int h = newOpts.outHeight;  
-        //ÏÖÔÚÖ÷Á÷ÊÖ»ú±È½Ï¶àÊÇ800*480·Ö±æÂÊ£¬ËùÒÔ¸ßºÍ¿íÎÒÃÇÉèÖÃÎª  
-        float hh = 800f;//ÕâÀïÉèÖÃ¸ß¶ÈÎª800f  
-        float ww = 480f;//ÕâÀïÉèÖÃ¿í¶ÈÎª480f  
-        //Ëõ·Å±È¡£ÓÉÓÚÊÇ¹Ì¶¨±ÈÀıËõ·Å£¬Ö»ÓÃ¸ß»òÕß¿íÆäÖĞÒ»¸öÊı¾İ½øĞĞ¼ÆËã¼´¿É  
-        int be = 1;//be=1±íÊ¾²»Ëõ·Å  
-        if (w > h && w > ww) {//Èç¹û¿í¶È´óµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å  
+        //ç°åœ¨ä¸»æµæ‰‹æœºæ¯”è¾ƒå¤šæ˜¯800*480åˆ†è¾¨ç‡ï¼Œæ‰€ä»¥é«˜å’Œå®½æˆ‘ä»¬è®¾ç½®ä¸º  
+        float hh = 800f;//è¿™é‡Œè®¾ç½®é«˜åº¦ä¸º800f  
+        float ww = 480f;//è¿™é‡Œè®¾ç½®å®½åº¦ä¸º480f  
+        //ç¼©æ”¾æ¯”ã€‚ç”±äºæ˜¯å›ºå®šæ¯”ä¾‹ç¼©æ”¾ï¼Œåªç”¨é«˜æˆ–è€…å®½å…¶ä¸­ä¸€ä¸ªæ•°æ®è¿›è¡Œè®¡ç®—å³å¯  
+        int be = 1;//be=1è¡¨ç¤ºä¸ç¼©æ”¾  
+        if (w > h && w > ww) {//å¦‚æœå®½åº¦å¤§çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾  
             be = (int) (newOpts.outWidth / ww);  
-        } else if (w < h && h > hh) {//Èç¹û¸ß¶È¸ßµÄ»°¸ù¾İ¿í¶È¹Ì¶¨´óĞ¡Ëõ·Å  
+        } else if (w < h && h > hh) {//å¦‚æœé«˜åº¦é«˜çš„è¯æ ¹æ®å®½åº¦å›ºå®šå¤§å°ç¼©æ”¾  
             be = (int) (newOpts.outHeight / hh);  
         }  
         if (be <= 0)  
             be = 1;  
-        newOpts.inSampleSize = be;//ÉèÖÃËõ·Å±ÈÀı  
-        //ÖØĞÂ¶ÁÈëÍ¼Æ¬£¬×¢Òâ´ËÊ±ÒÑ¾­°Ñoptions.inJustDecodeBounds Éè»ØfalseÁË  
+        newOpts.inSampleSize = be;//è®¾ç½®ç¼©æ”¾æ¯”ä¾‹  
+        //é‡æ–°è¯»å…¥å›¾ç‰‡ï¼Œæ³¨æ„æ­¤æ—¶å·²ç»æŠŠoptions.inJustDecodeBounds è®¾å›falseäº†  
         bitmap = BitmapFactory.decodeFile(srcPath, newOpts);  
-        return compressImage(bitmap);//Ñ¹ËõºÃ±ÈÀı´óĞ¡ºóÔÙ½øĞĞÖÊÁ¿Ñ¹Ëõ  
+        return compressImage(bitmap);//å‹ç¼©å¥½æ¯”ä¾‹å¤§å°åå†è¿›è¡Œè´¨é‡å‹ç¼©  
     } 
 	private static Bitmap compressImage(Bitmap image) {  
 		  
         ByteArrayOutputStream baos = new ByteArrayOutputStream();  
-        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//ÖÊÁ¿Ñ¹Ëõ·½·¨£¬ÕâÀï100±íÊ¾²»Ñ¹Ëõ£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ  
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//è´¨é‡å‹ç¼©æ–¹æ³•ï¼Œè¿™é‡Œ100è¡¨ç¤ºä¸å‹ç¼©ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­  
         int options = 100;  
-        while ( baos.toByteArray().length / 1024>1024) {  //Ñ­»·ÅĞ¶ÏÈç¹ûÑ¹ËõºóÍ¼Æ¬ÊÇ·ñ´óÓÚ100kb,´óÓÚ¼ÌĞøÑ¹Ëõ         
-            baos.reset();//ÖØÖÃbaos¼´Çå¿Õbaos  
-            image.compress(Bitmap.CompressFormat.JPEG, options, baos);//ÕâÀïÑ¹Ëõoptions%£¬°ÑÑ¹ËõºóµÄÊı¾İ´æ·Åµ½baosÖĞ  
-            options -= 10;//Ã¿´Î¶¼¼õÉÙ10  
+        while ( baos.toByteArray().length / 1024>1024) {  //å¾ªç¯åˆ¤æ–­å¦‚æœå‹ç¼©åå›¾ç‰‡æ˜¯å¦å¤§äº100kb,å¤§äºç»§ç»­å‹ç¼©         
+            baos.reset();//é‡ç½®baoså³æ¸…ç©ºbaos  
+            image.compress(Bitmap.CompressFormat.JPEG, options, baos);//è¿™é‡Œå‹ç¼©options%ï¼ŒæŠŠå‹ç¼©åçš„æ•°æ®å­˜æ”¾åˆ°baosä¸­  
+            options -= 10;//æ¯æ¬¡éƒ½å‡å°‘10  
         }  
-        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//°ÑÑ¹ËõºóµÄÊı¾İbaos´æ·Åµ½ByteArrayInputStreamÖĞ  
-        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//°ÑByteArrayInputStreamÊı¾İÉú³ÉÍ¼Æ¬  
+        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//æŠŠå‹ç¼©åçš„æ•°æ®baoså­˜æ”¾åˆ°ByteArrayInputStreamä¸­  
+        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//æŠŠByteArrayInputStreamæ•°æ®ç”Ÿæˆå›¾ç‰‡  
         return bitmap;  
     } 
 public static String Bitmap2StrByBase64(Bitmap bit){  
 	   ByteArrayOutputStream bos=new ByteArrayOutputStream();  
-	   bit.compress(CompressFormat.JPEG, 50, bos);//²ÎÊı100±íÊ¾²»Ñ¹Ëõ  
+	   bit.compress(CompressFormat.JPEG, 50, bos);//å‚æ•°100è¡¨ç¤ºä¸å‹ç¼©  
 	   byte[] bytes=bos.toByteArray();  
 	   return Base64.encodeToString(bytes, Base64.DEFAULT);  
 	}

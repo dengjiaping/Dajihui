@@ -22,10 +22,10 @@ import android.util.Log;
 
 public class GetDataByPostUtil extends Activity {
 	/**
-	 * Í¨¹ıpost ÓëÍøÂçÁ¬½Ó µÃµ½·µ»Ø×´Ì¬Âë 200 ³É¹¦Á¬½Ó£¬·ñÔòÎªÁ¬½ÓÊ§°Ü Í¨¹ıÏìÓ¦Àà±ğÊµÌåµÃµ½·µ»ØÊı¾İ
+	 * é€šè¿‡post ä¸ç½‘ç»œè¿æ¥ å¾—åˆ°è¿”å›çŠ¶æ€ç  200 æˆåŠŸè¿æ¥ï¼Œå¦åˆ™ä¸ºè¿æ¥å¤±è´¥ é€šè¿‡å“åº”ç±»åˆ«å®ä½“å¾—åˆ°è¿”å›æ•°æ®
 	 * 
 	 * @param httppost
-	 * @return µÃµ½ÍøÂçÊı¾İÎª×Ö·û´®£¬Ä¬ÈÏÎª¿Õ
+	 * @return å¾—åˆ°ç½‘ç»œæ•°æ®ä¸ºå­—ç¬¦ä¸²ï¼Œé»˜è®¤ä¸ºç©º
 	 */
 	public static String queryStringForPost(HttpPost httppost, Context context) {
 		String result = null;
@@ -44,17 +44,17 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * µÇÂ¼
+	 * ç™»å½•
 	 * 
 	 * @param url
-	 *            µÇÂ¼µØÖ·
+	 *            ç™»å½•åœ°å€
 	 * @param subject
-	 *            µÇÂ¼²ÎÊı
+	 *            ç™»å½•å‚æ•°
 	 * @param un
-	 *            ÓÃ»§Ãû
+	 *            ç”¨æˆ·å
 	 * @param pw
-	 *            ÃÜÂë
-	 * @return jsonÊı¾İ
+	 *            å¯†ç 
+	 * @return jsonæ•°æ®
 	 */
 /*	public static String login(Context context, String url,
 			final String subject, final String un, final String pw) {
@@ -79,17 +79,17 @@ public class GetDataByPostUtil extends Activity {
  
 
 	/**
-	 * ÓÃ»§×¢²á
+	 * ç”¨æˆ·æ³¨å†Œ
 	 * 
 	 * @param url
-	 *            ×¢²áµØÖ·
+	 *            æ³¨å†Œåœ°å€
 	 * @param subject
-	 *            ²ÎÊı
+	 *            å‚æ•°
 	 * @param un
-	 *            ÓÃ»§Ãû
+	 *            ç”¨æˆ·å
 	 * @param pw
-	 *            ÓÃ»§ÃÜÂë
-	 * @return ·µ»ØÓÃ»§×¢²áJsonÊı¾İ
+	 *            ç”¨æˆ·å¯†ç 
+	 * @return è¿”å›ç”¨æˆ·æ³¨å†ŒJsonæ•°æ®
 	 */
 	public static String check(Context context, String url,
 			final String openid ) {
@@ -155,7 +155,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ÕÒ»ØÎÊÌâ
+	 * æ‰¾å›é—®é¢˜
 	 * 
 	 * @param context
 	 * @param url
@@ -182,7 +182,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ÑéÖ¤ÎÊÌâ´ğ°¸
+	 * éªŒè¯é—®é¢˜ç­”æ¡ˆ
 	 * 
 	 * @param context
 	 * @param url
@@ -214,7 +214,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ÖØÖÃÃÜÂë
+	 * é‡ç½®å¯†ç 
 	 * 
 	 * @param context
 	 * @param url
@@ -246,7 +246,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * Òâ¼û·´À¡
+	 * æ„è§åé¦ˆ
 	 * 
 	 * @param context
 	 * @param url
@@ -276,7 +276,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ·¢²¼Çó¹ºĞÅÏ¢
+	 * å‘å¸ƒæ±‚è´­ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -310,7 +310,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡Çó¹ºĞÅÏ¢
+	 * è·å–æ±‚è´­ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -340,7 +340,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡ĞÂÎÅĞÅÏ¢
+	 * è·å–æ–°é—»ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -368,7 +368,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡µ¥ÌõĞÂÎÅĞÅÏ¢
+	 * è·å–å•æ¡æ–°é—»ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -395,7 +395,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡µ¥ÌõĞÂÎÅµÄÆÀÂÛ
+	 * è·å–å•æ¡æ–°é—»çš„è¯„è®º
 	 * 
 	 * @param url
 	 * @param subject
@@ -425,7 +425,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ·¢²¼ĞÂÎÅµÄÆÀÂÛ
+	 * å‘å¸ƒæ–°é—»çš„è¯„è®º
 	 * 
 	 * @param url
 	 * @param subject
@@ -476,7 +476,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ¸ù¾İÀà±ğidÀ´»ñÈ¡²úÆ·ĞÅÏ¢
+	 * æ ¹æ®ç±»åˆ«idæ¥è·å–äº§å“ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -506,7 +506,7 @@ public class GetDataByPostUtil extends Activity {
 		return "[]";
 	}
 	/**
-	 * »ñÈ¡ÒÑ¾­·¢²¼µÄ²úÆ·
+	 * è·å–å·²ç»å‘å¸ƒçš„äº§å“
 	 * @param context
 	 * @param url
 	 * @param subject
@@ -560,7 +560,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * logoÁĞ±í
+	 * logoåˆ—è¡¨
 	 * 
 	 * @param context
 	 * @param url
@@ -595,7 +595,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * Æ·ÅÆÁĞ±íĞÅÏ¢
+	 * å“ç‰Œåˆ—è¡¨ä¿¡æ¯
 	 * 
 	 * @param context
 	 * @param url
@@ -630,7 +630,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ¸ù¾İ²úÆ·idÀ´»ñÈ¡µ¥Ìõ²úÆ·ĞÅÏ¢
+	 * æ ¹æ®äº§å“idæ¥è·å–å•æ¡äº§å“ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -675,7 +675,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * Ë¢ĞÂ²úÆ·ĞÅÏ¢
+	 * åˆ·æ–°äº§å“ä¿¡æ¯
 	 * 
 	 * @param context
 	 * @param url
@@ -705,7 +705,7 @@ public class GetDataByPostUtil extends Activity {
 	} 
 
 	/**
-	 * É¾³ıµ¥Ìø²úÆ·ĞÅÏ¢
+	 * åˆ é™¤å•è·³äº§å“ä¿¡æ¯
 	 * 
 	 * @param context
 	 * @param url
@@ -736,7 +736,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * ·¢²¼ÁôÑÔĞÅÏ¢
+	 * å‘å¸ƒç•™è¨€ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -793,7 +793,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡ÕĞÆ¸ĞÅÏ¢
+	 * è·å–æ‹›è˜ä¿¡æ¯
 	 * 
 	 * @param url
 	 * @param subject
@@ -897,7 +897,7 @@ public class GetDataByPostUtil extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡¹ã¸æ
+	 * è·å–å¹¿å‘Š
 	 */
 	public static String GetAdInfo(Context context, String url, String subject,
 			String position, int channel) {

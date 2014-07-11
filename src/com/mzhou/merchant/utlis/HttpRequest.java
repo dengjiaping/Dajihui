@@ -17,7 +17,7 @@ import android.util.Log;
 public class HttpRequest {
 
 	/**
-	 * post ÇëÇó½«·µ»ØµÄÊı¾İÁ÷×ª»»³Ébyte¡¾¡¿ Êı×é£¬È»ºó×ª»»³ÉString×Ö·û´®
+	 * post è¯·æ±‚å°†è¿”å›çš„æ•°æ®æµè½¬æ¢æˆbyteã€ã€‘ æ•°ç»„ï¼Œç„¶åè½¬æ¢æˆStringå­—ç¬¦ä¸²
 	 * 
 	 * @param path
 	 * @param params
@@ -39,12 +39,12 @@ public class HttpRequest {
 					}
 					sb.deleteCharAt(sb.length() - 1);
 				}
-				byte [] entitydata = sb.toString().getBytes();// µÃµ½ÊµÌåµÄ¶ş½øÖÆÊı¾İ
+				byte [] entitydata = sb.toString().getBytes();// å¾—åˆ°å®ä½“çš„äºŒè¿›åˆ¶æ•°æ®
 				URL url = new URL(path);
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 				conn.setRequestMethod("POST");
 				conn.setConnectTimeout(5 * 1000);
-				conn.setDoOutput(true);// Èç¹ûÍ¨¹ıpostÌá½»Êı¾İ£¬±ØĞëÉèÖÃÔÊĞí¶ÔÍâÊä³öÊı¾İ
+				conn.setDoOutput(true);// å¦‚æœé€šè¿‡postæäº¤æ•°æ®ï¼Œå¿…é¡»è®¾ç½®å…è®¸å¯¹å¤–è¾“å‡ºæ•°æ®
 				// Content-Type: application/x-www-form-urlencoded
 				// Content-Length: 38
 				conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -79,10 +79,10 @@ public class HttpRequest {
 	}
 
 	/**
-	 * ¶ÁÈ¡Á÷
+	 * è¯»å–æµ
 	 * 
 	 * @param inStream
-	 * @return ×Ö½ÚÊı×é
+	 * @return å­—èŠ‚æ•°ç»„
 	 * @throws Exception
 	 */
 	private static byte [] readStream(InputStream inStream) throws Exception {

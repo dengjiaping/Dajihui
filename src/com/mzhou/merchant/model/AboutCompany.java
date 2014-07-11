@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class AboutCompany implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String cotitle;// ¿‡±
-	private String cocontent; // ’ ∫≈
-	private String copic; // Í«≥∆
+	private String cotitle;
+	private String cocontent;
+	private String copic; 
 
 	public String getCotitle() {
 		return cotitle;

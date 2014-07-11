@@ -61,7 +61,7 @@ public class LoginEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * ¼àÌıËùÓĞµÄÊÂ¼ş
+	 * ç›‘å¬æ‰€æœ‰çš„äº‹ä»¶
 	 */
 	private void listenerButton() {
 		user_button_login.setOnClickListener(new OnClickListener() {
@@ -77,7 +77,7 @@ public class LoginEnterpriseActivity extends Activity {
 					map.put("data[un]", username_enterprise);
 					map.put("data[pw]", password_enterprise);
 					userManager.Login(LoginEnterpriseActivity.this,
-							MyConstants.EN_LOGIN_URL,map);// µÇÂ½
+							MyConstants.EN_LOGIN_URL,map);// ç™»é™†
 					userManager
 							.getUserInfoIml(new com.mzhou.merchant.dao.IUser.IgetUserInfo() {
 
@@ -164,35 +164,35 @@ public class LoginEnterpriseActivity extends Activity {
 	}
 
 	/**
-	 * ½«ÓÃ»§ĞÅÏ¢´¢´æµ½SharedPreferenceÀïÃæÈ¥
+	 * å°†ç”¨æˆ·ä¿¡æ¯å‚¨å­˜åˆ°SharedPreferenceé‡Œé¢å»
 	 * 
 	 * @param user
 	 */
 	private void save2SharedPrefenrence(AllBean user) {
 		Editor editor = sp.edit();
-		editor.putString("name_enterprise", user.getInfo().getContact());// ÁªÏµÈË
-		editor.putBoolean("loginself_enterprise", loginself_enterprise);// ÊÇ·ñ×Ô¶¯µÇÂ½
+		editor.putString("name_enterprise", user.getInfo().getContact());// è”ç³»äºº
+		editor.putBoolean("loginself_enterprise", loginself_enterprise);// æ˜¯å¦è‡ªåŠ¨ç™»é™†
 		editor.putBoolean("remeberpassword_enterprise",
-				remeberpassword_enterprise);// ÊÇ·ñ¼Ç×¡ÃÜÂë
-		editor.putBoolean("isLogin_enterprise", true);// ÊÇ·ñµÇÂ½
-		editor.putBoolean("isEnterprise", true);// ÉèÖÃÊÇÆóÒµ»áÔ±
-		editor.putString("uid_enterprise", user.getUid());// »áÔ±id
-		editor.putString("nickname_enterprise", user.getInfo().getNickname());// êÇ³Æ
-		editor.putString("username_enterprise", user.getInfo().getUsername());// ÕËºÅ
-		editor.putString("password_enterprise", password_enterprise);// ÃÜÂë
+				remeberpassword_enterprise);// æ˜¯å¦è®°ä½å¯†ç 
+		editor.putBoolean("isLogin_enterprise", true);// æ˜¯å¦ç™»é™†
+		editor.putBoolean("isEnterprise", true);// è®¾ç½®æ˜¯ä¼ä¸šä¼šå‘˜
+		editor.putString("uid_enterprise", user.getUid());// ä¼šå‘˜id
+		editor.putString("nickname_enterprise", user.getInfo().getNickname());// æ˜µç§°
+		editor.putString("username_enterprise", user.getInfo().getUsername());// è´¦å·
+		editor.putString("password_enterprise", password_enterprise);// å¯†ç 
 		editor.putString("company_center_enterprise", user.getInfo()
-				.getCenter());// ×Ü»ú
-		editor.putString("company_fax_enterprise", user.getInfo().getFax());// ´«Õæ
-		editor.putString("company_enterprise", user.getInfo().getCompany());// ¹«Ë¾Ãû³Æ
-		editor.putString("address_enterprise", user.getInfo().getAddress());// ¹«Ë¾µØÖ·
-		editor.putString("net_enterprise", user.getInfo().getNet());// ¹«Ë¾ÍøÖ·
+				.getCenter());// æ€»æœº
+		editor.putString("company_fax_enterprise", user.getInfo().getFax());// ä¼ çœŸ
+		editor.putString("company_enterprise", user.getInfo().getCompany());// å…¬å¸åç§°
+		editor.putString("address_enterprise", user.getInfo().getAddress());// å…¬å¸åœ°å€
+		editor.putString("net_enterprise", user.getInfo().getNet());// å…¬å¸ç½‘å€
 		editor.putString("headurl_enterprise", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());// Í·ÏñµØÖ·
+				+ user.getInfo().getHeadurl());// å¤´åƒåœ°å€
 		editor.commit();
 	}
 
 	/**
-	 * ¼ÓÔØËùÓĞµÄ¿Ø¼ş
+	 * åŠ è½½æ‰€æœ‰çš„æ§ä»¶
 	 */
 	private void loadButton() {
 		user_login_username_hint = (EditText) findViewById(R.id.user_login_username_hint);

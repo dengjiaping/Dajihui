@@ -63,7 +63,7 @@ public class LogoItemListActivity extends Activity {
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * 
 	 */
 	private void init() {
@@ -80,7 +80,7 @@ public class LogoItemListActivity extends Activity {
 	}
 
 	/**
-	 * ¼ÓÔØĞèÒªµÄ¿Ø¼ş
+	 * åŠ è½½éœ€è¦çš„æ§ä»¶
 	 * 
 	 * @param mView
 	 */
@@ -97,7 +97,7 @@ public class LogoItemListActivity extends Activity {
 	}
 
 	/**
-	 * ¼àÌı¹ã¸æºÍ²úÆ·ÊÂ¼ş
+	 * ç›‘å¬å¹¿å‘Šå’Œäº§å“äº‹ä»¶
 	 */
 	private void listenerButton() {
 		title_bar_title.setText(title);
@@ -172,7 +172,7 @@ public class LogoItemListActivity extends Activity {
 	}
 
 	/**
-	 * Ë¢ĞÂ¼àÌı
+	 * åˆ·æ–°ç›‘å¬
 	 */
 	private void refreshListener() {
 		mPullRefreshScrollView

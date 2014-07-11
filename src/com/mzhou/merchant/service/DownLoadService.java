@@ -53,76 +53,76 @@ public class DownLoadService extends Service {
 
 		@Override
 		public void run() {
-			//Ê×Ò³
+			//é¦–é¡µ
 			String ad_index = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "ind", 0);
 			if (!isEmpity(ad_index)) {
 				saveAdData("ad_index", ad_index);
 			}
-			//½ñÈÕÊÖ»úÕĞÉÌ
+			//ä»Šæ—¥æ‰‹æœºæ‹›å•†
 			String ad_main = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "mer", 0);
 			if (!isEmpity(ad_main)) {
 				saveAdData("ad_main", ad_main);
 				
 			}
-			//Æ·ÅÆ¹úÄÚ
+			//å“ç‰Œå›½å†…
 			String ad_pinpai = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", MyConstants.PINGPAI);
 			if (!isEmpity(ad_pinpai)) {
 				saveAdData("ad_pinpai", ad_pinpai);
 				
 			}
-			//ÎåÂë
+			//äº”ç 
 			String ad_wuma = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", MyConstants.WUMA);
 			if (!isEmpity(ad_wuma)) {
 				
 				saveAdData("ad_wuma", ad_wuma);
 			}
-			//ÈıÂí
+			//ä¸‰é©¬
 			String ad_sanma = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", MyConstants.SANMA);
 			if (!isEmpity(ad_sanma)) {
 				saveAdData("ad_sanma", ad_sanma);
 				
 			}
-			//Íâµ¥
+			//å¤–å•
 			String ad_waidan = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", MyConstants.WAIDAN);
 			if (!isEmpity(ad_waidan)) {
 				
 				saveAdData("ad_waidan", ad_waidan);
 			}
-			//ÊÖ±íÊÖ»ú
+			//æ‰‹è¡¨æ‰‹æœº
 			String ad_td = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", MyConstants.TD);
 			if (!isEmpity(ad_td)) {
 				
 				saveAdData("ad_td", ad_td);
 			}
-			//Æ·ÅÆ³§¼Ò
+			//å“ç‰Œå‚å®¶
 			String ad_brand = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "bra", 0);
 			if (!isEmpity(ad_brand)) {
 				
 				saveAdData("ad_brand", ad_brand);
 			}
-			//¸öĞÔÊÖ»ú
+			//ä¸ªæ€§æ‰‹æœº
 			String ad_gx = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", MyConstants.GX);
 			if (!isEmpity(ad_gx)) {
 				saveAdData("ad_gx", ad_gx);
 				
 			}
-			//4GÊÖ»ú
+			//4Gæ‰‹æœº
 			String ad_fourg = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", MyConstants.FOURG);
 			if (!isEmpity(ad_fourg)) {
 				saveAdData("ad_fourg", ad_fourg);
 				
 			}
-			//2g3g  Æ·ÅÆ²úÆ·
+			//2g3g  å“ç‰Œäº§å“
 			String ad_2g3g = GetDataByPostUtil.GetAdInfo(getBaseContext(),
 					MyConstants.AD_URL, "list", "pro", 8);
 			if (!isEmpity(ad_2g3g)) {
@@ -265,7 +265,7 @@ public class DownLoadService extends Service {
 
 		@Override
 		public void run() {
-			//Ê×Ò³£¬classid = 0
+			//é¦–é¡µï¼Œclassid = 0
 			String index = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist",  0, 1, "0");
 
@@ -282,7 +282,7 @@ public class DownLoadService extends Service {
 		@Override
 		public void run() {
 
-			//Ê×Ò³£¬classid = 0
+			//é¦–é¡µï¼Œclassid = 0
 			String index = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist",  0, 1, "0");
 
@@ -324,7 +324,7 @@ public class DownLoadService extends Service {
 				
 				saveActivityData(activity);
 			}
-			//Æ·ÅÆ³§¼Ò
+			//å“ç‰Œå‚å®¶
 			String logo = GetDataByPostUtil.getLogoInfo(getBaseContext(),
 					MyConstants.BRAND_URL, "list", "0", 1, "0");
 			if (!isEmpity(logo)) {
@@ -333,32 +333,32 @@ public class DownLoadService extends Service {
 			
 			
 			
-			//½ñÈÕÊÖ»úÕĞÉÌ
+			//ä»Šæ—¥æ‰‹æœºæ‹›å•†
 			String main = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "daylist",0, 1, "0");
 			
-			//Æ·ÅÆ¹úÄÚ
+			//å“ç‰Œå›½å†…
 			String pingpai = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist",  1, 1, "0");
-			//ÎåÂë
+			//äº”ç 
 			String wuma = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist",  2, 1, "0");
-			//ÈıÂë
+			//ä¸‰ç 
 			String sanma = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist", 3, 1, "0");
-			//Íâµ¥ÊÖ»ú
+			//å¤–å•æ‰‹æœº
 			String waidan = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist",  4, 1, "0");
-			//td£¬ÊÖ±íÊÖ»ú
+			//tdï¼Œæ‰‹è¡¨æ‰‹æœº
 			String td = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist", 5, 1, "0");
-			//¸öĞÔÊÖ»ú
+			//ä¸ªæ€§æ‰‹æœº
 			String gx = GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist", 6, 1, "0");
-			//4gÊÖ»ú
+			//4gæ‰‹æœº
 			String fourg= GetDataByPostUtil.getProductInfo(getBaseContext(),
 					MyConstants.PRODUCT_URL, "prolist",  7, 1, "0");
-			//Æ·ÅÆ²úÆ·£¬Ò²¾ÍÊÇ2g3g
+			//å“ç‰Œäº§å“ï¼Œä¹Ÿå°±æ˜¯2g3g
 			String logo_product = GetDataByPostUtil.getProductInfo(getBaseContext(), 
 					MyConstants.PRODUCT_URL, "prolist", 8,1, "0");
 			if (!isEmpity(main)) {
@@ -404,7 +404,7 @@ public class DownLoadService extends Service {
 	}
 
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÎª¿Õ£¬Èç¹ûÎª¿ÕÄÇÃ´·µ»Øtrue
+	 * åˆ¤æ–­æ˜¯å¦ä¸ºç©ºï¼Œå¦‚æœä¸ºç©ºé‚£ä¹ˆè¿”å›true
 	 * 
 	 * @param string
 	 * @return
@@ -418,12 +418,12 @@ public class DownLoadService extends Service {
 	}
 
 	/**
-	 * ±£´æÎÄ¼ş¹¤¾ßÀà
+	 * ä¿å­˜æ–‡ä»¶å·¥å…·ç±»
 	 * 
 	 */
 	public void writeFiles(String content, String filename) {
 		try {
-			// ´ò¿ªÎÄ¼ş»ñÈ¡Êä³öÁ÷£¬ÎÄ¼ş²»´æÔÚÔò×Ô¶¯´´½¨
+			// æ‰“å¼€æ–‡ä»¶è·å–è¾“å‡ºæµï¼Œæ–‡ä»¶ä¸å­˜åœ¨åˆ™è‡ªåŠ¨åˆ›å»º
 			FileOutputStream fos = openFileOutput(filename,
 					Context.MODE_PRIVATE);
 			fos.write(content.getBytes());

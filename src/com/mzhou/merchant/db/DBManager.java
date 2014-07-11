@@ -5,9 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
- * SQLiteÊı¾İ¿â¹ÜÀíÀà
+ * SQLiteæ•°æ®åº“ç®¡ç†ç±»
  * 
- * Ö÷Òª¸ºÔğÊı¾İ¿â×ÊÔ´µÄ³õÊ¼»¯,¿ªÆô,¹Ø±Õ,ÒÔ¼°»ñµÃDatabaseHelper°ïÖúÀà²Ù×÷
+ * ä¸»è¦è´Ÿè´£æ•°æ®åº“èµ„æºçš„åˆå§‹åŒ–,å¼€å¯,å…³é—­,ä»¥åŠè·å¾—DatabaseHelperå¸®åŠ©ç±»æ“ä½œ
  * 
  * @author shimiso
  * 
@@ -16,13 +16,13 @@ public class DBManager {
 	private int version = 1;
  	private String databaseName="dajihui_new";
 
-	// ±¾µØContext¶ÔÏó
+	// æœ¬åœ°Contextå¯¹è±¡
 	private Context mContext = null;
 
 	private static DBManager dBManager = null;
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 * 
 	 * @param mContext
 	 */
@@ -40,7 +40,7 @@ public class DBManager {
 	}
 
 	/**
-	 * ¹Ø±ÕÊı¾İ¿â ×¢Òâ:µ±ÊÂÎñ³É¹¦»òÕßÒ»´ÎĞÔ²Ù×÷Íê±ÏÊ±ºòÔÙ¹Ø±Õ
+	 * å…³é—­æ•°æ®åº“ æ³¨æ„:å½“äº‹åŠ¡æˆåŠŸæˆ–è€…ä¸€æ¬¡æ€§æ“ä½œå®Œæ¯•æ—¶å€™å†å…³é—­
 	 */
 	public synchronized void closeDatabase(SQLiteDatabase dataBase, Cursor cursor) {
 		if (null != dataBase) {
@@ -52,14 +52,14 @@ public class DBManager {
 	}
 
 	/**
-	 * ´ò¿ªÊı¾İ¿â ×¢:SQLiteDatabase×ÊÔ´Ò»µ©±»¹Ø±Õ,¸Ãµ×²ã»áÖØĞÂ²úÉúÒ»¸öĞÂµÄSQLiteDatabase
+	 * æ‰“å¼€æ•°æ®åº“ æ³¨:SQLiteDatabaseèµ„æºä¸€æ—¦è¢«å…³é—­,è¯¥åº•å±‚ä¼šé‡æ–°äº§ç”Ÿä¸€ä¸ªæ–°çš„SQLiteDatabase
 	 */
 	public synchronized SQLiteDatabase openDatabase() {
 		return getDatabaseHelper().getWritableDatabase();
 	}
 
 	/**
-	 * »ñÈ¡DataBaseHelper
+	 * è·å–DataBaseHelper
 	 * 
 	 * @return
 	 */

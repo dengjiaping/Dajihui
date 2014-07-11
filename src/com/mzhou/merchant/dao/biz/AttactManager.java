@@ -35,7 +35,7 @@ public class AttactManager extends Activity {
 	}
 
 	/**
-	 * ╩Ях║упилкЫсп╣дпео╒
+	 * Х▌╥Е▐√Ф▀⌡Е∙├Ф┴─Ф°┴Г └Д©║Ф│╞
 	 * 
 	 * @author user
 	 * 
@@ -85,7 +85,7 @@ public class AttactManager extends Activity {
 	}
 
 	/**
-	 * ╥╒╡╪упилкЫсп╣дпео╒
+	 * Е▐▒Е╦┐Ф▀⌡Е∙├Ф┴─Ф°┴Г └Д©║Ф│╞
 	 * 
 	 * @author user
 	 * 
@@ -151,10 +151,10 @@ public class AttactManager extends Activity {
 	private IBackInfo backInfo;
 
 	/**
-	 * ╫с©з╣дй╣ож╥╫╥╗ё╛╫╚╫с©з╢╚╣щЁЖю╢ё╛х╩╨СтзпХр╙й╣ож╣д╣ь╥╫х╔й╣ож
+	 * Ф▌╔Е▐ёГ └Е╝·Г▌╟Ф√╧ФЁ∙О╪▄Е╟├Ф▌╔Е▐ёД╪═И─▓Е┤╨Ф²╔О╪▄Г└╤Е░▌Е°╗И°─Х╕│Е╝·Г▌╟Г └Е°╟Ф√╧Е▌╩Е╝·Г▌╟
 	 * 
 	 * @param igetUserInfo
-	 *            пХр╙й╣ож╣д╫с©з ╩Ях║сц╩╖пео╒╣д╩ь╣В╥╫╥╗
+	 *            И°─Х╕│Е╝·Г▌╟Г └Ф▌╔Е▐ё Х▌╥Е▐√Г■╗Ф┬╥Д©║Ф│╞Г └Е⌡·Х╟┐Ф√╧ФЁ∙
 	 * 
 	 */
 	public void getAttactInfoIml(IgetAttactInfo igetAttactInfo) {

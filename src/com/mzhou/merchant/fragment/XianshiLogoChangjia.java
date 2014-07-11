@@ -107,7 +107,7 @@ public class XianshiLogoChangjia extends Fragment {
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * 
 	 */
 	private void init() {
@@ -123,7 +123,7 @@ public class XianshiLogoChangjia extends Fragment {
 	}
 
 	/**
-	 * ¼ÓÔØĞèÒªµÄ¿Ø¼ş
+	 * åŠ è½½éœ€è¦çš„æ§ä»¶
 	 * 
 	 * @param mView
 	 */
@@ -202,7 +202,7 @@ public class XianshiLogoChangjia extends Fragment {
 		});
 
 		/**
-		 * ¹ã¸æÍ¼Æ¬¼àÌıÊÂ¼ş
+		 * å¹¿å‘Šå›¾ç‰‡ç›‘å¬äº‹ä»¶
 		 */
 		viewFlipper = (ViewFlipper) mView.findViewById(R.id.mViewFliper_vf);
 		// viewFlipper.setLongClickable(true);
@@ -233,7 +233,7 @@ public class XianshiLogoChangjia extends Fragment {
 	};
 
 	/**
-	 * µ½»º´æÀïÃæÈ¡Êı¾İ
+	 * åˆ°ç¼“å­˜é‡Œé¢å–æ•°æ®
 	 * 
 	 * @author user
 	 * 
@@ -273,7 +273,7 @@ public class XianshiLogoChangjia extends Fragment {
 		}
 	}
 	/**
-	 * ¿ªÆô¹ã¸æ»¬¶¯Ïß³Ì Ê±¼äÏŞ¶¨Ã¿¸ôËÄÃë¾Í×Ô¶¯Ìø×ªµ½ÏÂÒ»ÕÅÍ¼Æ¬
+	 * å¼€å¯å¹¿å‘Šæ»‘åŠ¨çº¿ç¨‹ æ—¶é—´é™å®šæ¯éš”å››ç§’å°±è‡ªåŠ¨è·³è½¬åˆ°ä¸‹ä¸€å¼ å›¾ç‰‡
 	 */
 	Thread thread = new Thread() {
 		@Override
@@ -294,7 +294,7 @@ public class XianshiLogoChangjia extends Fragment {
 	};
 
 	/**
-	 * ÏÂÒ»¸öÍ¼Æ¬
+	 * ä¸‹ä¸€ä¸ªå›¾ç‰‡
 	 */
 	private void showNextView() {
 
@@ -316,7 +316,7 @@ public class XianshiLogoChangjia extends Fragment {
 	}
 
 	/**
-	 * ÉÏÒ»¸öÍ¼Æ¬
+	 * ä¸Šä¸€ä¸ªå›¾ç‰‡
 	 */
 	private void showPreviousView() {
 		displayRatio_selelct(currentPage);
@@ -337,7 +337,7 @@ public class XianshiLogoChangjia extends Fragment {
 	}
 
 	/**
-	 * ¸ù¾İĞ¡Ô²µãµÄidÀ´ÏÔÊ¾Ğ¡Ô²µã
+	 * æ ¹æ®å°åœ†ç‚¹çš„idæ¥æ˜¾ç¤ºå°åœ†ç‚¹
 	 * 
 	 * @param id
 	 */

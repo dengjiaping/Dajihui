@@ -87,36 +87,36 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 	}
 	private void save2Enterprise(AllBean user) {
 		Editor editor = sp.edit();
-		editor.putString("name_enterprise", user.getInfo().getContact());// ÁªÏµÈË
-		editor.putBoolean("isLogin_enterprise", true);// ÊÇ·ñµÇÂ½
-		editor.putBoolean("isEnterprise", true);// ÉèÖÃÊÇÆóÒµ»áÔ±
+		editor.putString("name_enterprise", user.getInfo().getContact());// è”ç³»äºº
+		editor.putBoolean("isLogin_enterprise", true);// æ˜¯å¦ç™»é™†
+		editor.putBoolean("isEnterprise", true);// è®¾ç½®æ˜¯ä¼ä¸šä¼šå‘˜
 		editor.putString("openid_enterprise", openid);
-		editor.putBoolean("isBinder_enterprise", true);// ÉèÖÃÊÇ·ñ°ó¶¨
-		editor.putString("uid_enterprise", user.getUid());// »áÔ±id
-		editor.putString("nickname_enterprise", user.getInfo().getNickname());// êÇ³Æ
-		editor.putString("username_enterprise", user.getInfo().getUsername());// ÕËºÅ
-		editor.putString("password_enterprise", user.getInfo().getPassword());// ÃÜÂë
+		editor.putBoolean("isBinder_enterprise", true);// è®¾ç½®æ˜¯å¦ç»‘å®š
+		editor.putString("uid_enterprise", user.getUid());// ä¼šå‘˜id
+		editor.putString("nickname_enterprise", user.getInfo().getNickname());// æ˜µç§°
+		editor.putString("username_enterprise", user.getInfo().getUsername());// è´¦å·
+		editor.putString("password_enterprise", user.getInfo().getPassword());// å¯†ç 
 		editor.putString("company_center_enterprise", user.getInfo()
-				.getCenter());// ×Ü»ú
-		editor.putString("company_fax_enterprise", user.getInfo().getFax());// ´«Õæ
-		editor.putString("company_enterprise", user.getInfo().getCompany());// ¹«Ë¾Ãû³Æ
-		editor.putString("address_enterprise", user.getInfo().getAddress());// ¹«Ë¾µØÖ·
-		editor.putString("net_enterprise", user.getInfo().getNet());// ¹«Ë¾ÍøÖ·
+				.getCenter());// æ€»æœº
+		editor.putString("company_fax_enterprise", user.getInfo().getFax());// ä¼ çœŸ
+		editor.putString("company_enterprise", user.getInfo().getCompany());// å…¬å¸åç§°
+		editor.putString("address_enterprise", user.getInfo().getAddress());// å…¬å¸åœ°å€
+		editor.putString("net_enterprise", user.getInfo().getNet());// å…¬å¸ç½‘å€
 		editor.putString("headurl_enterprise", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());// Í·ÏñµØÖ·
+				+ user.getInfo().getHeadurl());// å¤´åƒåœ°å€
 		editor.commit();
 	}
 	private void save2SharedPrefenrence(AllBean user) {
 		Editor editor = sp.edit();
-		editor.putString("name", user.getInfo().getContact());// ÁªÏµÈË
+		editor.putString("name", user.getInfo().getContact());// è”ç³»äºº
 		editor.putBoolean("isLogin", true);
-		editor.putBoolean("isEnterprise", false);// ÉèÖÃ²»ÊÇÆóÒµ»áÔ±
-		editor.putBoolean("isBinder", true);// ÉèÖÃÊÇ·ñ°ó¶¨
+		editor.putBoolean("isEnterprise", false);// è®¾ç½®ä¸æ˜¯ä¼ä¸šä¼šå‘˜
+		editor.putBoolean("isBinder", true);// è®¾ç½®æ˜¯å¦ç»‘å®š
 		editor.putString("uid", user.getUid());
 		editor.putString("openid", openid);
-		editor.putString("nickname", user.getInfo().getNickname());// êÇ³Æ
-		editor.putString("username", user.getInfo().getUsername());// ÕËºÅ
-		editor.putString("password", user.getInfo().getPassword());// ÃÜÂë
+		editor.putString("nickname", user.getInfo().getNickname());// æ˜µç§°
+		editor.putString("username", user.getInfo().getUsername());// è´¦å·
+		editor.putString("password", user.getInfo().getPassword());// å¯†ç 
 		editor.putString("phonenub", user.getInfo().getPhonenub());
 		editor.putString("company", user.getInfo().getCompany());
 		editor.putString("address", user.getInfo().getAddress());
@@ -163,7 +163,7 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 													response.getString("figureurl_qq_2"));
 											editor.putString("nickname",
 													response.getString("nickname"));
-											editor.putBoolean("isBinder", false);// ÉèÖÃÊÇ·ñ°ó¶¨
+											editor.putBoolean("isBinder", false);// è®¾ç½®æ˜¯å¦ç»‘å®š
 											editor.putBoolean("isEnterprise", false);
 											editor.putString("openid", openid);
 											editor.putBoolean("isLogin", true);
@@ -205,7 +205,7 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 													response.getString("nickname"));
 													editor.putString("openid_enterprise", openid);
 											editor.putBoolean("isEnterprise", true);
-											editor.putBoolean("isBinder_enterprise", false);// ÉèÖÃÊÇ·ñ°ó¶¨
+											editor.putBoolean("isBinder_enterprise", false);// è®¾ç½®æ˜¯å¦ç»‘å®š
 											editor.putBoolean("isLogin", true);
 											editor.commit();
 											Intent intent = new Intent();

@@ -54,7 +54,7 @@ public class ForgetPassWordModifyActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// 点击按钮之后保存起来
+				// 鐐瑰嚮鎸夐挳涔嬪悗淇濆瓨璧锋潵
 				if (WebIsConnectUtil
 						.showNetState(ForgetPassWordModifyActivity.this)) {
 					if (user_manager_alter_passwd3

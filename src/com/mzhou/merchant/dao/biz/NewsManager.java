@@ -33,7 +33,7 @@ public class NewsManager extends Activity {
 	}
 
 	/**
-	 * ¸ù¾İidÀ´»ñÈ¡ĞÂÎÅĞÅÏ¢
+	 * æ ¹æ®idæ¥è·å–æ–°é—»ä¿¡æ¯
 	 * 
 	 * @param page
 	 * @param id
@@ -44,7 +44,7 @@ public class NewsManager extends Activity {
 	}
 
 	/**
-	 * ¸ù¾İidÀ´»ñÈ¡ĞÂÎÅÆÀÂÛĞÅÏ¢
+	 * æ ¹æ®idæ¥è·å–æ–°é—»è¯„è®ºä¿¡æ¯
 	 * 
 	 * @param page
 	 * @param id
@@ -57,7 +57,7 @@ public class NewsManager extends Activity {
 	}
 
 	/**
-	 * ·¢²¼ĞÂÎÅĞÅÏ¢
+	 * å‘å¸ƒæ–°é—»ä¿¡æ¯
 	 * 
 	 * @param content
 	 * @param contact
@@ -72,7 +72,7 @@ public class NewsManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡ĞÂÎÅËùÓĞµÄĞÅÏ¢
+	 * è·å–æ–°é—»æ‰€æœ‰çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -122,7 +122,7 @@ public class NewsManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡µ¥ÌõĞÂÎÅĞÅÏ¢
+	 * è·å–å•æ¡æ–°é—»ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -171,7 +171,7 @@ public class NewsManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡ĞÂÎÅÆÀÂÛËùÓĞµÄĞÅÏ¢
+	 * è·å–æ–°é—»è¯„è®ºæ‰€æœ‰çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -225,7 +225,7 @@ public class NewsManager extends Activity {
 	}
 
 	/**
-	 * ·¢²¼ÕĞÉÌËùÓĞµÄĞÅÏ¢
+	 * å‘å¸ƒæ‹›å•†æ‰€æœ‰çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -294,10 +294,10 @@ public class NewsManager extends Activity {
 	private IBackInfo backInfo;
 
 	/**
-	 * ½Ó¿ÚµÄÊµÏÖ·½·¨£¬½«½Ó¿Ú´«µİ³öÀ´£¬È»ºóÔÚĞèÒªÊµÏÖµÄµØ·½È¥ÊµÏÖ
+	 * æ¥å£çš„å®ç°æ–¹æ³•ï¼Œå°†æ¥å£ä¼ é€’å‡ºæ¥ï¼Œç„¶ååœ¨éœ€è¦å®ç°çš„åœ°æ–¹å»å®ç°
 	 * 
 	 * @param igetUserInfo
-	 *            ĞèÒªÊµÏÖµÄ½Ó¿Ú »ñÈ¡ÓÃ»§ĞÅÏ¢µÄ»Øµ÷·½·¨
+	 *            éœ€è¦å®ç°çš„æ¥å£ è·å–ç”¨æˆ·ä¿¡æ¯çš„å›è°ƒæ–¹æ³•
 	 * 
 	 */
 	public void getNewsInfoIml(IgetNewsInfo igetNewsInfo) {

@@ -8,21 +8,21 @@ import com.mzhou.merchant.model.NewsCommentBean;
 
 public class INews {
 	/**
-	 * 定义接口NewsBean
+	 * 瀹氫箟鎺ュ彛NewsBean
 	 */
 	public interface IgetNewsInfo {
 		public void getNewsInfo(List<NewsBean> newsBean);
 	}
 
 	/**
-	 * 定义接口NewsByIdBean
+	 * 瀹氫箟鎺ュ彛NewsByIdBean
 	 */
 	public interface IgetNewsByIdInfo {
 		public void getNewsByIdInfo(NewsByIdBean newsBean);
 	}
 
 	/**
-	 * 定义接口NewsCommentBean
+	 * 瀹氫箟鎺ュ彛NewsCommentBean
 	 */
 	public interface IgetNewsCommentInfo {
 		public void getNewsCommentInfo(List<NewsCommentBean> newsBean);

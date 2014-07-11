@@ -58,8 +58,8 @@ public class UserControlCommonActivity extends Activity {
 	private ImageView title_bar_showleft;
 	private ImageView user_manager_user_head;
 	private ImageView category_postion;
-	private TextView product_already_push;// µ×²¿À¸ÒÑ·¢²¼
-	private TextView product_new_push;// µ×²¿À¸ĞÂ·¢²¼
+	private TextView product_already_push;// åº•éƒ¨æ å·²å‘å¸ƒ
+	private TextView product_new_push;// åº•éƒ¨æ æ–°å‘å¸ƒ
 	private boolean pwchange = false;
 	private LinearLayout user_manager_category;
 	private LinearLayout user_manager_nickname_stub;
@@ -157,7 +157,7 @@ public class UserControlCommonActivity extends Activity {
 	}
 
 	/**
-	 * ÕÒµ½ËùÓĞµÄid£¬¼ÓÔØËùÓĞµÄButton
+	 * æ‰¾åˆ°æ‰€æœ‰çš„idï¼ŒåŠ è½½æ‰€æœ‰çš„Button
 	 */
 	private void loadButton() {
 		nicknameTextView = (TextView) findViewById(R.id.user_manager_tv_nickname);
@@ -192,7 +192,7 @@ public class UserControlCommonActivity extends Activity {
 	}
 
 	/**
-	 * ÉèÖÃ·µ»ØÀ´µÄÖµ£¬ÓÃsharedPreferenceÀ´È¥³öÀ´
+	 * è®¾ç½®è¿”å›æ¥çš„å€¼ï¼Œç”¨sharedPreferenceæ¥å»å‡ºæ¥
 	 */
 	private void setData() {
 		// Log.i("print", headurl);
@@ -277,11 +277,11 @@ public class UserControlCommonActivity extends Activity {
 	}
 
 	/**
-	 * »ñµÃÕÕÆ¬µÄ¾ø¶ÔÂ·¾¶
+	 * è·å¾—ç…§ç‰‡çš„ç»å¯¹è·¯å¾„
 	 * 
 	 * @param uri
-	 *            ÅÄÕÕ»òÕßÑ¡È¡ÕÕÆ¬·µ»ØµÄÊı¾İ
-	 * @return ·µ»Ø×Ö·û´®
+	 *            æ‹ç…§æˆ–è€…é€‰å–ç…§ç‰‡è¿”å›çš„æ•°æ®
+	 * @return è¿”å›å­—ç¬¦ä¸²
 	 */
 	private String getImagePath(final Uri uri) {
 		String[] projection = { MediaStore.Images.Media.DATA };
@@ -311,7 +311,7 @@ public class UserControlCommonActivity extends Activity {
 	}
 
 	/**
-	 * ¼ÓÔØÍêÁËËùÓĞµÄButtonÖ®ºó£¬¼àÌıËùÓĞµÄButton \nÍË³öµ±Ç°activityµÄÊ±ºò½«ËùÓĞµÄÊı¾İ¶¼±£´æÆğÀ´ \n²¢ÇÒÓÃ¶àÏß³Ì´¦ÀíÌá½»ÉÏÈ¥
+	 * åŠ è½½å®Œäº†æ‰€æœ‰çš„Buttonä¹‹åï¼Œç›‘å¬æ‰€æœ‰çš„Button \né€€å‡ºå½“å‰activityçš„æ—¶å€™å°†æ‰€æœ‰çš„æ•°æ®éƒ½ä¿å­˜èµ·æ¥ \nå¹¶ä¸”ç”¨å¤šçº¿ç¨‹å¤„ç†æäº¤ä¸Šå»
 	 */
 	private void listenerButton() {
 		File savePath = new File(saveDir);
@@ -692,7 +692,7 @@ public class UserControlCommonActivity extends Activity {
 
 	private void showdialog() {
 		final Dialog dialog = new Dialog(context);
-		dialog.setTitle("°ó¶¨Ò»¸öÓÊÏäÕËºÅ");
+		dialog.setTitle("ç»‘å®šä¸€ä¸ªé‚®ç®±è´¦å·");
 		dialog.setCancelable(false);
 		dialog.setContentView(R.layout.activity_binderdialog);
 		dialog.show();
@@ -708,7 +708,7 @@ public class UserControlCommonActivity extends Activity {
 			public void onClick(View arg0) {
 				if (un.getText().toString().equals("")
 						&& pw.getText().toString().equals("")) {
-					MyUtlis.toastInfo(context, "ÕËºÅ»òÃÜÂëÎª¿Õ£¡");
+					MyUtlis.toastInfo(context, "è´¦å·æˆ–å¯†ç ä¸ºç©ºï¼");
 				} else {
 					userManager.Binder(context, MyConstants.LOGIN_URL, openid,
 							un.getText().toString(), pw.getText().toString());
@@ -741,9 +741,9 @@ public class UserControlCommonActivity extends Activity {
 											.getInfo().getCenter());
 									Editor editor = sp.edit();
 									editor.putString("name", userBean.getInfo()
-											.getContact());// ÁªÏµÈË
-									editor.putBoolean("isEnterprise", false);// ÉèÖÃ²»ÊÇÆóÒµ»áÔ±
-									editor.putBoolean("isBinder", true);// ÉèÖÃÊÇ·ñ°ó¶¨
+											.getContact());// è”ç³»äºº
+									editor.putBoolean("isEnterprise", false);// è®¾ç½®ä¸æ˜¯ä¼ä¸šä¼šå‘˜
+									editor.putBoolean("isBinder", true);// è®¾ç½®æ˜¯å¦ç»‘å®š
 									editor.putString("uid", userBean.getUid());
 									editor.putString("username", un.getText()
 											.toString());
@@ -803,7 +803,7 @@ public class UserControlCommonActivity extends Activity {
 	}
 
 	/**
-	 * ÓÃ»§±£´æÍ·Ïñ
+	 * ç”¨æˆ·ä¿å­˜å¤´åƒ
 	 * 
 	 * @author user
 	 * 

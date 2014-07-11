@@ -150,7 +150,7 @@ public class ActivityHuoDong extends Activity {
 						}
 					}
 				});
-		// ²é¿´»î¶¯ÏêÏ¸ĞÅÏ¢£¬²¢ÇÒ¼ÓÈë»î¶¯
+		// æŸ¥çœ‹æ´»åŠ¨è¯¦ç»†ä¿¡æ¯ï¼Œå¹¶ä¸”åŠ å…¥æ´»åŠ¨
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

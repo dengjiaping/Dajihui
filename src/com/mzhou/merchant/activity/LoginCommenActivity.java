@@ -60,7 +60,7 @@ public class LoginCommenActivity extends Activity {
 	}
 
 	/**
-	 * ¼àÌıËùÓĞµÄÊÂ¼ş
+	 * ç›‘å¬æ‰€æœ‰çš„äº‹ä»¶
 	 */
 
 	private void listenerButton() {
@@ -75,7 +75,7 @@ public class LoginCommenActivity extends Activity {
 				map.put("data[pw]", password);
 				if (WebIsConnectUtil.showNetState(LoginCommenActivity.this)) {
 					userManager.Login(LoginCommenActivity.this,
-							MyConstants.LOGIN_URL,map);// µÇÂ½
+							MyConstants.LOGIN_URL,map);// ç™»é™†
 					userManager
 							.getUserInfoIml(new com.mzhou.merchant.dao.IUser.IgetUserInfo() {
 
@@ -162,21 +162,21 @@ public class LoginCommenActivity extends Activity {
 	}
  
 	/**
-	 * ½«ÓÃ»§ĞÅÏ¢´¢´æµ½SharedPreferenceÀïÃæÈ¥
+	 * å°†ç”¨æˆ·ä¿¡æ¯å‚¨å­˜åˆ°SharedPreferenceé‡Œé¢å»
 	 * 
 	 * @param user
 	 */
 	private void save2SharedPrefenrence(AllBean user) {
 		Editor editor = sp.edit();
-		editor.putString("name", user.getInfo().getContact());// ÁªÏµÈË
+		editor.putString("name", user.getInfo().getContact());// è”ç³»äºº
 		editor.putBoolean("loginself", loginself);
 		editor.putBoolean("remeberpassword", remeberpassword);
 		editor.putBoolean("isLogin", true);
-		editor.putBoolean("isEnterprise", false);// ÉèÖÃ²»ÊÇÆóÒµ»áÔ±
+		editor.putBoolean("isEnterprise", false);// è®¾ç½®ä¸æ˜¯ä¼ä¸šä¼šå‘˜
 		editor.putString("uid", user.getUid());
-		editor.putString("nickname", user.getInfo().getNickname());// êÇ³Æ
-		editor.putString("username", user.getInfo().getUsername());// ÕËºÅ
-		editor.putString("password", password);// ÃÜÂë
+		editor.putString("nickname", user.getInfo().getNickname());// æ˜µç§°
+		editor.putString("username", user.getInfo().getUsername());// è´¦å·
+		editor.putString("password", password);// å¯†ç 
 		editor.putString("phonenub", user.getInfo().getPhonenub());
 		editor.putString("company", user.getInfo().getCompany());
 		editor.putString("address", user.getInfo().getAddress());
@@ -190,7 +190,7 @@ public class LoginCommenActivity extends Activity {
 
 
 	/**
-	 * ¼ÓÔØËùÓĞµÄ¿Ø¼ş
+	 * åŠ è½½æ‰€æœ‰çš„æ§ä»¶
 	 */
 	private void loadButton() {
 		user_login_username_hint = (EditText) findViewById(R.id.user_login_username_hint);

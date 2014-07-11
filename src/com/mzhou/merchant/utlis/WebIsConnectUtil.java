@@ -10,7 +10,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
 /**
- * ²âÊÔÍøÂçÊÇ·ñ¿ÉÒÔÓÃÀà
+ * æµ‹è¯•ç½‘ç»œæ˜¯å¦å¯ä»¥ç”¨ç±»
  * 
  * @author user
  * 
@@ -22,7 +22,7 @@ public class WebIsConnectUtil extends Activity {
 				|| (isNetworkAvailable(paramContext));
 	}
 
-	// ÍøÂçÊÇ·ñ¿ÉÒÔÓÃ
+	// ç½‘ç»œæ˜¯å¦å¯ä»¥ç”¨
 	public static boolean isNetworkAvailable(Context paramContext) {
 		ConnectivityManager connectivitymanager = (ConnectivityManager) paramContext
 				.getSystemService("connectivity");
@@ -55,10 +55,10 @@ public class WebIsConnectUtil extends Activity {
 	}
 
 	/**
-	 * ÏÔÊ¾ÍøÂç×´Ì¬
+	 * æ˜¾ç¤ºç½‘ç»œçŠ¶æ€
 	 * 
 	 * @param context
-	 * @return Èç¹û Îªtrue ÄÇÃ´¿ÉÒÔÁªÍø
+	 * @return å¦‚æœ ä¸ºtrue é‚£ä¹ˆå¯ä»¥è”ç½‘
 	 */
 	public static boolean showNetState(final Context context) {
 		if (!isNetAvailable(context)) {

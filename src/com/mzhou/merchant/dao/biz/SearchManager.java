@@ -29,7 +29,7 @@ public class SearchManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡ÕĞÉÌËùÓĞµÄĞÅÏ¢
+	 * è·å–æ‹›å•†æ‰€æœ‰çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -71,16 +71,16 @@ public class SearchManager extends Activity {
 		@Override
 		protected void onPostExecute(String result) {
 
-//			  Log.i("print", "ËÑË÷jsonÊı×é----¡·"+result);
+//			  Log.i("print", "æœç´¢jsonæ•°ç»„----ã€‹"+result);
 			if (subject.equals("news")) {
 				List<NewsBean> newsBean = JsonParse.parseNewsJson(result);
-//				  Log.i("print", "List<NewsBean> newsBean----¡·"+newsBean);
+//				  Log.i("print", "List<NewsBean> newsBean----ã€‹"+newsBean);
 				searchNewsInfo.getNewsInfo(newsBean);
 
 			} else if (subject.equals("product")) {
 				List<ProductsBean> productsBeans = JsonParse
 						.parseProductsJson(result);
-//				 Log.i("print", "List<ProductsBean> newsBean----¡·"+productsBeans);
+//				 Log.i("print", "List<ProductsBean> newsBean----ã€‹"+productsBeans);
 				searchProductInfo.getProductInfo(productsBeans);
 			}
 			stopProgressDialog();
@@ -94,10 +94,10 @@ public class SearchManager extends Activity {
 	private IgetNewsInfo searchNewsInfo;
 
 	/**
-	 * ½Ó¿ÚµÄÊµÏÖ·½·¨£¬½«½Ó¿Ú´«µİ³öÀ´£¬È»ºóÔÚĞèÒªÊµÏÖµÄµØ·½È¥ÊµÏÖ
+	 * æ¥å£çš„å®ç°æ–¹æ³•ï¼Œå°†æ¥å£ä¼ é€’å‡ºæ¥ï¼Œç„¶ååœ¨éœ€è¦å®ç°çš„åœ°æ–¹å»å®ç°
 	 * 
 	 * @param igetUserInfo
-	 *            ĞèÒªÊµÏÖµÄ½Ó¿Ú »ñÈ¡ÓÃ»§ĞÅÏ¢µÄ»Øµ÷·½·¨
+	 *            éœ€è¦å®ç°çš„æ¥å£ è·å–ç”¨æˆ·ä¿¡æ¯çš„å›è°ƒæ–¹æ³•
 	 * 
 	 */
 	public void getSearchNewsInfoIml(IgetNewsInfo igetNewsInfo) {

@@ -33,7 +33,7 @@ public class ProductsManager extends Activity {
 	public ProductsManager() {
 	}
 	/**
-	 * »ñÈ¡¹«Ë¾
+	 * è·å–å…¬å¸
 	 * @param context
 	 * @param name
 	 */
@@ -43,7 +43,7 @@ public class ProductsManager extends Activity {
 		asynGetProductsInfo.execute();
 	}
 	/**
-	 *É¾³ı²úÆ·
+	 *åˆ é™¤äº§å“
 	 * @param context
 	 * @param is_en
 	 * @param uid
@@ -55,7 +55,7 @@ public class ProductsManager extends Activity {
 	}
 	
 	/**
-	 * Ë¢ĞÂ²úÆ·
+	 * åˆ·æ–°äº§å“
 	 * @param context
 	 * @param uid
 	 * @param id
@@ -65,7 +65,7 @@ public class ProductsManager extends Activity {
 		asynGetProductsInfo.execute();
 	}
 	/**
-	 * »ñÈ¡µ¥¸öÆ·ÅÆ³§¼Ò
+	 * è·å–å•ä¸ªå“ç‰Œå‚å®¶
 	 * @param context
 	 * @param classid
 	 * @param page
@@ -78,7 +78,7 @@ public class ProductsManager extends Activity {
 		asynGetProductsInfo.execute();
 	}
 	/**
-	 * »ñÈ¡Æ·ÅÆ³§¼ÒÁĞ±í
+	 * è·å–å“ç‰Œå‚å®¶åˆ—è¡¨
 	 * @param context
 	 * @param id
 	 * @param page
@@ -91,7 +91,7 @@ public class ProductsManager extends Activity {
 		asynGetProductsInfo.execute();
 	} 
 	/**
-	 * »ñÈ¡ÒÑ¾­·¢²¼µÄ²úÆ·
+	 * è·å–å·²ç»å‘å¸ƒçš„äº§å“
 	 * @param context
 	 * @param uid
 	 * @param classid
@@ -108,7 +108,7 @@ public class ProductsManager extends Activity {
  		asynGetProductsInfo.execute();
 	}
  	/**
- 	 * »ñÈ¡²úÆ·ÁĞ±í
+ 	 * è·å–äº§å“åˆ—è¡¨
  	 * @param context
  	 * @param classid
  	 * @param page
@@ -122,7 +122,7 @@ public class ProductsManager extends Activity {
 		asynGetProductsInfo.execute();
 	}
 	/**
-	 * »ñÈ¡½ñÈÕÊÖ»úÕĞÉÌ²úÆ·ÁĞ±í
+	 * è·å–ä»Šæ—¥æ‰‹æœºæ‹›å•†äº§å“åˆ—è¡¨
 	 * @param context
 	 * @param uid
 	 * @param classid
@@ -168,7 +168,7 @@ public class ProductsManager extends Activity {
 	} 
 
 	/**
-	 * Òì²½¶ÁÈ¡²úÆ·ĞÅÏ¢
+	 * å¼‚æ­¥è¯»å–äº§å“ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -217,7 +217,7 @@ public class ProductsManager extends Activity {
 		}
 	}
 	/**
-	 * ÒÑ¾­·¢²¼µÄ²úÆ·ÁĞ±í
+	 * å·²ç»å‘å¸ƒçš„äº§å“åˆ—è¡¨
 	 * @author Mzhou
 	 *
 	 */
@@ -275,7 +275,7 @@ public class ProductsManager extends Activity {
 	} 
 
 	/**
-	 * logoÁĞ±í
+	 * logoåˆ—è¡¨
 	 * 
 	 * @author user
 	 * 
@@ -328,7 +328,7 @@ public class ProductsManager extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡logoÊı¾İ
+	 * è·å–logoæ•°æ®
 	 * 
 	 * @author user
 	 * 
@@ -582,7 +582,7 @@ public class ProductsManager extends Activity {
 	}
 
 /**
-	 * »ñÈ¡¹«Ë¾¼ò½éÊı¾İ
+	 * è·å–å…¬å¸ç®€ä»‹æ•°æ®
 	 * 
 	 * @author user
 	 * 
@@ -727,10 +727,10 @@ public class ProductsManager extends Activity {
 	private IBackInfo backInfo;
 	private IDeleteProductInfo deleteProduct;
 	/**
-	 * ½Ó¿ÚµÄÊµÏÖ·½·¨£¬½«½Ó¿Ú´«µİ³öÀ´£¬È»ºóÔÚĞèÒªÊµÏÖµÄµØ·½È¥ÊµÏÖ
+	 * æ¥å£çš„å®ç°æ–¹æ³•ï¼Œå°†æ¥å£ä¼ é€’å‡ºæ¥ï¼Œç„¶ååœ¨éœ€è¦å®ç°çš„åœ°æ–¹å»å®ç°
 	 * 
 	 * @param igetUserInfo
-	 *            ĞèÒªÊµÏÖµÄ½Ó¿Ú »ñÈ¡ÓÃ»§ĞÅÏ¢µÄ»Øµ÷·½·¨
+	 *            éœ€è¦å®ç°çš„æ¥å£ è·å–ç”¨æˆ·ä¿¡æ¯çš„å›è°ƒæ–¹æ³•
 	 * 
 	 */
 	public void getProductInfoIml(IgetProductInfo igetProductInfo) {

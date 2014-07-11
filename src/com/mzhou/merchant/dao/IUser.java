@@ -7,7 +7,7 @@ import com.mzhou.merchant.model.GetNewPwBean;
 
 public class IUser {
 	/**
-	 * 获取用户信息
+	 * 鑾峰彇鐢ㄦ埛淇℃伅
 	 */
 	public interface IgetUserInfo {
 		public void getInfo(AllBean userBean);
@@ -19,13 +19,13 @@ public class IUser {
 		public void getBinderInfo(AllBean userBean);
 	}
 	/**
-	 * 忘记密码
+	 * 蹇樿瀵嗙爜
 	 */
 	public interface Iforgetquestion {
 		public void getInfo(GetQuestionBean getQuestionBean);
 	}
 	/**
-	 * 忘记密码,获得密码问题
+	 * 蹇樿瀵嗙爜,鑾峰緱瀵嗙爜闂
 	 */
 	public interface Iforgetanswer {
 		public void getInfo(GetAnswerBean getAnswerBean);

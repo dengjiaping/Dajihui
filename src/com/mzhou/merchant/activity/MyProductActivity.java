@@ -49,7 +49,7 @@ public class MyProductActivity extends Activity {
 	}
 
 	/**
-	 * ³õÊ¼»¯Í·±ê
+	 * åˆå§‹åŒ–å¤´æ ‡
 	 */
 	private void InitTextView() {
 
@@ -68,7 +68,7 @@ public class MyProductActivity extends Activity {
 	}
 
 	/**
-	 * ³õÊ¼»¯ViewPager
+	 * åˆå§‹åŒ–ViewPager
 	 */
 	private void InitViewPager() {
 		mPager = (ViewPager) findViewById(R.id.vPager);
@@ -92,7 +92,7 @@ public class MyProductActivity extends Activity {
 	}
 
 	/**
-	 * Í·±êµã»÷¼àÌı
+	 * å¤´æ ‡ç‚¹å‡»ç›‘å¬
 	 */
 	public class MyOnClickListener implements View.OnClickListener {
 		private int index = 0;
@@ -115,7 +115,7 @@ public class MyProductActivity extends Activity {
 	};
 
 	/**
-	 * Ò³¿¨ÇĞ»»¼àÌı
+	 * é¡µå¡åˆ‡æ¢ç›‘å¬
 	 */
 	public class MyOnPageChangeListener implements OnPageChangeListener {
 		@Override

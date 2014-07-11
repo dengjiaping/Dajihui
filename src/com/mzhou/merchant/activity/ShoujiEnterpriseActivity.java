@@ -286,7 +286,7 @@ public class ShoujiEnterpriseActivity extends Activity {
 					});
 
 		} else {
-			Toast.makeText(context, "ÍøÂçÎ´Á¬½Ó", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, "ç½‘ç»œæœªè¿žæŽ¥", Toast.LENGTH_LONG).show();
 			finish();
 		}
 

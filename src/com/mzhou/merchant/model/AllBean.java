@@ -4,9 +4,9 @@ import java.io.Serializable;
 public class AllBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-	private String status; //×´Ì¬
-	private String msg; //ÏûÏ¢
-	private String uid; //id
+	private String status;
+	private String msg;
+	private String uid; 
 	private info info;
 
 	public info getInfo()

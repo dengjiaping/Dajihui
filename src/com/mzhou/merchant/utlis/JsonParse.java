@@ -27,10 +27,10 @@ import com.mzhou.merchant.model.PublishProductBean;
 public class JsonParse { 
 
 	 /**
-	 * ½âÎöÓÃ»§Êı¾İµÃµ½ËùÓĞµÄÓÃ»§ĞÅÏ¢
+	 * è§£æç”¨æˆ·æ•°æ®å¾—åˆ°æ‰€æœ‰çš„ç”¨æˆ·ä¿¡æ¯
 	 * 
 	 * @param result
-	 * @return user¶ÔÏó
+	 * @return userå¯¹è±¡
 	 */
 	public static AllBean parseUserJson(String result) {
 		// Log.i("print", " result  result---->"+result);
@@ -57,7 +57,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎö¹ã¸æÊı¾İ
+	 * è§£æå¹¿å‘Šæ•°æ®
 	 * 
 	 * @param result
 	 * @return
@@ -82,7 +82,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎöÇó¹ºÊı¾İ
+	 * è§£ææ±‚è´­æ•°æ®
 	 * 
 	 * @param result
 	 * @return
@@ -134,7 +134,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎö·µ»ØÊı¾İÊı¾İ
+	 * è§£æè¿”å›æ•°æ®æ•°æ®
 	 * 
 	 * @param result
 	 * @return
@@ -150,7 +150,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎöĞÂÎÅÊı¾İ
+	 * è§£ææ–°é—»æ•°æ®
 	 * 
 	 * @param result
 	 * @return
@@ -193,7 +193,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎöÆÀÂÛÊı¾İ
+	 * è§£æè¯„è®ºæ•°æ®
 	 * 
 	 * @param result
 	 * @return
@@ -219,7 +219,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ¸ù¾İÃ¿ÌõidÀ´½âÎöĞÂÎÅÊı¾İ
+	 * æ ¹æ®æ¯æ¡idæ¥è§£ææ–°é—»æ•°æ®
 	 * 
 	 * @param result
 	 * @return
@@ -281,7 +281,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ¸ù¾İidÀ´½âÎö²úÆ·ĞÅÏ¢
+	 * æ ¹æ®idæ¥è§£æäº§å“ä¿¡æ¯
 	 * 
 	 * @param result
 	 * @return
@@ -309,7 +309,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎö·¢²¼²úÆ··µ»ØĞÅÏ¢
+	 * è§£æå‘å¸ƒäº§å“è¿”å›ä¿¡æ¯
 	 * 
 	 * @param result
 	 * @return
@@ -325,7 +325,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎöÆÀÂÛ
+	 * è§£æè¯„è®º
 	 * 
 	 * @param result
 	 * @return
@@ -351,7 +351,7 @@ public class JsonParse {
 	}
 
 	/**
-	 * ½âÎöÕĞÆ¸ĞÅÏ¢
+	 * è§£ææ‹›è˜ä¿¡æ¯
 	 * 
 	 * @param result
 	 * @return

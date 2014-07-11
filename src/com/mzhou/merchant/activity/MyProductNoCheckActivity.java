@@ -71,7 +71,7 @@ public class MyProductNoCheckActivity extends Activity {
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * 
 	 */
 	private void init() {
@@ -88,7 +88,7 @@ public class MyProductNoCheckActivity extends Activity {
 	}
 
 	/**
-	 * ¼ÓÔØĞèÒªµÄ¿Ø¼ş
+	 * åŠ è½½éœ€è¦çš„æ§ä»¶
 	 * 
 	 * @param mView
 	 */
@@ -103,7 +103,7 @@ public class MyProductNoCheckActivity extends Activity {
 	}
 
 	/**
-	 * ¼àÌı¹ã¸æºÍ²úÆ·ÊÂ¼ş
+	 * ç›‘å¬å¹¿å‘Šå’Œäº§å“äº‹ä»¶
 	 */
 	private void listenerButton() {
 
@@ -203,21 +203,21 @@ public class MyProductNoCheckActivity extends Activity {
 	}
 
 	/**
-	 * É¾³ı²úÆ·
+	 * åˆ é™¤äº§å“
 	 * 
 	 * @param arg2
 	 */
 	/**
-	 * ÌáÊ¾É¾³ı²úÆ·
+	 * æç¤ºåˆ é™¤äº§å“
 	 * 
 	 * @param context
 	 * @param arg2
 	 */
 	private void showDelDialog(Context context, final int arg2) {
     	AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("ÌáÊ¾");
-        builder.setMessage("ÄãÈ·¶¨ÒªÉ¾³ıÂğ£¿");
-        builder.setPositiveButton("ÊÇ", new android.content.DialogInterface.OnClickListener(){
+        builder.setTitle("æç¤º");
+        builder.setMessage("ä½ ç¡®å®šè¦åˆ é™¤å—ï¼Ÿ");
+        builder.setPositiveButton("æ˜¯", new android.content.DialogInterface.OnClickListener(){
 
 			public void onClick(DialogInterface dialog, int which) {
 				productsManager.AsynDelProduct(MyProductNoCheckActivity.this, mList.get(arg2).getIs_en(), uid, mList
@@ -243,7 +243,7 @@ public class MyProductNoCheckActivity extends Activity {
         	
         });
         
-        builder.setNegativeButton("È¡Ïû", new android.content.DialogInterface.OnClickListener(){
+        builder.setNegativeButton("å–æ¶ˆ", new android.content.DialogInterface.OnClickListener(){
 
 			public void onClick(DialogInterface dialog, int which) {
 			}
@@ -254,9 +254,9 @@ public class MyProductNoCheckActivity extends Activity {
     }
 	private void showRefreshDialog(  Context context, final int arg2) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setTitle("ÌáÊ¾");
-		builder.setMessage("ÄãÈ·¶¨ÒªË¢ĞÂÂğ£¿");
-		builder.setPositiveButton("ÊÇ", new android.content.DialogInterface.OnClickListener(){
+		builder.setTitle("æç¤º");
+		builder.setMessage("ä½ ç¡®å®šè¦åˆ·æ–°å—ï¼Ÿ");
+		builder.setPositiveButton("æ˜¯", new android.content.DialogInterface.OnClickListener(){
 			
 			public void onClick(DialogInterface dialog, int which) {
 				productsManager.AsynRefreshProduct(MyProductNoCheckActivity.this, uid, mList.get(arg2).getId());
@@ -280,7 +280,7 @@ public class MyProductNoCheckActivity extends Activity {
 			
 		});
 		
-		builder.setNegativeButton("È¡Ïû", new android.content.DialogInterface.OnClickListener(){
+		builder.setNegativeButton("å–æ¶ˆ", new android.content.DialogInterface.OnClickListener(){
 			
 			public void onClick(DialogInterface dialog, int which) {
 			}
@@ -357,7 +357,7 @@ public class MyProductNoCheckActivity extends Activity {
 	}
 
 	/**
-	 * Ë¢ĞÂ¼àÌı
+	 * åˆ·æ–°ç›‘å¬
 	 */
 	private void refreshListener() {
 		if (isEnterprise) {

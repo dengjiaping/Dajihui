@@ -15,11 +15,11 @@ import android.text.TextUtils;
 public class GetPhoneNum {
 	private static final String[] PHONES_PROJECTION = new String[] { Phone.DISPLAY_NAME, Phone.NUMBER, Phone.PHOTO_ID, Phone.CONTACT_ID };
 	private static final int PHONES_DISPLAY_NAME_INDEX = 0;
-	/** ÁªÏµÈËÏÔÊ¾Ãû³Æ **/
+	/** è”ç³»äººæ˜¾ç¤ºåç§° **/
 	private static final int PHONES_NUMBER_INDEX = 1;
-	/** µç»°ºÅÂë **/
+	/** ç”µè¯å·ç  **/
 	private static final int PHONES_PHOTO_ID_INDEX = 2;
-	/** Í·ÏñID **/
+	/** å¤´åƒID **/
 	private static final int PHONES_CONTACT_ID_INDEX = 3;
 	private Context context;
 	
@@ -27,23 +27,23 @@ public class GetPhoneNum {
 		this.context = context;
 	}
 	/**
-	 * µÃµ½ÊÖ»úSIM¿¨ÁªÏµÈËÈËĞÅÏ¢
+	 * å¾—åˆ°æ‰‹æœºSIMå¡è”ç³»äººäººä¿¡æ¯
 	 * 
 	 * @return
 	 **/
 	public List<UserBean> getSIMContacts() {
 		List<UserBean> addressRelateLists = new ArrayList<UserBean>();
-		String phoneNumber;// ÁªÏµÈËÊÖ»úºÅÂë
-		String contactName;// ÁªÏµÈËÃû³Æ
+		String phoneNumber;// è”ç³»äººæ‰‹æœºå·ç 
+		String contactName;// è”ç³»äººåç§°
 		ContentResolver resolver = context.getContentResolver();
-		Uri uri = Uri.parse("content://icc/adn");// »ñÈ¡Sims¿¨ÁªÏµÈË
+		Uri uri = Uri.parse("content://icc/adn");// è·å–Simså¡è”ç³»äºº
 		Cursor phoneCursor = resolver.query(uri, PHONES_PROJECTION, null, null, null);
 		if (phoneCursor != null) {
 			while (phoneCursor.moveToNext()) {
-				phoneNumber = phoneCursor.getString(PHONES_NUMBER_INDEX);// µÃµ½ÊÖ»úºÅÂë
-				if (TextUtils.isEmpty(phoneNumber))// µ±ÊÖ»úºÅÂëÎª¿ÕµÄ»òÕßÎª¿Õ×Ö¶Î Ìø¹ıµ±Ç°Ñ­»·
+				phoneNumber = phoneCursor.getString(PHONES_NUMBER_INDEX);// å¾—åˆ°æ‰‹æœºå·ç 
+				if (TextUtils.isEmpty(phoneNumber))// å½“æ‰‹æœºå·ç ä¸ºç©ºçš„æˆ–è€…ä¸ºç©ºå­—æ®µ è·³è¿‡å½“å‰å¾ªç¯
 					continue;
-				contactName = phoneCursor.getString(PHONES_DISPLAY_NAME_INDEX);// µÃµ½ÁªÏµÈËÃû³Æ
+				contactName = phoneCursor.getString(PHONES_DISPLAY_NAME_INDEX);// å¾—åˆ°è”ç³»äººåç§°
 				UserBean userBean = new UserBean(contactName, phoneNumber);
 				addressRelateLists.add(userBean);
 			}
@@ -52,21 +52,21 @@ public class GetPhoneNum {
 		return addressRelateLists;
 	}
 
-	/** µÃµ½ÊÖ»úÍ¨Ñ¶Â¼ÁªÏµÈËĞÅÏ¢ **/
+	/** å¾—åˆ°æ‰‹æœºé€šè®¯å½•è”ç³»äººä¿¡æ¯ **/
 	public List<UserBean> getPhoneContacts() {
 		List<UserBean> addressRelateLists = new ArrayList<UserBean>();
 		ContentResolver resolver = context.getContentResolver();
-		Cursor phoneCursor = resolver.query(Phone.CONTENT_URI, PHONES_PROJECTION, null, null, null);// »ñÈ¡ÊÖ»úÁªÏµÈË
+		Cursor phoneCursor = resolver.query(Phone.CONTENT_URI, PHONES_PROJECTION, null, null, null);// è·å–æ‰‹æœºè”ç³»äºº
 		if (phoneCursor != null) {
 			while (phoneCursor.moveToNext()) {
-				String phoneNumber_ph = phoneCursor.getString(PHONES_NUMBER_INDEX);// µÃµ½ÊÖ»úºÅÂë
-				if (TextUtils.isEmpty(phoneNumber_ph))// µ±ÊÖ»úºÅÂëÎª¿ÕµÄ»òÕßÎª¿Õ×Ö¶Î Ìø¹ıµ±Ç°Ñ­»·
+				String phoneNumber_ph = phoneCursor.getString(PHONES_NUMBER_INDEX);// å¾—åˆ°æ‰‹æœºå·ç 
+				if (TextUtils.isEmpty(phoneNumber_ph))// å½“æ‰‹æœºå·ç ä¸ºç©ºçš„æˆ–è€…ä¸ºç©ºå­—æ®µ è·³è¿‡å½“å‰å¾ªç¯
 					continue;
-				String contactName_ph = phoneCursor.getString(PHONES_DISPLAY_NAME_INDEX);// µÃµ½ÁªÏµÈËÃû³Æ
-				Long contactid_ph = phoneCursor.getLong(PHONES_CONTACT_ID_INDEX);// µÃµ½ÁªÏµÈËID
-				Long photoid_ph = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);// µÃµ½ÁªÏµÈËÍ·ÏñID
-				// Bitmap contactPhoto = null;//µÃµ½ÁªÏµÈËÍ·ÏñBitamp
-				// photoid ´óÓÚ0 ±íÊ¾ÁªÏµÈËÓĞÍ·Ïñ Èç¹ûÃ»ÓĞ¸ø´ËÈËÉèÖÃÍ·ÏñÔò¸øËûÒ»¸öÄ¬ÈÏµÄ
+				String contactName_ph = phoneCursor.getString(PHONES_DISPLAY_NAME_INDEX);// å¾—åˆ°è”ç³»äººåç§°
+				Long contactid_ph = phoneCursor.getLong(PHONES_CONTACT_ID_INDEX);// å¾—åˆ°è”ç³»äººID
+				Long photoid_ph = phoneCursor.getLong(PHONES_PHOTO_ID_INDEX);// å¾—åˆ°è”ç³»äººå¤´åƒID
+				// Bitmap contactPhoto = null;//å¾—åˆ°è”ç³»äººå¤´åƒBitamp
+				// photoid å¤§äº0 è¡¨ç¤ºè”ç³»äººæœ‰å¤´åƒ å¦‚æœæ²¡æœ‰ç»™æ­¤äººè®¾ç½®å¤´åƒåˆ™ç»™ä»–ä¸€ä¸ªé»˜è®¤çš„
 				if (photoid_ph > 0) {
 					Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactid_ph);
 					ContactsContract.Contacts.openContactPhotoInputStream(resolver, uri);

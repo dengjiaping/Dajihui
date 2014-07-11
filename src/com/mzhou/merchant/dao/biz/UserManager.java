@@ -22,11 +22,11 @@ public class UserManager extends Activity {
 	}
 
 	/**
-	 * µÇÂ¼
+	 * ç™»å½•
 	 * 
 	 * @param userId
 	 * @param passwd
-	 * @return ·µ»ØµÄÊÇ·şÎñÆ÷¶ËµÄËùÓĞµÄÓÃ»§ĞÅÏ¢
+	 * @return è¿”å›çš„æ˜¯æœåŠ¡å™¨ç«¯çš„æ‰€æœ‰çš„ç”¨æˆ·ä¿¡æ¯
 	 */
 
 	public void Login(Context context, String url,Map<String, String> map) {
@@ -35,7 +35,7 @@ public class UserManager extends Activity {
 	}
 
 	/**
-	 * Òì²½µÇÂ¼,Í¬Ê±»ñÈ¡ÓÃ»§ËùÓĞµÄĞÅÏ¢
+	 * å¼‚æ­¥ç™»å½•,åŒæ—¶è·å–ç”¨æˆ·æ‰€æœ‰çš„ä¿¡æ¯
 	 * 
 	 * @author user
 	 * 
@@ -82,7 +82,7 @@ public class UserManager extends Activity {
 	}
 
 	/**
-	 * ×¢²á³É¹¦
+	 * æ³¨å†ŒæˆåŠŸ
 	 * 
 	 * @param user
 	 * @return
@@ -240,10 +240,10 @@ public class UserManager extends Activity {
 	private IgetQQBinder binder;
 
 	/**
-	 * ½Ó¿ÚµÄÊµÏÖ·½·¨£¬½«½Ó¿Ú´«µİ³öÀ´£¬È»ºóÔÚĞèÒªÊµÏÖµÄµØ·½È¥ÊµÏÖ
+	 * æ¥å£çš„å®ç°æ–¹æ³•ï¼Œå°†æ¥å£ä¼ é€’å‡ºæ¥ï¼Œç„¶ååœ¨éœ€è¦å®ç°çš„åœ°æ–¹å»å®ç°
 	 * 
 	 * @param igetUserInfo
-	 *            ĞèÒªÊµÏÖµÄ½Ó¿Ú »ñÈ¡ÓÃ»§ĞÅÏ¢µÄ»Øµ÷·½·¨
+	 *            éœ€è¦å®ç°çš„æ¥å£ è·å–ç”¨æˆ·ä¿¡æ¯çš„å›è°ƒæ–¹æ³•
 	 * 
 	 */
 	public void getQQCheck(IgetQQCheck igetUserInfo) {

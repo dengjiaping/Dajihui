@@ -34,7 +34,7 @@ public class MyListNewsAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ËùÓĞĞÂÎÅÁĞ±íÊÊÅäÆ÷
+	 * æ‰€æœ‰æ–°é—»åˆ—è¡¨é€‚é…å™¨
 	 * 
 	 * @author user
 	 * 
@@ -57,7 +57,7 @@ public class MyListNewsAdapter extends BaseAdapter {
 
 	private int clickTemp = -1;
 
-	// ±êÊ¶Ñ¡ÔñµÄItem
+	// æ ‡è¯†é€‰æ‹©çš„Item
 	public void setSeclection(int position) {
 		clickTemp = position;
 	}

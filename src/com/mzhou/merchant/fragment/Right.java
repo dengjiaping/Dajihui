@@ -93,8 +93,8 @@ public class Right extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isEnterprise) {// ÅĞ¶ÏÊÇ·ñÊÇÆóÒµ»áÔ±
-					if (isLogin_enterprise) {// ÅĞ¶ÏÆóÒµ»áÔ±ÊÇ·ñÒÑ¾­µÇÂ½
+				if (isEnterprise) {// åˆ¤æ–­æ˜¯å¦æ˜¯ä¼ä¸šä¼šå‘˜
+					if (isLogin_enterprise) {// åˆ¤æ–­ä¼ä¸šä¼šå‘˜æ˜¯å¦å·²ç»ç™»é™†
 						Intent intent = new Intent();
 						intent.setClass(getActivity(),
 								UserControlEnterpriseActivity.class);
@@ -220,9 +220,9 @@ public class Right extends Fragment {
 	}
 
 	private String getVersionName() throws Exception {
-		// »ñÈ¡packagemanagerµÄÊµÀı
+		// è·å–packagemanagerçš„å®ä¾‹
 		PackageManager packageManager = getActivity().getPackageManager();
-		// getPackageName()ÊÇÄãµ±Ç°ÀàµÄ°üÃû£¬0´ú±íÊÇ»ñÈ¡°æ±¾ĞÅÏ¢
+		// getPackageName()æ˜¯ä½ å½“å‰ç±»çš„åŒ…åï¼Œ0ä»£è¡¨æ˜¯è·å–ç‰ˆæœ¬ä¿¡æ¯
 		PackageInfo packInfo = packageManager.getPackageInfo(getActivity()
 				.getPackageName(), 0);
 		String version = packInfo.versionName;

@@ -100,7 +100,6 @@ public class DbAdManager {
 					bean.setPic(cursor.getString(cursor.getColumnIndex("pic")));
 					bean.setType(cursor.getString(cursor.getColumnIndex("type")));
 					bean.setUrl(cursor.getString(cursor.getColumnIndex("url")));
-					System.out.println("-----------"+bean.toString());
 					return bean;
 				}
 				

@@ -5,13 +5,13 @@ import android.telephony.TelephonyManager;
 
 public class SIMCarInfo {
 	/**
-	 * TelephonyManagerÌá¹©Éè±¸ÉÏ»ñÈ¡Í¨Ñ¶·şÎñĞÅÏ¢µÄÈë¿Ú¡£ Ó¦ÓÃ³ÌĞò¿ÉÒÔÊ¹ÓÃÕâ¸öÀà·½·¨È·¶¨µÄµçĞÅ·şÎñÉÌºÍ¹ú¼Ò ÒÔ¼°Ä³Ğ©ÀàĞÍµÄÓÃ»§·ÃÎÊĞÅÏ¢¡£
-	 * Ó¦ÓÃ³ÌĞòÒ²¿ÉÒÔ×¢²áÒ»¸ö¼àÌıÆ÷µ½µç»°ÊÕ×´Ì¬µÄ±ä»¯¡£²»ĞèÒªÖ±½ÓÊµÀı»¯Õâ¸öÀà
-	 * Ê¹ÓÃContext.getSystemService(Context.TELEPHONY_SERVICE)À´»ñÈ¡Õâ¸öÀàµÄÊµÀı¡£
+	 * TelephonyManageræä¾›è®¾å¤‡ä¸Šè·å–é€šè®¯æœåŠ¡ä¿¡æ¯çš„å…¥å£ã€‚ åº”ç”¨ç¨‹åºå¯ä»¥ä½¿ç”¨è¿™ä¸ªç±»æ–¹æ³•ç¡®å®šçš„ç”µä¿¡æœåŠ¡å•†å’Œå›½å®¶ ä»¥åŠæŸäº›ç±»å‹çš„ç”¨æˆ·è®¿é—®ä¿¡æ¯ã€‚
+	 * åº”ç”¨ç¨‹åºä¹Ÿå¯ä»¥æ³¨å†Œä¸€ä¸ªç›‘å¬å™¨åˆ°ç”µè¯æ”¶çŠ¶æ€çš„å˜åŒ–ã€‚ä¸éœ€è¦ç›´æ¥å®ä¾‹åŒ–è¿™ä¸ªç±»
+	 * ä½¿ç”¨Context.getSystemService(Context.TELEPHONY_SERVICE)æ¥è·å–è¿™ä¸ªç±»çš„å®ä¾‹ã€‚
 	 */
 	private TelephonyManager telephonyManager;
 	/**
-	 * ¹ú¼ÊÒÆ¶¯ÓÃ»§Ê¶±ğÂë
+	 * å›½é™…ç§»åŠ¨ç”¨æˆ·è¯†åˆ«ç 
 	 */
 	private String IMSI;
 
@@ -21,7 +21,7 @@ public class SIMCarInfo {
 	}
 
 	/**
-	 * Role:»ñÈ¡µ±Ç°ÉèÖÃµÄµç»°ºÅÂë
+	 * Role:è·å–å½“å‰è®¾ç½®çš„ç”µè¯å·ç 
 	 * <BR>Date:2012-3-12
 	 * <BR>@author CODYY)peijiangping
 	 */
@@ -32,8 +32,8 @@ public class SIMCarInfo {
 	}
 
 	/**
-	 * Role:Telecom service providers»ñÈ¡ÊÖ»ú·şÎñÉÌĞÅÏ¢ <BR>
-	 * ĞèÒª¼ÓÈëÈ¨ÏŞ<uses-permission
+	 * Role:Telecom service providersè·å–æ‰‹æœºæœåŠ¡å•†ä¿¡æ¯ <BR>
+	 * éœ€è¦åŠ å…¥æƒé™<uses-permission
 	 * android:name="android.permission.READ_PHONE_STATE"/> <BR>
 	 * Date:2012-3-12 <BR>
 	 * 
@@ -41,16 +41,16 @@ public class SIMCarInfo {
 	 */
 	public String getProvidersName() {
 		String ProvidersName = null;
-		// ·µ»ØÎ¨Ò»µÄÓÃ»§ID;¾ÍÊÇÕâÕÅ¿¨µÄ±àºÅÉñÂíµÄ
+		// è¿”å›å”¯ä¸€çš„ç”¨æˆ·ID;å°±æ˜¯è¿™å¼ å¡çš„ç¼–å·ç¥é©¬çš„
 		IMSI = telephonyManager.getSubscriberId();
-		// IMSIºÅÇ°Ãæ3Î»460ÊÇ¹ú¼Ò£¬½ô½Ó×ÅºóÃæ2Î»00 02ÊÇÖĞ¹úÒÆ¶¯£¬01ÊÇÖĞ¹úÁªÍ¨£¬03ÊÇÖĞ¹úµçĞÅ¡£
+		// IMSIå·å‰é¢3ä½460æ˜¯å›½å®¶ï¼Œç´§æ¥ç€åé¢2ä½00 02æ˜¯ä¸­å›½ç§»åŠ¨ï¼Œ01æ˜¯ä¸­å›½è”é€šï¼Œ03æ˜¯ä¸­å›½ç”µä¿¡ã€‚
 		try {
 			if (IMSI.startsWith("46000") || IMSI.startsWith("46002")) {
-				ProvidersName = "ÖĞ¹úÒÆ¶¯";
+				ProvidersName = "ä¸­å›½ç§»åŠ¨";
 			} else if (IMSI.startsWith("46001")) {
-				ProvidersName = "ÖĞ¹úÁªÍ¨";
+				ProvidersName = "ä¸­å›½è”é€š";
 			} else if (IMSI.startsWith("46003")) {
-				ProvidersName = "ÖĞ¹úµçĞÅ";
+				ProvidersName = "ä¸­å›½ç”µä¿¡";
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

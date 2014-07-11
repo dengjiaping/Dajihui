@@ -22,7 +22,7 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 /**
- * ËùÓĞ²úÆ·ÊÊÅäÆ÷
+ * æ‰€æœ‰äº§å“é€‚é…å™¨
  * 
  * @author user
  * 
@@ -33,7 +33,7 @@ public class MyGridProductAdapter4 extends BaseAdapter {
 		ImageView imageView;
 	}
 
-	// ¶¨ÒåContext
+	// å®šä¹‰Context
 	private Context mContext;
 	private LinkedList<ProductsBean> mList;
 	private DisplayImageOptions options;
@@ -48,24 +48,24 @@ public class MyGridProductAdapter4 extends BaseAdapter {
 		
 	}
 
-	// »ñÈ¡Í¼Æ¬µÄ¸öÊı
+	// è·å–å›¾ç‰‡çš„ä¸ªæ•°
 	public int getCount() {
 		return mList.size();
 	}
 
-	// »ñÈ¡Í¼Æ¬ÔÚ¿âÖĞµÄÎ»ÖÃ
+	// è·å–å›¾ç‰‡åœ¨åº“ä¸­çš„ä½ç½®
 	public Object getItem(int position) {
 		return mList.get(position);
 	}
 
-	// »ñÈ¡Í¼Æ¬ID
+	// è·å–å›¾ç‰‡ID
 	public long getItemId(int position) {
 		return position;
 	}
 
 	private int clickTemp = -1;
 
-	// ±êÊ¶Ñ¡ÔñµÄItem
+	// æ ‡è¯†é€‰æ‹©çš„Item
 	public void setSeclection(int position) {
 		clickTemp = position;
 	}

@@ -4,7 +4,7 @@ import com.mzhou.merchant.model.BackBean;
 
 public class IBack {
 	/**
-	 * 返回数据接口
+	 * 杩斿洖鏁版嵁鎺ュ彛
 	 */
 
 	public interface IBackInfo {
@@ -12,7 +12,7 @@ public class IBack {
 	}
 
 	/**
-	 * 返回上传数据接口
+	 * 杩斿洖涓婁紶鏁版嵁鎺ュ彛
 	 */
 	public interface IUploadBackInfo {
 		public void getBackAttactInfo(String json);

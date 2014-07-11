@@ -6,7 +6,7 @@ import com.mzhou.merchant.model.JobBean;
 
 public class IJob {
 	/**
-	 * 定义接口
+	 * 瀹氫箟鎺ュ彛
 	 */
 	public interface IgetJobInfo {
 		public void getJobInfo(List<JobBean> jobBeans);

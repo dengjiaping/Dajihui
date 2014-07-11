@@ -68,7 +68,7 @@ public class PicPagerActivity extends Activity {
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * 
 	 * @return
 	 */
@@ -89,7 +89,7 @@ public class PicPagerActivity extends Activity {
 	}
 
 	/**
-	 * ¼ÓÔØ°´Å¥
+	 * åŠ è½½æŒ‰é’®
 	 */
 	private void loadbutton() {
 		currentpage = (TextView) findViewById(R.id.title_bar_title);
@@ -102,7 +102,7 @@ public class PicPagerActivity extends Activity {
 	}
 
 	/**
-	 * ÉèÖÃpageadapter ºÍ¼ÓÔØ pagerÒ³Ãæ
+	 * è®¾ç½®pageadapter å’ŒåŠ è½½ pageré¡µé¢
 	 * 
 	 * @param pagerPosition
 	 */
@@ -138,7 +138,7 @@ public class PicPagerActivity extends Activity {
 	}
 
 	/**
-	 * ¼àÌıÊÂ¼ş
+	 * ç›‘å¬äº‹ä»¶
 	 */
 	private void listenerbutton() {
 		backImageView.setOnClickListener(new OnClickListener() {
@@ -201,7 +201,7 @@ public class PicPagerActivity extends Activity {
 	}
 
 	/**
-	 * pager ÊÊÅäÆ÷
+	 * pager é€‚é…å™¨
 	 * 
 	 * @author user
 	 * 
@@ -280,12 +280,12 @@ public class PicPagerActivity extends Activity {
 	}
 
 	/**
-	 * ¸ù¾İurl ¼ÓÔØÍ¼Æ¬£¬È»ºóÉèÖÃÍ¼Æ¬matrix ,Í¼Æ¬Îª ImageViewTouch
+	 * æ ¹æ®url åŠ è½½å›¾ç‰‡ï¼Œç„¶åè®¾ç½®å›¾ç‰‡matrix ,å›¾ç‰‡ä¸º ImageViewTouch
 	 * @param url
 	 */
 	private void displayBitmap(String url) {
 		/**
-		 * ¼ÓÔØÍ¼Æ¬¼àÌı
+		 * åŠ è½½å›¾ç‰‡ç›‘å¬
 		 */
 		imageLoader.displayImage(url, mImage, options);
 		if (null == imageMatrix) {
@@ -297,7 +297,7 @@ public class PicPagerActivity extends Activity {
 	}
 
 	/**
-	 * ÔÚÊı×éÀïÃæ´æ´¢×ÅËùÓĞµÄÍ¼Æ¬µØÖ·£¬¸ù¾İposition Î»ÖÃÀ´É¾³ıÍ¼Æ¬Êı×éÖĞµÄÍ¼Æ¬µØÖ·
+	 * åœ¨æ•°ç»„é‡Œé¢å­˜å‚¨ç€æ‰€æœ‰çš„å›¾ç‰‡åœ°å€ï¼Œæ ¹æ®position ä½ç½®æ¥åˆ é™¤å›¾ç‰‡æ•°ç»„ä¸­çš„å›¾ç‰‡åœ°å€
 	 * 
 	 * @param images
 	 * @param position
@@ -309,7 +309,7 @@ public class PicPagerActivity extends Activity {
 			list.add(images[i]);
 		}
 		list.remove(position - 1);
-		String[] newStr = list.toArray(new String[list.size()]); // ·µ»ØÒ»¸ö°üº¬ËùÓĞ¶ÔÏóµÄÖ¸¶¨ÀàĞÍµÄÊı×é
+		String[] newStr = list.toArray(new String[list.size()]); // è¿”å›ä¸€ä¸ªåŒ…å«æ‰€æœ‰å¯¹è±¡çš„æŒ‡å®šç±»å‹çš„æ•°ç»„
 		return newStr;
 
 	}
