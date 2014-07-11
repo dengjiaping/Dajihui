@@ -144,9 +144,7 @@ public class XianshiIndex extends Fragment {
 	}
 
 	private String getVersionName() throws Exception {
-		// ��ȡpackagemanager��ʵ��
 		PackageManager packageManager = getActivity().getPackageManager();
-		// getPackageName()���㵱ǰ��İ�����0�����ǻ�ȡ�汾��Ϣ
 		PackageInfo packInfo = packageManager.getPackageInfo(getActivity()
 				.getPackageName(), 0);
 		String version = packInfo.versionName;
@@ -209,10 +207,6 @@ public class XianshiIndex extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 	}
 
-	/**
-	 * ��ʼ��
-	 * 
-	 */
 	private void init() {
 		context = getActivity().getBaseContext();
 		mList = new LinkedList<ProductsBean>();
@@ -240,7 +234,6 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ������Ҫ�Ŀؼ�
 	 * 
 	 * @param mView
 	 */
@@ -263,7 +256,6 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * �������Ͳ�Ʒ�¼�
 	 */
 	private void listenerButton() {
 
@@ -290,7 +282,6 @@ public class XianshiIndex extends Fragment {
 		});
 
 		/**
-		 * ���ͼƬ�����¼�
 		 */
 
 		viewFlipper.setOnClickListener(clickListener);
@@ -304,7 +295,6 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ˢ�¼���
 	 */
 	private void refreshListener() {
 		// Set a listener to be invoked when the list should be refreshed.
@@ -411,7 +401,6 @@ public class XianshiIndex extends Fragment {
 	};
 
 	/**
-	 * ����������ȡ����
 	 * 
 	 * @author user
 	 * 
@@ -474,7 +463,6 @@ public class XianshiIndex extends Fragment {
 	};
 
 	/**
-	 * ��һ��ͼƬ
 	 */
 	private void showNextView() {
 
@@ -496,7 +484,6 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ��һ��ͼƬ
 	 */
 	private void showPreviousView() {
 		displayRatio_selelct(currentPage);
@@ -517,7 +504,6 @@ public class XianshiIndex extends Fragment {
 	}
 
 	/**
-	 * ����СԲ���id����ʾСԲ��
 	 * 
 	 * @param id
 	 */
