@@ -14,6 +14,8 @@ public class DbLoginManager {
 	private String SELECT_ALL = "select * from " + DATABASE_TABLENAME;
 	private String SELECT_BY_USERTYPE = SELECT_ALL
 			+ " where usertype = ? and lastlogin = ? ";
+	private String SELECT_BY_NEEDLOGIN = SELECT_ALL
+			+ " where needlogin = ? ";
 	private String SELECT_CURRENT_USER = SELECT_ALL
 			+ " where status = ?";
 	private String SELECT_BY_USERTYPE_AND_USERNAME = SELECT_ALL
@@ -33,7 +35,7 @@ public class DbLoginManager {
 
 	/**
 	 * 插入新的数据库，如果本地不存在就插入，否则就更新 主要用途 1.登录界面，点击登录
-	 * 
+	 * 2.注册界面
 	 * @param bean
 	 * @return
 	 */
@@ -49,24 +51,49 @@ public class DbLoginManager {
 
 	/**
 	 * 插入新的一条数据
-	 * 
+	 * 1.登录界面，点击登录
+	 * 2.注册界面
 	 * @param bean
 	 */
 	private void insert(LoginUserBean bean) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
 		ContentValues values = new ContentValues();
-		values.put("lastlogin", bean.getLastlogin());
-		values.put("username", bean.getUsername());
-		values.put("password", bean.getPassword());
-		values.put("usertype", bean.getUsertype());
-		values.put("isremeber", bean.getIsremeber());
-		values.put("isloginself", bean.getIsloginself());
-		values.put("isbinder", bean.getIsbinder());
-		values.put("qq", bean.getQq());
-		values.put("openid", bean.getOpenid());
-		values.put("status", bean.getStatus());
-		values.put("needlogin", bean.getNeedlogin());
-
+		
+		if (bean.getUsername() != null) {
+			values.put("username", bean.getUsername());
+		}
+		if (bean.getPassword() != null) {
+			values.put("password", bean.getPassword());
+			
+		}
+		if (bean.getUsertype() != null) {
+			values.put("usertype", bean.getUsertype());
+		}
+		if (bean.getLastlogin() != null) {
+			values.put("lastlogin", bean.getLastlogin());
+		}
+		if (bean.getIsremeber() != null) {
+			values.put("isremeber", bean.getIsremeber());
+		}
+		if (bean.getIsloginself() != null) {
+			values.put("isloginself", bean.getIsloginself());
+		}
+		if (bean.getIsbinder() != null) {
+			values.put("isbinder", bean.getIsbinder());
+		}
+		if (bean.getQq() != null) {
+			values.put("qq", bean.getQq());
+		}
+		if (bean.getOpenid() != null) {
+			values.put("openid", bean.getOpenid());
+		}
+		if (bean.getNeedlogin() != null) {
+			values.put("needlogin", bean.getNeedlogin());
+		}
+		if (bean.getStatus() != null) {
+			values.put("status", bean.getStatus());
+		}
+		
 		st.insert(DATABASE_TABLENAME, values);
 	}
 
@@ -74,21 +101,99 @@ public class DbLoginManager {
 	 * 根据用户名称跟用户类型来更新登录配置信息，需要将上次登录的改为1，登录状态改为1
 	 * 主要用途
 	 * 1.登录界面，再次的登录的时候,更新帐号信息
-	 * 
+	 * 2.注册界面
+	 * 3.用户详情界面
 	 * @param bean
 	 */
 	public void updateByUserNameAndUserType(LoginUserBean bean) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
 		ContentValues values = new ContentValues();
-		values.put("lastlogin", bean.getLastlogin());
-		values.put("username", bean.getUsername());
-		values.put("password", bean.getPassword());
-		values.put("isremeber", bean.getIsremeber());
-		values.put("isloginself", bean.getIsloginself());
-		values.put("status", bean.getStatus());
-		values.put("needlogin", bean.getNeedlogin());
+		
+		if (bean.getUsername() != null) {
+			values.put("username", bean.getUsername());
+		}
+		if (bean.getPassword() != null) {
+			values.put("password", bean.getPassword());
+			
+		}
+		if (bean.getUsertype() != null) {
+			values.put("usertype", bean.getUsertype());
+		}
+		if (bean.getLastlogin() != null) {
+			values.put("lastlogin", bean.getLastlogin());
+		}
+		if (bean.getIsremeber() != null) {
+			values.put("isremeber", bean.getIsremeber());
+		}
+		if (bean.getIsloginself() != null) {
+			values.put("isloginself", bean.getIsloginself());
+		}
+		if (bean.getIsbinder() != null) {
+			values.put("isbinder", bean.getIsbinder());
+		}
+		if (bean.getQq() != null) {
+			values.put("qq", bean.getQq());
+		}
+		if (bean.getOpenid() != null) {
+			values.put("openid", bean.getOpenid());
+		}
+		if (bean.getNeedlogin() != null) {
+			values.put("needlogin", bean.getNeedlogin());
+		}
+		if (bean.getStatus() != null) {
+			values.put("status", bean.getStatus());
+		}
+ 
 		st.update(DATABASE_TABLENAME, values, " username=? and  usertype = ? ",
 				new String[] { bean.getUsername(), bean.getUsertype() });
+	}
+	/**
+	 * 更新当前用户的信息
+	 * 主要用途
+	 * 1.qq登录绑定之后，默认qq绑定的帐号是qq，密码是123
+	 * @param bean
+	 */
+	public void updateByStatus(LoginUserBean bean) {
+		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
+		ContentValues values = new ContentValues();
+		
+		if (bean.getUsername() != null) {
+			values.put("username", bean.getUsername());
+		}
+		if (bean.getPassword() != null) {
+			values.put("password", bean.getPassword());
+			
+		}
+		if (bean.getUsertype() != null) {
+			values.put("usertype", bean.getUsertype());
+		}
+		if (bean.getLastlogin() != null) {
+			values.put("lastlogin", bean.getLastlogin());
+		}
+		if (bean.getIsremeber() != null) {
+			values.put("isremeber", bean.getIsremeber());
+		}
+		if (bean.getIsloginself() != null) {
+			values.put("isloginself", bean.getIsloginself());
+		}
+		if (bean.getIsbinder() != null) {
+			values.put("isbinder", bean.getIsbinder());
+		}
+		if (bean.getQq() != null) {
+			values.put("qq", bean.getQq());
+		}
+		if (bean.getOpenid() != null) {
+			values.put("openid", bean.getOpenid());
+		}
+		if (bean.getNeedlogin() != null) {
+			values.put("needlogin", bean.getNeedlogin());
+		}
+		if (bean.getStatus() != null) {
+			values.put("status", bean.getStatus());
+		}
+		
+		st.update(DATABASE_TABLENAME, values, " status=? ",
+				new String[] {"1"});
 	}
 	/**
 	 * 根据类型来将用户上次登录状态全部清除
@@ -102,7 +207,7 @@ public class DbLoginManager {
 		st.update(DATABASE_TABLENAME, values, "usertype = ? ",
 				new String[] { usertype});
 	}
-	/**
+ 	/**
 	 * 清除所有登录状态
 	 * 1.退出登录的时候
 	 * 2.登录成功，修改状态之前
@@ -156,7 +261,18 @@ public class DbLoginManager {
 	 */
 	public boolean getLoginStatus() {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
-		return st.isExistsByField(DATABASE_TABLENAME, "status", "1");
+		return st.isExistsBySQL(SELECT_CURRENT_USER, new String[] {
+				"1" });
+	}
+	/**
+	 * 退出登录状态,大于0表示更新成功
+	 * @return
+	 */
+	public int updateLoginStatus() {
+		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
+		ContentValues values = new ContentValues();
+			values.put("status", "0");
+		return st.update(DATABASE_TABLENAME, values, null, null);
 	}
 	/**
 	 * 判断是否需要自动登录
@@ -166,7 +282,7 @@ public class DbLoginManager {
 	 */
 	public boolean getNeedLoginStatus() {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
-		return st.isExistsByField(DATABASE_TABLENAME, "needlogin", "1");
+		return st.isExistsBySQL(SELECT_BY_NEEDLOGIN, new String[] {  "1" });
 	}
 
 	/**
@@ -208,7 +324,42 @@ public class DbLoginManager {
 		}, SELECT_BY_USERTYPE, new String[] { usertype, "1" });
 	}
 	/**
-	 * 貌似不需要
+	 * 获取需要自动登录的帐号密码
+	 * 主要用途
+	 * 1.软件启动的时候查询是否需要自动登录
+	 * @return
+	 */
+	public LoginUserBean getUserByNeedLogin() {
+		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
+		return st.queryForObject(new RowMapper<LoginUserBean>() {
+			
+			@Override
+			public LoginUserBean mapRow(Cursor cursor, int index) {
+				LoginUserBean bean = new LoginUserBean();
+				bean.set_id(cursor.getInt(cursor.getColumnIndex("_id")));
+				bean.setLastlogin(cursor.getString(cursor
+						.getColumnIndex("lastlogin")));
+				bean.setUsername(cursor.getString(cursor
+						.getColumnIndex("username")));
+				bean.setPassword(cursor.getString(cursor
+						.getColumnIndex("password")));
+				bean.setUsertype(cursor.getString(cursor
+						.getColumnIndex("usertype")));
+				bean.setIsremeber(cursor.getString(cursor
+						.getColumnIndex("isremeber")));
+				bean.setIsloginself(cursor.getString(cursor
+						.getColumnIndex("isloginself")));
+				bean.setIsbinder(cursor.getString(cursor
+						.getColumnIndex("isbinder")));
+				bean.setQq(cursor.getString(cursor.getColumnIndex("qq")));
+				bean.setOpenid(cursor.getString(cursor.getColumnIndex("openid")));
+				bean.setStatus(cursor.getString(cursor.getColumnIndex("status")));
+				bean.setNeedlogin(cursor.getString(cursor.getColumnIndex("needlogin")));
+				return bean;
+			}
+		}, SELECT_BY_NEEDLOGIN, new String[] {  "1" });
+	}
+	/**
 	 * 查询出当前的帐号
 	 * 主要用途
 	 * 1.发布产品界面或者发布其他信息界面，获取当前用户的数据

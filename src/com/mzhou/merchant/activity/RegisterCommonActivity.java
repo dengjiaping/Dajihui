@@ -2,7 +2,11 @@ package com.mzhou.merchant.activity;
 
 import com.mzhou.merchant.dao.IUser.IgetUserInfo;
 import com.mzhou.merchant.dao.biz.UserManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AllBean;
+import com.mzhou.merchant.model.LoginUserBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
@@ -109,10 +113,25 @@ public class RegisterCommonActivity extends Activity {
 								public void getInfo(AllBean user) {
 									if (user != null) {
 										if (user.getStatus().equals("true")) {
-											Editor editor = sPreferences.edit();
-											editor.putString("username", username);
-											editor.putString("password", password);
-											editor.commit();
+											LoginUserBean loginUserBean = new LoginUserBean();
+											loginUserBean.setUsername(username);
+											loginUserBean.setPassword(password);
+											loginUserBean.setUsertype("0");
+											loginUserBean.setStatus("0");
+											loginUserBean.setLastlogin("1");
+											DbLoginManager.getInstance(RegisterCommonActivity.this).insertData(loginUserBean);
+											System.out.println("保存登录信息");
+											UserInfoBean userInfoBean = new UserInfoBean();
+											userInfoBean.setUsername(username);
+											userInfoBean.setPassword(password);
+											userInfoBean.setStatus("0");
+											userInfoBean.setUsertype("0");
+											DbUserManager.getInstance(RegisterCommonActivity.this).insertData(userInfoBean);
+											System.out.println("保存用户信息");
+//											Editor editor = sPreferences.edit();
+//											editor.putString("username", username);
+//											editor.putString("password", password);
+//											editor.commit();
 											MyUtlis.toastInfo(
 													RegisterCommonActivity.this,
 													user.getMsg()

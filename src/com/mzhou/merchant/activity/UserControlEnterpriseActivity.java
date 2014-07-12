@@ -14,6 +14,7 @@ import com.mzhou.merchant.dao.biz.UserManager;
 import com.mzhou.merchant.model.AllBean;
 import com.mzhou.merchant.model.GroupUsers;
 import com.mzhou.merchant.model.User;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
 import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
@@ -229,6 +230,23 @@ public class UserControlEnterpriseActivity extends Activity {
 	 * 设置返回来的值，用sharedPreference来去出来
 	 */
 	private void setData() {
+		
+	/*	UserInfoBean userInfoBean = dbUserManager.getLogingUserInfo();
+		imageLoader.displayImage(userInfoBean.getHeadurl(), user_manager_user_head, options);
+		nicknameTextView.setText(userInfoBean.getNickname());
+		user_manager_tv_name.setText(userInfoBean.getContact());
+		user_manager_tv_phonnumber.setText(userInfoBean.getPhonenub());
+		user_manager_tv_qq.setText(userInfoBean.getEmail());
+		user_manager_tv_company.setText(userInfoBean.getCompany());
+		user_manager_tv_address.setText(userInfoBean.getAddress());
+		user_manager_tv_net.setText(userInfoBean.getNet());
+		user_manager_category_stub.setText(userInfoBean.getCategory());
+		user_manager_alter_passwd_stub.setText(userInfoBean.getPassword());
+		user_manager_alter_count.setText(userInfoBean.getUsername());*/
+		
+		
+		
+		
 		imageLoader.displayImage(headurl_enterprise, user_manager_user_head,
 				options);
 		nicknameTextView.setText(sp.getString("nickname_enterprise", ""));

@@ -11,7 +11,11 @@ import java.util.Map;
 import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
 import com.mzhou.merchant.dao.IUser.IgetQQBinder;
 import com.mzhou.merchant.dao.biz.UserManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AllBean;
+import com.mzhou.merchant.model.LoginUserBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
 import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
@@ -90,10 +94,7 @@ public class UserControlCommonActivity extends Activity {
 	private ListView lvPopupList;
 	private int NUM_OF_VISIBLE_LIST_ROWS = 10;
 
-	private static SharedPreferences sp;
 	public static UserManager userManager = null;
-	private String uid;
-	private String headurl;
 	private LinkedList<String> mList;
 	protected ImageLoader imageLoader;
 	private DisplayImageOptions options;
@@ -102,12 +103,12 @@ public class UserControlCommonActivity extends Activity {
 	private Uri mImageUri;
 	private File file;
 	private Context context;
-	private String openid;
-	private boolean isBinder;
 	private String saveDir = Environment.getExternalStorageDirectory()
 			.getPath() + "/temp_image";
 	private boolean fromqq;
-
+	private DbLoginManager dbLoginManager;
+	private DbUserManager dbUserManager;
+	private boolean isSave= false;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -122,16 +123,12 @@ public class UserControlCommonActivity extends Activity {
 	}
 
 	private void init() {
-		sp = getSharedPreferences("phonemerchant", 1);
-		uid = sp.getString("uid", "0");
-		headurl = sp.getString("headurl", "");
-		openid = sp.getString("openid", "");
-		isBinder = sp.getBoolean("isBinder", false);
+		dbLoginManager = DbLoginManager.getInstance(context);
+		dbUserManager = DbUserManager.getInstance(context);
 		Intent intent1 = getIntent();
 		fromqq = intent1.getBooleanExtra("fromqq", false);
 
 		context = UserControlCommonActivity.this;
-		boolean isLogin = sp.getBoolean("isLogin", false);
 		userManager = new UserManager();
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
@@ -148,12 +145,12 @@ public class UserControlCommonActivity extends Activity {
 			savePath.mkdirs();
 		}
 		file = new File(saveDir, "temp_pic.jpg");
-		if (!isLogin) {
+		/*if (!isLogin) {
 			Intent intent = new Intent();
 			intent.setClass(context, ActivityLogin.class);
 			startActivity(intent);
 			finish();
-		}
+		}*/
 	}
 
 	/**
@@ -196,17 +193,28 @@ public class UserControlCommonActivity extends Activity {
 	 */
 	private void setData() {
 		// Log.i("print", headurl);
-		imageLoader.displayImage(headurl, user_manager_user_head, options);
-		nicknameTextView.setText(sp.getString("nickname", ""));
-		user_manager_tv_name.setText(sp.getString("name", ""));
-		user_manager_tv_phonnumber.setText(sp.getString("phonenub", ""));
-		user_manager_tv_qq.setText(sp.getString("email", ""));
-		user_manager_tv_company.setText(sp.getString("company", ""));
-		user_manager_tv_address.setText(sp.getString("address", ""));
-		user_manager_tv_net.setText(sp.getString("net", ""));
-		user_manager_category_stub.setText(sp.getString("category", ""));
-		user_manager_alter_passwd_stub.setText(sp.getString("password", ""));
-		user_manager_alter_count.setText(sp.getString("username", ""));
+		UserInfoBean userInfoBean = dbUserManager.getLogingUserInfo();
+		imageLoader.displayImage(userInfoBean.getHeadurl(), user_manager_user_head, options);
+		nicknameTextView.setText(userInfoBean.getNickname());
+		user_manager_tv_name.setText(userInfoBean.getContact());
+		user_manager_tv_phonnumber.setText(userInfoBean.getPhonenub());
+		user_manager_tv_qq.setText(userInfoBean.getEmail());
+		user_manager_tv_company.setText(userInfoBean.getCompany());
+		user_manager_tv_address.setText(userInfoBean.getAddress());
+		user_manager_tv_net.setText(userInfoBean.getNet());
+		user_manager_category_stub.setText(userInfoBean.getCategory());
+		user_manager_alter_passwd_stub.setText(userInfoBean.getPassword());
+		user_manager_alter_count.setText(userInfoBean.getUsername());
+//		nicknameTextView.setText(sp.getString("nickname", ""));
+//		user_manager_tv_name.setText(sp.getString("name", ""));
+//		user_manager_tv_phonnumber.setText(sp.getString("phonenub", ""));
+//		user_manager_tv_qq.setText(sp.getString("email", ""));
+//		user_manager_tv_company.setText(sp.getString("company", ""));
+//		user_manager_tv_address.setText(sp.getString("address", ""));
+//		user_manager_tv_net.setText(sp.getString("net", ""));
+//		user_manager_category_stub.setText(sp.getString("category", ""));
+//		user_manager_alter_passwd_stub.setText(sp.getString("password", ""));
+//		user_manager_alter_count.setText(sp.getString("username", ""));
 
 	}
 
@@ -302,6 +310,10 @@ public class UserControlCommonActivity extends Activity {
 				editor.putBoolean("isLogin", false);
 				editor.commit();
 			}*/
+				if (pwchange) {//如果修改了密码需要重新登录
+					dbLoginManager.updateStauts();
+					dbUserManager.updateStauts();
+				}
 			Intent intent = new Intent();
 			intent.setClass(context, ActivityIndex.class);
 			startActivity(intent);
@@ -354,10 +366,19 @@ public class UserControlCommonActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (fromqq) {
-					if (isBinder) {
-						Intent intent = new Intent();
-						intent.setClass(context, FabuShoujiCommenActivity.class);
-						startActivity(intent);
+					//查询当前帐号是否绑定了qq
+					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
+					if (loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
+						System.out.println("当前用户登录绑定了qq");
+						if (isSave) {
+							Intent intent = new Intent();
+							intent.setClass(context, FabuShoujiCommenActivity.class);
+							startActivity(intent);
+						}else {
+							//先保存用户信息
+							save2Server();
+						}
+						
 					} else {
 						showdialog();
 					}
@@ -387,7 +408,7 @@ public class UserControlCommonActivity extends Activity {
 					startActivity(intent);
 				} else {
 					String[] imageUrls = new String[1];
-					imageUrls[0] = headurl;
+					imageUrls[0] = dbUserManager.getLogingUserInfo().getHeadurl();
 					if (imageUrls != null) {
 						Intent intent = new Intent();
 						intent.setClass(context, PicPagerActivity.class);
@@ -572,107 +593,25 @@ public class UserControlCommonActivity extends Activity {
 		});
 		save.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {if (fromqq) {
+			public void onClick(View v) {
+				
+				if (fromqq) {
+					//查询当前帐号是否绑定了qq
+					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
+					if (loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
+						System.out.println("保存操作，当前用户登录绑定了qq");
+						save2Server();
+					} else {
+						System.out.println("保存操作，当前用户未绑定qq");
+						showdialog();
+					}
 
-				if (isBinder) {
+				}else {
+					System.out.println("正常保存");
 					save2Server();
-				} else {
-					showdialog();
 				}
-			
-			}else {
-				save2Server();
-			}}
-
-			private void save2Server() {
-				if (WebIsConnectUtil
-						.showNetState(UserControlCommonActivity.this)) {
-
-					String nickname = nicknameTextView.getText().toString();
-					String phonenub = user_manager_tv_phonnumber.getText()
-							.toString();
-					String net = user_manager_tv_net.getText().toString();
-					final String pw = user_manager_alter_passwd_stub.getText()
-							.toString();
-					String email = user_manager_tv_qq.getText().toString();
-					String company = user_manager_tv_company.getText()
-							.toString();
-					String address = user_manager_tv_address.getText()
-							.toString();
-					String contact = user_manager_tv_name.getText().toString();
-					String category = user_manager_category_stub.getText()
-							.toString();
-
-					String[] array = (String[]) mList.toArray(new String[mList
-							.size()]);
-					Map<String, String> params = new HashMap<String, String>();
-					params.put("uid", uid);
-					params.put("subject", "edit");
-					params.put("data[category]", category);
-					params.put("data[nickname]", nickname);
-					params.put("data[contact]", contact);
-					params.put("data[pw]", pw);
-					params.put("data[phonenub]", phonenub);
-					params.put("data[email]", email);
-					params.put("data[company]", company);
-					params.put("data[address]", address);
-					params.put("data[net]", net);
-					HttpMultipartPost task = new HttpMultipartPost(context,
-							MyConstants.LOGIN_URL, array, params);
-					task.execute();
-					task.getBackInfoIml(new IUploadBackInfo() {
-
-						@Override
-						public void getBackAttactInfo(String json) {
-
-							AllBean userBean = JsonParse.parseUserJson(json);
-								if (userBean != null && userBean.getStatus().equals("true")) {
-									// Log.i("print", "userbing--------->" +
-									// userBean.toString());
-									Editor editor = sp.edit();
-									editor.putString(
-											"loginstatus",
-											getResources().getString(
-													R.string.isloginstatus));
-									editor.putString("nickname", userBean
-											.getInfo().getNickname());
-									editor.putString("name", userBean.getInfo()
-											.getContact());
-									editor.putString("phonenub", userBean
-											.getInfo().getPhonenub());
-									editor.putString("email", userBean
-											.getInfo().getEmail());
-									editor.putString("company", userBean
-											.getInfo().getCompany());
-									editor.putString("address", userBean
-											.getInfo().getAddress());
-									editor.putString("net", userBean.getInfo()
-											.getNet());
-									editor.putString("password", pw);
-									if (pwchange) {
-										editor.putBoolean("isEnterprise", false);
-										editor.putBoolean("isLogin_enterprise",
-												false);
-										editor.putBoolean("isLogin", false);
-									}
-
-									editor.putString("headurl",
-											MyConstants.PICTURE_URL
-													+ userBean.getInfo()
-															.getHeadurl());
-
-									editor.putString("category", userBean
-											.getInfo().getCategory());
-
-									editor.commit();
-								}
-								MyUtlis.toastInfo(getBaseContext(),
-										userBean.getMsg());
-							}
-					});
-
 				}
-			}
+
 
 		});
 	}
@@ -690,6 +629,109 @@ public class UserControlCommonActivity extends Activity {
 		return dir.delete();
 	}
 
+	private void save2Server() {
+		if (WebIsConnectUtil
+				.showNetState(UserControlCommonActivity.this)) {
+
+			String nickname = nicknameTextView.getText().toString();
+			String phonenub = user_manager_tv_phonnumber.getText()
+					.toString();
+			String net = user_manager_tv_net.getText().toString();
+			final String pw = user_manager_alter_passwd_stub.getText()
+					.toString();
+			String email = user_manager_tv_qq.getText().toString();
+			String company = user_manager_tv_company.getText()
+					.toString();
+			String address = user_manager_tv_address.getText()
+					.toString();
+			String contact = user_manager_tv_name.getText().toString();
+			String category = user_manager_category_stub.getText()
+					.toString();
+
+			String[] array = (String[]) mList.toArray(new String[mList
+					.size()]);
+			Map<String, String> params = new HashMap<String, String>();
+			 
+			String uid =dbUserManager.getLogingUserInfo().getUid();
+			if (uid == null) {
+				Toast.makeText(context, "保存用户失败", Toast.LENGTH_LONG).show();
+				return ;
+			}
+			if (!uid.equals("") && !uid.equals("null")) {
+				params.put("uid", dbUserManager.getLogingUserInfo().getUid());
+			}else {
+				Toast.makeText(context, "保存用户失败", Toast.LENGTH_LONG).show();
+				return ;
+			}
+			params.put("subject", "edit");
+			params.put("data[category]", category);
+			params.put("data[nickname]", nickname);
+			params.put("data[contact]", contact);
+			params.put("data[pw]", pw);
+			params.put("data[phonenub]", phonenub);
+			params.put("data[email]", email);
+			params.put("data[company]", company);
+			params.put("data[address]", address);
+			params.put("data[net]", net);
+			HttpMultipartPost task = new HttpMultipartPost(context,
+					MyConstants.LOGIN_URL, array, params);
+			task.execute();
+			task.getBackInfoIml(new IUploadBackInfo() {
+
+				@Override
+				public void getBackAttactInfo(String json) {
+
+					AllBean userBean = JsonParse.parseUserJson(json);
+						if (userBean != null && userBean.getStatus().equals("true")) {
+							// Log.i("print", "userbing--------->" +
+							// userBean.toString());
+							System.out.println("修改用户信息成功");
+							if (fromqq) {//如果是从qq那边过来的，将保存设置未已经保存
+								isSave = true;
+							}
+							//更新登录信息
+							LoginUserBean loginUserBean = new LoginUserBean();
+							loginUserBean.setPassword(pw);
+							loginUserBean.setUsername(user_manager_alter_count.getText().toString());
+							loginUserBean.setUsertype("0");
+							loginUserBean.setLastlogin("1");
+							loginUserBean.setStatus("1");
+							 
+							dbLoginManager.updateByUserNameAndUserType(loginUserBean);
+							System.out.println("更新用户信息");
+							//更新用户信息
+							UserInfoBean userInfoBean = new UserInfoBean();
+							userInfoBean.setNickname(userBean
+									.getInfo().getNickname());
+							userInfoBean.setUsername(user_manager_alter_count.getText().toString());
+							userInfoBean.setPassword(pw);
+							userInfoBean.setContact( userBean.getInfo()
+									.getContact());
+							userInfoBean.setPhonenub(userBean.getInfo().getPhonenub());
+							userInfoBean.setEmail(userBean.getInfo().getEmail());
+							userInfoBean.setCompany(userBean.getInfo().getCompany());
+							userInfoBean.setAddress(userBean.getInfo().getAddress());
+							userInfoBean.setNet(userBean.getInfo().getNet());
+							userInfoBean.setHeadurl(MyConstants.PICTURE_URL
+									+ userBean.getInfo()
+									.getHeadurl());
+							userInfoBean.setCategory(userBean.getInfo().getCategory());
+							userInfoBean.setUsertype("0");
+							if (pwchange) {//如果修改了密码需要重新登录
+								userInfoBean.setStatus("0");
+							}
+							dbUserManager.insertData(userInfoBean);
+							System.out.println("更新登录信息");
+						
+						 
+						}
+						MyUtlis.toastInfo(getBaseContext(),
+								userBean.getMsg());
+					}
+			});
+
+		}
+	}
 	private void showdialog() {
 		final Dialog dialog = new Dialog(context);
 		dialog.setTitle("绑定一个邮箱账号");
@@ -707,15 +749,14 @@ public class UserControlCommonActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				if (un.getText().toString().equals("")
-						&& pw.getText().toString().equals("")) {
+						|| pw.getText().toString().equals("")) {
 					MyUtlis.toastInfo(context, "账号或密码为空！");
 				} else {
-					userManager.Binder(context, MyConstants.LOGIN_URL, openid,
+					userManager.Binder(context, MyConstants.LOGIN_URL, dbLoginManager.getCurrentBean().getOpenid(),
 							un.getText().toString(), pw.getText().toString());
 					userManager.getQQBinder(new IgetQQBinder() {
 						@Override
 						public void getBinderInfo(AllBean userBean) {
-							// TODO Auto-generated method stub
 							if (userBean != null) {
 								MyUtlis.toastInfo(context, userBean.getMsg()
 										.toString());
@@ -739,35 +780,50 @@ public class UserControlCommonActivity extends Activity {
 											.getInfo().getNet());
 									user_manager_category_stub.setText(userBean
 											.getInfo().getCenter());
-									Editor editor = sp.edit();
-									editor.putString("name", userBean.getInfo()
-											.getContact());// 联系人
-									editor.putBoolean("isEnterprise", false);// 设置不是企业会员
-									editor.putBoolean("isBinder", true);// 设置是否绑定
-									editor.putString("uid", userBean.getUid());
-									editor.putString("username", un.getText()
+									//更新登录信息
+									LoginUserBean loginUserBean = new LoginUserBean();
+									loginUserBean.setPassword(pw.getText()
 											.toString());
-									editor.putString("password", pw.getText()
+									loginUserBean.setUsername(un.getText()
 											.toString());
-									editor.putString("phonenub", userBean
-											.getInfo().getPhonenub());
-									editor.putString("company", userBean
-											.getInfo().getCompany());
-									editor.putString("address", userBean
-											.getInfo().getAddress());
-									editor.putString("net", userBean.getInfo()
-											.getNet());
-									editor.putString("category", userBean
-											.getInfo().getCategory());
-									editor.putString("email", userBean
-											.getInfo().getEmail());
-									editor.commit();
-									isBinder = true;
+									loginUserBean.setUsertype("0");
+ 					 				loginUserBean.setIsbinder("1");
+ 					 				loginUserBean.setLastlogin("1");
+ 					 				loginUserBean.setStatus("1");
+									dbLoginManager.updateByStatus(loginUserBean);
+									
+									System.out.println("更新用户信息");
+									//更新用户信息
+									UserInfoBean userInfoBean = new UserInfoBean();
+									userInfoBean.setNickname(userBean
+											.getInfo().getNickname());
+									userInfoBean.setPassword(pw.getText()
+											.toString());
+									userInfoBean.setUsername(un.getText()
+											.toString());
+									userInfoBean.setContact( userBean.getInfo()
+											.getContact());
+									userInfoBean.setPhonenub(userBean.getInfo().getPhonenub());
+									userInfoBean.setEmail(userBean.getInfo().getEmail());
+									userInfoBean.setCompany(userBean.getInfo().getCompany());
+									userInfoBean.setAddress(userBean.getInfo().getAddress());
+									userInfoBean.setNet(userBean.getInfo().getNet());
+									userInfoBean.setUid(userBean.getUid());
+									userInfoBean.setHeadurl(MyConstants.PICTURE_URL
+											+ userBean.getInfo()
+											.getHeadurl());
+									userInfoBean.setCategory(userBean.getInfo().getCategory());
+									userInfoBean.setUsertype("0");
+										userInfoBean.setStatus("1");
+									dbUserManager.updateByStatus(userInfoBean);
+									System.out.println("更新登录信息");
+//									isBinder = true;
 								} else {
-									Editor editor = sp.edit();
-									editor.putBoolean("isBinder", false);
-									editor.commit();
-									isBinder = false;
+									Toast.makeText(context, "绑定失败,请重试!", Toast.LENGTH_LONG).show();
+//									Editor editor = sp.edit();
+//									editor.putBoolean("isBinder", false);
+//									editor.commit();
+//									isBinder = false;
 								}
 							}
 

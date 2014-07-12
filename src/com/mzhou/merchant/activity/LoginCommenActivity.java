@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -21,10 +22,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.mzhou.merchant.dao.biz.UserManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AllBean;
+import com.mzhou.merchant.model.LoginUserBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
- 
 
 public class LoginCommenActivity extends Activity {
 	private EditText user_login_username_hint;
@@ -39,8 +43,11 @@ public class LoginCommenActivity extends Activity {
 	private LinearLayout qq_login;
 	public static UserManager userManager = null;
 	public static SharedPreferences sp;
-	private boolean remeberpassword;
-	private boolean loginself;
+	private boolean remeberpassword = false;
+	private boolean loginself = false;
+
+	private DbLoginManager dbLoginManager;
+	private DbUserManager dbUserManager;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -49,14 +56,17 @@ public class LoginCommenActivity extends Activity {
 		setContentView(R.layout.user_login_common);
 		init();
 		loadButton();
+		setData();
 		listenerButton();
 	}
 
 	private void init() {
 		sp = getSharedPreferences("phonemerchant", 1);
+		dbLoginManager = DbLoginManager.getInstance(this);
+		dbUserManager = DbUserManager.getInstance(this);
 		userManager = new UserManager();
-		remeberpassword = sp.getBoolean("remeberpassword", false);
-		loginself = sp.getBoolean("loginself", false);
+		// remeberpassword = sp.getBoolean("remeberpassword", false);
+		// loginself = sp.getBoolean("loginself", false);
 	}
 
 	/**
@@ -75,7 +85,7 @@ public class LoginCommenActivity extends Activity {
 				map.put("data[pw]", password);
 				if (WebIsConnectUtil.showNetState(LoginCommenActivity.this)) {
 					userManager.Login(LoginCommenActivity.this,
-							MyConstants.LOGIN_URL,map);// 登陆
+							MyConstants.LOGIN_URL, map);// 登陆
 					userManager
 							.getUserInfoIml(new com.mzhou.merchant.dao.IUser.IgetUserInfo() {
 
@@ -83,17 +93,10 @@ public class LoginCommenActivity extends Activity {
 								public void getInfo(AllBean user) {
 									if (user != null) {
 										if (user.getStatus().equals("true")) {
-											save2SharedPrefenrence(user);
-											Intent intent = new Intent();
-											intent.setClass(
-													LoginCommenActivity.this,
-													UserControlCommonActivity.class);
-											startActivity(intent);
-											Toast.makeText(
-													LoginCommenActivity.this,
-													user.getMsg(),
-													Toast.LENGTH_SHORT).show();
-											finish();
+											System.out.println("普通会员登录成功");
+											saveLoginInfo();
+											saveUserInfo(user);
+											toUserControlCenter(user);
 										} else {
 											Toast.makeText(
 													LoginCommenActivity.this,
@@ -103,6 +106,7 @@ public class LoginCommenActivity extends Activity {
 										}
 									}
 								}
+
 							});
 				}
 			}
@@ -135,6 +139,12 @@ public class LoginCommenActivity extends Activity {
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
 						remeberpassword = isChecked;
+						if (isChecked) {//选中记住密码
+							
+						}else {//取消记住密码
+							user_checkbox2.setChecked(false);
+							loginself= false;
+						}
 					}
 				});
 		user_checkbox2
@@ -144,6 +154,10 @@ public class LoginCommenActivity extends Activity {
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
 						loginself = isChecked;
+						if (isChecked) {
+							user_checkbox1.setChecked(true);
+							remeberpassword = true;
+						}
 
 					}
 				});
@@ -160,7 +174,70 @@ public class LoginCommenActivity extends Activity {
 			}
 		});
 	}
- 
+
+	private void toUserControlCenter(AllBean user) {
+		Intent intent = new Intent();
+		intent.setClass(LoginCommenActivity.this,
+				UserControlCommonActivity.class);
+		startActivity(intent);
+		Toast.makeText(LoginCommenActivity.this, user.getMsg(),
+				Toast.LENGTH_SHORT).show();
+		finish();
+	}
+
+	private void saveLoginInfo() {
+		// 保存登录数据
+		LoginUserBean loginUserBean = new LoginUserBean();
+		loginUserBean.setLastlogin("1");
+		loginUserBean.setUsername(username);
+		loginUserBean.setPassword(password);
+		loginUserBean.setUsertype("0");
+		if (remeberpassword) {
+			loginUserBean.setIsremeber("1");
+		} else {
+			loginUserBean.setIsremeber("0");
+		}
+		if (loginself) {
+			loginUserBean.setIsloginself("1");
+		} else {
+			loginUserBean.setIsloginself("0");
+		}
+		loginUserBean.setStatus("1");
+		if (remeberpassword && loginself) {
+			loginUserBean.setNeedlogin("1");
+		} else {
+			loginUserBean.setNeedlogin("0");
+		}
+		dbLoginManager.insertData(loginUserBean);
+		System.out.println("保存登录数据");
+	}
+
+	private void saveUserInfo(AllBean user) {
+
+		// 保存用户信息
+		UserInfoBean userInfoBean = new UserInfoBean();
+		System.out.println("更新用户详细信息");
+		userInfoBean.setContact(user.getInfo().getContact());
+		userInfoBean.setStatus("1");
+		userInfoBean.setUid(user.getInfo().getUid());
+		userInfoBean.setNickname(user.getInfo().getNickname());
+		userInfoBean.setPhonenub(user.getInfo().getPhonenub());
+		userInfoBean.setCenter(user.getInfo().getCenter());//
+		userInfoBean.setFax(user.getInfo().getFax());//
+		userInfoBean.setCompany(user.getInfo().getCompany());
+		userInfoBean.setAddress(user.getInfo().getAddress());
+		userInfoBean.setNet(user.getInfo().getNet());
+		userInfoBean.setCategory(user.getInfo().getCategory());
+		userInfoBean.setHeadurl(MyConstants.PICTURE_URL
+				+ user.getInfo().getHeadurl());
+		userInfoBean.setEmail(user.getInfo().getEmail());
+		userInfoBean.setUsertype("0");
+		userInfoBean.setUsername(username);
+		userInfoBean.setPassword(password);
+		dbUserManager.insertData(userInfoBean);
+		System.out.println("保存用户信息");
+	}
+
 	/**
 	 * 将用户信息储存到SharedPreference里面去
 	 * 
@@ -188,7 +265,6 @@ public class LoginCommenActivity extends Activity {
 		editor.commit();
 	}
 
-
 	/**
 	 * 加载所有的控件
 	 */
@@ -201,24 +277,77 @@ public class LoginCommenActivity extends Activity {
 		user_checkbox2 = (CheckBox) findViewById(R.id.user_checkbox2);
 		user_button_login = (Button) findViewById(R.id.user_button_login);
 		user_button_register = (TextView) findViewById(R.id.user_button_register);
-		user_checkbox1.setChecked(loginself);
-		user_checkbox2.setChecked(remeberpassword);
-		user_login_username_hint.setText(sp.getString("username", ""));
-		if (remeberpassword) {
-			user_checkbox1.setChecked(remeberpassword);
-			user_login_password_hint.setText(sp.getString("password", ""));
-		} else {
-			user_checkbox1.setChecked(remeberpassword);
-			user_login_password_hint.setText("");
-		}
-		if (loginself) {
-			user_checkbox2.setChecked(loginself);
-		} else {
-			user_checkbox2.setChecked(loginself);
-		}
 
 	}
- 
+	/**
+	 * 配置显示信息
+	 */
+	private void setData() {
+		LoginUserBean loginUserBean = dbLoginManager
+				.getLastLoginByUserType("0");// 查询普通会员上次登录的数据
+		if (loginUserBean != null) {// 上次有登录的帐号
+			System.out.println("查询普通会员上次登录的数据" + loginUserBean.toString());
+
+			if (loginUserBean.getUsername() != null
+					&& !loginUserBean.getUsername().equals("null")) {
+				System.out.println("存在用户名 - " + loginUserBean.getUsername());
+				user_login_username_hint.setText(loginUserBean.getUsername());// 用户名
+			} else {
+				System.out.println("不存在用户名 - ");
+				user_login_username_hint.setText("");// 用户名
+			}
+
+			if (loginUserBean.getIsremeber().equals("1")) {// 是记住密码
+				user_checkbox1.setChecked(true);// 密码
+				remeberpassword = true;
+				
+				System.out.println("是否记住密码"
+						+ loginUserBean.getIsremeber().equals("1"));
+				user_login_password_hint.setText(loginUserBean.getPassword());
+
+				if (loginUserBean.getIsloginself().equals("1")) {// 是自动登录
+					user_checkbox2.setChecked(true);
+					loginself = true;
+					System.out.println("是自动登录");
+				} else {// 不是自动登录
+					user_checkbox2.setChecked(false);
+					loginself = false;
+					System.out.println("不是自动登录");
+				}
+
+			} else {
+				loginself = false;
+				remeberpassword = false;
+				user_checkbox1.setChecked(false);
+				user_checkbox2.setChecked(false);
+				user_login_password_hint.setText("");
+				System.out.println("是否记住密码"
+						+ loginUserBean.getIsremeber().equals("1"));
+			}
+
+		} else {// 上次没有登录的帐号
+			System.out.println("上次没有登录的帐号");
+			user_login_username_hint.setText("");// 用户名
+			user_login_password_hint.setText("");// 密码
+			user_checkbox1.setChecked(false);
+			user_checkbox2.setChecked(false);
+			loginself = false;
+			remeberpassword = false;
+		}
+
+		/*
+		 * user_checkbox1.setChecked(loginself);
+		 * user_checkbox2.setChecked(remeberpassword);
+		 * user_login_username_hint.setText(sp.getString("username", "")); if
+		 * (remeberpassword) { user_checkbox1.setChecked(remeberpassword);
+		 * user_login_password_hint.setText(sp.getString("password", "")); }
+		 * else { user_checkbox1.setChecked(remeberpassword);
+		 * user_login_password_hint.setText(""); } if (loginself) {
+		 * user_checkbox2.setChecked(loginself); } else {
+		 * user_checkbox2.setChecked(loginself); }
+		 */
+	}
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {

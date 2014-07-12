@@ -4,7 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.mzhou.merchant.dao.biz.UserManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AllBean;
+import com.mzhou.merchant.model.LoginUserBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import android.app.Activity;
@@ -39,8 +43,12 @@ public class LoginEnterpriseActivity extends Activity {
 	private String password_enterprise;
  	public static UserManager userManager = null;
 	public static SharedPreferences sp;
-	private boolean remeberpassword_enterprise;
-	private boolean loginself_enterprise;
+	private boolean remeberpassword_enterprise = false;
+	private boolean loginself_enterprise = false;
+
+	
+	private DbLoginManager dbLoginManager;
+	private DbUserManager dbUserManager;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -49,15 +57,18 @@ public class LoginEnterpriseActivity extends Activity {
 		setContentView(R.layout.user_login_enterprise);
 		init();
 		loadButton();
+		setData();
 		listenerButton();
 	}
 
 	private void init() {
 		sp = getSharedPreferences("phonemerchant", 1);
 		userManager = new UserManager();
-		remeberpassword_enterprise = sp.getBoolean(
-				"remeberpassword_enterprise", false);
-		loginself_enterprise = sp.getBoolean("loginself_enterprise", false);
+//		remeberpassword_enterprise = sp.getBoolean(
+//				"remeberpassword_enterprise", false);
+//		loginself_enterprise = sp.getBoolean("loginself_enterprise", false);
+		dbLoginManager = DbLoginManager.getInstance(this);
+		dbUserManager = DbUserManager.getInstance(this);
 	}
 
 	/**
@@ -85,7 +96,14 @@ public class LoginEnterpriseActivity extends Activity {
 								public void getInfo(AllBean user) {
 									if (user != null) {
 										if (user.getStatus().equals("true")) {
-											save2SharedPrefenrence(user);
+											
+
+											System.out.println("企业会员登录成功");
+											saveLoginInfo();
+											saveUserInfo(user);
+											toUserControlCenter(user);
+											
+//											save2SharedPrefenrence(user);
 											Intent intent = new Intent();
 											intent.setClass(
 													LoginEnterpriseActivity.this,
@@ -138,6 +156,10 @@ public class LoginEnterpriseActivity extends Activity {
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
 						remeberpassword_enterprise = isChecked;
+						if (!isChecked) {//如果没有选中记住密码
+							user_checkbox2.setChecked(false);
+							loginself_enterprise = false;
+						}
 					}
 				});
 		user_checkbox2
@@ -147,6 +169,10 @@ public class LoginEnterpriseActivity extends Activity {
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
 						loginself_enterprise = isChecked;
+						if (isChecked) {//如果选中来自动登录
+							user_checkbox1.setChecked(true);
+							remeberpassword_enterprise = true;
+						}
 
 					}
 				});
@@ -162,7 +188,134 @@ public class LoginEnterpriseActivity extends Activity {
 			}
 		});
 	}
+	private void setData() {
+		LoginUserBean loginUserBean = dbLoginManager.getLastLoginByUserType("1");//查询企业会员上次登录的数据
+		if (loginUserBean != null) {//上次有登录的帐号
+			System.out.println("查询企业会员上次登录的数据"+loginUserBean.toString());
+			
+			if (loginUserBean.getUsername() != null && !loginUserBean.getUsername().equals("null")) {
+				System.out.println("存在用户名 - " + loginUserBean.getUsername());
+				user_login_username_hint.setText(loginUserBean.getUsername());//用户名
+			}else {
+				System.out.println("不存在用户名 - ");
+				user_login_username_hint.setText("");//用户名
+			}
+			
+			if (loginUserBean.getIsremeber().equals("1")) {//是记住密码
+				user_checkbox1.setChecked(true);//密码
+				remeberpassword_enterprise = true;
+				System.out.println("是否记住密码"+loginUserBean.getIsremeber().equals("1"));
+				user_login_password_hint.setText(loginUserBean.getPassword());
+				
+				if (loginUserBean.getIsloginself().equals("1")) {//是自动登录
+					loginself_enterprise = true;
+					user_checkbox2.setChecked(true); 
+					System.out.println("是自动登录");
+				}else {//不是自动登录
+					user_checkbox2.setChecked(false); 
+					loginself_enterprise = false;
+					System.out.println("不是自动登录");
+				}
+				
+			}else {
+				user_checkbox1.setChecked(false);
+				user_checkbox2.setChecked(false); 
+				remeberpassword_enterprise = false;
+				loginself_enterprise = false;
+				user_login_password_hint.setText("");
+				System.out.println("是否记住密码"+loginUserBean.getIsremeber().equals("1"));
+			}
+			
+		}else {//上次没有登录的帐号
+			System.out.println("上次没有登录的帐号");
+			user_login_username_hint.setText("");//用户名
+			user_login_password_hint.setText("");//密码
+			user_checkbox1.setChecked(false);
+			user_checkbox2.setChecked(false); 
+			remeberpassword_enterprise = false;
+			loginself_enterprise = false;
+		}
+		
+		/*
+			if (remeberpassword_enterprise) {
+			user_checkbox1.setChecked(remeberpassword_enterprise);
+			user_login_password_hint.setText(sp.getString(
+					"password_enterprise", ""));
+		} else {
+			user_checkbox1.setChecked(remeberpassword_enterprise);
+			user_login_password_hint.setText("");
+		}
+		if (loginself_enterprise) {
+			user_checkbox2.setChecked(loginself_enterprise);
+		} else {
+			user_checkbox2.setChecked(loginself_enterprise);
+		}
+*/
+	}
+	
+	private void toUserControlCenter(AllBean user) {
+		Intent intent = new Intent();
+		intent.setClass(LoginEnterpriseActivity.this,
+				UserControlEnterpriseActivity.class);
+		startActivity(intent);
+		Toast.makeText(LoginEnterpriseActivity.this, user.getMsg(),
+				Toast.LENGTH_SHORT).show();
+		finish();
+	}
 
+	private void saveLoginInfo() {
+		// 保存登录数据
+		LoginUserBean loginUserBean = new LoginUserBean();
+		loginUserBean.setLastlogin("1");
+		loginUserBean.setUsername(username_enterprise);
+		loginUserBean.setPassword(password_enterprise);
+		loginUserBean.setUsertype("1");
+		if (remeberpassword_enterprise) {
+			loginUserBean.setIsremeber("1");
+		} else {
+			loginUserBean.setIsremeber("0");
+		}
+		if (loginself_enterprise) {
+			loginUserBean.setIsloginself("1");
+		} else {
+			loginUserBean.setIsloginself("0");
+		}
+		loginUserBean.setStatus("1");
+		if (remeberpassword_enterprise && loginself_enterprise) {
+			loginUserBean.setNeedlogin("1");
+		} else {
+			loginUserBean.setNeedlogin("0");
+		}
+		dbLoginManager.insertData(loginUserBean);
+		System.out.println("保存登录数据");
+	}
+
+	private void saveUserInfo(AllBean user) {
+		// 保存用户信息
+		UserInfoBean userInfoBean = new UserInfoBean();
+		System.out.println("更新用户详细信息");
+		userInfoBean.setContact(user.getInfo().getContact());
+		userInfoBean.setStatus("1");
+		userInfoBean.setUid(user.getInfo().getUid());
+		userInfoBean.setNickname(user.getInfo().getNickname());
+		userInfoBean.setPhonenub(user.getInfo().getPhonenub());
+		userInfoBean.setCenter(user.getInfo().getCenter());//
+		userInfoBean.setFax(user.getInfo().getFax());//
+		userInfoBean.setCompany(user.getInfo().getCompany());
+		userInfoBean.setAddress(user.getInfo().getAddress());
+		userInfoBean.setNet(user.getInfo().getNet());
+		userInfoBean.setCenter(user.getInfo().getCenter());
+		userInfoBean.setFax(user.getInfo().getFax());
+		userInfoBean.setCategory(user.getInfo().getCategory());
+		userInfoBean.setHeadurl(MyConstants.PICTURE_URL
+				+ user.getInfo().getHeadurl());
+		userInfoBean.setEmail(user.getInfo().getEmail());
+		userInfoBean.setUsertype("1");//企业会员
+		userInfoBean.setUsername(username_enterprise);
+		userInfoBean.setPassword(password_enterprise);
+		dbUserManager.insertData(userInfoBean);
+		System.out.println("保存用户信息");
+	}
 	/**
 	 * 将用户信息储存到SharedPreference里面去
 	 * 
@@ -208,19 +361,6 @@ public class LoginEnterpriseActivity extends Activity {
 		user_login_username_hint.setText(sp
 				.getString("username_enterprise", ""));
 
-		if (remeberpassword_enterprise) {
-			user_checkbox1.setChecked(remeberpassword_enterprise);
-			user_login_password_hint.setText(sp.getString(
-					"password_enterprise", ""));
-		} else {
-			user_checkbox1.setChecked(remeberpassword_enterprise);
-			user_login_password_hint.setText("");
-		}
-		if (loginself_enterprise) {
-			user_checkbox2.setChecked(loginself_enterprise);
-		} else {
-			user_checkbox2.setChecked(loginself_enterprise);
-		}
 
 	}
 	

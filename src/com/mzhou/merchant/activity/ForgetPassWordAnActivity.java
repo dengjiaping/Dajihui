@@ -30,6 +30,8 @@ public class ForgetPassWordAnActivity extends Activity {
 	private CustomProgressDialog progressDialog = null;
 	private String url;
 	private String uid;
+	private   GetQuestionBean que;
+	private boolean isEnterprise;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -43,7 +45,8 @@ public class ForgetPassWordAnActivity extends Activity {
 
 		Bundle bundle = getIntent().getExtras();
 		url = bundle.getString("url");
-		final GetQuestionBean que = (GetQuestionBean) bundle
+		isEnterprise = bundle.getBoolean("isEnterprise");
+		  que = (GetQuestionBean) bundle
 				.getSerializable("getQuestionBean");
 		uid = que.getUid();
 		question.setText(que.getQuestion());
@@ -69,6 +72,8 @@ public class ForgetPassWordAnActivity extends Activity {
 											ForgetPassWordAnActivity.this,
 											ForgetPassWordModifyActivity.class);
 									intent.putExtra("url", url);
+									intent.putExtra("isEnterprise", isEnterprise);
+									intent.putExtra("username", que.getUsername());
 									intent.putExtra("oldpw",
 											getAnswerBean.getOldpw());
 									intent.putExtra("uid", uid);

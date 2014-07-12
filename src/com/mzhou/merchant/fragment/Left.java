@@ -33,6 +33,9 @@ import com.mzhou.merchant.activity.ActivityWM;
 import com.mzhou.merchant.activity.ActivityXinWen;
 import com.mzhou.merchant.activity.ActivityZS;
 import com.mzhou.merchant.activity.ActivityZP;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.slidemenu.SlidingMenu;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -74,7 +77,8 @@ public class Left extends Fragment {
 	private static SharedPreferences sp;
 	private String headurl;
 	private String headurl_enterprise;
-
+	private DbLoginManager loginManager;
+	private DbUserManager userManager;
 	public Left() {
 		this.mSlidingMenu = ActivityIndex.mSlidingMenu;
 	}
@@ -88,6 +92,8 @@ public class Left extends Fragment {
 	}
 
 	private void init() {
+		loginManager = DbLoginManager.getInstance(getActivity());
+		userManager = DbUserManager.getInstance(getActivity());
 		sp = getActivity().getSharedPreferences("phonemerchant", 1);
 		
 		isLogin = sp.getBoolean("isLogin", false);
@@ -136,6 +142,29 @@ public class Left extends Fragment {
 		title_bar_zhaopin = (TextView) view
 				.findViewById(R.id.title_bar_zhaopin);
 		title_bar_index = (TextView) view.findViewById(R.id.title_bar_ind);
+		
+		
+		
+		if (loginManager.getLoginStatus()) {//有登录状态
+			UserInfoBean bean = userManager.getLogingUserInfo();
+			if (bean != null) {
+				title_bar_user_name.setText(bean.getNickname());//设置昵称
+				imageLoader.displayImage(bean.getHeadurl(), userhead, options);
+				title_bar_user_login.setText(getResources().getString(
+						R.string.isloginstatus));
+			}
+		}else {
+			imageLoader.displayImage(MyConstants.DRAWABLE_DEFOULT,
+					userhead, options);
+			title_bar_user_name.setText(getResources().getString(
+					R.string.nickname));
+			title_bar_user_login.setText(getResources().getString(
+					R.string.nologinstatus));
+		
+		}
+		
+		
+	/*	
 		if (isEnterprise) {// 判断是否是企业会员登陆，如果是企业会员，设置企业会员的信息，否则，普通会员
 			if (isLogin_enterprise) {
 				title_bar_user_name.setText(nickname_enterprise);
@@ -164,7 +193,7 @@ public class Left extends Fragment {
 				title_bar_user_login.setText(getResources().getString(
 						R.string.nologinstatus));
 			}
-		}
+		}*/
 	}
 
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -173,7 +202,32 @@ public class Left extends Fragment {
 		loginLinearLayout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				System.out.println("点击左侧头像");
+				if (loginManager.getLoginStatus()) {//有登录状态
+					System.out.println("有登录状态");
+					UserInfoBean bean = userManager.getLogingUserInfo();
+					if (bean != null) {
+						if (bean.getUsertype().equals("1")) {//企业会员
+							System.out.println("企业会员");
+							Intent intent = new Intent();
+							intent.setClass(getActivity(),
+									UserControlEnterpriseActivity.class);
+							startActivity(intent);
+						}else {//普通会员
+							System.out.println("普通会员");
+							Intent intent = new Intent();
+							intent.setClass(getActivity(),
+									UserControlCommonActivity.class);
+							startActivity(intent);
+						}
+					}
+				}else {//当前没有登录状态
+					System.out.println("当前没有登录状态");
+					Intent intent = new Intent();
+					intent.setClass(getActivity(), ActivityLogin.class);
+					startActivity(intent);
+				}
+			/*	
 				if (isEnterprise) {// 判断是否是企业会员
 					if (isLogin_enterprise) {// 判断企业会员是否已经登陆
 						
@@ -197,7 +251,7 @@ public class Left extends Fragment {
 						intent.setClass(getActivity(), ActivityLogin.class);
 						startActivity(intent);
 					}
-				}
+				}*/
 				getActivity().finish();
 				mSlidingMenu.showLeftView();
 			}

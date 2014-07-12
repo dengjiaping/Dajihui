@@ -37,7 +37,6 @@ public class DbUserManager {
 		 */
 		public void insertData(UserInfoBean bean) {
 			updateStauts();//更新用户登录状态
-			
 		if (isExist(bean)) {//判断是否存在此帐号，如果存在需要更新此帐号数据
 			updateByUserTypeAndUserName(bean);
 		}else {//如果不存在就插入最新数据
@@ -50,25 +49,57 @@ public class DbUserManager {
 		 * @param bean
 		 * @return
 		 */
-		public long insert(UserInfoBean bean) {
+		private long insert(UserInfoBean bean) {
 			SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
 				ContentValues values = new ContentValues();
-				values.put("category", bean.getCategory());
-				values.put("username", bean.getUsername());
-				values.put("nickname", bean.getNickname());
-				values.put("contact", bean.getContact());
-				values.put("password", bean.getPassword());
-				values.put("phonenub", bean.getPhonenub());
-				values.put("email", bean.getEmail());
-				values.put("company", bean.getCompany());
-				values.put("headurl", bean.getHeadurl());
-				values.put("address", bean.getAddress());
-				values.put("net", bean.getNet());
-				values.put("fax", bean.getFax());
-				values.put("center", bean.getCenter());
-				values.put("uid", bean.getUid());
-				values.put("usertype", bean.getUsertype());
-				values.put("status", bean.getStatus());
+				if (bean.getUsername() != null) {
+					values.put("username", bean.getUsername());
+				}
+				if (bean.getPassword() != null) {
+					values.put("password", bean.getPassword());
+				}
+				if (bean.getUsertype() != null) {
+					values.put("usertype", bean.getUsertype());
+				}
+				if (bean.getUid() != null) {
+					values.put("uid", bean.getUid());
+				}
+				if (bean.getCenter() != null) {
+					values.put("center", bean.getCenter());
+				}
+				if (bean.getCompany() != null) {
+					values.put("company", bean.getCompany());
+				}
+				if (bean.getCategory() != null) {
+					values.put("category", bean.getCategory());
+				}
+				if (bean.getFax() != null) {
+					values.put("fax", bean.getFax());
+				}
+				if (bean.getNet() != null) {
+					values.put("net", bean.getNet());
+				}
+				if (bean.getNickname() != null) {
+					values.put("nickname", bean.getNickname());
+				}
+				if (bean.getContact() != null) {
+					values.put("contact", bean.getContact());
+				}
+				if (bean.getPhonenub() != null) {
+					values.put("phonenub", bean.getPhonenub());
+				}
+				if (bean.getEmail() != null) {
+					values.put("email", bean.getEmail());
+				}
+				if (bean.getHeadurl() != null) {
+					values.put("headurl", bean.getHeadurl());
+				}
+				if (bean.getAddress() != null) {
+					values.put("address", bean.getAddress());
+				}
+				if (bean.getStatus() != null) {
+					values.put("status", bean.getStatus());
+				}
 				return st.insert(DATABASE_TABLENAME, values);
 		}
 		/**
@@ -79,23 +110,117 @@ public class DbUserManager {
 		public long updateByUserTypeAndUserName(UserInfoBean bean) {
 			SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
 			ContentValues values = new ContentValues();
-			values.put("category", bean.getCategory());
-			values.put("username", bean.getUsername());
-			values.put("nickname", bean.getNickname());
-			values.put("contact", bean.getContact());
-			values.put("password", bean.getPassword());
-			values.put("phonenub", bean.getPhonenub());
-			values.put("email", bean.getEmail());
-			values.put("company", bean.getCompany());
-			values.put("headurl", bean.getHeadurl());
-			values.put("address", bean.getAddress());
-			values.put("net", bean.getNet());
-			values.put("fax", bean.getFax());
-			values.put("center", bean.getCenter());
-			values.put("uid", bean.getUid());
-			values.put("usertype", bean.getUsertype());
-			values.put("status", bean.getStatus());
+			if (bean.getUsername() != null) {
+				values.put("username", bean.getUsername());
+			}
+			if (bean.getPassword() != null) {
+				values.put("password", bean.getPassword());
+			}
+			if (bean.getUsertype() != null) {
+				values.put("usertype", bean.getUsertype());
+			}
+			if (bean.getUid() != null) {
+				values.put("uid", bean.getUid());
+			}
+			if (bean.getCenter() != null) {
+				values.put("center", bean.getCenter());
+			}
+			if (bean.getCompany() != null) {
+				values.put("company", bean.getCompany());
+			}
+			if (bean.getCategory() != null) {
+				values.put("category", bean.getCategory());
+			}
+			if (bean.getFax() != null) {
+				values.put("fax", bean.getFax());
+			}
+			if (bean.getNet() != null) {
+				values.put("net", bean.getNet());
+			}
+			if (bean.getNickname() != null) {
+				values.put("nickname", bean.getNickname());
+			}
+			if (bean.getContact() != null) {
+				values.put("contact", bean.getContact());
+			}
+			if (bean.getPhonenub() != null) {
+				values.put("phonenub", bean.getPhonenub());
+			}
+			if (bean.getEmail() != null) {
+				values.put("email", bean.getEmail());
+			}
+			if (bean.getHeadurl() != null) {
+				values.put("headurl", bean.getHeadurl());
+			}
+			if (bean.getAddress() != null) {
+				values.put("address", bean.getAddress());
+			}
+			if (bean.getStatus() != null) {
+				values.put("status", bean.getStatus());
+			}
+			
 			st.update(DATABASE_TABLENAME, values, "usertype =? and username = ?", new String[]{bean.getUsertype(),bean.getUsername()});
+			return st.insert(DATABASE_TABLENAME, values);
+		}
+		/**
+		 * 跟据当前状态来更新数据
+		 * 1.在会员中心绑定qq号时用此方法
+		 * @param bean
+		 * @return
+		 */
+		public long updateByStatus(UserInfoBean bean) {
+			SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
+			ContentValues values = new ContentValues();
+			if (bean.getUsername() != null) {
+				values.put("username", bean.getUsername());
+			}
+			if (bean.getPassword() != null) {
+				values.put("password", bean.getPassword());
+			}
+			if (bean.getUsertype() != null) {
+				values.put("usertype", bean.getUsertype());
+			}
+			if (bean.getUid() != null) {
+				values.put("uid", bean.getUid());
+			}
+			if (bean.getCenter() != null) {
+				values.put("center", bean.getCenter());
+			}
+			if (bean.getCompany() != null) {
+				values.put("company", bean.getCompany());
+			}
+			if (bean.getCategory() != null) {
+				values.put("category", bean.getCategory());
+			}
+			if (bean.getFax() != null) {
+				values.put("fax", bean.getFax());
+			}
+			if (bean.getNet() != null) {
+				values.put("net", bean.getNet());
+			}
+			if (bean.getNickname() != null) {
+				values.put("nickname", bean.getNickname());
+			}
+			if (bean.getContact() != null) {
+				values.put("contact", bean.getContact());
+			}
+			if (bean.getPhonenub() != null) {
+				values.put("phonenub", bean.getPhonenub());
+			}
+			if (bean.getEmail() != null) {
+				values.put("email", bean.getEmail());
+			}
+			if (bean.getHeadurl() != null) {
+				values.put("headurl", bean.getHeadurl());
+			}
+			if (bean.getAddress() != null) {
+				values.put("address", bean.getAddress());
+			}
+			if (bean.getStatus() != null) {
+				values.put("status", bean.getStatus());
+			}
+			
+			st.update(DATABASE_TABLENAME, values, " status =? ", new String[]{"1"});
 			return st.insert(DATABASE_TABLENAME, values);
 		}
 		/**
@@ -107,6 +232,16 @@ public class DbUserManager {
 			values.put("status", "0");
 			st.update(DATABASE_TABLENAME, values, null,
 					null);
+		}
+		/**
+		 * 退出登录状态,大于0表示更新成功
+		 * @return
+		 */
+		public int updateLoginStatus() {
+			SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
+			ContentValues values = new ContentValues();
+				values.put("status", "0");
+			return st.update(DATABASE_TABLENAME, values, null, null);
 		}
 		/**
 		 * 删除一条数据

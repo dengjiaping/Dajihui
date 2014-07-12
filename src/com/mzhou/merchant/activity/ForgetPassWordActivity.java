@@ -89,6 +89,7 @@ public class ForgetPassWordActivity extends Activity {
 											ForgetPassWordAnActivity.class);
 									intent.putExtra("getQuestionBean",
 											getQuestionBean);
+									intent.putExtra("isEnterprise", isEnterprise);
 									intent.putExtra("url", url);
 									startActivity(intent);
 									finish();

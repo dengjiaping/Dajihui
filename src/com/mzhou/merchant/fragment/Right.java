@@ -25,6 +25,9 @@ import com.mzhou.merchant.activity.ActivityLogin;
 import com.mzhou.merchant.activity.R;
 import com.mzhou.merchant.activity.UserControlCommonActivity;
 import com.mzhou.merchant.activity.UserControlEnterpriseActivity;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.slidemenu.SlidingMenu;
 
 @SuppressLint("ValidFragment")
@@ -42,6 +45,9 @@ public class Right extends Fragment {
 	private boolean isEnterprise;
 	private boolean isLogin_enterprise;
 	private Context context;
+	
+	private DbLoginManager loginManager;
+	private DbUserManager userManager;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -54,6 +60,8 @@ public class Right extends Fragment {
 
 	private void init() {
 		context = getActivity();
+		loginManager = DbLoginManager.getInstance(getActivity());
+		userManager = DbUserManager.getInstance(getActivity());
 		sp = getActivity().getSharedPreferences("phonemerchant", 1);
 		isLogin = sp.getBoolean("isLogin", false);
 		isEnterprise = sp.getBoolean("isEnterprise", false);
@@ -93,7 +101,34 @@ public class Right extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isEnterprise) {// 判断是否是企业会员
+				System.out.println("点击右侧 会员中心");
+				
+				if (loginManager.getLoginStatus()) {//有登录状态
+					System.out.println("有登录状态");
+					UserInfoBean bean = userManager.getLogingUserInfo();
+					if (bean != null) {
+						if (bean.getUsertype().equals("1")) {//企业会员
+							System.out.println("企业会员");
+							Intent intent = new Intent();
+							intent.setClass(getActivity(),
+									UserControlEnterpriseActivity.class);
+							startActivity(intent);
+						}else {//普通会员
+							System.out.println("普通会员");
+							Intent intent = new Intent();
+							intent.setClass(getActivity(),
+									UserControlCommonActivity.class);
+							startActivity(intent);
+						}
+					}
+				}else {//当前没有登录状态
+					System.out.println("当前没有登录状态");
+					Intent intent = new Intent();
+					intent.setClass(getActivity(), ActivityLogin.class);
+					startActivity(intent);
+				}
+				
+		/*		if (isEnterprise) {// 判断是否是企业会员
 					if (isLogin_enterprise) {// 判断企业会员是否已经登陆
 						Intent intent = new Intent();
 						intent.setClass(getActivity(),
@@ -115,7 +150,7 @@ public class Right extends Fragment {
 						intent.setClass(getActivity(), ActivityLogin.class);
 						startActivity(intent);
 					}
-				}
+				}*/
 
 				getActivity().finish();
 				mSlidingMenu.showLeftView();
@@ -165,6 +200,31 @@ public class Right extends Fragment {
 
 			@Override
 			public void onClick(View v) {
+				if (loginManager.getLoginStatus()) {//有登录状态
+						System.out.println("有登录状态");
+						loginManager.updateLoginStatus();
+						userManager.updateLoginStatus();
+						Intent intent = new Intent();
+						intent.setClass(getActivity(), ActivityIndex.class);
+						startActivity(intent);
+						mSlidingMenu.showLeftView();
+						Toast.makeText(
+								getActivity(),
+								getActivity().getResources().getString(
+										R.string.exitok), Toast.LENGTH_SHORT)
+								.show();
+						getActivity().finish();
+				}else {
+					Toast.makeText(
+							getActivity(),
+							getActivity().getResources().getString(
+									R.string.exitfail), Toast.LENGTH_SHORT)
+							.show();
+				
+				}
+				
+				
+			/*	
 				if (isEnterprise) {
 					if (isLogin_enterprise) {
 						Editor editor = sp.edit();
@@ -212,7 +272,7 @@ public class Right extends Fragment {
 										R.string.exitfail), Toast.LENGTH_SHORT)
 								.show();
 					}
-				}
+				}*/
 
 			}
 		});

@@ -26,5 +26,5 @@
         android:text="重试"
         android:textColor="#222222"
         android:textSize="18sp"
-        android:visibility="gone" />
+        android:visibility="visible" />
 </LinearLayout>

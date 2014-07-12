@@ -1,7 +1,11 @@
 package com.mzhou.merchant.activity;
 
 import com.mzhou.merchant.dao.IUser.Iforgetpw;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.GetNewPwBean;
+import com.mzhou.merchant.model.LoginUserBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.CustomProgressDialog;
 import com.mzhou.merchant.utlis.GetDataByPostUtil;
 import com.mzhou.merchant.utlis.MyUtlis;
@@ -29,7 +33,8 @@ public class ForgetPassWordModifyActivity extends Activity {
 	private String uid;
 	private String url;
 	private String oldpw;
-
+	private String username;
+	private boolean isEnterprise;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -39,6 +44,8 @@ public class ForgetPassWordModifyActivity extends Activity {
 		url = bundle.getString("url");
 		uid = bundle.getString("uid");
 		oldpw = bundle.getString("oldpw");
+		username = bundle.getString("username");
+		isEnterprise= bundle.getBoolean("isEnterprise");
 		loadButton();
 		listenerButton();
 	}
@@ -73,7 +80,28 @@ public class ForgetPassWordModifyActivity extends Activity {
 							@Override
 							public void getInfo(GetNewPwBean getNewPwBean) {
 								if (getNewPwBean != null) {
-									if (getNewPwBean.getStatus().equals("true")) {
+									if (getNewPwBean.getStatus().equals("true")) {//修改密码成功
+										//更新登录信息的帐号密码
+										LoginUserBean loginUserBean = new LoginUserBean();
+										if (isEnterprise) {//更新企业会员的帐号和密码
+											loginUserBean.setUsertype("1");
+										}else {//更新普通会员的帐号和密码
+											loginUserBean.setUsertype("0");
+										}
+										loginUserBean.setUsername(username);
+										loginUserBean.setPassword(user_manager_alter_passwd3.getText().toString());
+										DbLoginManager.getInstance(ForgetPassWordModifyActivity.this).updateByUserNameAndUserType(loginUserBean);
+										//更新用户信息的帐号密码
+										UserInfoBean userInfoBean = new UserInfoBean();
+										userInfoBean.setUsername(username);
+										userInfoBean.setPassword(user_manager_alter_passwd3.getText().toString());
+										if (isEnterprise) {//是企业会员
+											userInfoBean.setUsertype("1");
+										}else {
+											userInfoBean.setUsertype("0");
+										}
+										DbUserManager.getInstance(ForgetPassWordModifyActivity.this).updateByUserTypeAndUserName(userInfoBean);
+										
 										finish();
 									}
 									MyUtlis.toastInfo(

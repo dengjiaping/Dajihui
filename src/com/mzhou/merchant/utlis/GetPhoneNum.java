@@ -95,7 +95,7 @@ public class GetPhoneNum {
 		}
 		@Override
 		public String toString() {
-			return "UserBean [username=" + username + ", phonenum=" + phonenum
+			return "[username=" + username + ", phonenum=" + phonenum
 					+ "]";
 		}
 		public UserBean(String username, String phonenum) {

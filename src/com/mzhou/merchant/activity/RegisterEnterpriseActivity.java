@@ -2,7 +2,11 @@ package com.mzhou.merchant.activity;
 
 import com.mzhou.merchant.dao.IUser.IgetUserInfo;
 import com.mzhou.merchant.dao.biz.UserManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AllBean;
+import com.mzhou.merchant.model.LoginUserBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
@@ -135,12 +139,30 @@ public class RegisterEnterpriseActivity extends Activity {
 									public void getInfo(AllBean user) {
 										if (user != null) {
 											if (user.getStatus().equals("true")) {
-												Editor editor = sPreferences.edit();
-												editor.putString("username_enterprise",
-														username);
-												editor.putString("password_enterprise",
-														password);
-												editor.commit();
+												
+												LoginUserBean loginUserBean = new LoginUserBean();
+												loginUserBean.setUsername(username);
+												loginUserBean.setPassword(password);
+												loginUserBean.setUsertype("1");
+												loginUserBean.setStatus("0");
+												loginUserBean.setLastlogin("1");
+												DbLoginManager.getInstance(RegisterEnterpriseActivity.this).insertData(loginUserBean);
+												System.out.println("保存登录信息");
+												UserInfoBean userInfoBean = new UserInfoBean();
+												userInfoBean.setUsername(username);
+												userInfoBean.setPassword(password);
+												userInfoBean.setStatus("0");
+												userInfoBean.setUsertype("1");
+												DbUserManager.getInstance(RegisterEnterpriseActivity.this).insertData(userInfoBean);
+												System.out.println("保存用户信息");
+												
+//												
+//												Editor editor = sPreferences.edit();
+//												editor.putString("username_enterprise",
+//														username);
+//												editor.putString("password_enterprise",
+//														password);
+//												editor.commit();
 
 												Toast.makeText(
 														RegisterEnterpriseActivity.this,
