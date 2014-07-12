@@ -1,7 +1,7 @@
 package com.mzhou.merchant.model;
 
 import java.io.Serializable;
-public class info implements Serializable
+public class UserInfoBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private String category; 
@@ -18,9 +18,15 @@ public class info implements Serializable
 	private String fax;  
 	private String center; 
 	private String uid;
+	private int _id;
+	private String usertype;
+	private String status;
 	 
-	public info(String category, String username, String nickname, String contact, String password, String phonenub,
-			String email, String company, String headurl, String address, String net, String fax, String center, String uid) {
+	public UserInfoBean(String category, String username, String nickname,
+			String contact, String password, String phonenub, String email,
+			String company, String headurl, String address, String net,
+			String fax, String center, String uid, int _id, String usertype,
+			String status) {
 		super();
 		this.category = category;
 		this.username = username;
@@ -36,14 +42,39 @@ public class info implements Serializable
 		this.fax = fax;
 		this.center = center;
 		this.uid = uid;
+		this._id = _id;
+		this.usertype = usertype;
+		this.status = status;
 	}
 
-	@Override
-	public String toString() {
-		return "info [category=" + category + ", username=" + username + ", nickname=" + nickname + ", contact=" + contact
-				+ ", password=" + password + ", phonenub=" + phonenub + ", email=" + email + ", company=" + company
-				+ ", headurl=" + headurl + ", address=" + address + ", net=" + net + ", fax=" + fax + ", center=" + center
-				+ ", uid=" + uid + "]";
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+ 
+
+	public int get_id() {
+		return _id;
+	}
+
+	public void set_id(int _id) {
+		this._id = _id;
+	}
+
+ 
+ 
+ 
+
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
 	}
 
 	public String getCategory() {
@@ -158,8 +189,19 @@ public class info implements Serializable
 		this.uid = uid;
 	}
 
-	public info() {
+	public UserInfoBean() {
 		super();
+	}
+
+	@Override
+	public String toString() {
+		return "UserInfoBean [category=" + category + ", username=" + username
+				+ ", nickname=" + nickname + ", contact=" + contact
+				+ ", password=" + password + ", phonenub=" + phonenub
+				+ ", email=" + email + ", company=" + company + ", headurl="
+				+ headurl + ", address=" + address + ", net=" + net + ", fax="
+				+ fax + ", center=" + center + ", uid=" + uid + ", _id=" + _id
+				+ ", usertype=" + usertype + ", status=" + status + "]";
 	}
 	 
 

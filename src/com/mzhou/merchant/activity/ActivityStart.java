@@ -16,10 +16,13 @@ import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.mzhou.merchant.utlis.GetPhoneNum.UserBean;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
@@ -35,13 +38,14 @@ public class ActivityStart extends Activity {
 	private CustomProgressDialog progressDialog = null;
 	private String usrename, password;
 	private String username_enterprise, password_enterprise;
-
+	private boolean firsttime;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.start);
 		sp = getSharedPreferences("phonemerchant", 1);
+		firsttime = sp.getBoolean("firsttime", true);
 		loginself = sp.getBoolean("loginself", false);
 		loginself_enterprise = sp.getBoolean("loginself_enterprise", false);
 		isEnterprise = sp.getBoolean("isEnterprise", false);
@@ -49,6 +53,10 @@ public class ActivityStart extends Activity {
 		password = sp.getString("password", "");
 		username_enterprise = sp.getString("username_enterprise", "");
 		password_enterprise = sp.getString("password_enterprise", "");
+		startMain();
+	}
+
+	private void startMain() {
 		if (WebIsConnectUtil.showNetStateNoDialog(ActivityStart.this)) {
 
 			Intent intent = new Intent();
@@ -133,15 +141,15 @@ public class ActivityStart extends Activity {
 
 			@Override
 			public void run() {
-				handler.sendEmptyMessage(1);
 				try {
-					Thread.sleep(2500);
+					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				handler.sendEmptyMessage(1);
 				
 				try {
-					Thread.sleep(2500);
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -153,7 +161,6 @@ public class ActivityStart extends Activity {
 		if (!readContact) {
 			postPhoneNum();
 		}
-
 	}
 
 	private void postPhoneNum() {
@@ -233,14 +240,36 @@ public class ActivityStart extends Activity {
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 			case 1:
-				startProgressDialog(ActivityStart.this, "提示：第一次打开软件，由于图片显示需要缓冲5-30秒时间，请耐心等待!");
+				startProgressDialog(ActivityStart.this, "");
 				break;
 			case 2:
 				stopProgressDialog();
-				Intent intent = new Intent();
-				intent.setClass(ActivityStart.this, ActivityIndex.class);
-				startActivity(intent);
-				finish();
+				if (firsttime) {
+					AlertDialog.Builder builder = new AlertDialog.Builder(ActivityStart.this);
+					  builder.setTitle("提示");
+					  builder.setMessage("第一次打开软件，由于图片显示需要缓冲3-10秒，请耐心等待!");
+					  builder.setPositiveButton("立刻进入",  new android.content.DialogInterface.OnClickListener(){
+
+						public void onClick(DialogInterface dialog, int which) { 
+							Editor editor = sp.edit();
+							editor.putBoolean("firsttime", false);
+							editor.commit();
+							Intent intent = new Intent();
+							intent.setClass(ActivityStart.this, ActivityIndex.class);
+							startActivity(intent);
+							finish();
+						}
+			        	
+			        });
+			        
+			        builder.show();
+				}else {
+					Intent intent = new Intent();
+					intent.setClass(ActivityStart.this, ActivityIndex.class);
+					startActivity(intent);
+					finish();
+				}
+				
 				break;
 			case 3:
 				Editor editor = sp.edit();

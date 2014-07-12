@@ -59,7 +59,7 @@ public class SQLiteTemplate {
 	 * @param name
 	 * @param tel
 	 */
-	public void execSQL(String sql) {
+	public synchronized void execSQL(String sql) {
 		try {
 			dataBase = dBManager.openDatabase();
 			dataBase.execSQL(sql);
@@ -78,7 +78,7 @@ public class SQLiteTemplate {
 	 * @param name
 	 * @param tel
 	 */
-	public void execSQL(String sql, Object[] bindArgs) {
+	public synchronized void execSQL(String sql, Object[] bindArgs) {
 		try {
 			dataBase = dBManager.openDatabase();
 			dataBase.execSQL(sql, bindArgs);
@@ -99,7 +99,7 @@ public class SQLiteTemplate {
 	 * @param content
 	 *            字段值
 	 */
-	public long insert(String table, ContentValues content) {
+	public synchronized long insert(String table, ContentValues content) {
 		try {
 			dataBase = dBManager.openDatabase();
 			// insert方法第一参数：数据库表名，第二个参数如果CONTENT为空时则向表中插入一个NULL,第三个参数为插入的内容
@@ -119,7 +119,7 @@ public class SQLiteTemplate {
 	 * 
 	 * @param ids
 	 */
-	public void deleteByIds(String table, Object... primaryKeys) {
+	public synchronized void deleteByIds(String table, Object... primaryKeys) {
 		try {
 			if (primaryKeys.length > 0) {
 				StringBuilder sb = new StringBuilder();
@@ -150,7 +150,7 @@ public class SQLiteTemplate {
 	 * @param value
 	 * @return 返回值大于0表示删除成功
 	 */
-	public int deleteByField(String table, String field, String value) {
+	public synchronized int deleteByField(String table, String field, String value) {
 		try {
 			dataBase = dBManager.openDatabase();
 			return dataBase.delete(table, field + "=?", new String[] { value });
@@ -175,7 +175,7 @@ public class SQLiteTemplate {
 	 *            参数值
 	 * @return 返回值大于0表示删除成功
 	 */
-	public int deleteByCondition(String table, String whereClause,
+	public synchronized int deleteByCondition(String table, String whereClause,
 			String[] whereArgs) {
 		try {
 			dataBase = dBManager.openDatabase();
@@ -197,7 +197,7 @@ public class SQLiteTemplate {
 	 * @param id
 	 * @return 返回值大于0表示删除成功
 	 */
-	public int deleteById(String table, String id) {
+	public synchronized int deleteById(String table, String id) {
 		try {
 			dataBase = dBManager.openDatabase();
 			return deleteByField(table, mPrimaryKey, id);
@@ -219,7 +219,7 @@ public class SQLiteTemplate {
 	 * @param values
 	 * @return 返回值大于0表示更新成功
 	 */
-	public int updateById(String table, String id, ContentValues values) {
+	public synchronized int updateById(String table, String id, ContentValues values) {
 		try {
 			dataBase = dBManager.openDatabase();
 			return dataBase.update(table, values, mPrimaryKey + "=?",
@@ -243,7 +243,7 @@ public class SQLiteTemplate {
 	 * @param whereArgs
 	 * @return 返回值大于0表示更新成功
 	 */
-	public int update(String table, ContentValues values, String whereClause,
+	public synchronized int update(String table, ContentValues values, String whereClause,
 			String[] whereArgs) {
 		try {
 			dataBase = dBManager.openDatabase();
@@ -265,7 +265,7 @@ public class SQLiteTemplate {
 	 * @param id
 	 * @return
 	 */
-	public Boolean isExistsById(String table, String id) {
+	public synchronized Boolean isExistsById(String table, String id) {
 		try {
 			dataBase = dBManager.openDatabase();
 			return isExistsByField(table, mPrimaryKey, id);
@@ -285,7 +285,7 @@ public class SQLiteTemplate {
 	 * @param status
 	 * @return
 	 */
-	public Boolean isExistsByField(String table, String field, String value) {
+	public synchronized Boolean isExistsByField(String table, String field, String value) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT COUNT(*) FROM ").append(table).append(" WHERE ")
 				.append(field).append(" =?");
@@ -309,7 +309,7 @@ public class SQLiteTemplate {
 	 * @param selectionArgs
 	 * @return
 	 */
-	public Boolean isExistsBySQL(String sql, String[] selectionArgs) {
+	public synchronized Boolean isExistsBySQL(String sql, String[] selectionArgs) {
 		Cursor cursor = null;
 		try {
 			dataBase = dBManager.openDatabase();
@@ -337,7 +337,7 @@ public class SQLiteTemplate {
 	 * @param args
 	 * @return
 	 */
-	public <T> T queryForObject(RowMapper<T> rowMapper, String sql,
+	public synchronized <T> T queryForObject(RowMapper<T> rowMapper, String sql,
 			String[] args) {
 		Cursor cursor = null;
 		T object = null;
@@ -367,7 +367,7 @@ public class SQLiteTemplate {
 	 *            步长
 	 * @return
 	 */
-	public <T> LinkedList<T> queryForList(RowMapper<T> rowMapper, String sql,
+	public synchronized <T> LinkedList<T> queryForList(RowMapper<T> rowMapper, String sql,
 			String[] selectionArgs) {
 		Cursor cursor = null;
 		LinkedList<T> list = null;
@@ -397,7 +397,7 @@ public class SQLiteTemplate {
 	 *            步长
 	 * @return
 	 */
-	public <T> LinkedList<T> queryForList(RowMapper<T> rowMapper, String sql,
+	public synchronized <T> LinkedList<T> queryForList(RowMapper<T> rowMapper, String sql,
 			int startResult, int maxResult) {
 		Cursor cursor = null;
 		LinkedList<T> list = null;
@@ -422,7 +422,7 @@ public class SQLiteTemplate {
 	 * 
 	 * @return
 	 */
-	public Integer getCount(String sql, String[] args) {
+	public synchronized Integer getCount(String sql, String[] args) {
 		Cursor cursor = null;
 		try {
 			dataBase = dBManager.openDatabase();
@@ -463,7 +463,7 @@ public class SQLiteTemplate {
 	 *            指定偏移量和获取的记录数，相当于select语句limit关键字后面的部分,如果为null则返回所有行
 	 * @return
 	 */
-	public <T> LinkedList<T> queryForList(RowMapper<T> rowMapper, String table,
+	public synchronized <T> LinkedList<T> queryForList(RowMapper<T> rowMapper, String table,
 			String[] columns, String selection, String[] selectionArgs,
 			String groupBy, String having, String orderBy, String limit) {
 		LinkedList<T> list = null;

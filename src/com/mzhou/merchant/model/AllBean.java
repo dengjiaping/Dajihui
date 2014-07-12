@@ -7,17 +7,17 @@ public class AllBean implements Serializable
 	private String status;
 	private String msg;
 	private String uid; 
-	private info info;
+	private UserInfoBean info;
 
-	public info getInfo()
+	public UserInfoBean getInfo()
 	{
 		return info;
 	}
-	public void setInfo(info info)
+	public void setInfo(UserInfoBean info)
 	{
 		this.info = info;
 	}
-	public AllBean(String status, String msg, String uid, com.mzhou.merchant.model.info info)
+	public AllBean(String status, String msg, String uid, com.mzhou.merchant.model.UserInfoBean info)
 	{
 		super();
 		this.status = status;

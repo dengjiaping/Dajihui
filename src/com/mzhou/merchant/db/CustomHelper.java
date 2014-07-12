@@ -33,6 +33,13 @@ public class CustomHelper extends SDCardSQLiteOpenHelper {
 		//product table
 		db.execSQL("CREATE TABLE  IF NOT EXISTS  tbProduct ( _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
 				+ "category VARCHAR(100),id VARCHAR(100),ctime VARCHAR(250),pic TEXT,classid VARCHAR(100),brand VARCHAR(100),is_en VARCHAR(10),is_show VARCHAR(10),order_sort VARCHAR(4))");
+		//login table
+		db.execSQL("CREATE TABLE  IF NOT EXISTS  tbLogin ( _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+				"status varchar(1),needlogin  varchar(1),lastlogin varchar(1),username varchar(250),password varchar(250), usertype varchar(1),isremeber varchar(1),isloginself varchar(1)," +
+				"isbinder varchar(1),qq varchar(250))");
+		
+		db.execSQL("CREATE TABLE  IF NOT EXISTS  tbUserInfo ( _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+				"");
 	}
 
 	@Override
