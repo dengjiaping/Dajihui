@@ -1065,7 +1065,10 @@ com.handmark.pulltorefresh.library.internal.ViewCompat$SDK11
 com.handmark.pulltorefresh.library.internal.ViewCompat$SDK16:
     58:58:ViewCompat$SDK16()
 com.mzhou.merchant.activity.ActivityStart:
-    264:271:public void writeFiles(java.lang.String,java.lang.String)
+    boolean loginself
+    boolean loginself_enterprise
+    boolean isEnterprise
+    401:408:public void writeFiles(java.lang.String,java.lang.String)
 com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
     private static final int REQUEST_CODE
@@ -1153,19 +1156,16 @@ com.mzhou.merchant.db.SDCardSQLiteOpenHelper:
     162:203:public synchronized android.database.sqlite.SQLiteDatabase getReadableDatabase()
     210:217:public synchronized void close()
 com.mzhou.merchant.db.SQLiteTemplate:
-    83:92:public void execSQL(java.lang.String,java.lang.Object[])
-    124:143:public varargs void deleteByIds(java.lang.String,java.lang.Object[])
-    155:164:public int deleteByField(java.lang.String,java.lang.String,java.lang.String)
-    202:211:public int deleteById(java.lang.String,java.lang.String)
-    224:234:public int updateById(java.lang.String,java.lang.String,android.content.ContentValues)
-    249:258:public int update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[])
-    270:279:public java.lang.Boolean isExistsById(java.lang.String,java.lang.String)
-    289:302:public java.lang.Boolean isExistsByField(java.lang.String,java.lang.String,java.lang.String)
-    313:329:public java.lang.Boolean isExistsBySQL(java.lang.String,java.lang.String[])
-    342:355:public java.lang.Object queryForObject(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[])
-    402:417:public java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,int,int)
-    426:441:public java.lang.Integer getCount(java.lang.String,java.lang.String[])
-    469:484:public java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+    83:92:public synchronized void execSQL(java.lang.String,java.lang.Object[])
+    124:143:public synchronized varargs void deleteByIds(java.lang.String,java.lang.Object[])
+    155:164:public synchronized int deleteByField(java.lang.String,java.lang.String,java.lang.String)
+    202:211:public synchronized int deleteById(java.lang.String,java.lang.String)
+    224:234:public synchronized int updateById(java.lang.String,java.lang.String,android.content.ContentValues)
+    270:279:public synchronized java.lang.Boolean isExistsById(java.lang.String,java.lang.String)
+    289:302:public synchronized java.lang.Boolean isExistsByField(java.lang.String,java.lang.String,java.lang.String)
+    402:417:public synchronized java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,int,int)
+    426:441:public synchronized java.lang.Integer getCount(java.lang.String,java.lang.String[])
+    469:484:public synchronized java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,java.lang.String)
     493:493:public java.lang.String getPrimaryKey()
     502:503:public void setPrimaryKey(java.lang.String)
 com.mzhou.merchant.db.manager.DbActivityManager:
@@ -1186,6 +1186,9 @@ com.mzhou.merchant.db.manager.DbJobManager:
     50:54:public void delete(int)
     65:66:public java.util.LinkedList getAdByID(java.lang.String)
 com.mzhou.merchant.db.manager.DbJobManager$1
+com.mzhou.merchant.db.manager.DbLoginManager:
+    231:235:public void delete(int)
+    241:243:public void deleteAll()
 com.mzhou.merchant.db.manager.DbNewsManager:
     48:52:public void delete(int)
     64:65:public java.util.LinkedList getAdByID(java.lang.String)
@@ -1195,14 +1198,20 @@ com.mzhou.merchant.db.manager.DbProductManager:
     70:73:public void deleteAll()
     99:100:public java.util.LinkedList getListAll()
 com.mzhou.merchant.db.manager.DbProductManager$2
+com.mzhou.merchant.db.manager.DbUserManager:
+    253:256:public void delete(int)
+    261:263:public void deleteAll()
+    282:283:public boolean getLoginStatusByUsertype(java.lang.String)
+    293:294:public com.mzhou.merchant.model.UserInfoBean getUserInfoByUserNameAndUserType(java.lang.String,java.lang.String)
+com.mzhou.merchant.db.manager.DbUserManager$1
 com.mzhou.merchant.myview.BaikeConstant:
     17:17:public BaikeConstant()
     34:36:public static java.lang.String replaceBreakLineToSpace(java.lang.String)
     47:69:public static boolean isLetterOfEnglish(char)
     210:234:public static java.lang.String ToDBC(java.lang.String)
 com.mzhou.merchant.myview.CustomTextView:
-    593:593:public int getBaikeTextHeight()
-    617:617:public int getmTextHeight()
+    512:512:public int getBaikeTextHeight()
+    536:536:public int getmTextHeight()
 com.mzhou.merchant.myview.MyTextView:
     47:61:public MyTextView(android.content.Context,float,int,float,float,float,float)
     64:64:public org.json.JSONArray getColorIndex()
@@ -1234,7 +1243,9 @@ com.mzhou.merchant.utlis.GetPhoneNum:
     private static final int PHONES_PHOTO_ID_INDEX
     private static final int PHONES_CONTACT_ID_INDEX
 com.mzhou.merchant.utlis.GetPhoneNum$UserBean:
+    85:85:public java.lang.String getUsername()
     88:89:public void setUsername(java.lang.String)
+    91:91:public java.lang.String getPhonenum()
     94:95:public void setPhonenum(java.lang.String)
     106:108:public GetPhoneNum$UserBean(com.mzhou.merchant.utlis.GetPhoneNum)
 com.mzhou.merchant.utlis.HttpRequest:
@@ -1799,7 +1810,6 @@ com.tencent.tauth.IUploadFileToWeiyunStatus
 com.tencent.tauth.Tencent:
     148:149:public java.lang.String getAccessToken()
     169:171:public void setAccessToken(java.lang.String,java.lang.String)
-    197:201:public void setOpenId(java.lang.String)
     204:205:public long getExpiresIn()
     282:292:public void logout(android.content.Context)
     312:314:public int invite(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)

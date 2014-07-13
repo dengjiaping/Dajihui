@@ -2793,10 +2793,10 @@ com.mzhou.merchant.model.AllBean: long serialVersionUID
 com.mzhou.merchant.model.AllBean: java.lang.String status
 com.mzhou.merchant.model.AllBean: java.lang.String msg
 com.mzhou.merchant.model.AllBean: java.lang.String uid
-com.mzhou.merchant.model.AllBean: com.mzhou.merchant.model.info info
-com.mzhou.merchant.model.AllBean: com.mzhou.merchant.model.info getInfo()
-com.mzhou.merchant.model.AllBean: void setInfo(com.mzhou.merchant.model.info)
-com.mzhou.merchant.model.AllBean: AllBean(java.lang.String,java.lang.String,java.lang.String,com.mzhou.merchant.model.info)
+com.mzhou.merchant.model.AllBean: com.mzhou.merchant.model.UserInfoBean info
+com.mzhou.merchant.model.AllBean: com.mzhou.merchant.model.UserInfoBean getInfo()
+com.mzhou.merchant.model.AllBean: void setInfo(com.mzhou.merchant.model.UserInfoBean)
+com.mzhou.merchant.model.AllBean: AllBean(java.lang.String,java.lang.String,java.lang.String,com.mzhou.merchant.model.UserInfoBean)
 com.mzhou.merchant.model.AllBean: java.lang.String toString()
 com.mzhou.merchant.model.AllBean: java.lang.String getStatus()
 com.mzhou.merchant.model.AllBean: void setStatus(java.lang.String)
@@ -2975,6 +2975,45 @@ com.mzhou.merchant.model.JobItemBean: void setUid(java.lang.String)
 com.mzhou.merchant.model.JobItemBean: java.lang.String toString()
 com.mzhou.merchant.model.JobItemBean: JobItemBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 com.mzhou.merchant.model.JobItemBean: JobItemBean()
+com.mzhou.merchant.model.LoginUserBean
+com.mzhou.merchant.model.LoginUserBean: java.lang.String lastlogin
+com.mzhou.merchant.model.LoginUserBean: java.lang.String username
+com.mzhou.merchant.model.LoginUserBean: java.lang.String password
+com.mzhou.merchant.model.LoginUserBean: java.lang.String usertype
+com.mzhou.merchant.model.LoginUserBean: java.lang.String isremeber
+com.mzhou.merchant.model.LoginUserBean: java.lang.String isloginself
+com.mzhou.merchant.model.LoginUserBean: java.lang.String isbinder
+com.mzhou.merchant.model.LoginUserBean: java.lang.String qq
+com.mzhou.merchant.model.LoginUserBean: java.lang.String openid
+com.mzhou.merchant.model.LoginUserBean: java.lang.String status
+com.mzhou.merchant.model.LoginUserBean: java.lang.String needlogin
+com.mzhou.merchant.model.LoginUserBean: int _id
+com.mzhou.merchant.model.LoginUserBean: LoginUserBean()
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getNeedlogin()
+com.mzhou.merchant.model.LoginUserBean: void setNeedlogin(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getLastlogin()
+com.mzhou.merchant.model.LoginUserBean: void setLastlogin(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getUsername()
+com.mzhou.merchant.model.LoginUserBean: void setUsername(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getPassword()
+com.mzhou.merchant.model.LoginUserBean: void setPassword(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getUsertype()
+com.mzhou.merchant.model.LoginUserBean: void setUsertype(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getIsremeber()
+com.mzhou.merchant.model.LoginUserBean: void setIsremeber(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getIsloginself()
+com.mzhou.merchant.model.LoginUserBean: void setIsloginself(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getIsbinder()
+com.mzhou.merchant.model.LoginUserBean: void setIsbinder(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getQq()
+com.mzhou.merchant.model.LoginUserBean: void setQq(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getStatus()
+com.mzhou.merchant.model.LoginUserBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: int get_id()
+com.mzhou.merchant.model.LoginUserBean: void set_id(int)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String getOpenid()
+com.mzhou.merchant.model.LoginUserBean: void setOpenid(java.lang.String)
+com.mzhou.merchant.model.LoginUserBean: java.lang.String toString()
 com.mzhou.merchant.model.NewsBean
 com.mzhou.merchant.model.NewsBean: long serialVersionUID
 com.mzhou.merchant.model.NewsBean: java.lang.String title
@@ -3268,53 +3307,62 @@ com.mzhou.merchant.model.User: void setNumber(java.lang.String)
 com.mzhou.merchant.model.User: java.lang.String toString()
 com.mzhou.merchant.model.User: User(java.lang.Long,java.lang.String,java.lang.String)
 com.mzhou.merchant.model.User: User()
-com.mzhou.merchant.model.info
-com.mzhou.merchant.model.info: long serialVersionUID
-com.mzhou.merchant.model.info: java.lang.String category
-com.mzhou.merchant.model.info: java.lang.String username
-com.mzhou.merchant.model.info: java.lang.String nickname
-com.mzhou.merchant.model.info: java.lang.String contact
-com.mzhou.merchant.model.info: java.lang.String password
-com.mzhou.merchant.model.info: java.lang.String phonenub
-com.mzhou.merchant.model.info: java.lang.String email
-com.mzhou.merchant.model.info: java.lang.String company
-com.mzhou.merchant.model.info: java.lang.String headurl
-com.mzhou.merchant.model.info: java.lang.String address
-com.mzhou.merchant.model.info: java.lang.String net
-com.mzhou.merchant.model.info: java.lang.String fax
-com.mzhou.merchant.model.info: java.lang.String center
-com.mzhou.merchant.model.info: java.lang.String uid
-com.mzhou.merchant.model.info: info(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String toString()
-com.mzhou.merchant.model.info: java.lang.String getCategory()
-com.mzhou.merchant.model.info: void setCategory(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getUsername()
-com.mzhou.merchant.model.info: void setUsername(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getNickname()
-com.mzhou.merchant.model.info: void setNickname(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getContact()
-com.mzhou.merchant.model.info: void setContact(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getPassword()
-com.mzhou.merchant.model.info: void setPassword(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getPhonenub()
-com.mzhou.merchant.model.info: void setPhonenub(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getEmail()
-com.mzhou.merchant.model.info: void setEmail(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getCompany()
-com.mzhou.merchant.model.info: void setCompany(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getHeadurl()
-com.mzhou.merchant.model.info: void setHeadurl(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getAddress()
-com.mzhou.merchant.model.info: void setAddress(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getNet()
-com.mzhou.merchant.model.info: void setNet(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getFax()
-com.mzhou.merchant.model.info: void setFax(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getCenter()
-com.mzhou.merchant.model.info: void setCenter(java.lang.String)
-com.mzhou.merchant.model.info: java.lang.String getUid()
-com.mzhou.merchant.model.info: void setUid(java.lang.String)
-com.mzhou.merchant.model.info: info()
+com.mzhou.merchant.model.UserInfoBean
+com.mzhou.merchant.model.UserInfoBean: long serialVersionUID
+com.mzhou.merchant.model.UserInfoBean: java.lang.String category
+com.mzhou.merchant.model.UserInfoBean: java.lang.String username
+com.mzhou.merchant.model.UserInfoBean: java.lang.String nickname
+com.mzhou.merchant.model.UserInfoBean: java.lang.String contact
+com.mzhou.merchant.model.UserInfoBean: java.lang.String password
+com.mzhou.merchant.model.UserInfoBean: java.lang.String phonenub
+com.mzhou.merchant.model.UserInfoBean: java.lang.String email
+com.mzhou.merchant.model.UserInfoBean: java.lang.String company
+com.mzhou.merchant.model.UserInfoBean: java.lang.String headurl
+com.mzhou.merchant.model.UserInfoBean: java.lang.String address
+com.mzhou.merchant.model.UserInfoBean: java.lang.String net
+com.mzhou.merchant.model.UserInfoBean: java.lang.String fax
+com.mzhou.merchant.model.UserInfoBean: java.lang.String center
+com.mzhou.merchant.model.UserInfoBean: java.lang.String uid
+com.mzhou.merchant.model.UserInfoBean: int _id
+com.mzhou.merchant.model.UserInfoBean: java.lang.String usertype
+com.mzhou.merchant.model.UserInfoBean: java.lang.String status
+com.mzhou.merchant.model.UserInfoBean: UserInfoBean(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getStatus()
+com.mzhou.merchant.model.UserInfoBean: void setStatus(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: int get_id()
+com.mzhou.merchant.model.UserInfoBean: void set_id(int)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getUsertype()
+com.mzhou.merchant.model.UserInfoBean: void setUsertype(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getCategory()
+com.mzhou.merchant.model.UserInfoBean: void setCategory(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getUsername()
+com.mzhou.merchant.model.UserInfoBean: void setUsername(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getNickname()
+com.mzhou.merchant.model.UserInfoBean: void setNickname(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getContact()
+com.mzhou.merchant.model.UserInfoBean: void setContact(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getPassword()
+com.mzhou.merchant.model.UserInfoBean: void setPassword(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getPhonenub()
+com.mzhou.merchant.model.UserInfoBean: void setPhonenub(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getEmail()
+com.mzhou.merchant.model.UserInfoBean: void setEmail(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getCompany()
+com.mzhou.merchant.model.UserInfoBean: void setCompany(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getHeadurl()
+com.mzhou.merchant.model.UserInfoBean: void setHeadurl(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getAddress()
+com.mzhou.merchant.model.UserInfoBean: void setAddress(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getNet()
+com.mzhou.merchant.model.UserInfoBean: void setNet(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getFax()
+com.mzhou.merchant.model.UserInfoBean: void setFax(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getCenter()
+com.mzhou.merchant.model.UserInfoBean: void setCenter(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: java.lang.String getUid()
+com.mzhou.merchant.model.UserInfoBean: void setUid(java.lang.String)
+com.mzhou.merchant.model.UserInfoBean: UserInfoBean()
+com.mzhou.merchant.model.UserInfoBean: java.lang.String toString()
 com.mzhou.merchant.myview.CustomTextView
 com.mzhou.merchant.myview.CustomTextView: CustomTextView(android.content.Context,android.util.AttributeSet)
 com.mzhou.merchant.myview.MyGridView

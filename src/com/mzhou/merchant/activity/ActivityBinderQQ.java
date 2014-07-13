@@ -286,11 +286,10 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 											dbUserManager.insertData(userInfoBean);
 											Intent intent = new Intent();
 											intent.setClass(ActivityBinderQQ.this,
-													UserControlCommonActivity.class);
+													UserControlEnterpriseActivity.class);
 											intent.putExtra("fromqq", true);
 											startActivity(intent);
 											finish();
-								 
 									}
 								} 
 							}

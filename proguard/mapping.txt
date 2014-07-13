@@ -4306,14 +4306,15 @@ com.mzhou.merchant.activity.ActivityBinderQQ -> com.mzhou.merchant.activity.Acti
     java.lang.String APP_ID -> a
     java.lang.String openid -> c
     java.lang.Boolean common -> d
-    android.content.SharedPreferences sp -> e
-    com.mzhou.merchant.dao.biz.UserManager manager -> f
-    android.content.Context context -> g
+    com.mzhou.merchant.dao.biz.UserManager manager -> e
+    android.content.Context context -> f
+    com.mzhou.merchant.db.manager.DbLoginManager dbLoginManager -> g
+    com.mzhou.merchant.db.manager.DbUserManager dbUserManager -> h
     void onCreate(android.os.Bundle) -> onCreate
     void onClick(android.view.View) -> onClick
     void getInfo() -> a
-    void save2Enterprise(com.mzhou.merchant.model.AllBean) -> a
-    void save2SharedPrefenrence(com.mzhou.merchant.model.AllBean) -> b
+    void saveLoginInfo(com.mzhou.merchant.model.AllBean,java.lang.String) -> a
+    void saveUserInfo(com.mzhou.merchant.model.AllBean,java.lang.String) -> b
     void showResult(java.lang.String,java.lang.String) -> a
     void login() -> b
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
@@ -4321,13 +4322,14 @@ com.mzhou.merchant.activity.ActivityBinderQQ -> com.mzhou.merchant.activity.Acti
     java.lang.Boolean access$0(com.mzhou.merchant.activity.ActivityBinderQQ) -> a
     com.mzhou.merchant.dao.biz.UserManager access$1(com.mzhou.merchant.activity.ActivityBinderQQ) -> b
     java.lang.String access$2(com.mzhou.merchant.activity.ActivityBinderQQ) -> c
-    void access$3(com.mzhou.merchant.activity.ActivityBinderQQ,com.mzhou.merchant.model.AllBean) -> a
-    android.content.SharedPreferences access$4() -> c
-    android.content.Context access$5(com.mzhou.merchant.activity.ActivityBinderQQ) -> d
-    void access$6(com.mzhou.merchant.activity.ActivityBinderQQ,com.mzhou.merchant.model.AllBean) -> b
-    com.tencent.tauth.Tencent access$7(com.mzhou.merchant.activity.ActivityBinderQQ) -> e
-    void access$8(com.mzhou.merchant.activity.ActivityBinderQQ,java.lang.String,java.lang.String) -> a
-    void access$9(com.mzhou.merchant.activity.ActivityBinderQQ,java.lang.String) -> a
+    void access$3(com.mzhou.merchant.activity.ActivityBinderQQ,com.mzhou.merchant.model.AllBean,java.lang.String) -> a
+    void access$4(com.mzhou.merchant.activity.ActivityBinderQQ,com.mzhou.merchant.model.AllBean,java.lang.String) -> b
+    com.mzhou.merchant.db.manager.DbLoginManager access$5(com.mzhou.merchant.activity.ActivityBinderQQ) -> d
+    com.mzhou.merchant.db.manager.DbUserManager access$6(com.mzhou.merchant.activity.ActivityBinderQQ) -> e
+    android.content.Context access$7(com.mzhou.merchant.activity.ActivityBinderQQ) -> f
+    com.tencent.tauth.Tencent access$8(com.mzhou.merchant.activity.ActivityBinderQQ) -> g
+    void access$9(com.mzhou.merchant.activity.ActivityBinderQQ,java.lang.String,java.lang.String) -> a
+    void access$10(com.mzhou.merchant.activity.ActivityBinderQQ,java.lang.String) -> a
 com.mzhou.merchant.activity.ActivityBinderQQ$1 -> com.mzhou.merchant.activity.b:
     com.mzhou.merchant.activity.ActivityBinderQQ this$0 -> a
     void onError(com.tencent.tauth.UiError) -> onError
@@ -4914,45 +4916,47 @@ com.mzhou.merchant.activity.ActivitySS$6 -> com.mzhou.merchant.activity.bp:
     com.mzhou.merchant.activity.ActivitySS this$0 -> a
     void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
 com.mzhou.merchant.activity.ActivityStart -> com.mzhou.merchant.activity.ActivityStart:
-    android.widget.ImageView icon -> d
-    android.content.SharedPreferences sp -> e
-    boolean loginself -> a
-    boolean loginself_enterprise -> b
-    boolean isEnterprise -> c
-    com.mzhou.merchant.utlis.CustomProgressDialog progressDialog -> f
-    java.lang.String usrename -> g
-    java.lang.String password -> h
-    java.lang.String username_enterprise -> i
-    java.lang.String password_enterprise -> j
-    android.os.Handler handler -> k
+    android.widget.ImageView icon -> a
+    android.content.SharedPreferences sp -> b
+    com.mzhou.merchant.utlis.CustomProgressDialog progressDialog -> c
+    boolean firsttime -> d
+    com.mzhou.merchant.db.manager.DbLoginManager loginManager -> e
+    com.mzhou.merchant.db.manager.DbUserManager userManager -> f
+    java.lang.String un -> g
+    java.lang.String pw -> h
+    java.lang.String usertype -> i
+    android.os.Handler handler -> j
     void onCreate(android.os.Bundle) -> onCreate
-    void postPhoneNum() -> b
-    void save2SharedPrefenrence(com.mzhou.merchant.model.AllBean) -> a
-    void save2SharedPrefenrenceEn(com.mzhou.merchant.model.AllBean) -> b
+    void deleteOldDir() -> b
+    boolean deleteDir(java.io.File) -> a
+    java.lang.String getVersionName() -> c
+    void startMain() -> d
+    void postPhoneNum() -> e
     void onStop() -> onStop
     void startProgressDialog(android.content.Context,java.lang.String) -> a
     void stopProgressDialog() -> a
-    android.content.SharedPreferences access$0(com.mzhou.merchant.activity.ActivityStart) -> a
-    java.lang.String access$1(com.mzhou.merchant.activity.ActivityStart) -> b
+    boolean access$0(com.mzhou.merchant.activity.ActivityStart) -> a
+    android.content.SharedPreferences access$1(com.mzhou.merchant.activity.ActivityStart) -> b
     java.lang.String access$2(com.mzhou.merchant.activity.ActivityStart) -> c
-    void access$3(com.mzhou.merchant.activity.ActivityStart,com.mzhou.merchant.model.AllBean) -> a
-    java.lang.String access$4(com.mzhou.merchant.activity.ActivityStart) -> d
-    java.lang.String access$5(com.mzhou.merchant.activity.ActivityStart) -> e
-    void access$6(com.mzhou.merchant.activity.ActivityStart,com.mzhou.merchant.model.AllBean) -> b
-    android.os.Handler access$7(com.mzhou.merchant.activity.ActivityStart) -> f
+    java.lang.String access$3(com.mzhou.merchant.activity.ActivityStart) -> d
+    java.lang.String access$4(com.mzhou.merchant.activity.ActivityStart) -> e
+    com.mzhou.merchant.db.manager.DbLoginManager access$5(com.mzhou.merchant.activity.ActivityStart) -> f
+    com.mzhou.merchant.db.manager.DbUserManager access$6(com.mzhou.merchant.activity.ActivityStart) -> g
+    android.os.Handler access$7(com.mzhou.merchant.activity.ActivityStart) -> h
 com.mzhou.merchant.activity.ActivityStart$1 -> com.mzhou.merchant.activity.bq:
     com.mzhou.merchant.activity.ActivityStart this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
-com.mzhou.merchant.activity.ActivityStart$2 -> com.mzhou.merchant.activity.br:
+    com.mzhou.merchant.activity.ActivityStart access$0(com.mzhou.merchant.activity.ActivityStart$1) -> a
+com.mzhou.merchant.activity.ActivityStart$1$1 -> com.mzhou.merchant.activity.br:
+    com.mzhou.merchant.activity.ActivityStart$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.mzhou.merchant.activity.ActivityStart$2 -> com.mzhou.merchant.activity.bs:
     com.mzhou.merchant.activity.ActivityStart this$0 -> a
     void run() -> run
-com.mzhou.merchant.activity.ActivityStart$3 -> com.mzhou.merchant.activity.bs:
+com.mzhou.merchant.activity.ActivityStart$3 -> com.mzhou.merchant.activity.bt:
     com.mzhou.merchant.activity.ActivityStart this$0 -> a
     void run() -> run
-com.mzhou.merchant.activity.ActivityStart$4 -> com.mzhou.merchant.activity.bt:
-    com.mzhou.merchant.activity.ActivityStart this$0 -> a
-    void run() -> run
-com.mzhou.merchant.activity.ActivityStart$5 -> com.mzhou.merchant.activity.bu:
+com.mzhou.merchant.activity.ActivityStart$4 -> com.mzhou.merchant.activity.bu:
     com.mzhou.merchant.activity.ActivityStart this$0 -> a
     void run() -> run
 com.mzhou.merchant.activity.ActivityTD -> com.mzhou.merchant.activity.ActivityTD:
@@ -5304,37 +5308,35 @@ com.mzhou.merchant.activity.EditShoujiCommenActivity -> com.mzhou.merchant.activ
     int MAXSIZE -> H
     android.net.Uri mImageUri -> I
     com.mzhou.merchant.activity.EditShoujiCommenActivity$ImageAdapter adapter -> J
-    android.content.SharedPreferences sp -> K
-    java.lang.String uid -> L
-    java.lang.String rom -> M
-    java.lang.String ah -> N
-    java.lang.String brand -> O
-    java.lang.String type -> P
-    java.lang.String chip -> Q
-    java.lang.String size -> R
-    java.lang.String distinguish -> S
-    java.lang.String system -> T
-    java.lang.String prec_pixel -> U
-    java.lang.String next_pixel -> V
-    java.lang.String content -> W
-    java.lang.String email -> X
-    java.lang.String phonenub -> Y
-    java.lang.String address -> Z
-    java.lang.String company -> aa
-    java.lang.String net -> ab
-    java.lang.String name -> ac
-    java.io.File file -> ad
-    int REQUEST -> ae
+    java.lang.String rom -> K
+    java.lang.String ah -> L
+    java.lang.String brand -> M
+    java.lang.String type -> N
+    java.lang.String chip -> O
+    java.lang.String size -> P
+    java.lang.String distinguish -> Q
+    java.lang.String system -> R
+    java.lang.String prec_pixel -> S
+    java.lang.String next_pixel -> T
+    java.lang.String content -> U
+    java.lang.String email -> V
+    java.lang.String phonenub -> W
+    java.lang.String address -> X
+    java.lang.String company -> Y
+    java.lang.String net -> Z
+    java.lang.String name -> aa
+    java.io.File file -> ab
+    int REQUEST -> ac
     int RESULT -> b
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> c
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> af
-    java.lang.String saveDir -> ag
-    android.content.Context context -> ah
-    android.widget.TextView title_bar_title -> ai
-    java.lang.String productid -> aj
-    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> ak
-    java.lang.String picfromServer -> al
-    android.widget.ImageView imageview_add -> am
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ad
+    java.lang.String saveDir -> ae
+    android.content.Context context -> af
+    android.widget.TextView title_bar_title -> ag
+    java.lang.String productid -> ah
+    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> ai
+    java.lang.String picfromServer -> aj
+    android.widget.ImageView imageview_add -> ak
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -5400,9 +5402,8 @@ com.mzhou.merchant.activity.EditShoujiCommenActivity -> com.mzhou.merchant.activ
     java.lang.String access$46(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> S
     java.lang.String access$47(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> T
     java.lang.String access$48(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> U
-    java.lang.String access$49(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> V
-    java.util.List access$50(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> W
-    void access$51(com.mzhou.merchant.activity.EditShoujiCommenActivity,java.lang.String) -> b
+    java.util.List access$49(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> V
+    void access$50(com.mzhou.merchant.activity.EditShoujiCommenActivity,java.lang.String) -> b
 com.mzhou.merchant.activity.EditShoujiCommenActivity$1 -> com.mzhou.merchant.activity.dc:
     com.mzhou.merchant.activity.EditShoujiCommenActivity this$0 -> a
     void getProductInfoById(com.mzhou.merchant.model.ProductsByIdBean) -> a
@@ -5507,36 +5508,34 @@ com.mzhou.merchant.activity.EditShoujiEnterpriseActivity -> com.mzhou.merchant.a
     int MAXSIZE -> ab
     android.net.Uri mImageUri -> ac
     com.mzhou.merchant.activity.EditShoujiEnterpriseActivity$ImageAdapter adapter -> ad
-    android.content.SharedPreferences sp -> ae
-    java.lang.String uid_enterprise -> af
-    java.lang.String brand -> ag
-    java.lang.String type -> ah
-    java.lang.String chip -> ai
-    java.lang.String size -> aj
-    java.lang.String distinguish -> ak
-    java.lang.String system -> al
-    java.lang.String prec_pixel -> am
-    java.lang.String next_pixel -> an
-    java.lang.String content -> ao
-    java.lang.String rom -> ap
-    java.lang.String ah -> aq
-    java.lang.String address -> ar
-    java.lang.String company -> as
-    java.lang.String net -> at
-    java.lang.String fax -> au
-    java.lang.String center -> av
-    java.lang.String name -> aw
-    android.content.Context context -> ax
-    java.io.File file -> ay
-    int REQUEST -> az
+    java.lang.String brand -> ae
+    java.lang.String type -> af
+    java.lang.String chip -> ag
+    java.lang.String size -> ah
+    java.lang.String distinguish -> ai
+    java.lang.String system -> aj
+    java.lang.String prec_pixel -> ak
+    java.lang.String next_pixel -> al
+    java.lang.String content -> am
+    java.lang.String rom -> an
+    java.lang.String ah -> ao
+    java.lang.String address -> ap
+    java.lang.String company -> aq
+    java.lang.String net -> ar
+    java.lang.String fax -> as
+    java.lang.String center -> at
+    java.lang.String name -> au
+    android.content.Context context -> av
+    java.io.File file -> aw
+    int REQUEST -> ax
     int RESULT -> b
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> c
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> aA
-    java.lang.String saveDir -> aB
-    java.lang.String productid -> aC
-    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> aD
-    java.lang.String picfromServer -> aE
-    android.widget.ImageView imageview_add -> aF
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ay
+    java.lang.String saveDir -> az
+    java.lang.String productid -> aA
+    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> aB
+    java.lang.String picfromServer -> aC
+    android.widget.ImageView imageview_add -> aD
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -5622,10 +5621,9 @@ com.mzhou.merchant.activity.EditShoujiEnterpriseActivity -> com.mzhou.merchant.a
     java.lang.String access$68(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> am
     java.lang.String access$69(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> an
     java.lang.String access$70(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ao
-    java.lang.String access$71(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ap
-    android.widget.TextView access$72(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aq
-    java.util.List access$73(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ar
-    void access$74(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity,java.lang.String) -> c
+    android.widget.TextView access$71(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ap
+    java.util.List access$72(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aq
+    void access$73(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity,java.lang.String) -> c
 com.mzhou.merchant.activity.EditShoujiEnterpriseActivity$1 -> com.mzhou.merchant.activity.dp:
     com.mzhou.merchant.activity.EditShoujiEnterpriseActivity this$0 -> a
     void getProductInfoById(com.mzhou.merchant.model.ProductsEnterpriseByIdBean) -> a
@@ -5688,17 +5686,16 @@ com.mzhou.merchant.activity.FabuActivity -> com.mzhou.merchant.activity.FabuActi
     android.widget.ImageView title_bar_showleft -> k
     com.mzhou.merchant.dao.biz.ActivityManager manager -> l
     android.content.Context context -> m
-    android.content.SharedPreferences mSharedPreferences -> n
-    boolean isEnterprise -> o
-    android.text.format.Time sTime -> p
-    android.text.format.Time eTime -> q
-    boolean isEnd -> r
-    android.app.TimePickerDialog$OnTimeSetListener mTimeSetListener -> s
-    android.app.DatePickerDialog$OnDateSetListener mDateSetListener2 -> t
+    android.text.format.Time sTime -> n
+    android.text.format.Time eTime -> o
+    boolean isEnd -> p
+    android.app.TimePickerDialog$OnTimeSetListener mTimeSetListener -> q
+    android.app.DatePickerDialog$OnDateSetListener mDateSetListener2 -> r
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
-    void listenerButton() -> c
+    void setData() -> c
+    void listenerButton() -> d
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     boolean access$0(com.mzhou.merchant.activity.FabuActivity) -> a
     android.text.format.Time access$1(com.mzhou.merchant.activity.FabuActivity) -> b
@@ -5714,9 +5711,7 @@ com.mzhou.merchant.activity.FabuActivity -> com.mzhou.merchant.activity.FabuActi
     android.widget.EditText access$11(com.mzhou.merchant.activity.FabuActivity) -> k
     android.widget.EditText access$12(com.mzhou.merchant.activity.FabuActivity) -> l
     android.widget.EditText access$13(com.mzhou.merchant.activity.FabuActivity) -> m
-    boolean access$14(com.mzhou.merchant.activity.FabuActivity) -> n
-    com.mzhou.merchant.dao.biz.ActivityManager access$15(com.mzhou.merchant.activity.FabuActivity) -> o
-    android.content.SharedPreferences access$16(com.mzhou.merchant.activity.FabuActivity) -> p
+    com.mzhou.merchant.dao.biz.ActivityManager access$14(com.mzhou.merchant.activity.FabuActivity) -> n
 com.mzhou.merchant.activity.FabuActivity$1 -> com.mzhou.merchant.activity.ec:
     com.mzhou.merchant.activity.FabuActivity this$0 -> a
     void onTimeSet(android.widget.TimePicker,int,int) -> onTimeSet
@@ -5748,9 +5743,7 @@ com.mzhou.merchant.activity.FabuQiugouActivity -> com.mzhou.merchant.activity.Fa
     java.lang.String contentStr -> f
     java.lang.String phonenumberStr -> g
     java.lang.String nameStr -> h
-    android.content.SharedPreferences sp -> i
-    boolean isEnterprise -> j
-    com.mzhou.merchant.dao.biz.AttactManager attactManager -> k
+    com.mzhou.merchant.dao.biz.AttactManager attactManager -> i
     void onCreate(android.os.Bundle) -> onCreate
     void listenerbutton() -> a
     void getdata() -> b
@@ -5762,12 +5755,10 @@ com.mzhou.merchant.activity.FabuQiugouActivity -> com.mzhou.merchant.activity.Fa
     void access$3(com.mzhou.merchant.activity.FabuQiugouActivity,java.lang.String) -> b
     android.widget.EditText access$4(com.mzhou.merchant.activity.FabuQiugouActivity) -> c
     void access$5(com.mzhou.merchant.activity.FabuQiugouActivity,java.lang.String) -> c
-    boolean access$6(com.mzhou.merchant.activity.FabuQiugouActivity) -> d
-    com.mzhou.merchant.dao.biz.AttactManager access$7(com.mzhou.merchant.activity.FabuQiugouActivity) -> e
+    com.mzhou.merchant.dao.biz.AttactManager access$6(com.mzhou.merchant.activity.FabuQiugouActivity) -> d
+    java.lang.String access$7(com.mzhou.merchant.activity.FabuQiugouActivity) -> e
     java.lang.String access$8(com.mzhou.merchant.activity.FabuQiugouActivity) -> f
     java.lang.String access$9(com.mzhou.merchant.activity.FabuQiugouActivity) -> g
-    java.lang.String access$10(com.mzhou.merchant.activity.FabuQiugouActivity) -> h
-    android.content.SharedPreferences access$11(com.mzhou.merchant.activity.FabuQiugouActivity) -> i
 com.mzhou.merchant.activity.FabuQiugouActivity$1 -> com.mzhou.merchant.activity.ej:
     com.mzhou.merchant.activity.FabuQiugouActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -5813,33 +5804,32 @@ com.mzhou.merchant.activity.FabuShoujiCommenActivity -> com.mzhou.merchant.activ
     int MAXSIZE -> H
     android.net.Uri mImageUri -> I
     com.mzhou.merchant.activity.FabuShoujiCommenActivity$ImageAdapter adapter -> J
-    android.content.SharedPreferences sp -> K
-    java.lang.String uid -> L
-    java.lang.String rom -> M
-    java.lang.String ah -> N
-    java.lang.String brand -> O
-    java.lang.String type -> P
-    java.lang.String chip -> Q
-    java.lang.String size -> R
-    java.lang.String distinguish -> S
-    java.lang.String system -> T
-    java.lang.String prec_pixel -> U
-    java.lang.String next_pixel -> V
-    java.lang.String content -> W
-    java.lang.String email -> X
-    java.lang.String phonenub -> Y
-    java.lang.String address -> Z
-    java.lang.String company -> aa
-    java.lang.String net -> ab
-    java.lang.String name -> ac
-    java.io.File file -> ad
-    int REQUEST -> ae
+    java.lang.String uid -> K
+    java.lang.String rom -> L
+    java.lang.String ah -> M
+    java.lang.String brand -> N
+    java.lang.String type -> O
+    java.lang.String chip -> P
+    java.lang.String size -> Q
+    java.lang.String distinguish -> R
+    java.lang.String system -> S
+    java.lang.String prec_pixel -> T
+    java.lang.String next_pixel -> U
+    java.lang.String content -> V
+    java.lang.String email -> W
+    java.lang.String phonenub -> X
+    java.lang.String address -> Y
+    java.lang.String company -> Z
+    java.lang.String net -> aa
+    java.lang.String name -> ab
+    java.io.File file -> ac
+    int REQUEST -> ad
     int RESULT -> b
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> c
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> af
-    java.lang.String saveDir -> ag
-    android.content.Context context -> ah
-    android.widget.ImageView imageview_add -> ai
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ae
+    java.lang.String saveDir -> af
+    android.content.Context context -> ag
+    android.widget.ImageView imageview_add -> ah
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -5986,33 +5976,32 @@ com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity -> com.mzhou.merchant.a
     int MAXSIZE -> aa
     android.net.Uri mImageUri -> ab
     com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity$ImageAdapter adapter -> ac
-    android.content.SharedPreferences sp -> ad
-    java.lang.String uid_enterprise -> ae
-    java.lang.String brand -> af
-    java.lang.String type -> ag
-    java.lang.String chip -> ah
-    java.lang.String size -> ai
-    java.lang.String distinguish -> aj
-    java.lang.String system -> ak
-    java.lang.String prec_pixel -> al
-    java.lang.String next_pixel -> am
-    java.lang.String content -> an
-    java.lang.String rom -> ao
-    java.lang.String ah -> ap
-    java.lang.String address -> aq
-    java.lang.String company -> ar
-    java.lang.String net -> as
-    java.lang.String fax -> at
-    java.lang.String center -> au
-    java.lang.String name -> av
-    android.content.Context context -> aw
-    java.io.File file -> ax
-    int REQUEST -> ay
+    java.lang.String uid_enterprise -> ad
+    java.lang.String brand -> ae
+    java.lang.String type -> af
+    java.lang.String chip -> ag
+    java.lang.String size -> ah
+    java.lang.String distinguish -> ai
+    java.lang.String system -> aj
+    java.lang.String prec_pixel -> ak
+    java.lang.String next_pixel -> al
+    java.lang.String content -> am
+    java.lang.String rom -> an
+    java.lang.String ah -> ao
+    java.lang.String address -> ap
+    java.lang.String company -> aq
+    java.lang.String net -> ar
+    java.lang.String fax -> as
+    java.lang.String center -> at
+    java.lang.String name -> au
+    android.content.Context context -> av
+    java.io.File file -> aw
+    int REQUEST -> ax
     int RESULT -> b
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> c
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> az
-    java.lang.String saveDir -> aA
-    android.widget.ImageView imageview_add -> aB
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ay
+    java.lang.String saveDir -> az
+    android.widget.ImageView imageview_add -> aA
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -6121,10 +6110,7 @@ com.mzhou.merchant.activity.FabuZhaopinActivity -> com.mzhou.merchant.activity.F
     android.widget.ListView lvPopupList -> o
     int NUM_OF_VISIBLE_LIST_ROWS -> p
     int postion -> q
-    android.content.SharedPreferences spPreferences -> r
-    com.mzhou.merchant.dao.biz.JobManager jobManager -> s
-    java.lang.String uid -> t
-    boolean isEnterprise -> u
+    com.mzhou.merchant.dao.biz.JobManager jobManager -> r
     void onCreate(android.os.Bundle) -> onCreate
     void setdata() -> a
     void init() -> b
@@ -6142,10 +6128,9 @@ com.mzhou.merchant.activity.FabuZhaopinActivity -> com.mzhou.merchant.activity.F
     android.widget.EditText access$8(com.mzhou.merchant.activity.FabuZhaopinActivity) -> i
     android.widget.EditText access$9(com.mzhou.merchant.activity.FabuZhaopinActivity) -> j
     com.mzhou.merchant.dao.biz.JobManager access$10(com.mzhou.merchant.activity.FabuZhaopinActivity) -> k
-    java.lang.String access$11(com.mzhou.merchant.activity.FabuZhaopinActivity) -> l
-    android.widget.TextView access$12(com.mzhou.merchant.activity.FabuZhaopinActivity) -> m
-    java.util.List access$13(com.mzhou.merchant.activity.FabuZhaopinActivity) -> n
-    void access$14(com.mzhou.merchant.activity.FabuZhaopinActivity,int) -> a
+    android.widget.TextView access$11(com.mzhou.merchant.activity.FabuZhaopinActivity) -> l
+    java.util.List access$12(com.mzhou.merchant.activity.FabuZhaopinActivity) -> m
+    void access$13(com.mzhou.merchant.activity.FabuZhaopinActivity,int) -> a
 com.mzhou.merchant.activity.FabuZhaopinActivity$1 -> com.mzhou.merchant.activity.fk:
     com.mzhou.merchant.activity.FabuZhaopinActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -6171,9 +6156,7 @@ com.mzhou.merchant.activity.FabuZhaoshangActivity -> com.mzhou.merchant.activity
     java.lang.String contentStr -> f
     java.lang.String phonenumberStr -> g
     java.lang.String nameStr -> h
-    android.content.SharedPreferences sp -> i
-    com.mzhou.merchant.dao.biz.AttactManager attactManager -> j
-    boolean isEnterprise -> k
+    com.mzhou.merchant.dao.biz.AttactManager attactManager -> i
     void onCreate(android.os.Bundle) -> onCreate
     void listenerbutton() -> a
     void setdata() -> b
@@ -6185,12 +6168,10 @@ com.mzhou.merchant.activity.FabuZhaoshangActivity -> com.mzhou.merchant.activity
     void access$3(com.mzhou.merchant.activity.FabuZhaoshangActivity,java.lang.String) -> b
     android.widget.EditText access$4(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> c
     void access$5(com.mzhou.merchant.activity.FabuZhaoshangActivity,java.lang.String) -> c
-    boolean access$6(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> d
-    com.mzhou.merchant.dao.biz.AttactManager access$7(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> e
+    com.mzhou.merchant.dao.biz.AttactManager access$6(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> d
+    java.lang.String access$7(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> e
     java.lang.String access$8(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> f
     java.lang.String access$9(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> g
-    java.lang.String access$10(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> h
-    android.content.SharedPreferences access$11(com.mzhou.merchant.activity.FabuZhaoshangActivity) -> i
 com.mzhou.merchant.activity.FabuZhaoshangActivity$1 -> com.mzhou.merchant.activity.fp:
     com.mzhou.merchant.activity.FabuZhaoshangActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -6373,7 +6354,9 @@ com.mzhou.merchant.activity.ForgetPassWordAnActivity -> com.mzhou.merchant.activ
     com.mzhou.merchant.utlis.CustomProgressDialog progressDialog -> e
     java.lang.String url -> f
     java.lang.String uid -> g
-    com.mzhou.merchant.dao.IUser$Iforgetanswer forgetan -> h
+    com.mzhou.merchant.model.GetQuestionBean que -> h
+    boolean isEnterprise -> i
+    com.mzhou.merchant.dao.IUser$Iforgetanswer forgetan -> j
     void onCreate(android.os.Bundle) -> onCreate
     void startProgressDialog(android.content.Context,java.lang.String) -> a
     void stopProgressDialog() -> a
@@ -6382,10 +6365,11 @@ com.mzhou.merchant.activity.ForgetPassWordAnActivity -> com.mzhou.merchant.activ
     com.mzhou.merchant.dao.IUser$Iforgetanswer access$0(com.mzhou.merchant.activity.ForgetPassWordAnActivity) -> a
     android.widget.EditText access$1(com.mzhou.merchant.activity.ForgetPassWordAnActivity) -> b
     java.lang.String access$2(com.mzhou.merchant.activity.ForgetPassWordAnActivity) -> c
-    java.lang.String access$3(com.mzhou.merchant.activity.ForgetPassWordAnActivity) -> d
+    com.mzhou.merchant.model.GetQuestionBean access$3(com.mzhou.merchant.activity.ForgetPassWordAnActivity) -> d
+    java.lang.String access$4(com.mzhou.merchant.activity.ForgetPassWordAnActivity) -> e
+    boolean access$5(com.mzhou.merchant.activity.ForgetPassWordAnActivity) -> f
 com.mzhou.merchant.activity.ForgetPassWordAnActivity$1 -> com.mzhou.merchant.activity.gi:
     com.mzhou.merchant.activity.ForgetPassWordAnActivity this$0 -> a
-    com.mzhou.merchant.model.GetQuestionBean val$que -> b
     void onClick(android.view.View) -> onClick
     com.mzhou.merchant.activity.ForgetPassWordAnActivity access$0(com.mzhou.merchant.activity.ForgetPassWordAnActivity$1) -> a
 com.mzhou.merchant.activity.ForgetPassWordAnActivity$1$1 -> com.mzhou.merchant.activity.gj:
@@ -6417,7 +6401,9 @@ com.mzhou.merchant.activity.ForgetPassWordModifyActivity -> com.mzhou.merchant.a
     java.lang.String uid -> g
     java.lang.String url -> h
     java.lang.String oldpw -> i
-    com.mzhou.merchant.dao.IUser$Iforgetpw forgetpw -> j
+    java.lang.String username -> j
+    boolean isEnterprise -> k
+    com.mzhou.merchant.dao.IUser$Iforgetpw forgetpw -> l
     void onCreate(android.os.Bundle) -> onCreate
     void listenerButton() -> b
     void loadButton() -> c
@@ -6431,7 +6417,9 @@ com.mzhou.merchant.activity.ForgetPassWordModifyActivity -> com.mzhou.merchant.a
     java.lang.String access$3(com.mzhou.merchant.activity.ForgetPassWordModifyActivity) -> d
     java.lang.String access$4(com.mzhou.merchant.activity.ForgetPassWordModifyActivity) -> e
     java.lang.String access$5(com.mzhou.merchant.activity.ForgetPassWordModifyActivity) -> f
-    java.lang.String access$6(com.mzhou.merchant.activity.ForgetPassWordModifyActivity) -> g
+    boolean access$6(com.mzhou.merchant.activity.ForgetPassWordModifyActivity) -> g
+    java.lang.String access$7(com.mzhou.merchant.activity.ForgetPassWordModifyActivity) -> h
+    java.lang.String access$8(com.mzhou.merchant.activity.ForgetPassWordModifyActivity) -> i
 com.mzhou.merchant.activity.ForgetPassWordModifyActivity$1 -> com.mzhou.merchant.activity.gm:
     com.mzhou.merchant.activity.ForgetPassWordModifyActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -6456,25 +6444,29 @@ com.mzhou.merchant.activity.ForgetPassWordModifyActivity$AsyngetResetPw -> com.m
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 com.mzhou.merchant.activity.LoginCommenActivity -> com.mzhou.merchant.activity.LoginCommenActivity:
-    android.widget.EditText user_login_username_hint -> c
-    android.widget.EditText user_login_password_hint -> d
-    android.widget.CheckBox user_checkbox1 -> e
-    android.widget.CheckBox user_checkbox2 -> f
-    android.widget.TextView user_forgetpasswd -> g
-    android.widget.Button user_button_login -> h
-    android.widget.TextView user_button_register -> i
-    java.lang.String username -> j
-    java.lang.String password -> k
-    android.widget.LinearLayout qq_login -> l
+    android.widget.EditText user_login_username_hint -> b
+    android.widget.EditText user_login_password_hint -> c
+    android.widget.CheckBox user_checkbox1 -> d
+    android.widget.CheckBox user_checkbox2 -> e
+    android.widget.TextView user_forgetpasswd -> f
+    android.widget.Button user_button_login -> g
+    android.widget.TextView user_button_register -> h
+    java.lang.String username -> i
+    java.lang.String password -> j
+    android.widget.LinearLayout qq_login -> k
     com.mzhou.merchant.dao.biz.UserManager userManager -> a
-    android.content.SharedPreferences sp -> b
-    boolean remeberpassword -> m
-    boolean loginself -> n
+    boolean remeberpassword -> l
+    boolean loginself -> m
+    com.mzhou.merchant.db.manager.DbLoginManager dbLoginManager -> n
+    com.mzhou.merchant.db.manager.DbUserManager dbUserManager -> o
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void listenerButton() -> b
-    void save2SharedPrefenrence(com.mzhou.merchant.model.AllBean) -> a
-    void loadButton() -> c
+    void toUserControlCenter(com.mzhou.merchant.model.AllBean) -> a
+    void saveLoginInfo() -> c
+    void saveUserInfo(com.mzhou.merchant.model.AllBean) -> b
+    void loadButton() -> d
+    void setData() -> e
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     android.widget.EditText access$0(com.mzhou.merchant.activity.LoginCommenActivity) -> a
     void access$1(com.mzhou.merchant.activity.LoginCommenActivity,java.lang.String) -> a
@@ -6482,9 +6474,13 @@ com.mzhou.merchant.activity.LoginCommenActivity -> com.mzhou.merchant.activity.L
     void access$3(com.mzhou.merchant.activity.LoginCommenActivity,java.lang.String) -> b
     java.lang.String access$4(com.mzhou.merchant.activity.LoginCommenActivity) -> c
     java.lang.String access$5(com.mzhou.merchant.activity.LoginCommenActivity) -> d
-    void access$6(com.mzhou.merchant.activity.LoginCommenActivity,com.mzhou.merchant.model.AllBean) -> a
-    void access$7(com.mzhou.merchant.activity.LoginCommenActivity,boolean) -> a
-    void access$8(com.mzhou.merchant.activity.LoginCommenActivity,boolean) -> b
+    void access$6(com.mzhou.merchant.activity.LoginCommenActivity) -> e
+    void access$7(com.mzhou.merchant.activity.LoginCommenActivity,com.mzhou.merchant.model.AllBean) -> a
+    void access$8(com.mzhou.merchant.activity.LoginCommenActivity,com.mzhou.merchant.model.AllBean) -> b
+    void access$9(com.mzhou.merchant.activity.LoginCommenActivity,boolean) -> a
+    android.widget.CheckBox access$10(com.mzhou.merchant.activity.LoginCommenActivity) -> f
+    void access$11(com.mzhou.merchant.activity.LoginCommenActivity,boolean) -> b
+    android.widget.CheckBox access$12(com.mzhou.merchant.activity.LoginCommenActivity) -> g
 com.mzhou.merchant.activity.LoginCommenActivity$1 -> com.mzhou.merchant.activity.gq:
     com.mzhou.merchant.activity.LoginCommenActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -6508,25 +6504,29 @@ com.mzhou.merchant.activity.LoginCommenActivity$6 -> com.mzhou.merchant.activity
     com.mzhou.merchant.activity.LoginCommenActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.LoginEnterpriseActivity -> com.mzhou.merchant.activity.LoginEnterpriseActivity:
-    android.widget.EditText user_login_username_hint -> c
-    android.widget.EditText user_login_password_hint -> d
-    android.widget.CheckBox user_checkbox1 -> e
-    android.widget.CheckBox user_checkbox2 -> f
-    android.widget.TextView user_forgetpasswd -> g
-    android.widget.Button user_button_login -> h
-    android.widget.TextView user_button_register -> i
-    android.widget.LinearLayout qq_login -> j
-    java.lang.String username_enterprise -> k
-    java.lang.String password_enterprise -> l
+    android.widget.EditText user_login_username_hint -> b
+    android.widget.EditText user_login_password_hint -> c
+    android.widget.CheckBox user_checkbox1 -> d
+    android.widget.CheckBox user_checkbox2 -> e
+    android.widget.TextView user_forgetpasswd -> f
+    android.widget.Button user_button_login -> g
+    android.widget.TextView user_button_register -> h
+    android.widget.LinearLayout qq_login -> i
+    java.lang.String username_enterprise -> j
+    java.lang.String password_enterprise -> k
     com.mzhou.merchant.dao.biz.UserManager userManager -> a
-    android.content.SharedPreferences sp -> b
-    boolean remeberpassword_enterprise -> m
-    boolean loginself_enterprise -> n
+    boolean remeberpassword_enterprise -> l
+    boolean loginself_enterprise -> m
+    com.mzhou.merchant.db.manager.DbLoginManager dbLoginManager -> n
+    com.mzhou.merchant.db.manager.DbUserManager dbUserManager -> o
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void listenerButton() -> b
-    void save2SharedPrefenrence(com.mzhou.merchant.model.AllBean) -> a
-    void loadButton() -> c
+    void setData() -> c
+    void toUserControlCenter(com.mzhou.merchant.model.AllBean) -> a
+    void saveLoginInfo() -> d
+    void saveUserInfo(com.mzhou.merchant.model.AllBean) -> b
+    void loadButton() -> e
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     android.widget.EditText access$0(com.mzhou.merchant.activity.LoginEnterpriseActivity) -> a
     void access$1(com.mzhou.merchant.activity.LoginEnterpriseActivity,java.lang.String) -> a
@@ -6534,9 +6534,13 @@ com.mzhou.merchant.activity.LoginEnterpriseActivity -> com.mzhou.merchant.activi
     void access$3(com.mzhou.merchant.activity.LoginEnterpriseActivity,java.lang.String) -> b
     java.lang.String access$4(com.mzhou.merchant.activity.LoginEnterpriseActivity) -> c
     java.lang.String access$5(com.mzhou.merchant.activity.LoginEnterpriseActivity) -> d
-    void access$6(com.mzhou.merchant.activity.LoginEnterpriseActivity,com.mzhou.merchant.model.AllBean) -> a
-    void access$7(com.mzhou.merchant.activity.LoginEnterpriseActivity,boolean) -> a
-    void access$8(com.mzhou.merchant.activity.LoginEnterpriseActivity,boolean) -> b
+    void access$6(com.mzhou.merchant.activity.LoginEnterpriseActivity) -> e
+    void access$7(com.mzhou.merchant.activity.LoginEnterpriseActivity,com.mzhou.merchant.model.AllBean) -> a
+    void access$8(com.mzhou.merchant.activity.LoginEnterpriseActivity,com.mzhou.merchant.model.AllBean) -> b
+    void access$9(com.mzhou.merchant.activity.LoginEnterpriseActivity,boolean) -> a
+    android.widget.CheckBox access$10(com.mzhou.merchant.activity.LoginEnterpriseActivity) -> f
+    void access$11(com.mzhou.merchant.activity.LoginEnterpriseActivity,boolean) -> b
+    android.widget.CheckBox access$12(com.mzhou.merchant.activity.LoginEnterpriseActivity) -> g
 com.mzhou.merchant.activity.LoginEnterpriseActivity$1 -> com.mzhou.merchant.activity.gx:
     com.mzhou.merchant.activity.LoginEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -6655,11 +6659,10 @@ com.mzhou.merchant.activity.MyProductAlreadyCheckActivity -> com.mzhou.merchant.
     com.handmark.pulltorefresh.library.PullToRefreshScrollView mPullRefreshScrollView -> e
     com.mzhou.merchant.myview.MyGridView mGridView -> f
     int page -> g
-    android.content.SharedPreferences spPreferences -> h
-    java.lang.String uid -> i
-    java.lang.String uptime -> j
-    java.lang.String uid_enterprise -> k
-    boolean isEnterprise -> l
+    java.lang.String uid -> h
+    java.lang.String uptime -> i
+    java.lang.String uid_enterprise -> j
+    boolean isEnterprise -> k
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -6769,13 +6772,12 @@ com.mzhou.merchant.activity.MyProductNoCheckActivity -> com.mzhou.merchant.activ
     com.handmark.pulltorefresh.library.PullToRefreshScrollView mPullRefreshScrollView -> e
     com.mzhou.merchant.myview.MyGridView mGridView -> f
     int page -> g
-    android.content.SharedPreferences spPreferences -> h
-    java.lang.String uid -> i
-    java.lang.String uid_enterprise -> j
+    java.lang.String uid -> h
+    java.lang.String uid_enterprise -> i
+    boolean isEnterprise -> j
     java.lang.String uptime -> k
-    boolean isEnterprise -> l
-    android.widget.TextView tView -> m
-    android.os.Handler handler -> n
+    android.widget.TextView tView -> l
+    android.os.Handler handler -> m
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -6969,7 +6971,6 @@ com.mzhou.merchant.activity.RegisterCommonActivity -> com.mzhou.merchant.activit
     android.widget.CheckBox cb_agree -> i
     boolean selcect -> j
     android.widget.TextView tv_agree -> k
-    android.content.SharedPreferences sPreferences -> l
     void onCreate(android.os.Bundle) -> onCreate
     void loadButton() -> a
     void listernerButton() -> b
@@ -6983,7 +6984,6 @@ com.mzhou.merchant.activity.RegisterCommonActivity -> com.mzhou.merchant.activit
     android.widget.TextView access$6(com.mzhou.merchant.activity.RegisterCommonActivity) -> e
     android.widget.EditText access$7(com.mzhou.merchant.activity.RegisterCommonActivity) -> f
     com.mzhou.merchant.dao.biz.UserManager access$8(com.mzhou.merchant.activity.RegisterCommonActivity) -> g
-    android.content.SharedPreferences access$9(com.mzhou.merchant.activity.RegisterCommonActivity) -> h
 com.mzhou.merchant.activity.RegisterCommonActivity$1 -> com.mzhou.merchant.activity.jl:
     com.mzhou.merchant.activity.RegisterCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7011,10 +7011,9 @@ com.mzhou.merchant.activity.RegisterEnterpriseActivity -> com.mzhou.merchant.act
     android.widget.EditText user_register_count_hint -> f
     android.widget.EditText user_register_passwd_hint -> g
     android.widget.EditText user_register_passwd_confirm_hint -> h
-    android.content.SharedPreferences sPreferences -> i
-    android.widget.CheckBox cb_agree -> j
-    boolean selcect -> k
-    android.widget.TextView tv_agree -> l
+    android.widget.CheckBox cb_agree -> i
+    boolean selcect -> j
+    android.widget.TextView tv_agree -> k
     void onCreate(android.os.Bundle) -> onCreate
     void loadButton() -> a
     void listernerButton() -> b
@@ -7029,7 +7028,6 @@ com.mzhou.merchant.activity.RegisterEnterpriseActivity -> com.mzhou.merchant.act
     android.widget.TextView access$6(com.mzhou.merchant.activity.RegisterEnterpriseActivity) -> e
     android.widget.EditText access$7(com.mzhou.merchant.activity.RegisterEnterpriseActivity) -> f
     com.mzhou.merchant.dao.biz.UserManager access$8(com.mzhou.merchant.activity.RegisterEnterpriseActivity) -> g
-    android.content.SharedPreferences access$9(com.mzhou.merchant.activity.RegisterEnterpriseActivity) -> h
 com.mzhou.merchant.activity.RegisterEnterpriseActivity$1 -> com.mzhou.merchant.activity.jq:
     com.mzhou.merchant.activity.RegisterEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7265,12 +7263,8 @@ com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity -> com.mzhou.merchant.a
     android.widget.EditText user_manager_leaveqq -> j
     android.widget.EditText display_parameters_leavecontent -> k
     android.widget.Button publish -> l
-    android.content.SharedPreferences sp -> m
-    java.lang.String nickname -> n
-    java.lang.String email -> o
-    java.lang.String uid -> p
-    java.lang.String id -> q
-    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> r
+    java.lang.String id -> m
+    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> n
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void listenerClick() -> b
@@ -7285,8 +7279,7 @@ com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity -> com.mzhou.merchant.a
     android.widget.TextView access$5(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> f
     com.mzhou.merchant.dao.biz.ProductsManager access$6(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> g
     java.lang.String access$7(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> h
-    java.lang.String access$8(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> i
-    java.util.List access$9(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> j
+    java.util.List access$8(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> i
 com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$1 -> com.mzhou.merchant.activity.km:
     com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7426,59 +7419,56 @@ com.mzhou.merchant.activity.UserControlCommonActivity -> com.mzhou.merchant.acti
     android.widget.PopupWindow pwMyPopWindow -> F
     android.widget.ListView lvPopupList -> G
     int NUM_OF_VISIBLE_LIST_ROWS -> H
-    android.content.SharedPreferences sp -> I
     com.mzhou.merchant.dao.biz.UserManager userManager -> a
-    java.lang.String uid -> J
-    java.lang.String headurl -> K
-    java.util.LinkedList mList -> L
+    java.util.LinkedList mList -> I
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> b
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> M
-    android.net.Uri mImageUri -> N
-    java.io.File file -> O
-    android.content.Context context -> P
-    java.lang.String openid -> Q
-    boolean isBinder -> R
-    java.lang.String saveDir -> S
-    boolean fromqq -> T
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> J
+    android.net.Uri mImageUri -> K
+    java.io.File file -> L
+    android.content.Context context -> M
+    java.lang.String saveDir -> N
+    boolean fromqq -> O
+    com.mzhou.merchant.db.manager.DbLoginManager dbLoginManager -> P
+    com.mzhou.merchant.db.manager.DbUserManager dbUserManager -> Q
+    boolean isSave -> R
     void onCreate(android.os.Bundle) -> onCreate
-    void init() -> b
-    void loadButton() -> c
-    void setData() -> d
+    void init() -> a
+    void loadButton() -> b
+    void setData() -> c
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     java.lang.String getImagePath(android.net.Uri) -> a
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    void listenerButton() -> e
+    void listenerButton() -> d
     boolean deleteDir(java.io.File) -> a
+    void save2Server() -> e
     void showdialog() -> f
     void onDestroy() -> onDestroy
     void iniPopupWindow() -> g
-    android.content.Context access$0(com.mzhou.merchant.activity.UserControlCommonActivity) -> a
+    boolean access$0(com.mzhou.merchant.activity.UserControlCommonActivity) -> a
     boolean access$1(com.mzhou.merchant.activity.UserControlCommonActivity) -> b
-    boolean access$2(com.mzhou.merchant.activity.UserControlCommonActivity) -> c
-    void access$3(com.mzhou.merchant.activity.UserControlCommonActivity) -> d
-    java.util.LinkedList access$4(com.mzhou.merchant.activity.UserControlCommonActivity) -> e
-    java.lang.String access$5(com.mzhou.merchant.activity.UserControlCommonActivity) -> f
-    android.widget.PopupWindow access$6(com.mzhou.merchant.activity.UserControlCommonActivity) -> g
-    android.widget.ImageView access$7(com.mzhou.merchant.activity.UserControlCommonActivity) -> h
-    android.widget.TextView access$8(com.mzhou.merchant.activity.UserControlCommonActivity) -> i
-    java.lang.String access$9(com.mzhou.merchant.activity.UserControlCommonActivity) -> j
-    void access$10(com.mzhou.merchant.activity.UserControlCommonActivity,java.io.File) -> a
-    java.io.File access$11(com.mzhou.merchant.activity.UserControlCommonActivity) -> k
-    android.widget.TextView access$12(com.mzhou.merchant.activity.UserControlCommonActivity) -> l
-    android.widget.TextView access$13(com.mzhou.merchant.activity.UserControlCommonActivity) -> m
+    com.mzhou.merchant.db.manager.DbLoginManager access$2(com.mzhou.merchant.activity.UserControlCommonActivity) -> c
+    com.mzhou.merchant.db.manager.DbUserManager access$3(com.mzhou.merchant.activity.UserControlCommonActivity) -> d
+    android.content.Context access$4(com.mzhou.merchant.activity.UserControlCommonActivity) -> e
+    void access$5(com.mzhou.merchant.activity.UserControlCommonActivity) -> f
+    void access$6(com.mzhou.merchant.activity.UserControlCommonActivity) -> g
+    java.util.LinkedList access$7(com.mzhou.merchant.activity.UserControlCommonActivity) -> h
+    android.widget.PopupWindow access$8(com.mzhou.merchant.activity.UserControlCommonActivity) -> i
+    android.widget.ImageView access$9(com.mzhou.merchant.activity.UserControlCommonActivity) -> j
+    android.widget.TextView access$10(com.mzhou.merchant.activity.UserControlCommonActivity) -> k
+    java.lang.String access$11(com.mzhou.merchant.activity.UserControlCommonActivity) -> l
+    void access$12(com.mzhou.merchant.activity.UserControlCommonActivity,java.io.File) -> a
+    java.io.File access$13(com.mzhou.merchant.activity.UserControlCommonActivity) -> m
     android.widget.TextView access$14(com.mzhou.merchant.activity.UserControlCommonActivity) -> n
     android.widget.TextView access$15(com.mzhou.merchant.activity.UserControlCommonActivity) -> o
     android.widget.TextView access$16(com.mzhou.merchant.activity.UserControlCommonActivity) -> p
     android.widget.TextView access$17(com.mzhou.merchant.activity.UserControlCommonActivity) -> q
     android.widget.TextView access$18(com.mzhou.merchant.activity.UserControlCommonActivity) -> r
     android.widget.TextView access$19(com.mzhou.merchant.activity.UserControlCommonActivity) -> s
-    java.lang.String access$20(com.mzhou.merchant.activity.UserControlCommonActivity) -> t
-    android.content.SharedPreferences access$21() -> a
-    boolean access$22(com.mzhou.merchant.activity.UserControlCommonActivity) -> u
-    java.lang.String access$23(com.mzhou.merchant.activity.UserControlCommonActivity) -> v
-    android.widget.TextView access$24(com.mzhou.merchant.activity.UserControlCommonActivity) -> w
-    void access$25(com.mzhou.merchant.activity.UserControlCommonActivity,boolean) -> a
-    java.util.List access$26(com.mzhou.merchant.activity.UserControlCommonActivity) -> x
+    android.widget.TextView access$20(com.mzhou.merchant.activity.UserControlCommonActivity) -> t
+    void access$21(com.mzhou.merchant.activity.UserControlCommonActivity,boolean) -> a
+    android.widget.TextView access$22(com.mzhou.merchant.activity.UserControlCommonActivity) -> u
+    android.widget.TextView access$23(com.mzhou.merchant.activity.UserControlCommonActivity) -> v
+    java.util.List access$24(com.mzhou.merchant.activity.UserControlCommonActivity) -> w
 com.mzhou.merchant.activity.UserControlCommonActivity$1 -> com.mzhou.merchant.activity.lb:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7503,34 +7493,32 @@ com.mzhou.merchant.activity.UserControlCommonActivity$15 -> com.mzhou.merchant.a
 com.mzhou.merchant.activity.UserControlCommonActivity$16 -> com.mzhou.merchant.activity.li:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-    void save2Server() -> a
-    com.mzhou.merchant.activity.UserControlCommonActivity access$0(com.mzhou.merchant.activity.UserControlCommonActivity$16) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$16$1 -> com.mzhou.merchant.activity.lj:
-    com.mzhou.merchant.activity.UserControlCommonActivity$16 this$1 -> a
+com.mzhou.merchant.activity.UserControlCommonActivity$17 -> com.mzhou.merchant.activity.lj:
+    com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     java.lang.String val$pw -> b
     void getBackAttactInfo(java.lang.String) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$17 -> com.mzhou.merchant.activity.lk:
+com.mzhou.merchant.activity.UserControlCommonActivity$18 -> com.mzhou.merchant.activity.lk:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     android.widget.EditText val$un -> b
     android.widget.EditText val$pw -> c
     android.app.Dialog val$dialog -> d
     void onClick(android.view.View) -> onClick
-    com.mzhou.merchant.activity.UserControlCommonActivity access$0(com.mzhou.merchant.activity.UserControlCommonActivity$17) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$17$1 -> com.mzhou.merchant.activity.ll:
-    com.mzhou.merchant.activity.UserControlCommonActivity$17 this$1 -> a
+    com.mzhou.merchant.activity.UserControlCommonActivity access$0(com.mzhou.merchant.activity.UserControlCommonActivity$18) -> a
+com.mzhou.merchant.activity.UserControlCommonActivity$18$1 -> com.mzhou.merchant.activity.ll:
+    com.mzhou.merchant.activity.UserControlCommonActivity$18 this$1 -> a
     android.widget.EditText val$un -> b
     android.widget.EditText val$pw -> c
     void getBinderInfo(com.mzhou.merchant.model.AllBean) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$18 -> com.mzhou.merchant.activity.lm:
+com.mzhou.merchant.activity.UserControlCommonActivity$19 -> com.mzhou.merchant.activity.lm:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     android.app.Dialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$19 -> com.mzhou.merchant.activity.ln:
-    com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
-    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.mzhou.merchant.activity.UserControlCommonActivity$2 -> com.mzhou.merchant.activity.lo:
+com.mzhou.merchant.activity.UserControlCommonActivity$2 -> com.mzhou.merchant.activity.ln:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
+com.mzhou.merchant.activity.UserControlCommonActivity$20 -> com.mzhou.merchant.activity.lo:
+    com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.mzhou.merchant.activity.UserControlCommonActivity$3 -> com.mzhou.merchant.activity.lp:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7631,31 +7619,30 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.
     android.widget.TextView user_manager_tv_company -> aa
     android.widget.TextView user_manager_tv_address -> ab
     android.widget.TextView user_manager_tv_net -> ac
-    android.content.SharedPreferences sp -> ad
     com.mzhou.merchant.dao.biz.UserManager userManager -> a
-    java.lang.String uid_enterprise -> ae
-    java.lang.String headurl_enterprise -> af
-    java.util.LinkedList mList -> ag
+    java.util.LinkedList mList -> ad
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> b
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ah
-    android.net.Uri mImageUri -> ai
-    java.io.File file -> aj
-    boolean isBinder_enterprise -> ak
-    java.lang.String openid_enterprise -> al
-    boolean pwchange -> am
-    java.lang.String saveDir -> an
-    boolean fromqq -> ao
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ae
+    android.net.Uri mImageUri -> af
+    java.io.File file -> ag
+    boolean pwchange -> ah
+    java.lang.String saveDir -> ai
+    boolean fromqq -> aj
+    com.mzhou.merchant.db.manager.DbLoginManager dbLoginManager -> ak
+    com.mzhou.merchant.db.manager.DbUserManager dbUserManager -> al
+    boolean isSave -> am
     void onCreate(android.os.Bundle) -> onCreate
-    void init() -> b
-    void loadButton() -> c
-    void setData() -> d
+    void init() -> a
+    void loadButton() -> b
+    void setData() -> c
     java.lang.String nameString(com.mzhou.merchant.model.GroupUsers,int) -> a
     java.lang.String numberString(com.mzhou.merchant.model.GroupUsers,int) -> b
     void setName(java.lang.String) -> a
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     java.lang.String getImagePath(android.net.Uri) -> a
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    void listenerButton() -> e
+    void listenerButton() -> d
+    void save2Server() -> e
     boolean deleteDir(java.io.File) -> a
     void showdialog() -> f
     void onDestroy() -> onDestroy
@@ -7663,28 +7650,26 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.
     com.mzhou.merchant.model.GroupUsers parseJson(java.lang.String) -> b
     boolean access$0(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> a
     boolean access$1(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> b
-    void access$2(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> c
-    java.util.LinkedList access$3(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> d
-    java.lang.String access$4(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> e
-    android.widget.TextView access$5(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> f
-    java.lang.String access$6(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> g
-    void access$7(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.io.File) -> a
-    java.io.File access$8(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> h
-    android.widget.TextView access$9(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> i
-    java.lang.String access$10(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> j
-    android.widget.TextView access$11(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> k
+    com.mzhou.merchant.db.manager.DbLoginManager access$2(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> c
+    com.mzhou.merchant.db.manager.DbUserManager access$3(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> d
+    android.content.Context access$4(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> e
+    void access$5(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> f
+    void access$6(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> g
+    java.util.LinkedList access$7(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> h
+    android.widget.TextView access$8(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> i
+    java.lang.String access$9(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> j
+    void access$10(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.io.File) -> a
+    java.io.File access$11(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> k
     android.widget.TextView access$12(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> l
-    android.widget.TextView access$13(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> m
+    java.lang.String access$13(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> m
     android.widget.TextView access$14(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> n
     android.widget.TextView access$15(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> o
-    java.lang.String access$16(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> p
-    android.content.SharedPreferences access$17() -> a
-    boolean access$18(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> q
-    android.content.Context access$19(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> r
-    java.lang.String access$20(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> s
-    void access$21(com.mzhou.merchant.activity.UserControlEnterpriseActivity,boolean) -> a
-    android.widget.TextView access$22(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> t
-    void access$23(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.lang.String) -> a
+    android.widget.TextView access$16(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> p
+    android.widget.TextView access$17(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> q
+    android.widget.TextView access$18(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> r
+    void access$19(com.mzhou.merchant.activity.UserControlEnterpriseActivity,boolean) -> a
+    android.widget.TextView access$20(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> s
+    void access$21(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.lang.String) -> a
 com.mzhou.merchant.activity.UserControlEnterpriseActivity$1 -> com.mzhou.merchant.activity.mb:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7736,25 +7721,23 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity$23 -> com.mzhou.mercha
 com.mzhou.merchant.activity.UserControlEnterpriseActivity$24 -> com.mzhou.merchant.activity.mr:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-    void save2Server() -> a
-    com.mzhou.merchant.activity.UserControlEnterpriseActivity access$0(com.mzhou.merchant.activity.UserControlEnterpriseActivity$24) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$24$1 -> com.mzhou.merchant.activity.ms:
-    com.mzhou.merchant.activity.UserControlEnterpriseActivity$24 this$1 -> a
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$25 -> com.mzhou.merchant.activity.ms:
+    com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     java.lang.String val$pw -> b
     void getBackAttactInfo(java.lang.String) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$25 -> com.mzhou.merchant.activity.mt:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$26 -> com.mzhou.merchant.activity.mt:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     android.widget.EditText val$un -> b
     android.widget.EditText val$pw -> c
     android.app.Dialog val$dialog -> d
     void onClick(android.view.View) -> onClick
-    com.mzhou.merchant.activity.UserControlEnterpriseActivity access$0(com.mzhou.merchant.activity.UserControlEnterpriseActivity$25) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$25$1 -> com.mzhou.merchant.activity.mu:
-    com.mzhou.merchant.activity.UserControlEnterpriseActivity$25 this$1 -> a
+    com.mzhou.merchant.activity.UserControlEnterpriseActivity access$0(com.mzhou.merchant.activity.UserControlEnterpriseActivity$26) -> a
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$26$1 -> com.mzhou.merchant.activity.mu:
+    com.mzhou.merchant.activity.UserControlEnterpriseActivity$26 this$1 -> a
     android.widget.EditText val$pw -> b
     android.widget.EditText val$un -> c
     void getBinderInfo(com.mzhou.merchant.model.AllBean) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$26 -> com.mzhou.merchant.activity.mv:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$27 -> com.mzhou.merchant.activity.mv:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     android.app.Dialog val$dialog -> b
     void onClick(android.view.View) -> onClick
@@ -7924,17 +7907,13 @@ com.mzhou.merchant.activity.XinwenCommentFabuActivity -> com.mzhou.merchant.acti
     java.lang.String uid -> f
     com.mzhou.merchant.dao.biz.NewsManager newsManager -> g
     java.lang.String commenter -> h
-    android.content.SharedPreferences sp -> i
-    boolean isEnterprise -> j
     void onCreate(android.os.Bundle) -> onCreate
     void listenerButton() -> a
     void loadButton() -> b
     android.widget.EditText access$0(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> a
     android.widget.EditText access$1(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> b
-    boolean access$2(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> c
-    com.mzhou.merchant.dao.biz.NewsManager access$3(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> d
-    java.lang.String access$4(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> e
-    java.lang.String access$5(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> f
+    com.mzhou.merchant.dao.biz.NewsManager access$2(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> c
+    java.lang.String access$3(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> d
 com.mzhou.merchant.activity.XinwenCommentFabuActivity$1 -> com.mzhou.merchant.activity.nw:
     com.mzhou.merchant.activity.XinwenCommentFabuActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7954,12 +7933,11 @@ com.mzhou.merchant.activity.XinwenCommentListActivity -> com.mzhou.merchant.acti
     java.util.LinkedList mLinkedList -> f
     com.mzhou.merchant.activity.XinwenCommentListActivity$ZSAdapter listAdapter -> g
     android.widget.ImageView comment -> h
-    android.content.SharedPreferences sp -> i
-    int page_up -> j
-    int page_down -> k
-    java.lang.String uptime -> l
-    android.widget.ListView actualListView -> m
-    android.content.Context context -> n
+    int page_up -> i
+    int page_down -> j
+    java.lang.String uptime -> k
+    android.widget.ListView actualListView -> l
+    android.content.Context context -> m
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void listenerButton() -> b
@@ -7967,18 +7945,17 @@ com.mzhou.merchant.activity.XinwenCommentListActivity -> com.mzhou.merchant.acti
     void getdata() -> d
     java.util.LinkedList access$0(com.mzhou.merchant.activity.XinwenCommentListActivity) -> a
     android.content.Context access$1(com.mzhou.merchant.activity.XinwenCommentListActivity) -> b
-    android.content.SharedPreferences access$2(com.mzhou.merchant.activity.XinwenCommentListActivity) -> c
-    java.lang.String access$3(com.mzhou.merchant.activity.XinwenCommentListActivity) -> d
-    com.mzhou.merchant.dao.biz.NewsManager access$4(com.mzhou.merchant.activity.XinwenCommentListActivity) -> e
-    int access$5(com.mzhou.merchant.activity.XinwenCommentListActivity) -> f
-    java.lang.String access$6(com.mzhou.merchant.activity.XinwenCommentListActivity) -> g
-    android.widget.TextView access$7(com.mzhou.merchant.activity.XinwenCommentListActivity) -> h
-    void access$8(com.mzhou.merchant.activity.XinwenCommentListActivity,java.lang.String) -> a
-    com.mzhou.merchant.activity.XinwenCommentListActivity$ZSAdapter access$9(com.mzhou.merchant.activity.XinwenCommentListActivity) -> i
-    com.handmark.pulltorefresh.library.PullToRefreshListView access$10(com.mzhou.merchant.activity.XinwenCommentListActivity) -> j
-    int access$11(com.mzhou.merchant.activity.XinwenCommentListActivity) -> k
-    void access$12(com.mzhou.merchant.activity.XinwenCommentListActivity,int) -> a
-    android.widget.ListView access$13(com.mzhou.merchant.activity.XinwenCommentListActivity) -> l
+    java.lang.String access$2(com.mzhou.merchant.activity.XinwenCommentListActivity) -> c
+    com.mzhou.merchant.dao.biz.NewsManager access$3(com.mzhou.merchant.activity.XinwenCommentListActivity) -> d
+    int access$4(com.mzhou.merchant.activity.XinwenCommentListActivity) -> e
+    java.lang.String access$5(com.mzhou.merchant.activity.XinwenCommentListActivity) -> f
+    android.widget.TextView access$6(com.mzhou.merchant.activity.XinwenCommentListActivity) -> g
+    void access$7(com.mzhou.merchant.activity.XinwenCommentListActivity,java.lang.String) -> a
+    com.mzhou.merchant.activity.XinwenCommentListActivity$ZSAdapter access$8(com.mzhou.merchant.activity.XinwenCommentListActivity) -> h
+    com.handmark.pulltorefresh.library.PullToRefreshListView access$9(com.mzhou.merchant.activity.XinwenCommentListActivity) -> i
+    int access$10(com.mzhou.merchant.activity.XinwenCommentListActivity) -> j
+    void access$11(com.mzhou.merchant.activity.XinwenCommentListActivity,int) -> a
+    android.widget.ListView access$12(com.mzhou.merchant.activity.XinwenCommentListActivity) -> k
 com.mzhou.merchant.activity.XinwenCommentListActivity$1 -> com.mzhou.merchant.activity.nz:
     com.mzhou.merchant.activity.XinwenCommentListActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -8854,7 +8831,10 @@ com.mzhou.merchant.db.SQLiteTemplate -> com.mzhou.merchant.b.d:
     void execSQL(java.lang.String) -> a
     long insert(java.lang.String,android.content.ContentValues) -> a
     int deleteByCondition(java.lang.String,java.lang.String,java.lang.String[]) -> a
-    java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[]) -> a
+    int update(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[]) -> a
+    java.lang.Boolean isExistsBySQL(java.lang.String,java.lang.String[]) -> a
+    java.lang.Object queryForObject(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[]) -> a
+    java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[]) -> b
     void closeDatabase(android.database.Cursor) -> a
 com.mzhou.merchant.db.SQLiteTemplate$RowMapper -> com.mzhou.merchant.b.e:
     java.lang.Object mapRow(android.database.Cursor,int) -> a
@@ -8919,7 +8899,45 @@ com.mzhou.merchant.db.manager.DbJobManager$2 -> com.mzhou.merchant.b.a.h:
     com.mzhou.merchant.db.manager.DbJobManager this$0 -> a
     com.mzhou.merchant.model.JobBean mapRow(android.database.Cursor,int) -> b
     java.lang.Object mapRow(android.database.Cursor,int) -> a
-com.mzhou.merchant.db.manager.DbNewsManager -> com.mzhou.merchant.b.a.i:
+com.mzhou.merchant.db.manager.DbLoginManager -> com.mzhou.merchant.b.a.i:
+    com.mzhou.merchant.db.manager.DbLoginManager instance -> a
+    java.lang.String DATABASE_TABLENAME -> b
+    java.lang.String DELETE_ALL -> c
+    java.lang.String SELECT_ALL -> d
+    java.lang.String SELECT_BY_USERTYPE -> e
+    java.lang.String SELECT_BY_NEEDLOGIN -> f
+    java.lang.String SELECT_CURRENT_USER -> g
+    java.lang.String SELECT_CURRENT_USER_AND_USERTYPE -> h
+    java.lang.String SELECT_BY_USERTYPE_AND_USERNAME -> i
+    com.mzhou.merchant.db.DBManager manager -> j
+    com.mzhou.merchant.db.manager.DbLoginManager getInstance(android.content.Context) -> a
+    void insertData(com.mzhou.merchant.model.LoginUserBean) -> a
+    void insert(com.mzhou.merchant.model.LoginUserBean) -> d
+    void updateByUserNameAndUserType(com.mzhou.merchant.model.LoginUserBean) -> b
+    void updateByStatus(com.mzhou.merchant.model.LoginUserBean) -> c
+    void updateByUserType(java.lang.String) -> a
+    void updateStauts() -> a
+    boolean isExist(java.lang.String,java.lang.String) -> a
+    boolean getLoginStatus() -> b
+    boolean getLoginStatusByUsertype(java.lang.String) -> b
+    int updateLoginStatus() -> c
+    boolean getNeedLoginStatus() -> d
+    com.mzhou.merchant.model.LoginUserBean getLastLoginByUserType(java.lang.String) -> c
+    com.mzhou.merchant.model.LoginUserBean getUserByNeedLogin() -> e
+    com.mzhou.merchant.model.LoginUserBean getCurrentBean() -> f
+com.mzhou.merchant.db.manager.DbLoginManager$1 -> com.mzhou.merchant.b.a.j:
+    com.mzhou.merchant.db.manager.DbLoginManager this$0 -> a
+    com.mzhou.merchant.model.LoginUserBean mapRow(android.database.Cursor,int) -> b
+    java.lang.Object mapRow(android.database.Cursor,int) -> a
+com.mzhou.merchant.db.manager.DbLoginManager$2 -> com.mzhou.merchant.b.a.k:
+    com.mzhou.merchant.db.manager.DbLoginManager this$0 -> a
+    com.mzhou.merchant.model.LoginUserBean mapRow(android.database.Cursor,int) -> b
+    java.lang.Object mapRow(android.database.Cursor,int) -> a
+com.mzhou.merchant.db.manager.DbLoginManager$3 -> com.mzhou.merchant.b.a.l:
+    com.mzhou.merchant.db.manager.DbLoginManager this$0 -> a
+    com.mzhou.merchant.model.LoginUserBean mapRow(android.database.Cursor,int) -> b
+    java.lang.Object mapRow(android.database.Cursor,int) -> a
+com.mzhou.merchant.db.manager.DbNewsManager -> com.mzhou.merchant.b.a.m:
     com.mzhou.merchant.db.manager.DbNewsManager instance -> a
     java.lang.String DATABASE_TABLENAME -> b
     java.lang.String DELETE_ALL -> c
@@ -8930,11 +8948,11 @@ com.mzhou.merchant.db.manager.DbNewsManager -> com.mzhou.merchant.b.a.i:
     long insert(com.mzhou.merchant.model.NewsBean) -> a
     void deleteAll() -> a
     java.util.LinkedList getListAll() -> b
-com.mzhou.merchant.db.manager.DbNewsManager$2 -> com.mzhou.merchant.b.a.j:
+com.mzhou.merchant.db.manager.DbNewsManager$2 -> com.mzhou.merchant.b.a.n:
     com.mzhou.merchant.db.manager.DbNewsManager this$0 -> a
     com.mzhou.merchant.model.NewsBean mapRow(android.database.Cursor,int) -> b
     java.lang.Object mapRow(android.database.Cursor,int) -> a
-com.mzhou.merchant.db.manager.DbProductManager -> com.mzhou.merchant.b.a.k:
+com.mzhou.merchant.db.manager.DbProductManager -> com.mzhou.merchant.b.a.o:
     com.mzhou.merchant.db.manager.DbProductManager instance -> a
     java.lang.String DATABASE_TABLENAME -> b
     java.lang.String DELETE_ALL -> c
@@ -8947,9 +8965,31 @@ com.mzhou.merchant.db.manager.DbProductManager -> com.mzhou.merchant.b.a.k:
     void deleteByCategory(java.lang.String) -> a
     void deleteByItem(java.lang.String) -> b
     java.util.LinkedList getProductByCategory(java.lang.String) -> c
-com.mzhou.merchant.db.manager.DbProductManager$1 -> com.mzhou.merchant.b.a.l:
+com.mzhou.merchant.db.manager.DbProductManager$1 -> com.mzhou.merchant.b.a.p:
     com.mzhou.merchant.db.manager.DbProductManager this$0 -> a
     com.mzhou.merchant.model.ProductsBean mapRow(android.database.Cursor,int) -> b
+    java.lang.Object mapRow(android.database.Cursor,int) -> a
+com.mzhou.merchant.db.manager.DbUserManager -> com.mzhou.merchant.b.a.q:
+    com.mzhou.merchant.db.manager.DbUserManager instance -> a
+    java.lang.String DATABASE_TABLENAME -> b
+    java.lang.String DELETE_ALL -> c
+    java.lang.String SELECT_ALL -> d
+    java.lang.String SELECT_BY_USERTYPE_AND_USERNAME -> e
+    java.lang.String SELECT_BY_STATUS -> f
+    java.lang.String SELECT_CURRENT_USER_AND_USERTYPE -> g
+    com.mzhou.merchant.db.DBManager manager -> h
+    com.mzhou.merchant.db.manager.DbUserManager getInstance(android.content.Context) -> a
+    void insertData(com.mzhou.merchant.model.UserInfoBean) -> a
+    long insert(com.mzhou.merchant.model.UserInfoBean) -> e
+    long updateByUserTypeAndUserName(com.mzhou.merchant.model.UserInfoBean) -> b
+    long updateByStatus(com.mzhou.merchant.model.UserInfoBean) -> c
+    void updateStauts() -> a
+    int updateLoginStatus() -> b
+    boolean isExist(com.mzhou.merchant.model.UserInfoBean) -> d
+    com.mzhou.merchant.model.UserInfoBean getLogingUserInfo() -> c
+com.mzhou.merchant.db.manager.DbUserManager$2 -> com.mzhou.merchant.b.a.r:
+    com.mzhou.merchant.db.manager.DbUserManager this$0 -> a
+    com.mzhou.merchant.model.UserInfoBean mapRow(android.database.Cursor,int) -> b
     java.lang.Object mapRow(android.database.Cursor,int) -> a
 com.mzhou.merchant.fragment.Left -> com.mzhou.merchant.c.a:
     com.mzhou.merchant.slidemenu.SlidingMenu mSlidingMenu -> Q
@@ -8973,24 +9013,17 @@ com.mzhou.merchant.fragment.Left -> com.mzhou.merchant.c.a:
     android.widget.TextView title_bar_four_phone -> ai
     android.widget.LinearLayout loginLinearLayout -> aj
     android.widget.ImageView userhead -> ak
-    boolean isLogin -> al
-    boolean isLogin_enterprise -> am
-    boolean isEnterprise -> an
-    java.lang.String nickname -> ao
-    java.lang.String nickname_enterprise -> ap
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> P
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> aq
-    android.content.SharedPreferences sp -> ar
-    java.lang.String headurl -> as
-    java.lang.String headurl_enterprise -> at
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> al
+    com.mzhou.merchant.db.manager.DbLoginManager loginManager -> am
+    com.mzhou.merchant.db.manager.DbUserManager userManager -> an
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void init() -> A
     void loadButton(android.view.View) -> a
     void onActivityCreated(android.os.Bundle) -> d
-    boolean access$0(com.mzhou.merchant.fragment.Left) -> a
-    boolean access$1(com.mzhou.merchant.fragment.Left) -> b
-    boolean access$2(com.mzhou.merchant.fragment.Left) -> c
-    com.mzhou.merchant.slidemenu.SlidingMenu access$3(com.mzhou.merchant.fragment.Left) -> d
+    com.mzhou.merchant.db.manager.DbLoginManager access$0(com.mzhou.merchant.fragment.Left) -> a
+    com.mzhou.merchant.db.manager.DbUserManager access$1(com.mzhou.merchant.fragment.Left) -> b
+    com.mzhou.merchant.slidemenu.SlidingMenu access$2(com.mzhou.merchant.fragment.Left) -> c
 com.mzhou.merchant.fragment.Left$1 -> com.mzhou.merchant.c.b:
     com.mzhou.merchant.fragment.Left this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -9050,21 +9083,17 @@ com.mzhou.merchant.fragment.Right -> com.mzhou.merchant.c.s:
     com.mzhou.merchant.slidemenu.SlidingMenu mSlidingMenu -> T
     android.widget.TextView title_bar_fankui -> U
     android.widget.TextView title_bar_exit -> V
-    android.content.SharedPreferences sp -> W
-    boolean isLogin -> X
-    boolean isEnterprise -> Y
-    boolean isLogin_enterprise -> Z
-    android.content.Context context -> aa
+    android.content.Context context -> W
+    com.mzhou.merchant.db.manager.DbLoginManager loginManager -> X
+    com.mzhou.merchant.db.manager.DbUserManager userManager -> Y
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void init() -> A
     void loadButton(android.view.View) -> a
     void onActivityCreated(android.os.Bundle) -> d
     java.lang.String getVersionName() -> B
-    boolean access$0(com.mzhou.merchant.fragment.Right) -> a
-    boolean access$1(com.mzhou.merchant.fragment.Right) -> b
-    boolean access$2(com.mzhou.merchant.fragment.Right) -> c
-    com.mzhou.merchant.slidemenu.SlidingMenu access$3(com.mzhou.merchant.fragment.Right) -> d
-    android.content.SharedPreferences access$4(com.mzhou.merchant.fragment.Right) -> e
+    com.mzhou.merchant.db.manager.DbLoginManager access$0(com.mzhou.merchant.fragment.Right) -> a
+    com.mzhou.merchant.db.manager.DbUserManager access$1(com.mzhou.merchant.fragment.Right) -> b
+    com.mzhou.merchant.slidemenu.SlidingMenu access$2(com.mzhou.merchant.fragment.Right) -> c
 com.mzhou.merchant.fragment.Right$1 -> com.mzhou.merchant.c.t:
     com.mzhou.merchant.fragment.Right this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -9110,13 +9139,11 @@ com.mzhou.merchant.fragment.XianshiFourG -> com.mzhou.merchant.c.z:
     int page_down -> ao
     java.lang.String uptime -> ap
     java.util.List adBeans -> aq
-    android.content.SharedPreferences sp -> ar
-    boolean isLogin -> as
-    boolean flag -> at
+    boolean flag -> ar
     android.os.Handler mHandler -> Q
     java.lang.Thread thread -> R
-    java.util.LinkedList adSortList -> au
-    android.view.View$OnClickListener clickListener -> av
+    java.util.LinkedList adSortList -> as
+    android.view.View$OnClickListener clickListener -> at
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void getdata() -> B
@@ -9144,14 +9171,13 @@ com.mzhou.merchant.fragment.XianshiFourG -> com.mzhou.merchant.c.z:
     com.mzhou.merchant.myview.MyGridView access$10(com.mzhou.merchant.fragment.XianshiFourG) -> h
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$11(com.mzhou.merchant.fragment.XianshiFourG) -> i
     com.handmark.pulltorefresh.library.PullToRefreshScrollView access$12(com.mzhou.merchant.fragment.XianshiFourG) -> j
-    boolean access$13(com.mzhou.merchant.fragment.XianshiFourG) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiFourG) -> l
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiFourG) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiFourG) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiFourG) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiFourG) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiFourG) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiFourG,boolean) -> a
-    int access$19(com.mzhou.merchant.fragment.XianshiFourG) -> p
-    void access$20(com.mzhou.merchant.fragment.XianshiFourG,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiFourG) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiFourG,boolean) -> a
+    int access$18(com.mzhou.merchant.fragment.XianshiFourG) -> o
+    void access$19(com.mzhou.merchant.fragment.XianshiFourG,int) -> b
 com.mzhou.merchant.fragment.XianshiFourG$1 -> com.mzhou.merchant.c.aa:
     com.mzhou.merchant.fragment.XianshiFourG this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -9214,16 +9240,14 @@ com.mzhou.merchant.fragment.XianshiGX -> com.mzhou.merchant.c.ak:
     com.mzhou.merchant.myview.MyGridView mGridView -> am
     int classid -> an
     java.util.List adBeans -> ao
-    android.content.SharedPreferences sp -> ap
-    int page_up -> aq
-    int page_down -> ar
-    java.lang.String uptime -> as
-    boolean isLogin -> at
-    boolean flag -> au
+    int page_up -> ap
+    int page_down -> aq
+    java.lang.String uptime -> ar
+    boolean flag -> as
     android.os.Handler mHandler -> Q
     java.lang.Thread thread -> R
-    java.util.LinkedList adSortList -> av
-    android.view.View$OnClickListener clickListener -> aw
+    java.util.LinkedList adSortList -> at
+    android.view.View$OnClickListener clickListener -> au
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void getdata() -> B
@@ -9251,14 +9275,13 @@ com.mzhou.merchant.fragment.XianshiGX -> com.mzhou.merchant.c.ak:
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$10(com.mzhou.merchant.fragment.XianshiGX) -> i
     void access$11(com.mzhou.merchant.fragment.XianshiGX,java.lang.String) -> a
     com.handmark.pulltorefresh.library.PullToRefreshScrollView access$12(com.mzhou.merchant.fragment.XianshiGX) -> j
-    boolean access$13(com.mzhou.merchant.fragment.XianshiGX) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiGX) -> l
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiGX) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiGX) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiGX) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiGX) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiGX) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiGX,boolean) -> a
-    int access$19(com.mzhou.merchant.fragment.XianshiGX) -> p
-    void access$20(com.mzhou.merchant.fragment.XianshiGX,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiGX) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiGX,boolean) -> a
+    int access$18(com.mzhou.merchant.fragment.XianshiGX) -> o
+    void access$19(com.mzhou.merchant.fragment.XianshiGX,int) -> b
 com.mzhou.merchant.fragment.XianshiGX$1 -> com.mzhou.merchant.c.al:
     com.mzhou.merchant.fragment.XianshiGX this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -9646,13 +9669,11 @@ com.mzhou.merchant.fragment.XianshiLogoProduct -> com.mzhou.merchant.c.cf:
     java.lang.String uptime -> ap
     int classid -> aq
     java.util.List adBeans -> ar
-    boolean isLogin -> as
-    android.content.SharedPreferences sp -> at
-    boolean flag -> au
+    boolean flag -> as
     android.os.Handler mHandler -> Q
     java.lang.Thread thread -> R
-    java.util.LinkedList adSortList -> av
-    android.view.View$OnClickListener clickListener -> aw
+    java.util.LinkedList adSortList -> at
+    android.view.View$OnClickListener clickListener -> au
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void onActivityCreated(android.os.Bundle) -> d
@@ -9681,16 +9702,15 @@ com.mzhou.merchant.fragment.XianshiLogoProduct -> com.mzhou.merchant.c.cf:
     void access$9(com.mzhou.merchant.fragment.XianshiLogoProduct,java.lang.String) -> a
     com.mzhou.merchant.myview.MyGridView access$10(com.mzhou.merchant.fragment.XianshiLogoProduct) -> h
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$11(com.mzhou.merchant.fragment.XianshiLogoProduct) -> i
-    boolean access$12(com.mzhou.merchant.fragment.XianshiLogoProduct) -> j
-    android.widget.TextView access$13(com.mzhou.merchant.fragment.XianshiLogoProduct) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiLogoProduct) -> l
+    android.widget.TextView access$12(com.mzhou.merchant.fragment.XianshiLogoProduct) -> j
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiLogoProduct) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiLogoProduct) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiLogoProduct) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiLogoProduct) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiLogoProduct) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiLogoProduct,boolean) -> a
-    com.handmark.pulltorefresh.library.PullToRefreshScrollView access$19(com.mzhou.merchant.fragment.XianshiLogoProduct) -> p
-    int access$20(com.mzhou.merchant.fragment.XianshiLogoProduct) -> q
-    void access$21(com.mzhou.merchant.fragment.XianshiLogoProduct,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiLogoProduct) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiLogoProduct,boolean) -> a
+    com.handmark.pulltorefresh.library.PullToRefreshScrollView access$18(com.mzhou.merchant.fragment.XianshiLogoProduct) -> o
+    int access$19(com.mzhou.merchant.fragment.XianshiLogoProduct) -> p
+    void access$20(com.mzhou.merchant.fragment.XianshiLogoProduct,int) -> b
 com.mzhou.merchant.fragment.XianshiLogoProduct$1 -> com.mzhou.merchant.c.cg:
     com.mzhou.merchant.fragment.XianshiLogoProduct this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -9755,13 +9775,11 @@ com.mzhou.merchant.fragment.XianshiPingPaiGuoNei -> com.mzhou.merchant.c.cq:
     int page_down -> ao
     java.lang.String uptime -> ap
     java.util.List adBeans -> aq
-    android.content.SharedPreferences sp -> ar
-    boolean isLogin -> as
-    boolean flag -> at
+    boolean flag -> ar
     android.os.Handler mHandler -> Q
     java.lang.Thread thread -> R
-    java.util.LinkedList adSortList -> au
-    android.view.View$OnClickListener clickListener -> av
+    java.util.LinkedList adSortList -> as
+    android.view.View$OnClickListener clickListener -> at
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void getdata() -> B
@@ -9789,14 +9807,13 @@ com.mzhou.merchant.fragment.XianshiPingPaiGuoNei -> com.mzhou.merchant.c.cq:
     com.mzhou.merchant.myview.MyGridView access$10(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> h
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$11(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> i
     com.handmark.pulltorefresh.library.PullToRefreshScrollView access$12(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> j
-    boolean access$13(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> l
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei,boolean) -> a
-    int access$19(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> p
-    void access$20(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei,boolean) -> a
+    int access$18(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei) -> o
+    void access$19(com.mzhou.merchant.fragment.XianshiPingPaiGuoNei,int) -> b
 com.mzhou.merchant.fragment.XianshiPingPaiGuoNei$1 -> com.mzhou.merchant.c.cr:
     com.mzhou.merchant.fragment.XianshiPingPaiGuoNei this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -9842,10 +9859,9 @@ com.mzhou.merchant.fragment.XianshiQiuGou -> com.mzhou.merchant.c.db:
     com.mzhou.merchant.adapter.MyAttachAdapter mAdapter -> T
     com.mzhou.merchant.dao.biz.AttactManager attactManager -> U
     int page -> V
-    java.lang.String uid -> W
-    android.content.Context context -> X
-    java.lang.String uptime -> Y
-    boolean flag -> Z
+    android.content.Context context -> W
+    java.lang.String uptime -> X
+    boolean flag -> Y
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void getdata() -> A
     void lisentnerButton() -> B
@@ -9860,10 +9876,9 @@ com.mzhou.merchant.fragment.XianshiQiuGou -> com.mzhou.merchant.c.db:
     com.mzhou.merchant.adapter.MyAttachAdapter access$4(com.mzhou.merchant.fragment.XianshiQiuGou) -> d
     com.mzhou.merchant.dao.biz.AttactManager access$5(com.mzhou.merchant.fragment.XianshiQiuGou) -> e
     java.lang.String access$6(com.mzhou.merchant.fragment.XianshiQiuGou) -> f
-    java.lang.String access$7(com.mzhou.merchant.fragment.XianshiQiuGou) -> g
-    void access$8(com.mzhou.merchant.fragment.XianshiQiuGou,boolean) -> a
-    int access$9(com.mzhou.merchant.fragment.XianshiQiuGou) -> h
-    void access$10(com.mzhou.merchant.fragment.XianshiQiuGou,int) -> a
+    void access$7(com.mzhou.merchant.fragment.XianshiQiuGou,boolean) -> a
+    int access$8(com.mzhou.merchant.fragment.XianshiQiuGou) -> g
+    void access$9(com.mzhou.merchant.fragment.XianshiQiuGou,int) -> a
 com.mzhou.merchant.fragment.XianshiQiuGou$1 -> com.mzhou.merchant.c.dc:
     com.mzhou.merchant.fragment.XianshiQiuGou this$0 -> a
     void onPullDownToRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> a
@@ -9913,16 +9928,14 @@ com.mzhou.merchant.fragment.XianshiSanMa -> com.mzhou.merchant.c.di:
     com.mzhou.merchant.myview.MyGridView mGridView -> al
     int classid -> am
     java.util.List adBeans -> an
-    android.content.SharedPreferences sp -> ao
-    int page_up -> ap
-    int page_down -> aq
-    java.lang.String uptime -> ar
-    boolean isLogin -> as
-    boolean flag -> at
+    int page_up -> ao
+    int page_down -> ap
+    java.lang.String uptime -> aq
+    boolean flag -> ar
     android.os.Handler mHandler -> Q
     java.lang.Thread thread -> R
-    java.util.LinkedList adSortList -> au
-    android.view.View$OnClickListener clickListener -> av
+    java.util.LinkedList adSortList -> as
+    android.view.View$OnClickListener clickListener -> at
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void getdata() -> B
@@ -9950,14 +9963,13 @@ com.mzhou.merchant.fragment.XianshiSanMa -> com.mzhou.merchant.c.di:
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$10(com.mzhou.merchant.fragment.XianshiSanMa) -> i
     void access$11(com.mzhou.merchant.fragment.XianshiSanMa,java.lang.String) -> a
     com.handmark.pulltorefresh.library.PullToRefreshScrollView access$12(com.mzhou.merchant.fragment.XianshiSanMa) -> j
-    boolean access$13(com.mzhou.merchant.fragment.XianshiSanMa) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiSanMa) -> l
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiSanMa) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiSanMa) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiSanMa) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiSanMa) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiSanMa) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiSanMa,boolean) -> a
-    int access$19(com.mzhou.merchant.fragment.XianshiSanMa) -> p
-    void access$20(com.mzhou.merchant.fragment.XianshiSanMa,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiSanMa) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiSanMa,boolean) -> a
+    int access$18(com.mzhou.merchant.fragment.XianshiSanMa) -> o
+    void access$19(com.mzhou.merchant.fragment.XianshiSanMa,int) -> b
 com.mzhou.merchant.fragment.XianshiSanMa$1 -> com.mzhou.merchant.c.dj:
     com.mzhou.merchant.fragment.XianshiSanMa this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -10022,13 +10034,11 @@ com.mzhou.merchant.fragment.XianshiShouBiaoShouji -> com.mzhou.merchant.c.dt:
     java.lang.String uptime -> ao
     int classid -> ap
     java.util.List adBeans -> aq
-    android.content.SharedPreferences sp -> ar
-    boolean isLogin -> as
-    boolean flag -> at
+    boolean flag -> ar
     android.os.Handler mHandler -> Q
     java.lang.Thread thread -> R
-    java.util.LinkedList adSortList -> au
-    android.view.View$OnClickListener clickListener -> av
+    java.util.LinkedList adSortList -> as
+    android.view.View$OnClickListener clickListener -> at
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void getdata() -> B
@@ -10056,14 +10066,13 @@ com.mzhou.merchant.fragment.XianshiShouBiaoShouji -> com.mzhou.merchant.c.dt:
     com.mzhou.merchant.myview.MyGridView access$10(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> h
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$11(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> i
     com.handmark.pulltorefresh.library.PullToRefreshScrollView access$12(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> j
-    boolean access$13(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> l
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiShouBiaoShouji,boolean) -> a
-    int access$19(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> p
-    void access$20(com.mzhou.merchant.fragment.XianshiShouBiaoShouji,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiShouBiaoShouji,boolean) -> a
+    int access$18(com.mzhou.merchant.fragment.XianshiShouBiaoShouji) -> o
+    void access$19(com.mzhou.merchant.fragment.XianshiShouBiaoShouji,int) -> b
 com.mzhou.merchant.fragment.XianshiShouBiaoShouji$1 -> com.mzhou.merchant.c.du:
     com.mzhou.merchant.fragment.XianshiShouBiaoShouji this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -10128,13 +10137,11 @@ com.mzhou.merchant.fragment.XianshiWaiDan -> com.mzhou.merchant.c.ee:
     int page_down -> ao
     java.lang.String uptime -> ap
     java.util.List adBeans -> aq
-    android.content.SharedPreferences sp -> ar
-    boolean isLogin -> as
-    boolean flag -> at
+    boolean flag -> ar
     android.os.Handler mHandler -> Q
     java.lang.Thread thread -> R
-    java.util.LinkedList adSortList -> au
-    android.view.View$OnClickListener clickListener -> av
+    java.util.LinkedList adSortList -> as
+    android.view.View$OnClickListener clickListener -> at
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void getdata() -> B
@@ -10162,14 +10169,13 @@ com.mzhou.merchant.fragment.XianshiWaiDan -> com.mzhou.merchant.c.ee:
     com.mzhou.merchant.myview.MyGridView access$10(com.mzhou.merchant.fragment.XianshiWaiDan) -> h
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$11(com.mzhou.merchant.fragment.XianshiWaiDan) -> i
     com.handmark.pulltorefresh.library.PullToRefreshScrollView access$12(com.mzhou.merchant.fragment.XianshiWaiDan) -> j
-    boolean access$13(com.mzhou.merchant.fragment.XianshiWaiDan) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiWaiDan) -> l
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiWaiDan) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiWaiDan) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiWaiDan) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiWaiDan) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiWaiDan) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiWaiDan,boolean) -> a
-    int access$19(com.mzhou.merchant.fragment.XianshiWaiDan) -> p
-    void access$20(com.mzhou.merchant.fragment.XianshiWaiDan,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiWaiDan) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiWaiDan,boolean) -> a
+    int access$18(com.mzhou.merchant.fragment.XianshiWaiDan) -> o
+    void access$19(com.mzhou.merchant.fragment.XianshiWaiDan,int) -> b
 com.mzhou.merchant.fragment.XianshiWaiDan$1 -> com.mzhou.merchant.c.ef:
     com.mzhou.merchant.fragment.XianshiWaiDan this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -10234,13 +10240,11 @@ com.mzhou.merchant.fragment.XianshiWuMa -> com.mzhou.merchant.c.ep:
     int page_down -> an
     java.lang.String uptime -> ao
     java.util.List adBeans -> ap
-    android.content.SharedPreferences sp -> aq
-    boolean isLogin -> ar
-    boolean flag -> as
-    java.lang.Thread thread -> at
+    boolean flag -> aq
+    java.lang.Thread thread -> ar
     android.os.Handler mHandler -> Q
-    java.util.LinkedList adSortList -> au
-    android.view.View$OnClickListener clickListener -> av
+    java.util.LinkedList adSortList -> as
+    android.view.View$OnClickListener clickListener -> at
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void onResume() -> j
     void getdata() -> B
@@ -10268,14 +10272,13 @@ com.mzhou.merchant.fragment.XianshiWuMa -> com.mzhou.merchant.c.ep:
     com.mzhou.merchant.adapter.MyGridProductAdapter4 access$10(com.mzhou.merchant.fragment.XianshiWuMa) -> i
     com.handmark.pulltorefresh.library.PullToRefreshScrollView access$11(com.mzhou.merchant.fragment.XianshiWuMa) -> j
     boolean access$12() -> A
-    boolean access$13(com.mzhou.merchant.fragment.XianshiWuMa) -> k
-    com.mzhou.merchant.dao.biz.ProductsManager access$14(com.mzhou.merchant.fragment.XianshiWuMa) -> l
+    com.mzhou.merchant.dao.biz.ProductsManager access$13(com.mzhou.merchant.fragment.XianshiWuMa) -> k
+    int access$14(com.mzhou.merchant.fragment.XianshiWuMa) -> l
     int access$15(com.mzhou.merchant.fragment.XianshiWuMa) -> m
-    int access$16(com.mzhou.merchant.fragment.XianshiWuMa) -> n
-    java.lang.String access$17(com.mzhou.merchant.fragment.XianshiWuMa) -> o
-    void access$18(com.mzhou.merchant.fragment.XianshiWuMa,boolean) -> a
-    int access$19(com.mzhou.merchant.fragment.XianshiWuMa) -> p
-    void access$20(com.mzhou.merchant.fragment.XianshiWuMa,int) -> b
+    java.lang.String access$16(com.mzhou.merchant.fragment.XianshiWuMa) -> n
+    void access$17(com.mzhou.merchant.fragment.XianshiWuMa,boolean) -> a
+    int access$18(com.mzhou.merchant.fragment.XianshiWuMa) -> o
+    void access$19(com.mzhou.merchant.fragment.XianshiWuMa,int) -> b
 com.mzhou.merchant.fragment.XianshiWuMa$1 -> com.mzhou.merchant.c.eq:
     com.mzhou.merchant.fragment.XianshiWuMa this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -10379,9 +10382,8 @@ com.mzhou.merchant.fragment.XianshiZhaoPing -> com.mzhou.merchant.c.fi:
     com.mzhou.merchant.adapter.MyJobAdapter mAdapter -> U
     com.mzhou.merchant.dao.biz.JobManager jobManager -> V
     int page -> W
-    java.lang.String uid -> X
-    java.lang.String uptime -> Y
-    boolean flag -> Z
+    java.lang.String uptime -> X
+    boolean flag -> Y
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void getdata() -> A
     void lisentnerButton() -> B
@@ -10396,10 +10398,9 @@ com.mzhou.merchant.fragment.XianshiZhaoPing -> com.mzhou.merchant.c.fi:
     com.mzhou.merchant.adapter.MyJobAdapter access$4(com.mzhou.merchant.fragment.XianshiZhaoPing) -> d
     com.mzhou.merchant.dao.biz.JobManager access$5(com.mzhou.merchant.fragment.XianshiZhaoPing) -> e
     java.lang.String access$6(com.mzhou.merchant.fragment.XianshiZhaoPing) -> f
-    java.lang.String access$7(com.mzhou.merchant.fragment.XianshiZhaoPing) -> g
-    void access$8(com.mzhou.merchant.fragment.XianshiZhaoPing,boolean) -> a
-    int access$9(com.mzhou.merchant.fragment.XianshiZhaoPing) -> h
-    void access$10(com.mzhou.merchant.fragment.XianshiZhaoPing,int) -> a
+    void access$7(com.mzhou.merchant.fragment.XianshiZhaoPing,boolean) -> a
+    int access$8(com.mzhou.merchant.fragment.XianshiZhaoPing) -> g
+    void access$9(com.mzhou.merchant.fragment.XianshiZhaoPing,int) -> a
 com.mzhou.merchant.fragment.XianshiZhaoPing$1 -> com.mzhou.merchant.c.fj:
     com.mzhou.merchant.fragment.XianshiZhaoPing this$0 -> a
     void onPullDownToRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> a
@@ -10436,10 +10437,9 @@ com.mzhou.merchant.fragment.XianshiZhaoShang -> com.mzhou.merchant.c.fq:
     com.mzhou.merchant.adapter.MyAttachAdapter mAdapter -> T
     com.mzhou.merchant.dao.biz.AttactManager attactManager -> U
     int page -> V
-    java.lang.String uid -> W
-    android.content.Context context -> X
-    java.lang.String uptime -> Y
-    boolean flag -> Z
+    android.content.Context context -> W
+    java.lang.String uptime -> X
+    boolean flag -> Y
     android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
     void getdata() -> A
     void listenerbutton() -> B
@@ -10454,10 +10454,9 @@ com.mzhou.merchant.fragment.XianshiZhaoShang -> com.mzhou.merchant.c.fq:
     com.mzhou.merchant.adapter.MyAttachAdapter access$4(com.mzhou.merchant.fragment.XianshiZhaoShang) -> d
     com.mzhou.merchant.dao.biz.AttactManager access$5(com.mzhou.merchant.fragment.XianshiZhaoShang) -> e
     java.lang.String access$6(com.mzhou.merchant.fragment.XianshiZhaoShang) -> f
-    java.lang.String access$7(com.mzhou.merchant.fragment.XianshiZhaoShang) -> g
-    void access$8(com.mzhou.merchant.fragment.XianshiZhaoShang,boolean) -> a
-    int access$9(com.mzhou.merchant.fragment.XianshiZhaoShang) -> h
-    void access$10(com.mzhou.merchant.fragment.XianshiZhaoShang,int) -> a
+    void access$7(com.mzhou.merchant.fragment.XianshiZhaoShang,boolean) -> a
+    int access$8(com.mzhou.merchant.fragment.XianshiZhaoShang) -> g
+    void access$9(com.mzhou.merchant.fragment.XianshiZhaoShang,int) -> a
 com.mzhou.merchant.fragment.XianshiZhaoShang$1 -> com.mzhou.merchant.c.fr:
     com.mzhou.merchant.fragment.XianshiZhaoShang this$0 -> a
     void onPullDownToRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> a
@@ -10594,9 +10593,9 @@ com.mzhou.merchant.model.AllBean -> com.mzhou.merchant.model.AllBean:
     java.lang.String status -> status
     java.lang.String msg -> msg
     java.lang.String uid -> uid
-    com.mzhou.merchant.model.info info -> info
-    com.mzhou.merchant.model.info getInfo() -> getInfo
-    void setInfo(com.mzhou.merchant.model.info) -> setInfo
+    com.mzhou.merchant.model.UserInfoBean info -> info
+    com.mzhou.merchant.model.UserInfoBean getInfo() -> getInfo
+    void setInfo(com.mzhou.merchant.model.UserInfoBean) -> setInfo
     java.lang.String toString() -> toString
     java.lang.String getStatus() -> getStatus
     void setStatus(java.lang.String) -> setStatus
@@ -10756,6 +10755,44 @@ com.mzhou.merchant.model.JobItemBean -> com.mzhou.merchant.model.JobItemBean:
     void setPhone(java.lang.String) -> setPhone
     java.lang.String getUid() -> getUid
     void setUid(java.lang.String) -> setUid
+    java.lang.String toString() -> toString
+com.mzhou.merchant.model.LoginUserBean -> com.mzhou.merchant.model.LoginUserBean:
+    java.lang.String lastlogin -> lastlogin
+    java.lang.String username -> username
+    java.lang.String password -> password
+    java.lang.String usertype -> usertype
+    java.lang.String isremeber -> isremeber
+    java.lang.String isloginself -> isloginself
+    java.lang.String isbinder -> isbinder
+    java.lang.String qq -> qq
+    java.lang.String openid -> openid
+    java.lang.String status -> status
+    java.lang.String needlogin -> needlogin
+    int _id -> _id
+    java.lang.String getNeedlogin() -> getNeedlogin
+    void setNeedlogin(java.lang.String) -> setNeedlogin
+    java.lang.String getLastlogin() -> getLastlogin
+    void setLastlogin(java.lang.String) -> setLastlogin
+    java.lang.String getUsername() -> getUsername
+    void setUsername(java.lang.String) -> setUsername
+    java.lang.String getPassword() -> getPassword
+    void setPassword(java.lang.String) -> setPassword
+    java.lang.String getUsertype() -> getUsertype
+    void setUsertype(java.lang.String) -> setUsertype
+    java.lang.String getIsremeber() -> getIsremeber
+    void setIsremeber(java.lang.String) -> setIsremeber
+    java.lang.String getIsloginself() -> getIsloginself
+    void setIsloginself(java.lang.String) -> setIsloginself
+    java.lang.String getIsbinder() -> getIsbinder
+    void setIsbinder(java.lang.String) -> setIsbinder
+    java.lang.String getQq() -> getQq
+    void setQq(java.lang.String) -> setQq
+    java.lang.String getStatus() -> getStatus
+    void setStatus(java.lang.String) -> setStatus
+    int get_id() -> get_id
+    void set_id(int) -> set_id
+    java.lang.String getOpenid() -> getOpenid
+    void setOpenid(java.lang.String) -> setOpenid
     java.lang.String toString() -> toString
 com.mzhou.merchant.model.NewsBean -> com.mzhou.merchant.model.NewsBean:
     long serialVersionUID -> serialVersionUID
@@ -11033,7 +11070,7 @@ com.mzhou.merchant.model.User -> com.mzhou.merchant.model.User:
     java.lang.String getNumber() -> getNumber
     void setNumber(java.lang.String) -> setNumber
     java.lang.String toString() -> toString
-com.mzhou.merchant.model.info -> com.mzhou.merchant.model.info:
+com.mzhou.merchant.model.UserInfoBean -> com.mzhou.merchant.model.UserInfoBean:
     long serialVersionUID -> serialVersionUID
     java.lang.String category -> category
     java.lang.String username -> username
@@ -11049,7 +11086,15 @@ com.mzhou.merchant.model.info -> com.mzhou.merchant.model.info:
     java.lang.String fax -> fax
     java.lang.String center -> center
     java.lang.String uid -> uid
-    java.lang.String toString() -> toString
+    int _id -> _id
+    java.lang.String usertype -> usertype
+    java.lang.String status -> status
+    java.lang.String getStatus() -> getStatus
+    void setStatus(java.lang.String) -> setStatus
+    int get_id() -> get_id
+    void set_id(int) -> set_id
+    java.lang.String getUsertype() -> getUsertype
+    void setUsertype(java.lang.String) -> setUsertype
     java.lang.String getCategory() -> getCategory
     void setCategory(java.lang.String) -> setCategory
     java.lang.String getUsername() -> getUsername
@@ -11078,6 +11123,7 @@ com.mzhou.merchant.model.info -> com.mzhou.merchant.model.info:
     void setCenter(java.lang.String) -> setCenter
     java.lang.String getUid() -> getUid
     void setUid(java.lang.String) -> setUid
+    java.lang.String toString() -> toString
 com.mzhou.merchant.myview.BaikeConstant -> com.mzhou.merchant.myview.a:
     java.lang.String replaceTABToSpace(java.lang.String) -> a
     boolean isHalfPunctuation(char) -> a
@@ -11263,8 +11309,6 @@ com.mzhou.merchant.utlis.GetPhoneNum$UserBean -> com.mzhou.merchant.utlis.f:
     java.lang.String username -> b
     java.lang.String phonenum -> c
     com.mzhou.merchant.utlis.GetPhoneNum this$0 -> a
-    java.lang.String getUsername() -> a
-    java.lang.String getPhonenum() -> b
     java.lang.String toString() -> toString
 com.mzhou.merchant.utlis.HttpMultipartPost -> com.mzhou.merchant.utlis.g:
     android.app.ProgressDialog pd -> a
@@ -13263,6 +13307,7 @@ com.tencent.tauth.Tencent -> com.tencent.tauth.d:
     com.tencent.tauth.Tencent createInstance(java.lang.String,android.content.Context) -> a
     boolean isSessionValid() -> a
     java.lang.String getOpenId() -> b
+    void setOpenId(java.lang.String) -> a
     java.lang.String getAppId() -> c
     int login(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener) -> a
     int reAuth(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener) -> b
