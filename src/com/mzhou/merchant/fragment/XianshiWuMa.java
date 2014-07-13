@@ -593,8 +593,6 @@ public class XianshiWuMa extends Fragment {
 					 }
 				 }  
 			 }   
-			 
-			 
 		
 	}
 	@Override

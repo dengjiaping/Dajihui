@@ -1,5 +1,6 @@
 package com.mzhou.merchant.activity;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,8 +29,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.Window;
 import android.widget.ImageView;
@@ -55,8 +59,53 @@ public class ActivityStart extends Activity {
 		userManager = DbUserManager.getInstance(this);
 		sp = getSharedPreferences("phonemerchant", 1);
 		firsttime = sp.getBoolean("firsttime", true);
+		//如果是第一次，判断当前版本是不是等于2.8 ，如果不是等于2.8就将本地文件夹删除掉
+		deleteOldDir();
 		startMain();
 		
+	}
+	/**
+	 * 删除老的数据库文件
+	 */
+	private void deleteOldDir() {
+		if (firsttime) {
+			try {
+				if (getVersionName().equals("2.8")) {//当前版本是2.8
+					System.out.println("当前版本是2.8");
+					File file = new File(Environment.getExternalStorageDirectory() + "/djh/db");
+					System.out.println(file.getAbsolutePath());
+					boolean b = deleteDir(file);
+					System.out.println("删除 是否成功 " +b);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}	
+	private boolean deleteDir(File dir) {
+		System.out.println("第一次登录删除文件夹");
+		if (dir.isDirectory()) {
+			System.out.println("是文件夹");
+			String[] children = dir.list();
+			for (int i = 0; i < children.length; i++) {
+				System.out.println("删除文件" + new File(dir, children[i]).getPath());
+				boolean success = deleteDir(new File(dir, children[i]));
+				if (!success) {
+					return false;
+				}
+			}
+		}
+		return dir.delete();
+	}
+
+	private String getVersionName() throws Exception {
+		// 获取packagemanager的实例
+		PackageManager packageManager = getPackageManager();
+		// getPackageName()是你当前类的包名，0代表是获取版本信息
+		PackageInfo packInfo = packageManager.getPackageInfo(this
+				.getPackageName(), 0);
+		String version = packInfo.versionName;
+		return version;
 	}
 
 	private void startMain() {
