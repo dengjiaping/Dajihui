@@ -12,8 +12,11 @@ import com.mzhou.merchant.adapter.MyGridProductAdapter2;
 import com.mzhou.merchant.dao.IProduct.IDeleteProductInfo;
 import com.mzhou.merchant.dao.IProduct.IgetProductInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.ProductsBean;
 import com.mzhou.merchant.model.PublishProductBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.GetDataByPostUtil;
 import com.mzhou.merchant.utlis.JsonParse;
@@ -49,7 +52,6 @@ public class MyProductAlreadyCheckActivity extends Activity {
 	private PullToRefreshScrollView mPullRefreshScrollView;
 	private MyGridView mGridView;
  	private int page;
-	private SharedPreferences spPreferences;
 	private String uid;
 	private String uptime;
 	private String uid_enterprise;
@@ -72,10 +74,21 @@ public class MyProductAlreadyCheckActivity extends Activity {
 	 * 
 	 */
 	private void init() {
-		spPreferences = getSharedPreferences("phonemerchant", 1);
-		uid = spPreferences.getString("uid", "0");
-		uid_enterprise = spPreferences.getString("uid_enterprise", "0");
-		isEnterprise = spPreferences.getBoolean("isEnterprise", false);
+		
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			if ( userInfoBean.getUsertype().equals("1")) {
+				uid_enterprise = userInfoBean.getUid();
+				isEnterprise= true;
+			}else {
+				uid = userInfoBean.getUid();
+				isEnterprise= false;
+			}
+		}else {
+			uid_enterprise ="0";
+			isEnterprise = false;
+			uid ="0";
+		}
 		context = getBaseContext();
 		mList = new LinkedList<ProductsBean>();
 		mAdapter = new MyGridProductAdapter2(context, mList);

@@ -11,8 +11,11 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
 import com.mzhou.merchant.dao.IUser.IgetQQBinder;
 import com.mzhou.merchant.dao.biz.UserManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AllBean;
 import com.mzhou.merchant.model.GroupUsers;
+import com.mzhou.merchant.model.LoginUserBean;
 import com.mzhou.merchant.model.User;
 import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
@@ -29,8 +32,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -108,10 +109,9 @@ public class UserControlEnterpriseActivity extends Activity {
 	private TextView user_manager_tv_address;// 公司地址
 	private TextView user_manager_tv_net;// 公司网址
 
-	private static SharedPreferences sp;
 	public static UserManager userManager = null;
-	private String uid_enterprise;
-	private String headurl_enterprise;
+//	private String uid_enterprise;
+//	private String headurl_enterprise;
 	private LinkedList<String> mList;
 	protected ImageLoader imageLoader;
 	private DisplayImageOptions options;
@@ -119,12 +119,15 @@ public class UserControlEnterpriseActivity extends Activity {
 	private static final int REQUEST_CODE1 = 1101;
 	private Uri mImageUri;
 	private File file;
-	private boolean isBinder_enterprise;
-	private String openid_enterprise;
+//	private boolean isBinder_enterprise;
+//	private String openid_enterprise;
 	private boolean pwchange = false;
 	private String saveDir = Environment.getExternalStorageDirectory()
 			.getPath() + "/temp_image";
 	private boolean fromqq;
+	private DbLoginManager dbLoginManager;
+	private DbUserManager dbUserManager;
+	private boolean isSave= false;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -140,11 +143,12 @@ public class UserControlEnterpriseActivity extends Activity {
 
 	private void init() {
 		context = UserControlEnterpriseActivity.this;
-		sp = getSharedPreferences("phonemerchant", 1);
-		uid_enterprise = sp.getString("uid_enterprise", "0");
-		headurl_enterprise = sp.getString("headurl_enterprise", "");
-		isBinder_enterprise = sp.getBoolean("isBinder_enterprise", false);
-		openid_enterprise = sp.getString("openid_enterprise", "");
+		dbLoginManager = DbLoginManager.getInstance(context);
+		dbUserManager = DbUserManager.getInstance(context);
+//		uid_enterprise = sp.getString("uid_enterprise", "0");
+//		headurl_enterprise = sp.getString("headurl_enterprise", "");
+//		isBinder_enterprise = sp.getBoolean("isBinder_enterprise", false);
+//		openid_enterprise = sp.getString("openid_enterprise", "");
 		Intent intent = getIntent();
 		fromqq = intent.getBooleanExtra("fromqq", false);
 		userManager = new UserManager();
@@ -231,23 +235,23 @@ public class UserControlEnterpriseActivity extends Activity {
 	 */
 	private void setData() {
 		
-	/*	UserInfoBean userInfoBean = dbUserManager.getLogingUserInfo();
+ 
+		
+		UserInfoBean userInfoBean = dbUserManager.getLogingUserInfo();
 		imageLoader.displayImage(userInfoBean.getHeadurl(), user_manager_user_head, options);
 		nicknameTextView.setText(userInfoBean.getNickname());
-		user_manager_tv_name.setText(userInfoBean.getContact());
-		user_manager_tv_phonnumber.setText(userInfoBean.getPhonenub());
-		user_manager_tv_qq.setText(userInfoBean.getEmail());
+		user_manager_centerNub_stub.setText(userInfoBean.getCenter());
+		user_manager_centerFax_stub.setText(userInfoBean.getFax());
 		user_manager_tv_company.setText(userInfoBean.getCompany());
 		user_manager_tv_address.setText(userInfoBean.getAddress());
 		user_manager_tv_net.setText(userInfoBean.getNet());
-		user_manager_category_stub.setText(userInfoBean.getCategory());
 		user_manager_alter_passwd_stub.setText(userInfoBean.getPassword());
-		user_manager_alter_count.setText(userInfoBean.getUsername());*/
+		user_manager_alter_count.setText(userInfoBean.getUsername());
+		String json_name = userInfoBean.getContact();
+
+		setName(json_name);
 		
-		
-		
-		
-		imageLoader.displayImage(headurl_enterprise, user_manager_user_head,
+		/*imageLoader.displayImage(headurl_enterprise, user_manager_user_head,
 				options);
 		nicknameTextView.setText(sp.getString("nickname_enterprise", ""));
 
@@ -255,6 +259,7 @@ public class UserControlEnterpriseActivity extends Activity {
 				"company_center_enterprise", ""));
 		user_manager_centerFax_stub.setText(sp.getString(
 				"company_fax_enterprise", ""));
+		
 		user_manager_tv_company.setText(sp.getString("company_enterprise", ""));
 		user_manager_tv_address.setText(sp.getString("address_enterprise", ""));
 		user_manager_tv_net.setText(sp.getString("net_enterprise", ""));
@@ -264,7 +269,7 @@ public class UserControlEnterpriseActivity extends Activity {
 				.getString("username_enterprise", ""));
 		String json_name = sp.getString("name_enterprise", "");
 
-		setName(json_name);
+		setName(json_name);*/
 	}
 
 	/**
@@ -409,6 +414,14 @@ public class UserControlEnterpriseActivity extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if (pwchange) {//如果修改了密码需要重新登录
+				dbLoginManager.updateStauts();
+				dbUserManager.updateStauts();
+			}
+			if (fromqq && !isSave) {
+				dbLoginManager.updateStauts();
+				dbUserManager.updateStauts();
+			}
 			Intent intent = new Intent();
 			intent.setClass(UserControlEnterpriseActivity.this,
 					ActivityIndex.class);
@@ -426,7 +439,10 @@ public class UserControlEnterpriseActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-
+				if (fromqq && !isSave) {
+					dbLoginManager.updateStauts();
+					dbUserManager.updateStauts();
+				}
 				Intent intent = new Intent();
 				intent.setClass(UserControlEnterpriseActivity.this,
 						ActivityIndex.class);
@@ -460,7 +476,33 @@ public class UserControlEnterpriseActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+
 				if (fromqq) {
+					//查询当前帐号是否绑定了qq
+					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
+					if (loginUserBean != null && loginUserBean.getIsbinder() != null && loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
+						System.out.println("当前用户登录绑定了qq");
+						if (isSave) {
+							Intent intent = new Intent();
+							intent.setClass(context, FabuShoujiEnterpriseActivity.class);
+							startActivity(intent);
+						}else {
+							//先保存用户信息
+							save2Server();
+						}
+						
+					} else {
+						showdialog();
+					}
+
+				}else {
+					Intent intent = new Intent();
+					intent.setClass(context, FabuShoujiEnterpriseActivity.class);
+					startActivity(intent);
+				}
+			
+				
+				/*if (fromqq) {
 					if (isBinder_enterprise) {
 						Intent intent = new Intent();
 						intent.setClass(UserControlEnterpriseActivity.this,
@@ -474,7 +516,7 @@ public class UserControlEnterpriseActivity extends Activity {
 					intent.setClass(UserControlEnterpriseActivity.this,
 							FabuShoujiEnterpriseActivity.class);
 					startActivity(intent);
-				}
+				}*/
 
 			}
 		});
@@ -496,7 +538,7 @@ public class UserControlEnterpriseActivity extends Activity {
 					startActivity(intent);
 				} else {
 					String[] imageUrls = new String[1];
-					imageUrls[0] = headurl_enterprise;
+					imageUrls[0] = dbUserManager.getLogingUserInfo().getHeadurl();
 					if (imageUrls != null) {
 						Intent intent = new Intent();
 						intent.setClass(UserControlEnterpriseActivity.this,
@@ -792,102 +834,125 @@ public class UserControlEnterpriseActivity extends Activity {
 		save.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
+				
 				if (fromqq) {
-					if (isBinder_enterprise) {
+					//查询当前帐号是否绑定了qq
+					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
+					if (loginUserBean != null && loginUserBean.getIsbinder() != null && loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
+						System.out.println("保存操作，当前用户登录绑定了qq");
 						save2Server();
 					} else {
+						System.out.println("保存操作，当前用户未绑定qq");
 						showdialog();
 					}
-				} else {
+
+				}else {
+					System.out.println("正常保存");
 					save2Server();
 				}
 
 			}
 
-			private void save2Server() {
-				if (WebIsConnectUtil
-						.showNetState(UserControlEnterpriseActivity.this)) {
-					String nickname = nicknameTextView.getText().toString();
-					String center = user_manager_centerNub_stub.getText()
-							.toString();
-					String fax = user_manager_centerFax_stub.getText()
-							.toString();
-					String company = user_manager_tv_company.getText()
-							.toString();
-					String address = user_manager_tv_address.getText()
-							.toString();
-					String net = user_manager_tv_net.getText().toString();
-					final String pw = user_manager_alter_passwd_stub.getText()
-							.toString();
-					String json_name = getJsonName();
-
-					String[] array = (String[]) mList.toArray(new String[mList
-							.size()]);
-					Map<String, String> params = new HashMap<String, String>();
-					params.put("subject", "edit");
-					params.put("uid", uid_enterprise);
-					params.put("data[nickname]", nickname);
-					params.put("data[contact]", json_name);
-					params.put("data[pw]", pw);
-					params.put("data[center]", center);
-					params.put("data[fax]", fax);
-					params.put("data[company]", company);
-					params.put("data[address]", address);
-					params.put("data[net]", net);
-					HttpMultipartPost task = new HttpMultipartPost(
-							UserControlEnterpriseActivity.this,
-							MyConstants.EN_LOGIN_URL, array, params);
-					task.execute();
-					task.getBackInfoIml(new IUploadBackInfo() {
-
-						@Override
-						public void getBackAttactInfo(String json) {
-							AllBean userBean = JsonParse.parseUserJson(json);
-							if (userBean != null) {
-								if (userBean.getStatus().equals("true")) {
-									Editor editor = sp.edit();
-									editor.putString("name_enterprise",
-											userBean.getInfo().getContact());
-									editor.putString("nickname_enterprise",
-											userBean.getInfo().getNickname());
-									editor.putString(
-											"company_center_enterprise",
-											userBean.getInfo().getCenter());
-									editor.putString("company_fax_enterprise",
-											userBean.getInfo().getFax());
-									editor.putString("company_enterprise",
-											userBean.getInfo().getCompany());
-									editor.putString("address_enterprise",
-											userBean.getInfo().getAddress());
-									editor.putString("net_enterprise", userBean
-											.getInfo().getNet());
-									if (pwchange) {
-										editor.putBoolean("isEnterprise", false);
-										editor.putBoolean("isLogin_enterprise",
-												false);
-										editor.putBoolean("isLogin", false);
-									}
-									if (!userBean.getInfo().getHeadurl()
-											.toString().equals("")) {
-										editor.putString("headurl_enterprise",
-												MyConstants.PICTURE_URL
-														+ userBean.getInfo()
-																.getHeadurl());
-									}
-									editor.putString("password_enterprise", pw);
-									editor.commit();
-								}
-								MyUtlis.toastInfo(getBaseContext(),
-										userBean.getMsg());
-							}
-						}
-					});
-				}
-			}
+		
 
 		});
 	}
+	private void save2Server() {
+		if (WebIsConnectUtil
+				.showNetState(UserControlEnterpriseActivity.this)) {
+			String nickname = nicknameTextView.getText().toString();
+			String center = user_manager_centerNub_stub.getText()
+					.toString();
+			String fax = user_manager_centerFax_stub.getText()
+					.toString();
+			String company = user_manager_tv_company.getText()
+					.toString();
+			String address = user_manager_tv_address.getText()
+					.toString();
+			String net = user_manager_tv_net.getText().toString();
+			final String pw = user_manager_alter_passwd_stub.getText()
+					.toString();
+			String json_name = getJsonName();
 
+			String[] array = (String[]) mList.toArray(new String[mList
+					.size()]);
+			Map<String, String> params = new HashMap<String, String>();
+			params.put("subject", "edit");
+			String uid =dbUserManager.getLogingUserInfo().getUid();
+		 
+			if (uid != null && !uid.equals("") && !uid.equals("null")) {
+				params.put("uid", dbUserManager.getLogingUserInfo().getUid());
+			}else {
+				Toast.makeText(context, "保存用户失败", Toast.LENGTH_LONG).show();
+				return ;
+			}
+			params.put("data[nickname]", nickname);
+			params.put("data[contact]", json_name);
+			params.put("data[pw]", pw);
+			params.put("data[center]", center);
+			params.put("data[fax]", fax);
+			params.put("data[company]", company);
+			params.put("data[address]", address);
+			params.put("data[net]", net);
+			HttpMultipartPost task = new HttpMultipartPost(
+					UserControlEnterpriseActivity.this,
+					MyConstants.EN_LOGIN_URL, array, params);
+			task.execute();
+			task.getBackInfoIml(new IUploadBackInfo() {
+
+				@Override
+				public void getBackAttactInfo(String json) {
+					AllBean userBean = JsonParse.parseUserJson(json);
+					if (userBean != null) {
+						if (userBean.getStatus().equals("true")) {
+							
+							System.out.println("修改用户信息成功");
+							if (fromqq) {//如果是从qq那边过来的，将保存设置未已经保存
+								isSave = true;
+							}
+							//更新登录信息
+							LoginUserBean loginUserBean = new LoginUserBean();
+							loginUserBean.setPassword(pw);
+							loginUserBean.setUsername(user_manager_alter_count.getText().toString());
+							loginUserBean.setUsertype("1");
+							loginUserBean.setLastlogin("1");
+							loginUserBean.setStatus("1");
+							 
+							dbLoginManager.updateByUserNameAndUserType(loginUserBean);
+							System.out.println("更新用户信息");
+							//更新用户信息
+							UserInfoBean userInfoBean = new UserInfoBean();
+							userInfoBean.setNickname(userBean
+									.getInfo().getNickname());
+							userInfoBean.setUsername(user_manager_alter_count.getText().toString());
+							userInfoBean.setPassword(pw);
+							userInfoBean.setContact( userBean.getInfo()
+									.getContact());
+							userInfoBean.setPhonenub(userBean.getInfo().getPhonenub());
+							userInfoBean.setEmail(userBean.getInfo().getEmail());
+							userInfoBean.setCompany(userBean.getInfo().getCompany());
+							userInfoBean.setAddress(userBean.getInfo().getAddress());
+							userInfoBean.setNet(userBean.getInfo().getNet());
+							userInfoBean.setCenter(userBean.getInfo().getCenter());
+							userInfoBean.setFax(userBean.getInfo().getFax());
+							userInfoBean.setHeadurl(MyConstants.PICTURE_URL
+									+ userBean.getInfo()
+									.getHeadurl());
+							userInfoBean.setCategory(userBean.getInfo().getCategory());
+							userInfoBean.setUsertype("1");
+								userInfoBean.setStatus("1");
+							dbUserManager.insertData(userInfoBean);
+							System.out.println("更新登录信息");
+							
+						}
+						MyUtlis.toastInfo(getBaseContext(),
+								userBean.getMsg());
+					}
+				}
+			});
+		}
+	}
 	/**
 	 * 删除目录
 	 * 
@@ -928,8 +993,12 @@ public class UserControlEnterpriseActivity extends Activity {
 						&& pw.getText().toString().equals("")) {
 					MyUtlis.toastInfo(context, "账号或密码为空！");
 				} else {
+					if (dbLoginManager.getCurrentBean().getOpenid() == null || dbLoginManager.getCurrentBean().getOpenid().equals("null") || dbLoginManager.getCurrentBean().getOpenid().equals("")) {
+						MyUtlis.toastInfo(context, "openid为空！");
+						return ;
+					}
 					userManager.Binder(context, MyConstants.EN_LOGIN_URL,
-							openid_enterprise, un.getText().toString(), pw
+							dbLoginManager.getCurrentBean().getOpenid(), un.getText().toString(), pw
 									.getText().toString());
 					userManager.getQQBinder(new IgetQQBinder() {
 
@@ -939,7 +1008,6 @@ public class UserControlEnterpriseActivity extends Activity {
 								MyUtlis.toastInfo(context, userBean.getMsg()
 										.toString());
 								if (userBean.getStatus().equals("true")) {
-									isBinder_enterprise = true;
 									user_manager_alter_passwd_stub.setText(pw
 											.getText().toString());
 									user_manager_alter_count.setText(un
@@ -963,35 +1031,47 @@ public class UserControlEnterpriseActivity extends Activity {
 									String json_name = userBean.getInfo()
 											.getContact();
 									setName(json_name);
-									Editor editor = sp.edit();
-									editor.putString("name_enterprise",
-											userBean.getInfo().getContact());// 联系人
-									editor.putBoolean("isBinder_enterprise",
-											true);// 设置是否绑定
-									editor.putString("uid_enterprise",
-											userBean.getUid());// 会员id
-									editor.putString(
-											"company_center_enterprise",
-											userBean.getInfo().getCenter());// 总机
-									editor.putString("company_fax_enterprise",
-											userBean.getInfo().getFax());// 传真
-									editor.putString("company_enterprise",
-											userBean.getInfo().getCompany());// 公司名称
-									editor.putString("address_enterprise",
-											userBean.getInfo().getAddress());// 公司地址
-									editor.putString("net_enterprise", userBean
-											.getInfo().getNet());// 公司网址
-									editor.putString("username_enterprise", un
-											.getText().toString());
-									editor.putString("password_enterprise", pw
-											.getText().toString());
-									editor.commit();
+									
+									//更新登录信息
+									LoginUserBean loginUserBean = new LoginUserBean();
+									loginUserBean.setPassword(pw.getText()
+											.toString());
+									loginUserBean.setUsername(un.getText()
+											.toString());
+									loginUserBean.setUsertype("1");
+ 					 				loginUserBean.setIsbinder("1");
+ 					 				loginUserBean.setLastlogin("1");
+									dbLoginManager.updateByStatus(loginUserBean);
+									
+									System.out.println("更新用户信息");
+									//更新用户信息
+									UserInfoBean userInfoBean = new UserInfoBean();
+									userInfoBean.setNickname(userBean
+											.getInfo().getNickname());
+									userInfoBean.setPassword(pw.getText()
+											.toString());
+									userInfoBean.setUsername(un.getText()
+											.toString());
+									userInfoBean.setContact( userBean.getInfo()
+											.getContact());
+									userInfoBean.setPhonenub(userBean.getInfo().getPhonenub());
+									userInfoBean.setEmail(userBean.getInfo().getEmail());
+									userInfoBean.setCompany(userBean.getInfo().getCompany());
+									userInfoBean.setAddress(userBean.getInfo().getAddress());
+									userInfoBean.setNet(userBean.getInfo().getNet());
+									userInfoBean.setFax(userBean.getInfo().getFax());
+									userInfoBean.setCenter(userBean.getInfo().getCenter());
+									userInfoBean.setUid(userBean.getUid());
+									userInfoBean.setHeadurl(MyConstants.PICTURE_URL
+											+ userBean.getInfo()
+											.getHeadurl());
+									userInfoBean.setCategory(userBean.getInfo().getCategory());
+									userInfoBean.setUsertype("0");
+									dbUserManager.updateByStatus(userInfoBean);
+									System.out.println("更新登录信息");
 								} else {
-									Editor editor = sp.edit();
-									editor.putBoolean("isBinder_enterprise",
-											false);
-									editor.commit();
-									isBinder_enterprise = false;
+									Toast.makeText(context, "绑定失败,请重试!", Toast.LENGTH_LONG).show();
+									 
 								}
 							}
 						}

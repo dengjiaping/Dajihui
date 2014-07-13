@@ -18,6 +18,8 @@ public class DbLoginManager {
 			+ " where needlogin = ? ";
 	private String SELECT_CURRENT_USER = SELECT_ALL
 			+ " where status = ?";
+	private String SELECT_CURRENT_USER_AND_USERTYPE= SELECT_ALL
+			+ " where status = ? and usertype =?";
 	private String SELECT_BY_USERTYPE_AND_USERNAME = SELECT_ALL
 			+ " where usertype = ? and username = ? ";
 	private static DBManager manager = null;
@@ -263,6 +265,17 @@ public class DbLoginManager {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
 		return st.isExistsBySQL(SELECT_CURRENT_USER, new String[] {
 				"1" });
+	}
+	/**
+	 * 获取当前登录的用户类型
+	 * 1.在点击发布产品的时候进行判断，如果有登录的类型就进入到发布产品界面，否则进入登录界面
+	 * @param usertype
+	 * @return
+	 */
+	public boolean getLoginStatusByUsertype(String usertype) {
+		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
+		return st.isExistsBySQL(SELECT_CURRENT_USER_AND_USERTYPE, new String[] {
+		"1" ,usertype});
 	}
 	/**
 	 * 退出登录状态,大于0表示更新成功

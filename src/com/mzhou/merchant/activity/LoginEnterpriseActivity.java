@@ -2,7 +2,6 @@ package com.mzhou.merchant.activity;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import com.mzhou.merchant.dao.biz.UserManager;
 import com.mzhou.merchant.db.manager.DbLoginManager;
 import com.mzhou.merchant.db.manager.DbUserManager;
@@ -14,7 +13,6 @@ import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -42,13 +40,13 @@ public class LoginEnterpriseActivity extends Activity {
 	private String username_enterprise;
 	private String password_enterprise;
  	public static UserManager userManager = null;
-	public static SharedPreferences sp;
 	private boolean remeberpassword_enterprise = false;
 	private boolean loginself_enterprise = false;
 
 	
 	private DbLoginManager dbLoginManager;
 	private DbUserManager dbUserManager;
+	
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -62,11 +60,7 @@ public class LoginEnterpriseActivity extends Activity {
 	}
 
 	private void init() {
-		sp = getSharedPreferences("phonemerchant", 1);
 		userManager = new UserManager();
-//		remeberpassword_enterprise = sp.getBoolean(
-//				"remeberpassword_enterprise", false);
-//		loginself_enterprise = sp.getBoolean("loginself_enterprise", false);
 		dbLoginManager = DbLoginManager.getInstance(this);
 		dbUserManager = DbUserManager.getInstance(this);
 	}
@@ -96,24 +90,10 @@ public class LoginEnterpriseActivity extends Activity {
 								public void getInfo(AllBean user) {
 									if (user != null) {
 										if (user.getStatus().equals("true")) {
-											
-
 											System.out.println("企业会员登录成功");
 											saveLoginInfo();
 											saveUserInfo(user);
 											toUserControlCenter(user);
-											
-//											save2SharedPrefenrence(user);
-											Intent intent = new Intent();
-											intent.setClass(
-													LoginEnterpriseActivity.this,
-													UserControlEnterpriseActivity.class);
-											startActivity(intent);
-											Toast.makeText(
-													LoginEnterpriseActivity.this,
-													user.getMsg(),
-													Toast.LENGTH_SHORT).show();
-											finish();
 										} else {
 											Toast.makeText(
 													LoginEnterpriseActivity.this,
@@ -201,7 +181,7 @@ public class LoginEnterpriseActivity extends Activity {
 				user_login_username_hint.setText("");//用户名
 			}
 			
-			if (loginUserBean.getIsremeber().equals("1")) {//是记住密码
+			if (loginUserBean.getIsremeber() != null && loginUserBean.getIsremeber().equals("1")) {//是记住密码
 				user_checkbox1.setChecked(true);//密码
 				remeberpassword_enterprise = true;
 				System.out.println("是否记住密码"+loginUserBean.getIsremeber().equals("1"));
@@ -223,7 +203,7 @@ public class LoginEnterpriseActivity extends Activity {
 				remeberpassword_enterprise = false;
 				loginself_enterprise = false;
 				user_login_password_hint.setText("");
-				System.out.println("是否记住密码"+loginUserBean.getIsremeber().equals("1"));
+				System.out.println("是否记住密码 false");
 			}
 			
 		}else {//上次没有登录的帐号
@@ -235,22 +215,7 @@ public class LoginEnterpriseActivity extends Activity {
 			remeberpassword_enterprise = false;
 			loginself_enterprise = false;
 		}
-		
-		/*
-			if (remeberpassword_enterprise) {
-			user_checkbox1.setChecked(remeberpassword_enterprise);
-			user_login_password_hint.setText(sp.getString(
-					"password_enterprise", ""));
-		} else {
-			user_checkbox1.setChecked(remeberpassword_enterprise);
-			user_login_password_hint.setText("");
-		}
-		if (loginself_enterprise) {
-			user_checkbox2.setChecked(loginself_enterprise);
-		} else {
-			user_checkbox2.setChecked(loginself_enterprise);
-		}
-*/
+ 
 	}
 	
 	private void toUserControlCenter(AllBean user) {
@@ -316,33 +281,7 @@ public class LoginEnterpriseActivity extends Activity {
 		dbUserManager.insertData(userInfoBean);
 		System.out.println("保存用户信息");
 	}
-	/**
-	 * 将用户信息储存到SharedPreference里面去
-	 * 
-	 * @param user
-	 */
-	private void save2SharedPrefenrence(AllBean user) {
-		Editor editor = sp.edit();
-		editor.putString("name_enterprise", user.getInfo().getContact());// 联系人
-		editor.putBoolean("loginself_enterprise", loginself_enterprise);// 是否自动登陆
-		editor.putBoolean("remeberpassword_enterprise",
-				remeberpassword_enterprise);// 是否记住密码
-		editor.putBoolean("isLogin_enterprise", true);// 是否登陆
-		editor.putBoolean("isEnterprise", true);// 设置是企业会员
-		editor.putString("uid_enterprise", user.getUid());// 会员id
-		editor.putString("nickname_enterprise", user.getInfo().getNickname());// 昵称
-		editor.putString("username_enterprise", user.getInfo().getUsername());// 账号
-		editor.putString("password_enterprise", password_enterprise);// 密码
-		editor.putString("company_center_enterprise", user.getInfo()
-				.getCenter());// 总机
-		editor.putString("company_fax_enterprise", user.getInfo().getFax());// 传真
-		editor.putString("company_enterprise", user.getInfo().getCompany());// 公司名称
-		editor.putString("address_enterprise", user.getInfo().getAddress());// 公司地址
-		editor.putString("net_enterprise", user.getInfo().getNet());// 公司网址
-		editor.putString("headurl_enterprise", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());// 头像地址
-		editor.commit();
-	}
+	 
 
 	/**
 	 * 加载所有的控件
@@ -358,10 +297,6 @@ public class LoginEnterpriseActivity extends Activity {
 		user_button_register = (TextView) findViewById(R.id.user_button_register);
 		user_checkbox1.setChecked(loginself_enterprise);
 		user_checkbox2.setChecked(remeberpassword_enterprise);
-		user_login_username_hint.setText(sp
-				.getString("username_enterprise", ""));
-
-
 	}
 	
 	 
@@ -376,4 +311,6 @@ public class LoginEnterpriseActivity extends Activity {
 		}
 		return super.onKeyDown(keyCode, event);
 	}
+	
+ 
 }

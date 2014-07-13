@@ -18,6 +18,7 @@ import com.mzhou.merchant.adapter.MyGridProductAdapter4;
 import com.mzhou.merchant.dao.IProduct.IgetProductInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
 import com.mzhou.merchant.db.manager.DbAdManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
 import com.mzhou.merchant.db.manager.DbProductManager;
 import com.mzhou.merchant.model.AdBean;
 import com.mzhou.merchant.model.ProductsBean;
@@ -77,8 +78,6 @@ public class XianshiWuMa extends Fragment {
 	private int page_down;
 	private String uptime;
 	private List<AdBean> adBeans;
-	private SharedPreferences sp;
-	private boolean isLogin;
  	private boolean flag = false;
  	private Thread thread;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -120,7 +119,7 @@ public class XianshiWuMa extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isLogin) {
+				if (DbLoginManager.getInstance(context).getLoginStatusByUsertype("0")) {
 
 					Intent intent = new Intent();
 					intent.setClass(getActivity(), FabuShoujiCommenActivity.class);
@@ -144,8 +143,6 @@ public class XianshiWuMa extends Fragment {
 		context = getActivity().getBaseContext();
 		mList = new LinkedList<ProductsBean>();
 		adBeans = new LinkedList<AdBean>();
-		sp = getActivity().getSharedPreferences("phonemerchant", 1);
-		isLogin = sp.getBoolean("isLogin", false);
 		page_up = 2;
 		page_down = 1;
 		uptime = new String("0");
@@ -602,6 +599,7 @@ public class XianshiWuMa extends Fragment {
 	}
 	@Override
 	public void onStop() {
+		imageLoader.clearMemoryCache();
 			thread.interrupt();
 		super.onStop();
 	}

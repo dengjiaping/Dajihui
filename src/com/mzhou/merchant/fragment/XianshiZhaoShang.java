@@ -26,7 +26,9 @@ import com.mzhou.merchant.activity.ActivityZS;
 import com.mzhou.merchant.adapter.MyAttachAdapter;
 import com.mzhou.merchant.dao.biz.AttactManager;
 import com.mzhou.merchant.db.manager.DbAttachManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AttactBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
@@ -41,7 +43,6 @@ public class XianshiZhaoShang extends Fragment {
 	private MyAttachAdapter mAdapter;
 	private AttactManager attactManager;
 	private int page = 2;
-	private String uid;
 	private Context context;
 	private String uptime;
 	private boolean flag = false;
@@ -77,6 +78,16 @@ public class XianshiZhaoShang extends Fragment {
 											| DateUtils.FORMAT_ABBREV_ALL);
 							refreshView.getLoadingLayoutProxy()
 									.setLastUpdatedLabel(label);
+							 String uid = "0";
+							 String usertype = "0";
+							 
+							UserInfoBean userInfoBean =  DbUserManager.getInstance(getActivity()).getLogingUserInfo();
+							if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+								uid = userInfoBean.getUid();
+							}
+							if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+								usertype = userInfoBean.getUsertype();
+							}
 							attactManager.GetAttactInfo(getActivity(), 1, uid,
 									uptime, MyConstants.ATTRACT_URL);
 							attactManager
@@ -119,6 +130,18 @@ public class XianshiZhaoShang extends Fragment {
 											| DateUtils.FORMAT_ABBREV_ALL);
 							refreshView.getLoadingLayoutProxy()
 									.setLastUpdatedLabel(label);
+							
+							 String uid = "0";
+							 String usertype = "0";
+							 
+							UserInfoBean userInfoBean =  DbUserManager.getInstance(getActivity()).getLogingUserInfo();
+							if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+								uid = userInfoBean.getUid();
+							}
+							if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+								usertype = userInfoBean.getUsertype();
+							}
+							
 							attactManager.GetAttactInfo(getActivity(), page,
 									uid, "0", MyConstants.ATTRACT_URL);
 							attactManager
@@ -166,7 +189,6 @@ public class XianshiZhaoShang extends Fragment {
 		attactManager = new AttactManager();
 		mList = new LinkedList<AttactBean>();
 		context = getActivity().getBaseContext();
-		uid = new String("0");
 		mAdapter = new MyAttachAdapter(context, mList);
 	}
 

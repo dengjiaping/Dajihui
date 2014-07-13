@@ -4,10 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -42,7 +40,6 @@ public class LoginCommenActivity extends Activity {
 	private String password;
 	private LinearLayout qq_login;
 	public static UserManager userManager = null;
-	public static SharedPreferences sp;
 	private boolean remeberpassword = false;
 	private boolean loginself = false;
 
@@ -61,12 +58,10 @@ public class LoginCommenActivity extends Activity {
 	}
 
 	private void init() {
-		sp = getSharedPreferences("phonemerchant", 1);
 		dbLoginManager = DbLoginManager.getInstance(this);
 		dbUserManager = DbUserManager.getInstance(this);
+		
 		userManager = new UserManager();
-		// remeberpassword = sp.getBoolean("remeberpassword", false);
-		// loginself = sp.getBoolean("loginself", false);
 	}
 
 	/**
@@ -165,12 +160,12 @@ public class LoginCommenActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent();
+				 Intent intent = new Intent();
 				intent.setClass(LoginCommenActivity.this,
 						ActivityBinderQQ.class);
 				intent.putExtra("common", true);
 				startActivity(intent);
-				finish();
+				finish() ;
 			}
 		});
 	}
@@ -238,32 +233,7 @@ public class LoginCommenActivity extends Activity {
 		System.out.println("保存用户信息");
 	}
 
-	/**
-	 * 将用户信息储存到SharedPreference里面去
-	 * 
-	 * @param user
-	 */
-	private void save2SharedPrefenrence(AllBean user) {
-		Editor editor = sp.edit();
-		editor.putString("name", user.getInfo().getContact());// 联系人
-		editor.putBoolean("loginself", loginself);
-		editor.putBoolean("remeberpassword", remeberpassword);
-		editor.putBoolean("isLogin", true);
-		editor.putBoolean("isEnterprise", false);// 设置不是企业会员
-		editor.putString("uid", user.getUid());
-		editor.putString("nickname", user.getInfo().getNickname());// 昵称
-		editor.putString("username", user.getInfo().getUsername());// 账号
-		editor.putString("password", password);// 密码
-		editor.putString("phonenub", user.getInfo().getPhonenub());
-		editor.putString("company", user.getInfo().getCompany());
-		editor.putString("address", user.getInfo().getAddress());
-		editor.putString("net", user.getInfo().getNet());
-		editor.putString("category", user.getInfo().getCategory());
-		editor.putString("headurl", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());
-		editor.putString("email", user.getInfo().getEmail());
-		editor.commit();
-	}
+ 
 
 	/**
 	 * 加载所有的控件
@@ -277,6 +247,8 @@ public class LoginCommenActivity extends Activity {
 		user_checkbox2 = (CheckBox) findViewById(R.id.user_checkbox2);
 		user_button_login = (Button) findViewById(R.id.user_button_login);
 		user_button_register = (TextView) findViewById(R.id.user_button_register);
+		
+		
 
 	}
 	/**
@@ -296,8 +268,8 @@ public class LoginCommenActivity extends Activity {
 				System.out.println("不存在用户名 - ");
 				user_login_username_hint.setText("");// 用户名
 			}
-
-			if (loginUserBean.getIsremeber().equals("1")) {// 是记住密码
+		 
+			if (loginUserBean.getIsremeber() != null && loginUserBean.getIsremeber().equals("1")) {// 是记住密码
 				user_checkbox1.setChecked(true);// 密码
 				remeberpassword = true;
 				
@@ -321,8 +293,7 @@ public class LoginCommenActivity extends Activity {
 				user_checkbox1.setChecked(false);
 				user_checkbox2.setChecked(false);
 				user_login_password_hint.setText("");
-				System.out.println("是否记住密码"
-						+ loginUserBean.getIsremeber().equals("1"));
+				System.out.println("是否记住密码  false");
 			}
 
 		} else {// 上次没有登录的帐号
@@ -335,17 +306,7 @@ public class LoginCommenActivity extends Activity {
 			remeberpassword = false;
 		}
 
-		/*
-		 * user_checkbox1.setChecked(loginself);
-		 * user_checkbox2.setChecked(remeberpassword);
-		 * user_login_username_hint.setText(sp.getString("username", "")); if
-		 * (remeberpassword) { user_checkbox1.setChecked(remeberpassword);
-		 * user_login_password_hint.setText(sp.getString("password", "")); }
-		 * else { user_checkbox1.setChecked(remeberpassword);
-		 * user_login_password_hint.setText(""); } if (loginself) {
-		 * user_checkbox2.setChecked(loginself); } else {
-		 * user_checkbox2.setChecked(loginself); }
-		 */
+	 
 	}
 
 	@Override
@@ -358,4 +319,5 @@ public class LoginCommenActivity extends Activity {
 		}
 		return super.onKeyDown(keyCode, event);
 	}
+	 
 }

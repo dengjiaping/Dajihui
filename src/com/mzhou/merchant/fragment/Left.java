@@ -65,18 +65,10 @@ public class Left extends Fragment {
 	private LinearLayout loginLinearLayout;
 	private ImageView userhead;
 
- 	private boolean isLogin;
-	private boolean isLogin_enterprise;
-	private boolean isEnterprise;
-	private String nickname;
-	private String nickname_enterprise;
 
 	protected ImageLoader imageLoader;
 	private DisplayImageOptions options;
 
-	private static SharedPreferences sp;
-	private String headurl;
-	private String headurl_enterprise;
 	private DbLoginManager loginManager;
 	private DbUserManager userManager;
 	public Left() {
@@ -94,15 +86,7 @@ public class Left extends Fragment {
 	private void init() {
 		loginManager = DbLoginManager.getInstance(getActivity());
 		userManager = DbUserManager.getInstance(getActivity());
-		sp = getActivity().getSharedPreferences("phonemerchant", 1);
-		
-		isLogin = sp.getBoolean("isLogin", false);
-		isEnterprise = sp.getBoolean("isEnterprise", false);
-		isLogin_enterprise = sp.getBoolean("isLogin_enterprise", false);
-		headurl = sp.getString("headurl", "");
-		headurl_enterprise = sp.getString("headurl_enterprise", "");
-		nickname = sp.getString("nickname", "");
-		nickname_enterprise = sp.getString("nickname_enterprise", "");
+	 
 		imageLoader = ImageLoader.getInstance();
 
 		options = new DisplayImageOptions.Builder()
@@ -148,10 +132,18 @@ public class Left extends Fragment {
 		if (loginManager.getLoginStatus()) {//有登录状态
 			UserInfoBean bean = userManager.getLogingUserInfo();
 			if (bean != null) {
-				title_bar_user_name.setText(bean.getNickname());//设置昵称
-				imageLoader.displayImage(bean.getHeadurl(), userhead, options);
+				title_bar_user_name.setText(bean.getNickname()+"");//设置昵称
+				imageLoader.displayImage(bean.getHeadurl()+"", userhead, options);
 				title_bar_user_login.setText(getResources().getString(
 						R.string.isloginstatus));
+			}else {
+				imageLoader.displayImage(MyConstants.DRAWABLE_DEFOULT,
+						userhead, options);
+				title_bar_user_name.setText(getResources().getString(
+						R.string.nickname));
+				title_bar_user_login.setText(getResources().getString(
+						R.string.nologinstatus));
+			
 			}
 		}else {
 			imageLoader.displayImage(MyConstants.DRAWABLE_DEFOULT,
@@ -163,37 +155,7 @@ public class Left extends Fragment {
 		
 		}
 		
-		
-	/*	
-		if (isEnterprise) {// 判断是否是企业会员登陆，如果是企业会员，设置企业会员的信息，否则，普通会员
-			if (isLogin_enterprise) {
-				title_bar_user_name.setText(nickname_enterprise);
-				title_bar_user_login.setText(getResources().getString(
-						R.string.isloginstatus));
-				imageLoader.displayImage(headurl_enterprise, userhead, options);
-			} else {
-				imageLoader.displayImage(MyConstants.DRAWABLE_DEFOULT,
-						userhead, options);
-				title_bar_user_name.setText(getResources().getString(
-						R.string.nickname));
-				title_bar_user_login.setText(getResources().getString(
-						R.string.nologinstatus));
-			}
-		} else {
-			if (isLogin) {
-				title_bar_user_name.setText(nickname);
-				title_bar_user_login.setText(getResources().getString(
-						R.string.isloginstatus));
-				imageLoader.displayImage(headurl, userhead, options);
-			} else {
-				imageLoader.displayImage(MyConstants.DRAWABLE_DEFOULT,
-						userhead, options);
-				title_bar_user_name.setText(getResources().getString(
-						R.string.nickname));
-				title_bar_user_login.setText(getResources().getString(
-						R.string.nologinstatus));
-			}
-		}*/
+	 
 	}
 
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -207,7 +169,7 @@ public class Left extends Fragment {
 					System.out.println("有登录状态");
 					UserInfoBean bean = userManager.getLogingUserInfo();
 					if (bean != null) {
-						if (bean.getUsertype().equals("1")) {//企业会员
+						if (bean.getUsertype() != null && bean.getUsertype().equals("1")) {//企业会员
 							System.out.println("企业会员");
 							Intent intent = new Intent();
 							intent.setClass(getActivity(),
@@ -227,31 +189,7 @@ public class Left extends Fragment {
 					intent.setClass(getActivity(), ActivityLogin.class);
 					startActivity(intent);
 				}
-			/*	
-				if (isEnterprise) {// 判断是否是企业会员
-					if (isLogin_enterprise) {// 判断企业会员是否已经登陆
-						
-						Intent intent = new Intent();
-						intent.setClass(getActivity(),
-								UserControlEnterpriseActivity.class);
-						startActivity(intent);
-					} else {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), ActivityLogin.class);
-						startActivity(intent);
-					}
-				} else {
-					if (isLogin) {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(),
-								UserControlCommonActivity.class);
-						startActivity(intent);
-					} else {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), ActivityLogin.class);
-						startActivity(intent);
-					}
-				}*/
+	 
 				getActivity().finish();
 				mSlidingMenu.showLeftView();
 			}

@@ -22,11 +22,14 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.mzhou.merchant.activity.FabuQiugouActivity;
 import com.mzhou.merchant.activity.ActivityQG;
+import com.mzhou.merchant.activity.FabuZhaoshangActivity;
 import com.mzhou.merchant.activity.R;
 import com.mzhou.merchant.adapter.MyAttachAdapter;
 import com.mzhou.merchant.dao.biz.AttactManager;
 import com.mzhou.merchant.db.manager.DbAttachManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AttactBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
@@ -39,7 +42,6 @@ public class XianshiQiuGou extends Fragment {
 	private MyAttachAdapter mAdapter;
 	private AttactManager attactManager;
 	private int page = 2;
-	private String uid;
 	private Context context;
 	private String uptime;
 	private boolean flag = false;
@@ -75,6 +77,17 @@ public class XianshiQiuGou extends Fragment {
 						refreshView.getLoadingLayoutProxy()
 								.setLastUpdatedLabel(label);
 						if (WebIsConnectUtil.showNetState(getActivity())) {
+
+							 String uid = "0";
+							 String usertype = "0";
+							 
+							UserInfoBean userInfoBean =  DbUserManager.getInstance(getActivity()).getLogingUserInfo();
+							if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+								uid = userInfoBean.getUid();
+							}
+							if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+								usertype = userInfoBean.getUsertype();
+							}
 							attactManager.GetAttactInfo(getActivity(), 1, uid,
 									uptime, MyConstants.PURCHASE_URL);
 							attactManager
@@ -117,6 +130,17 @@ public class XianshiQiuGou extends Fragment {
 						refreshView.getLoadingLayoutProxy()
 								.setLastUpdatedLabel(label);
 						if (WebIsConnectUtil.showNetState(getActivity())) {
+							 String uid = "0";
+							 String usertype = "0";
+							 
+							UserInfoBean userInfoBean =  DbUserManager.getInstance(getActivity()).getLogingUserInfo();
+							if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+								uid = userInfoBean.getUid();
+							}
+							if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+								usertype = userInfoBean.getUsertype();
+							}
+							
 							attactManager.GetAttactInfo(getActivity(), page,
 									uid, "0", MyConstants.PURCHASE_URL);
 							attactManager
@@ -163,7 +187,6 @@ public class XianshiQiuGou extends Fragment {
 	}
 
 	private void init() {
-		uid = new String("0");
 		uptime = new String("0");
 		context = getActivity().getBaseContext();
 		mList = new LinkedList<AttactBean>();

@@ -650,6 +650,7 @@ public class XianshiIndex extends Fragment {
 	}
 	@Override
 	public void onStop() {
+		imageLoader.clearMemoryCache();
 			thread.interrupt();
 		super.onStop();
 	}

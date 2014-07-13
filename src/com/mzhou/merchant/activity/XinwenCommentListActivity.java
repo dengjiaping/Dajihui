@@ -25,7 +25,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.mzhou.merchant.dao.INews.IgetNewsCommentInfo;
 import com.mzhou.merchant.dao.biz.NewsManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.NewsCommentBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 
@@ -38,7 +40,6 @@ public class XinwenCommentListActivity extends Activity {
 	private LinkedList<NewsCommentBean> mLinkedList;
 	private ZSAdapter listAdapter;
 	private ImageView comment;
-	private SharedPreferences sp;
 	private int page_up;
 	private int page_down;
 	private String uptime;
@@ -59,7 +60,6 @@ public class XinwenCommentListActivity extends Activity {
 
 	private void init() {
 		newsManager = new NewsManager();
-		sp = getSharedPreferences("phonemerchant", 1);
 		page_down = 1;
 		page_up = 2;
 		uptime = new String("0");
@@ -82,8 +82,21 @@ public class XinwenCommentListActivity extends Activity {
 		comment.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String uid = sp.getString("uid", "0");
-				String commenter = sp.getString("name", "");
+				 String uid = "0";
+				 String commenter = "";
+				 
+				UserInfoBean userInfoBean =  DbUserManager.getInstance(XinwenCommentListActivity.this).getLogingUserInfo();
+				if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+					uid = userInfoBean.getUid();
+				}
+				if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+					if (userInfoBean.getUsertype().equals("1")) {
+						commenter = userInfoBean.getNickname();
+					}else {
+						commenter = userInfoBean.getContact();
+					}
+				}
+				 
 				Intent intent = new Intent();
 				intent.setClass(XinwenCommentListActivity.this,
 						XinwenCommentFabuActivity.class);

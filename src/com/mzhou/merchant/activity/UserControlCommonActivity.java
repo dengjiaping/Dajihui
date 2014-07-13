@@ -24,14 +24,11 @@ import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -108,7 +105,7 @@ public class UserControlCommonActivity extends Activity {
 	private boolean fromqq;
 	private DbLoginManager dbLoginManager;
 	private DbUserManager dbUserManager;
-	private boolean isSave= false;
+ 	private boolean isSave= false;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -192,7 +189,6 @@ public class UserControlCommonActivity extends Activity {
 	 * 设置返回来的值，用sharedPreference来去出来
 	 */
 	private void setData() {
-		// Log.i("print", headurl);
 		UserInfoBean userInfoBean = dbUserManager.getLogingUserInfo();
 		imageLoader.displayImage(userInfoBean.getHeadurl(), user_manager_user_head, options);
 		nicknameTextView.setText(userInfoBean.getNickname());
@@ -205,17 +201,6 @@ public class UserControlCommonActivity extends Activity {
 		user_manager_category_stub.setText(userInfoBean.getCategory());
 		user_manager_alter_passwd_stub.setText(userInfoBean.getPassword());
 		user_manager_alter_count.setText(userInfoBean.getUsername());
-//		nicknameTextView.setText(sp.getString("nickname", ""));
-//		user_manager_tv_name.setText(sp.getString("name", ""));
-//		user_manager_tv_phonnumber.setText(sp.getString("phonenub", ""));
-//		user_manager_tv_qq.setText(sp.getString("email", ""));
-//		user_manager_tv_company.setText(sp.getString("company", ""));
-//		user_manager_tv_address.setText(sp.getString("address", ""));
-//		user_manager_tv_net.setText(sp.getString("net", ""));
-//		user_manager_category_stub.setText(sp.getString("category", ""));
-//		user_manager_alter_passwd_stub.setText(sp.getString("password", ""));
-//		user_manager_alter_count.setText(sp.getString("username", ""));
-
 	}
 
 	@Override
@@ -314,6 +299,10 @@ public class UserControlCommonActivity extends Activity {
 					dbLoginManager.updateStauts();
 					dbUserManager.updateStauts();
 				}
+				if (fromqq && !isSave) {
+					dbLoginManager.updateStauts();
+					dbUserManager.updateStauts();
+				}
 			Intent intent = new Intent();
 			intent.setClass(context, ActivityIndex.class);
 			startActivity(intent);
@@ -334,7 +323,10 @@ public class UserControlCommonActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-
+				if (fromqq && !isSave) {
+					dbLoginManager.updateStauts();
+					dbUserManager.updateStauts();
+				}
 				Intent intent = new Intent();
 				intent.setClass(context, ActivityIndex.class);
 				startActivity(intent);
@@ -368,7 +360,7 @@ public class UserControlCommonActivity extends Activity {
 				if (fromqq) {
 					//查询当前帐号是否绑定了qq
 					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
-					if (loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
+					if (loginUserBean != null && loginUserBean.getIsbinder() != null && loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
 						System.out.println("当前用户登录绑定了qq");
 						if (isSave) {
 							Intent intent = new Intent();
@@ -598,7 +590,7 @@ public class UserControlCommonActivity extends Activity {
 				if (fromqq) {
 					//查询当前帐号是否绑定了qq
 					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
-					if (loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
+					if (loginUserBean != null && loginUserBean.getIsbinder() != null && loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
 						System.out.println("保存操作，当前用户登录绑定了qq");
 						save2Server();
 					} else {
@@ -717,9 +709,8 @@ public class UserControlCommonActivity extends Activity {
 									.getHeadurl());
 							userInfoBean.setCategory(userBean.getInfo().getCategory());
 							userInfoBean.setUsertype("0");
-							if (pwchange) {//如果修改了密码需要重新登录
-								userInfoBean.setStatus("0");
-							}
+							userInfoBean.setStatus("1");
+						 
 							dbUserManager.insertData(userInfoBean);
 							System.out.println("更新登录信息");
 						
@@ -733,7 +724,7 @@ public class UserControlCommonActivity extends Activity {
 		}
 	}
 	private void showdialog() {
-		final Dialog dialog = new Dialog(context);
+		final Dialog dialog = new Dialog(UserControlCommonActivity.this);
 		dialog.setTitle("绑定一个邮箱账号");
 		dialog.setCancelable(false);
 		dialog.setContentView(R.layout.activity_binderdialog);
@@ -752,6 +743,10 @@ public class UserControlCommonActivity extends Activity {
 						|| pw.getText().toString().equals("")) {
 					MyUtlis.toastInfo(context, "账号或密码为空！");
 				} else {
+					if (dbLoginManager.getCurrentBean().getOpenid() == null || dbLoginManager.getCurrentBean().getOpenid().equals("null") || dbLoginManager.getCurrentBean().getOpenid().equals("")) {
+						MyUtlis.toastInfo(context, "openid为空！");
+						return ;
+					}
 					userManager.Binder(context, MyConstants.LOGIN_URL, dbLoginManager.getCurrentBean().getOpenid(),
 							un.getText().toString(), pw.getText().toString());
 					userManager.getQQBinder(new IgetQQBinder() {
@@ -789,7 +784,6 @@ public class UserControlCommonActivity extends Activity {
 									loginUserBean.setUsertype("0");
  					 				loginUserBean.setIsbinder("1");
  					 				loginUserBean.setLastlogin("1");
- 					 				loginUserBean.setStatus("1");
 									dbLoginManager.updateByStatus(loginUserBean);
 									
 									System.out.println("更新用户信息");
@@ -814,7 +808,6 @@ public class UserControlCommonActivity extends Activity {
 											.getHeadurl());
 									userInfoBean.setCategory(userBean.getInfo().getCategory());
 									userInfoBean.setUsertype("0");
-										userInfoBean.setStatus("1");
 									dbUserManager.updateByStatus(userInfoBean);
 									System.out.println("更新登录信息");
 //									isBinder = true;

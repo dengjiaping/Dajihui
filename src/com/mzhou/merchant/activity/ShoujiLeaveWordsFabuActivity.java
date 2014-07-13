@@ -7,7 +7,10 @@ import java.util.Map;
 
 import com.mzhou.merchant.dao.IBack.IBackInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 
 import android.app.Activity;
@@ -44,10 +47,6 @@ public class ShoujiLeaveWordsFabuActivity extends Activity {
 	private EditText user_manager_leaveqq;
 	private EditText display_parameters_leavecontent;
 	private Button publish;
-	private SharedPreferences sp;
-	private String nickname;
-	private String email;
-	private String uid;
 	private String id;
 	private ProductsManager productsManager;
 
@@ -65,11 +64,6 @@ public class ShoujiLeaveWordsFabuActivity extends Activity {
 	private void init() {
 		Intent intent = getIntent();
 		id = intent.getStringExtra("productid");
-		sp = getSharedPreferences("phonemerchant", 1);
-		nickname = sp.getString("username", "");
-		email = sp.getString("phonenub", "");
-		uid = sp.getString("uid", "0");
-
 		productsManager = new ProductsManager();
 
 	}
@@ -105,6 +99,17 @@ public class ShoujiLeaveWordsFabuActivity extends Activity {
 				String category = user_manager_category_stub.getText()
 						.toString();
 				if (WebIsConnectUtil.showNetState(ShoujiLeaveWordsFabuActivity.this)) {
+					 String uid = "0";
+					 String usertype = "0";
+					 
+					UserInfoBean userInfoBean =  DbUserManager.getInstance(ShoujiLeaveWordsFabuActivity.this).getLogingUserInfo();
+					if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+						uid = userInfoBean.getUid();
+					}
+					if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+						usertype = userInfoBean.getUsertype();
+					}
+					
 					productsManager.GetPubProductsLeaveWords(
 							ShoujiLeaveWordsFabuActivity.this, id, uid, content,
 							nickname, email, category);
@@ -141,8 +146,21 @@ public class ShoujiLeaveWordsFabuActivity extends Activity {
 		user_manager_leaveqq = (EditText) findViewById(R.id.user_manager_leaveqq);
 		display_parameters_leavecontent = (EditText) findViewById(R.id.display_parameters_leavecontent);
 		publish = (Button) findViewById(R.id.publish);
-		user_manager_nickname.setText(nickname);
-		user_manager_leaveqq.setText(email);
+		
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			if ( userInfoBean.getUsertype().equals("1")) {
+				user_manager_nickname.setText(userInfoBean.getNickname());
+				user_manager_leaveqq.setText(userInfoBean.getCenter());
+			}else {
+				user_manager_nickname.setText(userInfoBean.getContact());
+				user_manager_leaveqq.setText(userInfoBean.getPhonenub());
+			}
+		}else {
+			user_manager_nickname.setText("");
+			user_manager_leaveqq.setText( "");
+		}
+		 
 	}
 
 	@Override

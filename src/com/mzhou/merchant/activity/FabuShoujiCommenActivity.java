@@ -9,8 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
 import com.mzhou.merchant.model.ProductsByIdBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
 import com.mzhou.merchant.utlis.JsonParse;
@@ -90,7 +93,6 @@ public class FabuShoujiCommenActivity extends Activity {
 	private int MAXSIZE = 5;
 	private Uri mImageUri;
 	private ImageAdapter adapter;
-	private SharedPreferences sp;
 	private String uid;
 	private String rom;
 	private String ah;
@@ -139,7 +141,6 @@ private ImageView imageview_add;
 	private void init() {
 		mList = new LinkedList<String>();
 		context = getBaseContext();
-		sp = getSharedPreferences("phonemerchant", 1);
 //		file = new File(saveDir, "temp_pic.jpg");
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
@@ -229,20 +230,33 @@ private ImageView imageview_add;
 	private void setData() {
 
 		// 判断是否填写了会员的信息如果填了就直接设置
-		String name = sp.getString("name", "");
-		uid = sp.getString("uid", "0");
-		String address = sp.getString("address", "");
-		String company = sp.getString("company", "");
-		String net = sp.getString("net", "");
-		String phonenub = sp.getString("phonenub", "");
-		String email = sp.getString("email", "");
-		pub_product_name.setText(name);
-		pub_product_number.setText(phonenub);
-		pub_product_email.setText(email);
-
-		pub_product_companyName.setText(company);
-		pub_product_address.setText(address);
-		pub_product_net.setText(net);
+		uid = "0";
+		
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			
+			if (userInfoBean.getUsertype() != null && !userInfoBean.getUsertype().equals("null") && !userInfoBean.getUsertype().equals("")) {
+				if (userInfoBean.getUsertype().equals("1")) {
+				}else {
+					pub_product_name.setText(userInfoBean.getContact());
+					pub_product_number.setText(userInfoBean.getPassword());
+					pub_product_email.setText(userInfoBean.getEmail());
+					pub_product_companyName.setText(userInfoBean.getCompany());
+					pub_product_address.setText(userInfoBean.getAddress());
+					pub_product_net.setText(userInfoBean.getNet());
+					uid = userInfoBean.getUid();
+				}
+			}
+			}else {
+				pub_product_name.setText("");
+				pub_product_number.setText("");
+				pub_product_email.setText("");
+				pub_product_companyName.setText("");
+				pub_product_address.setText("");
+				pub_product_net.setText("");
+			}
+	 
+ 
 		pub_product_pingpai.setText("");
 		pub_product_xinghao.setText("");
 		pub_product_xinpian.setText("");

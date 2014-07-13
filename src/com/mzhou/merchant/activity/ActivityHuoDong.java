@@ -1,6 +1,5 @@
 package com.mzhou.merchant.activity;
 
-import java.io.FileOutputStream;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,18 +9,14 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.DateUtils;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.alibaba.fastjson.JSON;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -31,11 +26,7 @@ import com.mzhou.merchant.adapter.MyActivityAdapter;
 import com.mzhou.merchant.dao.IActivity.IgetActivityInfo;
 import com.mzhou.merchant.dao.biz.ActivityManager;
 import com.mzhou.merchant.db.manager.DbActivityManager;
-import com.mzhou.merchant.db.manager.DbJobManager;
 import com.mzhou.merchant.model.ActivityBean;
-import com.mzhou.merchant.model.JobBean;
-import com.mzhou.merchant.utlis.JsonParse;
-import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 

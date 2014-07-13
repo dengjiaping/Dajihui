@@ -28,9 +28,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,10 +35,9 @@ import android.view.Window;
 
 public class ActivityBinderQQ extends Activity implements OnClickListener {
 	private Tencent mTencent;
-	public static String APP_ID = "1101307194";//1101307194  100523165
+	public static String APP_ID = "100523165";//1101307194  100523165
 	private String openid;
 	private Boolean common;
-	private static SharedPreferences sp;
 	private UserManager manager;
 	private Context context;
 	
@@ -57,7 +53,6 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 		context = ActivityBinderQQ.this;
 		dbLoginManager = DbLoginManager.getInstance(context);
 		dbUserManager = DbUserManager.getInstance(context);
-		sp = getSharedPreferences("phonemerchant", 1);
 		manager = new UserManager();
 		findViewById(R.id.title_bar_showleft).setOnClickListener(this);
 		findViewById(R.id.binder_again).setOnClickListener(this);
@@ -95,48 +90,6 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 					Constants.HTTP_GET, new BaseApiListener("get_user_info",
 							false), null);
 		}
-	}
-	private void save2Enterprise(AllBean user) {
-		Editor editor = sp.edit();
-		editor.putString("name_enterprise", user.getInfo().getContact());// 联系人
-		editor.putBoolean("isLogin_enterprise", true);// 是否登陆
-		editor.putBoolean("isEnterprise", true);// 设置是企业会员
-		editor.putString("openid_enterprise", openid);
-		editor.putBoolean("isBinder_enterprise", true);// 设置是否绑定
-		editor.putString("uid_enterprise", user.getUid());// 会员id
-		editor.putString("nickname_enterprise", user.getInfo().getNickname());// 昵称
-		editor.putString("username_enterprise", user.getInfo().getUsername());// 账号
-		editor.putString("password_enterprise", user.getInfo().getPassword());// 密码
-		editor.putString("company_center_enterprise", user.getInfo()
-				.getCenter());// 总机
-		editor.putString("company_fax_enterprise", user.getInfo().getFax());// 传真
-		editor.putString("company_enterprise", user.getInfo().getCompany());// 公司名称
-		editor.putString("address_enterprise", user.getInfo().getAddress());// 公司地址
-		editor.putString("net_enterprise", user.getInfo().getNet());// 公司网址
-		editor.putString("headurl_enterprise", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());// 头像地址
-		editor.commit();
-	}
-	private void save2SharedPrefenrence(AllBean user) {
-		Editor editor = sp.edit();
-		editor.putString("name", user.getInfo().getContact());// 联系人
-		editor.putBoolean("isLogin", true);
-		editor.putBoolean("isEnterprise", false);// 设置不是企业会员
-		editor.putBoolean("isBinder", true);// 设置是否绑定
-		editor.putString("uid", user.getUid());
-		editor.putString("openid", openid);
-		editor.putString("nickname", user.getInfo().getNickname());// 昵称
-		editor.putString("username", user.getInfo().getUsername());// 账号
-		editor.putString("password", user.getInfo().getPassword());// 密码
-		editor.putString("phonenub", user.getInfo().getPhonenub());
-		editor.putString("company", user.getInfo().getCompany());
-		editor.putString("address", user.getInfo().getAddress());
-		editor.putString("net", user.getInfo().getNet());
-		editor.putString("category", user.getInfo().getCategory());
-		editor.putString("headurl", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());
-		editor.putString("email", user.getInfo().getEmail());
-		editor.commit();
 	}
 	private void saveLoginInfo(AllBean user,String usertype) {
 		// 保存登录数据
@@ -337,26 +290,7 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 											intent.putExtra("fromqq", true);
 											startActivity(intent);
 											finish();
-										/*try {
-											Editor editor = sp.edit();
-											editor.putString("headurl_enterprise",
-													response.getString("figureurl_qq_2"));
-											editor.putString("nickname_enterprise",
-													response.getString("nickname"));
-													editor.putString("openid_enterprise", openid);
-											editor.putBoolean("isEnterprise", true);
-											editor.putBoolean("isBinder_enterprise", false);// 设置是否绑定
-											editor.putBoolean("isLogin", true);
-											editor.commit();
-											Intent intent = new Intent();
-											intent.setClass(ActivityBinderQQ.this,
-													UserControlEnterpriseActivity.class);
-											intent.putExtra("fromqq", true);
-											startActivity(intent);
-											finish();
-										} catch (JSONException e) {
-											e.printStackTrace();
-										}*/
+								 
 									}
 								} 
 							}

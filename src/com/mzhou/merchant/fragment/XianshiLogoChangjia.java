@@ -483,6 +483,7 @@ public void onResume() {
 	@Override
 	public void onStop() {
 			thread.interrupt();
+			imageLoader.clearMemoryCache();
 		super.onStop();
 	}
 }

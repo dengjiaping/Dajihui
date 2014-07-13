@@ -6,8 +6,11 @@ import java.util.Map;
 
 import com.mzhou.merchant.dao.IBack.IBackInfo;
 import com.mzhou.merchant.dao.biz.ActivityManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.ActivityBean;
 import com.mzhou.merchant.model.BackBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.ToolsUtils;
 
@@ -47,8 +50,6 @@ public class FabuActivity extends Activity {
 	private ImageView title_bar_showleft;
 	private ActivityManager manager;
 	private Context context;
-	private SharedPreferences mSharedPreferences;
-	private boolean isEnterprise;
  	private Time sTime;
  	private Time eTime;
  	private boolean isEnd;
@@ -59,14 +60,14 @@ public class FabuActivity extends Activity {
 		setContentView(R.layout.fabu_huodong);
 		init();
 		loadButton();
+		setData();
 		listenerButton();
 	}
+
 
 	private void init() {
 		manager = new ActivityManager();
 		context = FabuActivity.this;
-		mSharedPreferences = getSharedPreferences("phonemerchant", 1);
-		isEnterprise = mSharedPreferences.getBoolean("isEnterprise", false);
 		sTime = new Time();
 		eTime = new Time();
 		long st = System.currentTimeMillis();
@@ -90,6 +91,22 @@ public class FabuActivity extends Activity {
 		activity_etime_btn = (Button) findViewById(R.id.activity_etime_btn);
 		ToolsUtils.updateDateDisplay(activity_stime, sTime);
 		ToolsUtils.updateDateDisplay(activity_etime, eTime);
+	}
+	private void setData() {
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			if ( userInfoBean.getUsertype().equals("1")) {
+				activity_name.setText(userInfoBean.getNickname());
+				activity_contact.setText(userInfoBean.getCenter());
+			}else {
+				activity_name.setText(userInfoBean.getContact());
+				activity_contact.setText(userInfoBean.getPhonenub());
+			}
+		}else {
+			activity_name.setText("");
+			activity_contact.setText( "");
+		}
+	
 	}
 
 	private void listenerButton() {
@@ -139,11 +156,18 @@ public class FabuActivity extends Activity {
 				 activityBean.setLasttime(activity_stime.getText().toString());
 				 activityBean.setApplytime(activity_etime.getText().toString());
 				 
-				 if (isEnterprise) {
-					 manager.PubActivityInfo(context, mSharedPreferences.getString("uid_enterprise", "0"), "1", activityBean);
-				}else {
-					manager.PubActivityInfo(context, mSharedPreferences.getString("uid", "0"),"0", activityBean);
+				 String uid = "0";
+				 String usertype = "0";
+				 
+				UserInfoBean userInfoBean =  DbUserManager.getInstance(FabuActivity.this).getLogingUserInfo();
+				if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+					uid = userInfoBean.getUid();
 				}
+				if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+					usertype = userInfoBean.getUsertype();
+				}
+				 manager.PubActivityInfo(context, uid, usertype, activityBean);
+			 
 				manager.getBackInfoIml(new IBackInfo() {
 					@Override
 					public void getBackAttactInfo(BackBean backBean) {

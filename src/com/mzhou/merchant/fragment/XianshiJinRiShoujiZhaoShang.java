@@ -125,7 +125,6 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 	 */
 	private void init() {
 		context = getActivity().getBaseContext();
-		getActivity().getSharedPreferences("phonemerchant", 1);
 		mList = new LinkedList<ProductsBean>();
 		adBeans = new LinkedList<AdBean>();
 
@@ -537,6 +536,7 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 	@Override
 	public void onStop() {
 		thread.interrupt();
+		imageLoader.clearMemoryCache();
 		super.onStop();
 	}
 }

@@ -41,14 +41,12 @@ public class RegisterCommonActivity extends Activity {
 	private CheckBox cb_agree;
 	private boolean selcect = true;
 	private TextView tv_agree;
-	private SharedPreferences sPreferences;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.user_register_common);
-		sPreferences = getSharedPreferences("phonemerchant", 1);
 		userManager = new UserManager();
 		loadButton();
 		listernerButton();

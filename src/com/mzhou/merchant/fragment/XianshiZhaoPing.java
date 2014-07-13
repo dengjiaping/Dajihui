@@ -22,6 +22,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.mzhou.merchant.activity.FabuQiugouActivity;
 import com.mzhou.merchant.activity.FabuZhaopinActivity;
 import com.mzhou.merchant.activity.R;
 import com.mzhou.merchant.activity.ActivityZP;
@@ -30,7 +31,9 @@ import com.mzhou.merchant.adapter.MyJobAdapter;
 import com.mzhou.merchant.dao.IJob.IgetJobInfo;
 import com.mzhou.merchant.dao.biz.JobManager;
 import com.mzhou.merchant.db.manager.DbJobManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.JobBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 
@@ -43,7 +46,6 @@ public class XianshiZhaoPing extends Fragment {
 	private MyJobAdapter mAdapter;
 	private JobManager jobManager;
 	private int page;
-	private String uid;
 	private String uptime;
  	private boolean flag = false;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,8 +77,20 @@ public class XianshiZhaoPing extends Fragment {
 						refreshView.getLoadingLayoutProxy()
 								.setLastUpdatedLabel(label);
 						if (WebIsConnectUtil.showNetState(getActivity())) {
+							 String uid = "0";
+							 String usertype = "0";
+							 
+							UserInfoBean userInfoBean =  DbUserManager.getInstance(getActivity()).getLogingUserInfo();
+							if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+								uid = userInfoBean.getUid();
+							}
+							if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+								usertype = userInfoBean.getUsertype();
+							}
+							
+							
 							jobManager
-									.GetJobInfo(getActivity(), 1, uid, uptime);
+									.GetJobInfo(getActivity(), 1,uid, uptime);
 							jobManager.getJobInfoIml(new IgetJobInfo() {
 
 								@Override
@@ -114,6 +128,17 @@ public class XianshiZhaoPing extends Fragment {
 						refreshView.getLoadingLayoutProxy()
 								.setLastUpdatedLabel(label);
 						if (WebIsConnectUtil.showNetState(getActivity())) {
+							 String uid = "0";
+							 String usertype = "0";
+							 
+							UserInfoBean userInfoBean =  DbUserManager.getInstance(getActivity()).getLogingUserInfo();
+							if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+								uid = userInfoBean.getUid();
+							}
+							if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+								usertype = userInfoBean.getUsertype();
+							}
+							
 							jobManager
 									.GetJobInfo(getActivity(), page, uid, "0");
 							page++;
@@ -174,7 +199,6 @@ public class XianshiZhaoPing extends Fragment {
 		context = getActivity().getBaseContext();
 		jobManager = new JobManager();
 		mList = new LinkedList<JobBean>();
-		uid = new String("0");
 		uptime = new String("0");
 		mAdapter = new MyJobAdapter(context, mList);
 		page = 2;

@@ -7,7 +7,10 @@ import java.util.Map;
 
 import com.mzhou.merchant.dao.IBack.IBackInfo;
 import com.mzhou.merchant.dao.biz.JobManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 
@@ -50,10 +53,7 @@ public class FabuZhaopinActivity extends Activity {
 	private ListView lvPopupList;
 	private int NUM_OF_VISIBLE_LIST_ROWS = 9;
 	private int postion = 0;
-	private SharedPreferences spPreferences;
 	private JobManager jobManager;
-	private String uid;
-	private boolean isEnterprise;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -69,31 +69,36 @@ public class FabuZhaopinActivity extends Activity {
 
 	private void setdata() {
 		user_manager_category_stub.setText(moreList.get(0).get("share_key"));
-
-		if (isEnterprise) {
-			pub_qiugou_name.setText(spPreferences.getString("nickname", ""));
-			user_manager_qq.setText(spPreferences.getString("fax", ""));
-			display_job_contact.setText(spPreferences.getString(
-					"company_center_enterprise", ""));
-			pub_qiugou_address.setText(spPreferences.getString(
-					"address_enterprise", ""));
-			pub_qiugou_company.setText(spPreferences.getString(
-					"company_enterprise", ""));
-		} else {
-			pub_qiugou_name.setText(spPreferences.getString("name", ""));
-			user_manager_qq.setText(spPreferences.getString("email", ""));
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			if (userInfoBean.getUsertype().equals("1")) {
+				pub_qiugou_name.setText(userInfoBean.getNickname());
+				user_manager_qq.setText(userInfoBean.getFax());
+				display_job_contact.setText(userInfoBean.getCenter());
+				pub_qiugou_address.setText(userInfoBean.getAddress());
+				pub_qiugou_company.setText(userInfoBean.getCompany());
+			}else {
+				pub_qiugou_name.setText(userInfoBean.getContact());
+				user_manager_qq.setText(userInfoBean.getEmail());
+				display_job_contact
+						.setText(userInfoBean.getPhonenub());
+				pub_qiugou_address.setText(userInfoBean.getAddress());
+				pub_qiugou_company.setText(userInfoBean.getCompany());
+			}
+		}else {
+			pub_qiugou_name.setText("");
+			user_manager_qq.setText("");
 			display_job_contact
-					.setText(spPreferences.getString("phonenub", ""));
-			pub_qiugou_address.setText(spPreferences.getString("address", ""));
-			pub_qiugou_company.setText(spPreferences.getString("company", ""));
+					.setText("");
+			pub_qiugou_address.setText("");
+			pub_qiugou_company.setText("");
 		}
+ 
 	}
 
 	private void init() {
-		spPreferences = getSharedPreferences("phonemerchant", 1);
-		uid = spPreferences.getString("uid", "0");
 		jobManager = new JobManager();
-		isEnterprise = spPreferences.getBoolean("isEnterprise", false);
+		 
 	}
 
 	private void listennerButton() {
@@ -145,7 +150,19 @@ public class FabuZhaopinActivity extends Activity {
 				String phone = MyUtlis.getEditString(display_job_contact);
 				String company = MyUtlis.getEditString(pub_qiugou_company);
 				if (WebIsConnectUtil.showNetState(FabuZhaopinActivity.this)) {
-					jobManager.PubJobInfo(FabuZhaopinActivity.this, uid,
+
+					 String uid = "0";
+					 String usertype = "0";
+					 
+					UserInfoBean userInfoBean =  DbUserManager.getInstance(FabuZhaopinActivity.this).getLogingUserInfo();
+					if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+						uid = userInfoBean.getUid();
+					}
+					if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+						usertype = userInfoBean.getUsertype();
+					}
+					
+					jobManager.PubJobInfo(FabuZhaopinActivity.this,uid,
 							jobStation, content, contact, phone, email,
 							company, address, lasttime);
 					jobManager.getBackInfoIml(new IBackInfo() {

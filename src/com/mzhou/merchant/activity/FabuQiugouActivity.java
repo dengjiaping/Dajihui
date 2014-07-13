@@ -2,7 +2,10 @@ package com.mzhou.merchant.activity;
 
 import com.mzhou.merchant.dao.IBack.IBackInfo;
 import com.mzhou.merchant.dao.biz.AttactManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
@@ -29,8 +32,6 @@ public class FabuQiugouActivity extends Activity {
 	private String phonenumberStr;
 	private String nameStr;
 
-	private SharedPreferences sp;
-	private boolean isEnterprise;
 	private AttactManager attactManager;
 
 	@Override
@@ -54,15 +55,20 @@ public class FabuQiugouActivity extends Activity {
 				phonenumberStr = MyUtlis.getEditString(phonenumber);
 				nameStr = MyUtlis.getEditString(name);
 				if (WebIsConnectUtil.showNetState(FabuQiugouActivity.this)) {
-					if (isEnterprise) {
-						attactManager.PubAttactInfo(FabuQiugouActivity.this,
-								"1", contentStr, nameStr, phonenumberStr,  sp.getString("uid_enterprise", "0"),
-								MyConstants.PURCHASE_URL);
-					} else {
-						attactManager.PubAttactInfo(FabuQiugouActivity.this,
-								"0", contentStr, nameStr, phonenumberStr, sp.getString("uid", "0"),
-								MyConstants.PURCHASE_URL);
+					 String uid = "0";
+					 String usertype = "0";
+					 
+					UserInfoBean userInfoBean =  DbUserManager.getInstance(FabuQiugouActivity.this).getLogingUserInfo();
+					if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+						uid = userInfoBean.getUid();
 					}
+					if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+						usertype = userInfoBean.getUsertype();
+					}
+						attactManager.PubAttactInfo(FabuQiugouActivity.this,
+								usertype, contentStr, nameStr, phonenumberStr,  uid,
+								MyConstants.PURCHASE_URL);
+						 
 					attactManager.getBackInfoIml(new IBackInfo() {
 
 						@Override
@@ -95,14 +101,18 @@ public class FabuQiugouActivity extends Activity {
 	}
 
 	private void getdata() {
-		if (isEnterprise) {
-			name.setText(sp.getString("nickname", ""));
-			phonenumber.setText(sp.getString("company_center_enterprise", ""));
-		} else {
-			phonenumber.setText(sp.getString("phonenub", ""));
-			name.setText(sp.getString("name", ""));
-		}
-
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			if (userInfoBean.getUsertype().equals("1")) {
+				name.setText(userInfoBean.getNickname());
+				phonenumber.setText(userInfoBean.getCenter());
+			}else {
+				name.setText(userInfoBean.getContact());
+				phonenumber.setText(userInfoBean.getPhonenub());
+			}}else {
+				phonenumber.setText("");
+				name.setText( "");
+			}
 	}
 
 	private void loadbutton() {
@@ -115,8 +125,6 @@ public class FabuQiugouActivity extends Activity {
 
 	private void init() {
 		attactManager = new AttactManager();
-		sp = getSharedPreferences("phonemerchant", 1);
-		isEnterprise = sp.getBoolean("isEnterprise", false);
 	}
 
 }

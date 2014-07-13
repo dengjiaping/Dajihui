@@ -43,8 +43,10 @@ import android.widget.TextView;
 import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
 import com.mzhou.merchant.dao.IProduct.IgetProductInfoById;
 import com.mzhou.merchant.dao.biz.ProductsManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
 import com.mzhou.merchant.model.ProductsByIdBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
 import com.mzhou.merchant.utlis.JsonParse;
@@ -94,8 +96,6 @@ public class EditShoujiCommenActivity extends Activity {
 	private int MAXSIZE = 5;
 	private Uri mImageUri;
 	private ImageAdapter adapter;
-	private SharedPreferences sp;
-	private String uid;
 	private String rom;
 	private String ah;
 	private String brand;
@@ -147,8 +147,6 @@ public class EditShoujiCommenActivity extends Activity {
 	private void init() {
 		mList = new LinkedList<String>();
 		context = EditShoujiCommenActivity.this;
-		sp = getSharedPreferences("phonemerchant", 1);
-		uid = sp.getString("uid", "0");
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
 				.showStubImage(R.drawable.ad_loading)
@@ -417,6 +415,17 @@ public class EditShoujiCommenActivity extends Activity {
 								if (array.length > 0) {
 									Map<String, String> param1 = new HashMap<String, String>();
 									param1.put("subject", "edit");
+									 String uid = "0";
+									 String usertype = "0";
+									 
+									UserInfoBean userInfoBean =  DbUserManager.getInstance(context).getLogingUserInfo();
+									if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+										uid = userInfoBean.getUid();
+									}
+									if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+										usertype = userInfoBean.getUsertype();
+									}
+									
 									param1.put("uid", uid);
 									param1.put("data[id]", productid);
 									param1.put("data[brand]", brand);

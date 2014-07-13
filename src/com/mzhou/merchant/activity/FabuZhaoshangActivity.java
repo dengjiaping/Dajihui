@@ -2,7 +2,10 @@ package com.mzhou.merchant.activity;
 
 import com.mzhou.merchant.dao.IBack.IBackInfo;
 import com.mzhou.merchant.dao.biz.AttactManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 
@@ -26,9 +29,7 @@ public class FabuZhaoshangActivity extends Activity {
 	private String contentStr;
 	private String phonenumberStr;
 	private String nameStr;
-	private SharedPreferences sp;
 	private AttactManager attactManager;
-	private boolean isEnterprise;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -51,15 +52,22 @@ public class FabuZhaoshangActivity extends Activity {
 				phonenumberStr = phonenumber.getText().toString();
 				nameStr = name.getText().toString();
 				if (WebIsConnectUtil.showNetState(FabuZhaoshangActivity.this)) {
-					if (isEnterprise) {
-						attactManager.PubAttactInfo(FabuZhaoshangActivity.this,
-								"1", contentStr, nameStr, phonenumberStr, sp.getString("uid_enterprise", "0"),
-								MyConstants.ATTRACT_URL);
-					} else {
-						attactManager.PubAttactInfo(FabuZhaoshangActivity.this,
-								"0", contentStr, nameStr, phonenumberStr, sp.getString("uid", "0"),
-								MyConstants.ATTRACT_URL);
+					
+					 String uid = "0";
+					 String usertype = "0";
+					 
+					UserInfoBean userInfoBean =  DbUserManager.getInstance(FabuZhaoshangActivity.this).getLogingUserInfo();
+					if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+						uid = userInfoBean.getUid();
 					}
+					if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+						usertype = userInfoBean.getUsertype();
+					}
+					
+						attactManager.PubAttactInfo(FabuZhaoshangActivity.this,
+								usertype, contentStr, nameStr, phonenumberStr, uid,
+								MyConstants.ATTRACT_URL);
+						 
 					attactManager.getBackInfoIml(new IBackInfo() {
 
 						@Override
@@ -95,13 +103,20 @@ public class FabuZhaoshangActivity extends Activity {
 	}
 
 	private void setdata() {
-		if (isEnterprise) {
-			name.setText(sp.getString("nickname", ""));
-			phonenumber.setText(sp.getString("company_center_enterprise", ""));
-		} else {
-			name.setText(sp.getString("name", ""));
-			phonenumber.setText(sp.getString("phonenub", ""));
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			if (userInfoBean.getUsertype().equals("1")) {
+				name.setText(userInfoBean.getNickname());
+				phonenumber.setText(userInfoBean.getCenter());
+			}else {
+				name.setText(userInfoBean.getContact());
+				phonenumber.setText(userInfoBean.getPhonenub());
+			}
+		}else {
+			name.setText("");
+			phonenumber.setText( "");
 		}
+		 
 
 	}
 
@@ -116,7 +131,5 @@ public class FabuZhaoshangActivity extends Activity {
 
 	private void init() {
 		attactManager = new AttactManager();
-		sp = getSharedPreferences("phonemerchant", 1);
-		isEnterprise = sp.getBoolean("isEnterprise", false);
 	}
 }

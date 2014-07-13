@@ -28,6 +28,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.mzhou.merchant.adapter.MyGridProductAdapter2;
 import com.mzhou.merchant.dao.IProduct.IgetProductInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
 import com.mzhou.merchant.model.ProductsBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.MyUtlis;
@@ -126,7 +127,7 @@ public class LogoItemListActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if (getSharedPreferences("phonemerchant", 1).getBoolean("isLogin_enterprise", false)) {
+				if (DbLoginManager.getInstance(context).getLoginStatus()) {
 					Intent intent = new Intent();
 					intent.setClass(context,
 							UserControlEnterpriseActivity.class);
@@ -139,8 +140,6 @@ public class LogoItemListActivity extends Activity {
 						startActivity(intent);
 						finish(); 
 				}
-				
-				 
 			}
 		});
 

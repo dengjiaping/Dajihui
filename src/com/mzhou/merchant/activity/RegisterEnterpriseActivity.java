@@ -38,7 +38,6 @@ public class RegisterEnterpriseActivity extends Activity {
 	private EditText user_register_count_hint;
 	private EditText user_register_passwd_hint;
 	private EditText user_register_passwd_confirm_hint;
-	private SharedPreferences sPreferences;
 	private CheckBox cb_agree;
 	private boolean selcect = true;
 	private TextView tv_agree;
@@ -47,7 +46,6 @@ public class RegisterEnterpriseActivity extends Activity {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.user_register_enterprise);
-		sPreferences = getSharedPreferences("phonemerchant", 1);
 		userManager = new UserManager();
 		loadButton();
 		listernerButton();

@@ -40,6 +40,7 @@ import com.mzhou.merchant.adapter.MyGridProductAdapter4;
 import com.mzhou.merchant.dao.IProduct.IgetProductInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
 import com.mzhou.merchant.db.manager.DbAdManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
 import com.mzhou.merchant.db.manager.DbProductManager;
 import com.mzhou.merchant.model.AdBean;
 import com.mzhou.merchant.model.ProductsBean;
@@ -77,8 +78,6 @@ public class XianshiLogoProduct extends Fragment {
 	private String uptime;
 	private int classid;
 	private List<AdBean> adBeans;
-	private boolean isLogin;
-	private SharedPreferences sp;
 	private boolean flag = false;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -116,7 +115,7 @@ public class XianshiLogoProduct extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isLogin) {
+				if (DbLoginManager.getInstance(context).getLoginStatusByUsertype("1")) {
 					Intent intent = new Intent();
 					intent.setClass(getActivity(), FabuShoujiEnterpriseActivity.class);
 					startActivity(intent);
@@ -147,8 +146,6 @@ public class XianshiLogoProduct extends Fragment {
 				.showImageOnFail(R.drawable.ic_stub).delayBeforeLoading(0).cacheOnDisc().displayer(new FadeInBitmapDisplayer(200))
 				.imageScaleType(ImageScaleType.IN_SAMPLE_INT).bitmapConfig(Bitmap.Config.RGB_565).build();
 		mAdapter = new MyGridProductAdapter4(context, mList, imageLoader, options);
-		sp = getActivity().getSharedPreferences("phonemerchant", 1);
-		isLogin = sp.getBoolean("isLogin_enterprise", false);
 		page_up = 2;
 		page_down = 1;
 		uptime = new String("0");
@@ -549,6 +546,7 @@ public class XianshiLogoProduct extends Fragment {
 	@Override
 	public void onStop() {
 		thread.interrupt();
+		imageLoader.clearMemoryCache();
 		super.onStop();
 	}
 

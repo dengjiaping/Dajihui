@@ -45,10 +45,12 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
 import com.mzhou.merchant.dao.IProduct.IgetEnterpriseProductInfoById;
 import com.mzhou.merchant.dao.biz.ProductsManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
 import com.mzhou.merchant.model.GroupUsers;
 import com.mzhou.merchant.model.ProductsEnterpriseByIdBean;
 import com.mzhou.merchant.model.User;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
 import com.mzhou.merchant.utlis.JsonParse;
@@ -119,8 +121,6 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	private int MAXSIZE = 5;
 	private Uri mImageUri;
 	private ImageAdapter adapter;
-	private SharedPreferences sp;
-	private String uid_enterprise;
 	private String brand;
 	private String type;
 	private String chip;
@@ -172,9 +172,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	private void init() {
 		context = EditShoujiEnterpriseActivity.this;
 		mList = new LinkedList<String>();
-		sp = getSharedPreferences("phonemerchant", 1);
-		uid_enterprise = sp.getString("uid_enterprise", "0");
-
+ 
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
 				.showStubImage(R.drawable.ad_loading)
@@ -473,7 +471,17 @@ public class EditShoujiEnterpriseActivity extends Activity {
 										.toArray(new String[mList.size()]);
 								if (array.length > 0) {
 									Map<String, String> params = new HashMap<String, String>();
-									params.put("uid", uid_enterprise);
+									 String uid = "0";
+									 String usertype = "0";
+									 
+									UserInfoBean userInfoBean =  DbUserManager.getInstance(EditShoujiEnterpriseActivity.this).getLogingUserInfo();
+									if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+										uid = userInfoBean.getUid();
+									}
+									if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+										usertype = userInfoBean.getUsertype();
+									}
+									params.put("uid", uid);
 									params.put("data[id]", productid);
 									params.put("subject", "edit");
 									params.put("data[brand]", brand);

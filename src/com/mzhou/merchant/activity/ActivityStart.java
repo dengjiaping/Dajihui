@@ -37,13 +37,11 @@ import android.widget.ImageView;
 public class ActivityStart extends Activity {
 
 	private ImageView icon;
-	private SharedPreferences sp;
+ 	private SharedPreferences sp;
 	boolean loginself;
 	boolean loginself_enterprise;
 	boolean isEnterprise;
 	private CustomProgressDialog progressDialog = null;
-	private String usrename, password;
-	private String username_enterprise, password_enterprise;
 	private boolean firsttime;
 	private DbLoginManager loginManager;
 	private DbUserManager userManager;
@@ -57,13 +55,6 @@ public class ActivityStart extends Activity {
 		userManager = DbUserManager.getInstance(this);
 		sp = getSharedPreferences("phonemerchant", 1);
 		firsttime = sp.getBoolean("firsttime", true);
-		loginself = sp.getBoolean("loginself", false);
-		loginself_enterprise = sp.getBoolean("loginself_enterprise", false);
-		isEnterprise = sp.getBoolean("isEnterprise", false);
-		usrename = sp.getString("username", "");
-		password = sp.getString("password", "");
-		username_enterprise = sp.getString("username_enterprise", "");
-		password_enterprise = sp.getString("password_enterprise", "");
 		startMain();
 		
 	}
@@ -307,49 +298,7 @@ public class ActivityStart extends Activity {
 		}
 	}
 
-	private void save2SharedPrefenrence(AllBean user) {
-		Editor editor = sp.edit();
-		editor.putString("name_enterprise", user.getInfo().getContact());// 联系人
-		editor.putBoolean("loginself_enterprise", loginself_enterprise);// 是否自动登陆
-		editor.putBoolean("remeberpassword_enterprise", true);// 是否记住密码
-		editor.putBoolean("isLogin_enterprise", true);// 是否登陆
-		editor.putBoolean("isEnterprise", true);// 设置是企业会员
-		editor.putString("uid_enterprise", user.getUid());// 会员id
-		editor.putString("nickname_enterprise", user.getInfo().getNickname());// 昵称
-		editor.putString("username_enterprise", user.getInfo().getUsername());// 账号
-		editor.putString("password_enterprise", password_enterprise);// 密码
-		editor.putString("company_center_enterprise", user.getInfo()
-				.getCenter());// 总机
-		editor.putString("company_fax_enterprise", user.getInfo().getFax());// 传真
-		editor.putString("company_enterprise", user.getInfo().getCompany());// 公司名称
-		editor.putString("address_enterprise", user.getInfo().getAddress());// 公司地址
-		editor.putString("net_enterprise", user.getInfo().getNet());// 公司网址
-		editor.putString("headurl_enterprise", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());// 头像地址
-		editor.commit();
-	}
-
-	private void save2SharedPrefenrenceEn(AllBean user) {
-		Editor editor = sp.edit();
-		editor.putString("name", user.getInfo().getContact());// 联系人
-		editor.putBoolean("loginself", loginself);
-		editor.putBoolean("remeberpassword", true);
-		editor.putBoolean("isLogin", true);
-		editor.putBoolean("isEnterprise", false);// 设置不是企业会员
-		editor.putString("uid", user.getUid());
-		editor.putString("nickname", user.getInfo().getNickname());// 昵称
-		editor.putString("username", user.getInfo().getUsername());// 账号
-		editor.putString("password", password);// 密码
-		editor.putString("phonenub", user.getInfo().getPhonenub());
-		editor.putString("company", user.getInfo().getCompany());
-		editor.putString("address", user.getInfo().getAddress());
-		editor.putString("net", user.getInfo().getNet());
-		editor.putString("category", user.getInfo().getCategory());
-		editor.putString("headurl", MyConstants.PICTURE_URL
-				+ user.getInfo().getHeadurl());
-		editor.putString("email", user.getInfo().getEmail());
-		editor.commit();
-	}
+ 
 
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {

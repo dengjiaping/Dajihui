@@ -19,7 +19,9 @@ import com.mzhou.merchant.dao.IProduct.IgetProductInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
 import com.mzhou.merchant.db.manager.DbAdManager;
 import com.mzhou.merchant.db.manager.DbJobManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
 import com.mzhou.merchant.db.manager.DbProductManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AdBean;
 import com.mzhou.merchant.model.JobBean;
 import com.mzhou.merchant.model.ProductsBean;
@@ -80,8 +82,6 @@ public class XianshiFourG extends Fragment {
 	private String uptime;
 
 	private List<AdBean> adBeans;
-	private SharedPreferences sp;
-	private boolean isLogin;
 	private boolean flag = false;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,7 +98,6 @@ public class XianshiFourG extends Fragment {
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		getdata();
 	}
@@ -123,11 +122,12 @@ public class XianshiFourG extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isLogin) {
+				if (DbLoginManager.getInstance(context).getLoginStatusByUsertype("1")) {
 					Intent intent = new Intent();
 					intent.setClass(getActivity(), FabuShoujiEnterpriseActivity.class);
 					startActivity(intent);
-				} else {
+				}
+				 else {
 					Intent intent = new Intent();
 					intent.setClass(getActivity(), ActivityLogin.class);
 					intent.putExtra("isEnterprise", true);
@@ -147,8 +147,6 @@ public class XianshiFourG extends Fragment {
 		context = getActivity().getBaseContext();
 		mList = new LinkedList<ProductsBean>();
 		adBeans = new LinkedList<AdBean>();
-		sp = getActivity().getSharedPreferences("phonemerchant", 1);
-		isLogin = sp.getBoolean("isLogin_enterprise", false);
 
 		productsManager = new ProductsManager();
 

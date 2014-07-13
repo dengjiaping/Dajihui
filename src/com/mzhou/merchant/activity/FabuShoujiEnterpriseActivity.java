@@ -47,10 +47,13 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
 import com.mzhou.merchant.model.GroupUsers;
 import com.mzhou.merchant.model.ProductsEnterpriseByIdBean;
 import com.mzhou.merchant.model.User;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
 import com.mzhou.merchant.utlis.JsonParse;
@@ -129,7 +132,6 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	private int MAXSIZE = 5;
 	private Uri mImageUri;
 	private ImageAdapter adapter;
-	private SharedPreferences sp;
 	private String uid_enterprise;
 	private String brand;
 	private String type;
@@ -178,8 +180,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	private void init() {
 		context = FabuShoujiEnterpriseActivity.this;
 		mList = new LinkedList<String>();
-		sp = getSharedPreferences("phonemerchant", 1);
-		uid_enterprise = sp.getString("uid_enterprise", "0");
+		uid_enterprise = "0";
 
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
@@ -290,22 +291,31 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	 */
 	private void setData() {
 
-		String name_enterprise = sp.getString("name_enterprise", "");
-		uid_enterprise = sp.getString("uid_enterprise", "0");
-		String address_enterprise = sp.getString("address_enterprise", "");
-		String company_enterprise = sp.getString("company_enterprise", "");
-		String net_enterprise = sp.getString("net_enterprise", "");
-		String company_center_enterprise = sp.getString(
-				"company_center_enterprise", "");
-		String company_fax_enterprise = sp.getString("company_fax_enterprise",
-				"");
-
-		pub_product_companyName.setText(company_enterprise);
-		pub_product_address.setText(address_enterprise);
-		pub_product_net.setText(net_enterprise);
-		user_manager_centerFox.setText(company_fax_enterprise);
-		user_manager_centerNub.setText(company_center_enterprise);
-
+		String name_enterprise = "";
+		
+		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+			if (userInfoBean.getUsertype() != null && !userInfoBean.getUsertype().equals("null") && !userInfoBean.getUsertype().equals("")) {
+				
+				user_manager_centerFox.setText(userInfoBean.getFax());
+				user_manager_centerNub.setText(userInfoBean.getCenter());
+				pub_product_companyName.setText(userInfoBean.getCompany());
+				pub_product_address.setText(userInfoBean.getAddress());
+				pub_product_net.setText(userInfoBean.getNet());
+				uid_enterprise = userInfoBean.getUid();
+				name_enterprise = userInfoBean.getContact();
+			} 
+			}else {
+				user_manager_centerFox.setText("");
+				user_manager_centerNub.setText("");
+				pub_product_companyName.setText("");
+				pub_product_address.setText("");
+				pub_product_net.setText("");
+			}
+		
+		
+		
+		
 		GroupUsers groupUsers = getNameJson(name_enterprise);
 		if (groupUsers != null) {
 			name1.setText(groupUsers.getUsers().get(0).getName());

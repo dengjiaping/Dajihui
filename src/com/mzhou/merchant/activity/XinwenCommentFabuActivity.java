@@ -3,7 +3,9 @@ package com.mzhou.merchant.activity;
 import com.mzhou.merchant.activity.R;
 import com.mzhou.merchant.dao.IBack.IBackInfo;
 import com.mzhou.merchant.dao.biz.NewsManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.BackBean;
+import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 
 import android.app.Activity;
@@ -27,21 +29,17 @@ public class XinwenCommentFabuActivity extends Activity {
 	private String uid;
 	private NewsManager newsManager;
 	private String commenter;
-	private SharedPreferences sp;
-	private boolean isEnterprise;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.xianshi_xinwen_comment);
-		sp = getSharedPreferences("phonemerchant", 1);
 		newsManager = new NewsManager();
 		Intent intent = getIntent();
 		product_id = intent.getStringExtra("product_id");
 		uid = intent.getStringExtra("uid");
 
-		isEnterprise = sp.getBoolean("isEnterprise", false);
 		loadButton();
 		listenerButton();
 
@@ -64,15 +62,20 @@ public class XinwenCommentFabuActivity extends Activity {
 						.toString();
 
 				if (WebIsConnectUtil.showNetState(XinwenCommentFabuActivity.this)) {
-					if (isEnterprise) {
-						newsManager.PublishNewsComment(
-								XinwenCommentFabuActivity.this, "1", content, uid,
-								product_id, name);
-					} else {
-						newsManager.PublishNewsComment(
-								XinwenCommentFabuActivity.this, "0", content, uid,
-								product_id, name);
+					 String uid = "0";
+					 String usertype = "0";
+					 
+					UserInfoBean userInfoBean =  DbUserManager.getInstance(XinwenCommentFabuActivity.this).getLogingUserInfo();
+					if (userInfoBean != null && !userInfoBean.getUid().equals("null")&& !userInfoBean.getUid().equals("")) {
+						uid = userInfoBean.getUid();
 					}
+					if (userInfoBean != null && !userInfoBean.getUsertype().equals("null")&& !userInfoBean.getUsertype().equals("")) {
+						usertype = userInfoBean.getUsertype();
+					}
+					
+						newsManager.PublishNewsComment(
+								XinwenCommentFabuActivity.this, usertype, content, uid,
+								product_id, name);
 
 					newsManager.getBackInfo(new IBackInfo() {
 
@@ -98,13 +101,7 @@ public class XinwenCommentFabuActivity extends Activity {
 		publish = (Button) findViewById(R.id.publish);
 		display_news_comment_name = (EditText) findViewById(R.id.display_news_comment_name);
 		display_news_comment_content = (EditText) findViewById(R.id.display_news_comment_content);
-		if (isEnterprise) {
-			commenter = sp.getString("nickname_enterprise", "");
 			display_news_comment_name.setText(commenter);
-		} else {
-			commenter = sp.getString("nickname", "");
-			display_news_comment_name.setText(commenter);
-		}
 
 	}
 

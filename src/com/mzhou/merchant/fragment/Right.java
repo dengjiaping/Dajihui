@@ -40,10 +40,6 @@ public class Right extends Fragment {
 	private SlidingMenu mSlidingMenu;
 	private TextView title_bar_fankui;
 	private TextView title_bar_exit;
-	private SharedPreferences sp;
-	private boolean isLogin;
-	private boolean isEnterprise;
-	private boolean isLogin_enterprise;
 	private Context context;
 	
 	private DbLoginManager loginManager;
@@ -62,10 +58,6 @@ public class Right extends Fragment {
 		context = getActivity();
 		loginManager = DbLoginManager.getInstance(getActivity());
 		userManager = DbUserManager.getInstance(getActivity());
-		sp = getActivity().getSharedPreferences("phonemerchant", 1);
-		isLogin = sp.getBoolean("isLogin", false);
-		isEnterprise = sp.getBoolean("isEnterprise", false);
-		isLogin_enterprise = sp.getBoolean("isLogin_enterprise", false);
 	}
 
 	private void loadButton(View view) {
@@ -107,7 +99,7 @@ public class Right extends Fragment {
 					System.out.println("有登录状态");
 					UserInfoBean bean = userManager.getLogingUserInfo();
 					if (bean != null) {
-						if (bean.getUsertype().equals("1")) {//企业会员
+						if (bean.getUsertype() != null && bean.getUsertype().equals("1")) {//企业会员
 							System.out.println("企业会员");
 							Intent intent = new Intent();
 							intent.setClass(getActivity(),
@@ -127,30 +119,6 @@ public class Right extends Fragment {
 					intent.setClass(getActivity(), ActivityLogin.class);
 					startActivity(intent);
 				}
-				
-		/*		if (isEnterprise) {// 判断是否是企业会员
-					if (isLogin_enterprise) {// 判断企业会员是否已经登陆
-						Intent intent = new Intent();
-						intent.setClass(getActivity(),
-								UserControlEnterpriseActivity.class);
-						startActivity(intent);
-					} else {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), ActivityLogin.class);
-						startActivity(intent);
-					}
-				} else {
-					if (isLogin) {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(),
-								UserControlCommonActivity.class);
-						startActivity(intent);
-					} else {
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), ActivityLogin.class);
-						startActivity(intent);
-					}
-				}*/
 
 				getActivity().finish();
 				mSlidingMenu.showLeftView();
@@ -224,56 +192,6 @@ public class Right extends Fragment {
 				}
 				
 				
-			/*	
-				if (isEnterprise) {
-					if (isLogin_enterprise) {
-						Editor editor = sp.edit();
-						editor.putBoolean("isLogin_enterprise", false);
-						editor.putBoolean("isLogin", false);
-						editor.commit();
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), ActivityIndex.class);
-						startActivity(intent);
-						mSlidingMenu.showLeftView();
-						Toast.makeText(
-								getActivity(),
-								getActivity().getResources().getString(
-										R.string.exitok), Toast.LENGTH_SHORT)
-								.show();
-						getActivity().finish();
-					} else {
-						Toast.makeText(
-								getActivity(),
-								getActivity().getResources().getString(
-										R.string.exitfail), Toast.LENGTH_SHORT)
-								.show();
-					}
-				} else {
-					if (isLogin) {
-						Editor editor = sp.edit();
-						editor.putBoolean("isLogin_enterprise", false);
-						editor.putBoolean("isLogin", false);
-						editor.commit();
-						Intent intent = new Intent();
-						intent.setClass(getActivity(), ActivityIndex.class);
-						startActivity(intent);
-						mSlidingMenu.showLeftView();
-						Toast.makeText(
-								getActivity(),
-								getActivity().getResources().getString(
-										R.string.exitok), Toast.LENGTH_SHORT)
-								.show();
-						getActivity().finish();
-
-					} else {
-						Toast.makeText(
-								getActivity(),
-								getActivity().getResources().getString(
-										R.string.exitfail), Toast.LENGTH_SHORT)
-								.show();
-					}
-				}*/
-
 			}
 		});
 
