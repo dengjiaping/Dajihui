@@ -128,6 +128,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	private DbLoginManager dbLoginManager;
 	private DbUserManager dbUserManager;
 	private boolean isSave= false;
+	private boolean binder= false;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -151,6 +152,7 @@ public class UserControlEnterpriseActivity extends Activity {
 //		openid_enterprise = sp.getString("openid_enterprise", "");
 		Intent intent = getIntent();
 		fromqq = intent.getBooleanExtra("fromqq", false);
+		binder = intent.getBooleanExtra("binder", false);
 		userManager = new UserManager();
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
@@ -419,8 +421,10 @@ public class UserControlEnterpriseActivity extends Activity {
 				dbUserManager.updateStauts();
 			}
 			if (fromqq && !isSave) {
-				dbLoginManager.updateStauts();
-				dbUserManager.updateStauts();
+				if (!binder) {
+					dbLoginManager.updateStauts();
+					dbUserManager.updateStauts();
+				}
 			}
 			Intent intent = new Intent();
 			intent.setClass(UserControlEnterpriseActivity.this,
@@ -440,8 +444,10 @@ public class UserControlEnterpriseActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (fromqq && !isSave) {
-					dbLoginManager.updateStauts();
-					dbUserManager.updateStauts();
+					if (!binder) {
+						dbLoginManager.updateStauts();
+						dbUserManager.updateStauts();
+					}
 				}
 				Intent intent = new Intent();
 				intent.setClass(UserControlEnterpriseActivity.this,
@@ -482,14 +488,14 @@ public class UserControlEnterpriseActivity extends Activity {
 					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
 					if (loginUserBean != null && loginUserBean.getIsbinder() != null && loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
 						System.out.println("当前用户登录绑定了qq");
-						if (isSave) {
+//						if (isSave) {
 							Intent intent = new Intent();
 							intent.setClass(context, FabuShoujiEnterpriseActivity.class);
 							startActivity(intent);
-						}else {
-							//先保存用户信息
-							save2Server();
-						}
+//						}else {
+//							//先保存用户信息
+//							save2Server();
+//						}
 						
 					} else {
 						showdialog();

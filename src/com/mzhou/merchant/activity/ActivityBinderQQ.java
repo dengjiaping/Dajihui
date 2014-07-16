@@ -35,7 +35,7 @@ import android.view.Window;
 
 public class ActivityBinderQQ extends Activity implements OnClickListener {
 	private Tencent mTencent;
-	public static String APP_ID = "100523165";//1101307194  100523165
+	public static String APP_ID = "1101307194";//1101307194  100523165
 	private String openid;
 	private Boolean common;
 	private UserManager manager;
@@ -162,6 +162,7 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 												ActivityBinderQQ.this,
 												UserControlCommonActivity.class);
 										intent.putExtra("fromqq", true);
+										intent.putExtra("binder", true);
 										startActivity(intent);
 										finish();
 									} else {
@@ -206,26 +207,6 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 											startActivity(intent);
 											finish();
 											
-								/*		try {
-											Editor editor = sp.edit();
-											editor.putString("headurl",
-													response.getString("figureurl_qq_2"));
-											editor.putString("nickname",
-													response.getString("nickname"));
-											editor.putBoolean("isBinder", false);// 设置是否绑定
-											editor.putBoolean("isEnterprise", false);
-											editor.putString("openid", openid);
-											editor.putBoolean("isLogin", true);
-											editor.commit();
-											Intent intent = new Intent();
-											intent.setClass(ActivityBinderQQ.this,
-													UserControlCommonActivity.class);
-											intent.putExtra("fromqq", true);
-											startActivity(intent);
-											finish();
-										} catch (JSONException e) {
-											e.printStackTrace();
-										}*/
 									} 
 								} 
 							}
@@ -247,6 +228,7 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 												ActivityBinderQQ.this,
 												UserControlEnterpriseActivity.class);
 										intent.putExtra("fromqq", true);
+										intent.putExtra("binder", true);
 										startActivity(intent);
 										finish();
 									} else {

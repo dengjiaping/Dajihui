@@ -106,6 +106,7 @@ public class UserControlCommonActivity extends Activity {
 	private DbLoginManager dbLoginManager;
 	private DbUserManager dbUserManager;
  	private boolean isSave= false;
+ 	private boolean binder= false;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -124,6 +125,7 @@ public class UserControlCommonActivity extends Activity {
 		dbUserManager = DbUserManager.getInstance(context);
 		Intent intent1 = getIntent();
 		fromqq = intent1.getBooleanExtra("fromqq", false);
+		binder = intent1.getBooleanExtra("binder", false);
 
 		context = UserControlCommonActivity.this;
 		userManager = new UserManager();
@@ -300,8 +302,10 @@ public class UserControlCommonActivity extends Activity {
 					dbUserManager.updateStauts();
 				}
 				if (fromqq && !isSave) {
-					dbLoginManager.updateStauts();
-					dbUserManager.updateStauts();
+					if (!binder) {
+						dbLoginManager.updateStauts();
+						dbUserManager.updateStauts();
+					}
 				}
 			Intent intent = new Intent();
 			intent.setClass(context, ActivityIndex.class);
@@ -324,8 +328,10 @@ public class UserControlCommonActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (fromqq && !isSave) {
-					dbLoginManager.updateStauts();
-					dbUserManager.updateStauts();
+					if (!binder) {
+						dbLoginManager.updateStauts();
+						dbUserManager.updateStauts();
+					}
 				}
 				Intent intent = new Intent();
 				intent.setClass(context, ActivityIndex.class);
@@ -362,14 +368,14 @@ public class UserControlCommonActivity extends Activity {
 					LoginUserBean loginUserBean = dbLoginManager.getCurrentBean();
 					if (loginUserBean != null && loginUserBean.getIsbinder() != null && loginUserBean.getIsbinder().equals("1")) {//当前用户登录是否绑定了qq
 						System.out.println("当前用户登录绑定了qq");
-						if (isSave) {
+//						if (isSave) {
 							Intent intent = new Intent();
 							intent.setClass(context, FabuShoujiCommenActivity.class);
 							startActivity(intent);
-						}else {
+//						}else {
 							//先保存用户信息
-							save2Server();
-						}
+//							save2Server();
+//						}
 						
 					} else {
 						showdialog();
