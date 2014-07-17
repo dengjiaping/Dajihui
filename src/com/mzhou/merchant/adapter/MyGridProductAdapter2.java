@@ -51,7 +51,8 @@ public class MyGridProductAdapter2 extends BaseAdapter {
 			.delayBeforeLoading(0)
 			.cacheOnDisc()
 			.displayer(new FadeInBitmapDisplayer(200))
-			.imageScaleType(ImageScaleType.IN_SAMPLE_INT)
+			.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+			
 			.bitmapConfig(Bitmap.Config.RGB_565)
 			.build(); 
 		/*this.imageLoader = imageLoader;

@@ -253,25 +253,6 @@ public class UserControlEnterpriseActivity extends Activity {
 
 		setName(json_name);
 		
-		/*imageLoader.displayImage(headurl_enterprise, user_manager_user_head,
-				options);
-		nicknameTextView.setText(sp.getString("nickname_enterprise", ""));
-
-		user_manager_centerNub_stub.setText(sp.getString(
-				"company_center_enterprise", ""));
-		user_manager_centerFax_stub.setText(sp.getString(
-				"company_fax_enterprise", ""));
-		
-		user_manager_tv_company.setText(sp.getString("company_enterprise", ""));
-		user_manager_tv_address.setText(sp.getString("address_enterprise", ""));
-		user_manager_tv_net.setText(sp.getString("net_enterprise", ""));
-		user_manager_alter_passwd_stub.setText(sp.getString(
-				"password_enterprise", ""));
-		user_manager_alter_count.setText(sp
-				.getString("username_enterprise", ""));
-		String json_name = sp.getString("name_enterprise", "");
-
-		setName(json_name);*/
 	}
 
 	/**
@@ -506,24 +487,6 @@ public class UserControlEnterpriseActivity extends Activity {
 					intent.setClass(context, FabuShoujiEnterpriseActivity.class);
 					startActivity(intent);
 				}
-			
-				
-				/*if (fromqq) {
-					if (isBinder_enterprise) {
-						Intent intent = new Intent();
-						intent.setClass(UserControlEnterpriseActivity.this,
-								FabuShoujiEnterpriseActivity.class);
-						startActivity(intent);
-					} else {
-						showdialog();
-					}
-				} else {
-					Intent intent = new Intent();
-					intent.setClass(UserControlEnterpriseActivity.this,
-							FabuShoujiEnterpriseActivity.class);
-					startActivity(intent);
-				}*/
-
 			}
 		});
 		user_manager_user_head.setOnClickListener(new OnClickListener() {
@@ -895,7 +858,9 @@ public class UserControlEnterpriseActivity extends Activity {
 			}
 			params.put("data[nickname]", nickname);
 			params.put("data[contact]", json_name);
-			params.put("data[pw]", pw);
+			if (pwchange) {
+				params.put("data[pw]", pw);
+			}
 			params.put("data[center]", center);
 			params.put("data[fax]", fax);
 			params.put("data[company]", company);
@@ -919,7 +884,9 @@ public class UserControlEnterpriseActivity extends Activity {
 							}
 							//更新登录信息
 							LoginUserBean loginUserBean = new LoginUserBean();
-							loginUserBean.setPassword(pw);
+							if (pwchange) {
+								loginUserBean.setPassword(pw);
+							}
 							loginUserBean.setUsername(user_manager_alter_count.getText().toString());
 							loginUserBean.setUsertype("1");
 							loginUserBean.setLastlogin("1");

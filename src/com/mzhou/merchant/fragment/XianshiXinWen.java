@@ -252,4 +252,12 @@ public class XianshiXinWen extends Fragment {
 		} 
 		
 	}
+	@Override
+	public void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		imageLoader.stop();
+		imageLoader.clearMemoryCache();
+		System.gc();
+	}
 }

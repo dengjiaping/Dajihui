@@ -95,7 +95,10 @@ public class XianshiIndex extends Fragment {
 		thread.start();
 		listenerButton();
 		setAd();
-		checkVersion();
+		if (getActivity().getSharedPreferences("phonemerchant", 1).getBoolean("getversion", false)) {
+			checkVersion();
+		}
+		
 		return mView;
 	}
 	@Override
@@ -156,7 +159,7 @@ public class XianshiIndex extends Fragment {
 			case 1:
 				//set Dialog show
  				final String url = (String) msg.obj;
-
+ 				getActivity().getSharedPreferences("phonemerchant", 1).edit().putBoolean("getversion", false).commit();
  				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
  				  builder.setTitle("新版本提示");
  				  builder.setMessage("有新版本发布，请更新使用!");
@@ -221,8 +224,7 @@ public class XianshiIndex extends Fragment {
 			.showImageOnFail(R.drawable.ic_stub)
 			.delayBeforeLoading(0)
 			.cacheOnDisc()
-			.displayer(new FadeInBitmapDisplayer(200))
-			.imageScaleType(ImageScaleType.IN_SAMPLE_INT)
+			.imageScaleType(ImageScaleType.EXACTLY)
 			.bitmapConfig(Bitmap.Config.RGB_565)
 			.build(); 
 		 mAdapter = new MyGridProductAdapter4(context, mList,imageLoader,options);
@@ -651,7 +653,9 @@ public class XianshiIndex extends Fragment {
 	@Override
 	public void onStop() {
 		imageLoader.clearMemoryCache();
+		imageLoader.stop();
 			thread.interrupt();
+			System.gc();
 		super.onStop();
 	}
 }

@@ -484,6 +484,8 @@ public void onResume() {
 	public void onStop() {
 			thread.interrupt();
 			imageLoader.clearMemoryCache();
+			imageLoader.stop();
+			System.gc();
 		super.onStop();
 	}
 }

@@ -665,7 +665,9 @@ public class UserControlCommonActivity extends Activity {
 			params.put("data[category]", category);
 			params.put("data[nickname]", nickname);
 			params.put("data[contact]", contact);
-			params.put("data[pw]", pw);
+			if (pwchange) {
+				params.put("data[pw]", pw);
+			}
 			params.put("data[phonenub]", phonenub);
 			params.put("data[email]", email);
 			params.put("data[company]", company);
@@ -702,7 +704,9 @@ public class UserControlCommonActivity extends Activity {
 							userInfoBean.setNickname(userBean
 									.getInfo().getNickname());
 							userInfoBean.setUsername(user_manager_alter_count.getText().toString());
-							userInfoBean.setPassword(pw);
+							if (pwchange) {
+								userInfoBean.setPassword(pw);
+							}
 							userInfoBean.setContact( userBean.getInfo()
 									.getContact());
 							userInfoBean.setPhonenub(userBean.getInfo().getPhonenub());

@@ -58,14 +58,14 @@ public class MyApplication extends Application {
 			}
 		}
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-				context).threadPoolSize(4)
+				context).threadPoolSize(2)
 				.imageDownloader(new BaseImageDownloader(context))
 				.threadPriority(Thread.NORM_PRIORITY + 2)
-				.denyCacheImageMultipleSizesInMemory()
 				.discCache(new UnlimitedDiscCache(destDir))
 				.discCacheSize(500 * 1024 * 1024)
 				.imageDownloader(new BaseImageDownloader(context))
-				.tasksProcessingOrder(QueueProcessingType.FIFO).enableLogging() // Not																		// common
+				.tasksProcessingOrder(QueueProcessingType.FIFO).enableLogging() // Not		
+				// common
 				.build();
 		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);

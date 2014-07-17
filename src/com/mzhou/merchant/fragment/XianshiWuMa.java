@@ -154,8 +154,7 @@ public class XianshiWuMa extends Fragment {
 			.showImageOnFail(R.drawable.ic_stub)
 			.delayBeforeLoading(0)
 			.cacheOnDisc()
-			.displayer(new FadeInBitmapDisplayer(200))
-			.imageScaleType(ImageScaleType.IN_SAMPLE_INT)
+			.imageScaleType(ImageScaleType.EXACTLY)
 			.bitmapConfig(Bitmap.Config.RGB_565)
 			.build(); 
 		 mAdapter = new MyGridProductAdapter4(context, mList,imageLoader,options);
@@ -597,8 +596,10 @@ public class XianshiWuMa extends Fragment {
 	}
 	@Override
 	public void onStop() {
+		imageLoader.stop();
 		imageLoader.clearMemoryCache();
 			thread.interrupt();
+			System.gc();
 		super.onStop();
 	}
 }

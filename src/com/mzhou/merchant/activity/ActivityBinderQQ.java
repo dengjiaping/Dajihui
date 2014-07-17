@@ -100,6 +100,8 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 		loginUserBean.setUsertype(usertype);
 		loginUserBean.setStatus("1");
 		loginUserBean.setIsbinder("1");
+		loginUserBean.setIsloginself("0");
+		loginUserBean.setIsremeber("0");
 		loginUserBean.setOpenid(openid);
 		dbLoginManager.insertData(loginUserBean);
 		System.out.println("保存登录数据");

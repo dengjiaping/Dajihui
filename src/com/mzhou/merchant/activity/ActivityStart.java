@@ -62,7 +62,9 @@ public class ActivityStart extends Activity {
 		//如果是第一次，判断当前版本是不是等于2.8 ，如果不是等于2.8就将本地文件夹删除掉
 		deleteOldDir();
 		startMain();
-		
+		Editor editor = sp.edit();
+		editor.putBoolean("getversion", true);
+		editor.commit();
 	}
 	/**
 	 * 删除老的数据库文件
@@ -393,6 +395,7 @@ public class ActivityStart extends Activity {
 	@Override
 	protected void onStop() {
 		super.onStop();
+		System.gc();
 	}
 
 	public void writeFiles(String content, String filename) {

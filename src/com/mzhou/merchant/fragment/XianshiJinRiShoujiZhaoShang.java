@@ -131,8 +131,8 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 		productsManager = new ProductsManager();
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder().showStubImage(R.drawable.ic_stub).showImageForEmptyUri(R.drawable.ic_stub)
-				.showImageOnFail(R.drawable.ic_stub).delayBeforeLoading(0).cacheOnDisc().displayer(new FadeInBitmapDisplayer(200))
-				.imageScaleType(ImageScaleType.IN_SAMPLE_INT).bitmapConfig(Bitmap.Config.RGB_565).build();
+				.showImageOnFail(R.drawable.ic_stub).delayBeforeLoading(0).cacheOnDisc()
+				.imageScaleType(ImageScaleType.EXACTLY).bitmapConfig(Bitmap.Config.RGB_565).build();
 		mAdapter = new MyGridProductAdapter4(context, mList, imageLoader, options);
 		page_up = 2;
 		page_down = 1;
@@ -323,7 +323,7 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 
 			// List<ProductsBean> productsBeans = JsonParse
 			// .parseProductsJson(result);
-			if (productsBeans != null) {
+			if (productsBeans != null && productsBeans.size() != 0) {
 				mList.clear();
 				mList.addAll(productsBeans);
 				// Log.i("print", mList.toString());
@@ -536,7 +536,9 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 	@Override
 	public void onStop() {
 		thread.interrupt();
+		imageLoader.stop();
 		imageLoader.clearMemoryCache();
+		System.gc();
 		super.onStop();
 	}
 }
