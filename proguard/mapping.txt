@@ -7431,6 +7431,7 @@ com.mzhou.merchant.activity.UserControlCommonActivity -> com.mzhou.merchant.acti
     com.mzhou.merchant.db.manager.DbLoginManager dbLoginManager -> P
     com.mzhou.merchant.db.manager.DbUserManager dbUserManager -> Q
     boolean isSave -> R
+    boolean binder -> S
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -7446,10 +7447,10 @@ com.mzhou.merchant.activity.UserControlCommonActivity -> com.mzhou.merchant.acti
     void iniPopupWindow() -> g
     boolean access$0(com.mzhou.merchant.activity.UserControlCommonActivity) -> a
     boolean access$1(com.mzhou.merchant.activity.UserControlCommonActivity) -> b
-    com.mzhou.merchant.db.manager.DbLoginManager access$2(com.mzhou.merchant.activity.UserControlCommonActivity) -> c
-    com.mzhou.merchant.db.manager.DbUserManager access$3(com.mzhou.merchant.activity.UserControlCommonActivity) -> d
-    android.content.Context access$4(com.mzhou.merchant.activity.UserControlCommonActivity) -> e
-    void access$5(com.mzhou.merchant.activity.UserControlCommonActivity) -> f
+    boolean access$2(com.mzhou.merchant.activity.UserControlCommonActivity) -> c
+    com.mzhou.merchant.db.manager.DbLoginManager access$3(com.mzhou.merchant.activity.UserControlCommonActivity) -> d
+    com.mzhou.merchant.db.manager.DbUserManager access$4(com.mzhou.merchant.activity.UserControlCommonActivity) -> e
+    android.content.Context access$5(com.mzhou.merchant.activity.UserControlCommonActivity) -> f
     void access$6(com.mzhou.merchant.activity.UserControlCommonActivity) -> g
     java.util.LinkedList access$7(com.mzhou.merchant.activity.UserControlCommonActivity) -> h
     android.widget.PopupWindow access$8(com.mzhou.merchant.activity.UserControlCommonActivity) -> i
@@ -7465,10 +7466,12 @@ com.mzhou.merchant.activity.UserControlCommonActivity -> com.mzhou.merchant.acti
     android.widget.TextView access$18(com.mzhou.merchant.activity.UserControlCommonActivity) -> r
     android.widget.TextView access$19(com.mzhou.merchant.activity.UserControlCommonActivity) -> s
     android.widget.TextView access$20(com.mzhou.merchant.activity.UserControlCommonActivity) -> t
-    void access$21(com.mzhou.merchant.activity.UserControlCommonActivity,boolean) -> a
-    android.widget.TextView access$22(com.mzhou.merchant.activity.UserControlCommonActivity) -> u
+    void access$21(com.mzhou.merchant.activity.UserControlCommonActivity) -> u
+    void access$22(com.mzhou.merchant.activity.UserControlCommonActivity,boolean) -> a
     android.widget.TextView access$23(com.mzhou.merchant.activity.UserControlCommonActivity) -> v
-    java.util.List access$24(com.mzhou.merchant.activity.UserControlCommonActivity) -> w
+    boolean access$24(com.mzhou.merchant.activity.UserControlCommonActivity) -> w
+    android.widget.TextView access$25(com.mzhou.merchant.activity.UserControlCommonActivity) -> x
+    java.util.List access$26(com.mzhou.merchant.activity.UserControlCommonActivity) -> y
 com.mzhou.merchant.activity.UserControlCommonActivity$1 -> com.mzhou.merchant.activity.lb:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7631,6 +7634,7 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.
     com.mzhou.merchant.db.manager.DbLoginManager dbLoginManager -> ak
     com.mzhou.merchant.db.manager.DbUserManager dbUserManager -> al
     boolean isSave -> am
+    boolean binder -> an
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -7650,10 +7654,10 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.
     com.mzhou.merchant.model.GroupUsers parseJson(java.lang.String) -> b
     boolean access$0(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> a
     boolean access$1(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> b
-    com.mzhou.merchant.db.manager.DbLoginManager access$2(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> c
-    com.mzhou.merchant.db.manager.DbUserManager access$3(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> d
-    android.content.Context access$4(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> e
-    void access$5(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> f
+    boolean access$2(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> c
+    com.mzhou.merchant.db.manager.DbLoginManager access$3(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> d
+    com.mzhou.merchant.db.manager.DbUserManager access$4(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> e
+    android.content.Context access$5(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> f
     void access$6(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> g
     java.util.LinkedList access$7(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> h
     android.widget.TextView access$8(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> i
@@ -7667,9 +7671,11 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.
     android.widget.TextView access$16(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> p
     android.widget.TextView access$17(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> q
     android.widget.TextView access$18(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> r
-    void access$19(com.mzhou.merchant.activity.UserControlEnterpriseActivity,boolean) -> a
-    android.widget.TextView access$20(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> s
-    void access$21(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.lang.String) -> a
+    void access$19(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> s
+    void access$20(com.mzhou.merchant.activity.UserControlEnterpriseActivity,boolean) -> a
+    boolean access$21(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> t
+    android.widget.TextView access$22(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> u
+    void access$23(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.lang.String) -> a
 com.mzhou.merchant.activity.UserControlEnterpriseActivity$1 -> com.mzhou.merchant.activity.mb:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -10335,6 +10341,7 @@ com.mzhou.merchant.fragment.XianshiXinWen -> com.mzhou.merchant.c.fa:
     void init() -> C
     void onActivityCreated(android.os.Bundle) -> d
     void onDestroy() -> n
+    void onStop() -> l
     android.content.Context access$0(com.mzhou.merchant.fragment.XianshiXinWen) -> a
     java.util.LinkedList access$1(com.mzhou.merchant.fragment.XianshiXinWen) -> b
     void access$2(com.mzhou.merchant.fragment.XianshiXinWen,java.lang.String) -> a
@@ -11637,8 +11644,9 @@ com.nostra13.universalimageloader.core.ImageLoader -> com.a.a.b.g:
     void init(com.nostra13.universalimageloader.core.ImageLoaderConfiguration) -> a
     void displayImage(java.lang.String,android.widget.ImageView,com.nostra13.universalimageloader.core.DisplayImageOptions) -> a
     void displayImage(java.lang.String,android.widget.ImageView,com.nostra13.universalimageloader.core.DisplayImageOptions,com.nostra13.universalimageloader.core.assist.ImageLoadingListener) -> a
-    void checkConfiguration() -> c
+    void checkConfiguration() -> d
     void clearMemoryCache() -> b
+    void stop() -> c
 com.nostra13.universalimageloader.core.ImageLoaderConfiguration -> com.a.a.b.h:
     android.content.Context context -> a
     int maxImageWidthForMemoryCache -> b
@@ -11693,14 +11701,13 @@ com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder -> com.a
     boolean loggingEnabled -> z
     com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder threadPoolSize(int) -> a
     com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder threadPriority(int) -> b
-    com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder denyCacheImageMultipleSizesInMemory() -> a
     com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder tasksProcessingOrder(com.nostra13.universalimageloader.core.assist.QueueProcessingType) -> a
     com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder discCacheSize(int) -> c
     com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder imageDownloader(com.nostra13.universalimageloader.core.download.ImageDownloader) -> a
     com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder discCache(com.nostra13.universalimageloader.cache.disc.DiscCacheAware) -> a
-    com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder enableLogging() -> b
-    com.nostra13.universalimageloader.core.ImageLoaderConfiguration build() -> c
-    void initEmptyFiledsWithDefaultValues() -> d
+    com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder enableLogging() -> a
+    com.nostra13.universalimageloader.core.ImageLoaderConfiguration build() -> b
+    void initEmptyFiledsWithDefaultValues() -> c
     android.content.Context access$000(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder) -> a
     int access$100(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder) -> b
     int access$200(com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder) -> c
@@ -11733,15 +11740,16 @@ com.nostra13.universalimageloader.core.ImageLoaderEngine -> com.a.a.b.k:
     java.util.concurrent.atomic.AtomicBoolean slowNetwork -> i
     void submit(com.nostra13.universalimageloader.core.LoadAndDisplayImageTask) -> a
     void submit(com.nostra13.universalimageloader.core.ProcessAndDisplayImageTask) -> a
-    void initExecutorsIfNeed() -> d
-    java.util.concurrent.Executor createTaskExecutor() -> e
+    void initExecutorsIfNeed() -> e
+    java.util.concurrent.Executor createTaskExecutor() -> f
     java.lang.String getLoadingUriForView(android.widget.ImageView) -> a
     void prepareDisplayTaskFor(android.widget.ImageView,java.lang.String) -> a
     void cancelDisplayTaskFor(android.widget.ImageView) -> b
+    void stop() -> a
     java.util.concurrent.locks.ReentrantLock getLockForUri(java.lang.String) -> a
-    java.util.concurrent.atomic.AtomicBoolean getPause() -> a
-    boolean isNetworkDenied() -> b
-    boolean isSlowNetwork() -> c
+    java.util.concurrent.atomic.AtomicBoolean getPause() -> b
+    boolean isNetworkDenied() -> c
+    boolean isSlowNetwork() -> d
     void access$000(com.nostra13.universalimageloader.core.ImageLoaderEngine) -> a
     java.util.concurrent.Executor access$100(com.nostra13.universalimageloader.core.ImageLoaderEngine) -> b
     java.util.concurrent.Executor access$200(com.nostra13.universalimageloader.core.ImageLoaderEngine) -> c

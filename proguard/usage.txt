@@ -1068,7 +1068,7 @@ com.mzhou.merchant.activity.ActivityStart:
     boolean loginself
     boolean loginself_enterprise
     boolean isEnterprise
-    401:408:public void writeFiles(java.lang.String,java.lang.String)
+    404:411:public void writeFiles(java.lang.String,java.lang.String)
 com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
     private static final int REQUEST_CODE
@@ -1337,7 +1337,6 @@ com.nostra13.universalimageloader.core.ImageLoader:
     420:421:public void handleSlowNetwork(boolean)
     428:429:public void pause()
     433:434:public void resume()
-    441:442:public void stop()
     450:454:public void destroy()
 com.nostra13.universalimageloader.core.ImageLoaderConfiguration:
     131:131:public static com.nostra13.universalimageloader.core.ImageLoaderConfiguration createDefault(android.content.Context)
@@ -1352,6 +1351,7 @@ com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder:
     216:220:public com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder discCacheExtraOptions(int,int,android.graphics.Bitmap$CompressFormat,int)
     237:242:public com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder taskExecutor(java.util.concurrent.Executor)
     264:269:public com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder taskExecutorForCachedImages(java.util.concurrent.Executor)
+    316:317:public com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder denyCacheImageMultipleSizesInMemory()
     342:349:public com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder memoryCacheSize(int)
     363:368:public com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder memoryCache(com.nostra13.universalimageloader.cache.memory.MemoryCacheAware)
     399:407:public com.nostra13.universalimageloader.core.ImageLoaderConfiguration$Builder discCacheFileCount(int)
@@ -1363,7 +1363,6 @@ com.nostra13.universalimageloader.core.ImageLoaderEngine:
     144:145:void handleSlowNetwork(boolean)
     152:153:void pause()
     157:161:void resume()
-    165:174:void stop()
 com.nostra13.universalimageloader.core.LoadAndDisplayImageTask:
     private static final java.lang.String LOG_WAITING_FOR_RESUME
     private static final java.lang.String LOG_RESUME_AFTER_PAUSE

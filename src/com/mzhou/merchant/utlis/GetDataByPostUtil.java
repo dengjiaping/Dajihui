@@ -548,10 +548,12 @@ public class GetDataByPostUtil extends Activity {
 			params1.add(new BasicNameValuePair("subject", subject));
 			params1.add(new BasicNameValuePair("data[is_en]", is_en));
 			params1.add(new BasicNameValuePair("data[phone]", phone));
+			params1.add(new BasicNameValuePair("is_en", is_en));
+			params1.add(new BasicNameValuePair("phone", phone));
 			httppost.setEntity(new UrlEncodedFormEntity(params1));
-//			Log.i("print", "getProductInfo--params1---->" + params1);
+			Log.i("print", "getPhoneNumberInfo--params1---->" + params1);
 			String data = queryStringForPost(httppost, context);
-//			Log.i("print", "getProductInfo--return--result-->" + data);
+ 			Log.i("print", "getPhoneNumberInfo--return--result-->" + data);
 			return data;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
