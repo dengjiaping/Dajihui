@@ -4931,7 +4931,7 @@ com.mzhou.merchant.activity.ActivityStart -> com.mzhou.merchant.activity.Activit
     boolean deleteDir(java.io.File) -> a
     java.lang.String getVersionName() -> c
     void startMain() -> d
-    void postPhoneNum() -> e
+    void postPhoneNum(java.lang.String,java.lang.String) -> a
     void onStop() -> onStop
     void startProgressDialog(android.content.Context,java.lang.String) -> a
     void stopProgressDialog() -> a
@@ -4942,7 +4942,8 @@ com.mzhou.merchant.activity.ActivityStart -> com.mzhou.merchant.activity.Activit
     java.lang.String access$4(com.mzhou.merchant.activity.ActivityStart) -> e
     com.mzhou.merchant.db.manager.DbLoginManager access$5(com.mzhou.merchant.activity.ActivityStart) -> f
     com.mzhou.merchant.db.manager.DbUserManager access$6(com.mzhou.merchant.activity.ActivityStart) -> g
-    android.os.Handler access$7(com.mzhou.merchant.activity.ActivityStart) -> h
+    void access$7(com.mzhou.merchant.activity.ActivityStart,java.lang.String,java.lang.String) -> a
+    android.os.Handler access$8(com.mzhou.merchant.activity.ActivityStart) -> h
 com.mzhou.merchant.activity.ActivityStart$1 -> com.mzhou.merchant.activity.bq:
     com.mzhou.merchant.activity.ActivityStart this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
@@ -8992,8 +8993,13 @@ com.mzhou.merchant.db.manager.DbUserManager -> com.mzhou.merchant.b.a.q:
     void updateStauts() -> a
     int updateLoginStatus() -> b
     boolean isExist(com.mzhou.merchant.model.UserInfoBean) -> d
+    com.mzhou.merchant.model.UserInfoBean getUserInfoByUserNameAndUserType(java.lang.String,java.lang.String) -> a
     com.mzhou.merchant.model.UserInfoBean getLogingUserInfo() -> c
-com.mzhou.merchant.db.manager.DbUserManager$2 -> com.mzhou.merchant.b.a.r:
+com.mzhou.merchant.db.manager.DbUserManager$1 -> com.mzhou.merchant.b.a.r:
+    com.mzhou.merchant.db.manager.DbUserManager this$0 -> a
+    com.mzhou.merchant.model.UserInfoBean mapRow(android.database.Cursor,int) -> b
+    java.lang.Object mapRow(android.database.Cursor,int) -> a
+com.mzhou.merchant.db.manager.DbUserManager$2 -> com.mzhou.merchant.b.a.s:
     com.mzhou.merchant.db.manager.DbUserManager this$0 -> a
     com.mzhou.merchant.model.UserInfoBean mapRow(android.database.Cursor,int) -> b
     java.lang.Object mapRow(android.database.Cursor,int) -> a
@@ -11316,6 +11322,7 @@ com.mzhou.merchant.utlis.GetPhoneNum$UserBean -> com.mzhou.merchant.utlis.f:
     java.lang.String username -> b
     java.lang.String phonenum -> c
     com.mzhou.merchant.utlis.GetPhoneNum this$0 -> a
+    java.lang.String getPhonenum() -> a
     java.lang.String toString() -> toString
 com.mzhou.merchant.utlis.HttpMultipartPost -> com.mzhou.merchant.utlis.g:
     android.app.ProgressDialog pd -> a

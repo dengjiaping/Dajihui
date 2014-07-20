@@ -1068,7 +1068,7 @@ com.mzhou.merchant.activity.ActivityStart:
     boolean loginself
     boolean loginself_enterprise
     boolean isEnterprise
-    404:411:public void writeFiles(java.lang.String,java.lang.String)
+    441:448:public void writeFiles(java.lang.String,java.lang.String)
 com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
     private static final int REQUEST_CODE
@@ -1202,8 +1202,6 @@ com.mzhou.merchant.db.manager.DbUserManager:
     253:256:public void delete(int)
     261:263:public void deleteAll()
     282:283:public boolean getLoginStatusByUsertype(java.lang.String)
-    293:294:public com.mzhou.merchant.model.UserInfoBean getUserInfoByUserNameAndUserType(java.lang.String,java.lang.String)
-com.mzhou.merchant.db.manager.DbUserManager$1
 com.mzhou.merchant.myview.BaikeConstant:
     17:17:public BaikeConstant()
     34:36:public static java.lang.String replaceBreakLineToSpace(java.lang.String)
@@ -1236,7 +1234,7 @@ com.mzhou.merchant.utlis.CustomProgressDialog:
     69:69:public com.mzhou.merchant.utlis.CustomProgressDialog setTitile(java.lang.String)
 com.mzhou.merchant.utlis.GetDataByPostUtil:
     463:475:public static java.lang.String getProductCategoryInfo(android.content.Context,java.lang.String,java.lang.String)
-    660:674:public static java.lang.String getProductMsgInfo(android.content.Context,java.lang.String,java.lang.String,int,int)
+    662:676:public static java.lang.String getProductMsgInfo(android.content.Context,java.lang.String,java.lang.String,int,int)
 com.mzhou.merchant.utlis.GetPhoneNum:
     private static final int PHONES_DISPLAY_NAME_INDEX
     private static final int PHONES_NUMBER_INDEX
@@ -1245,7 +1243,6 @@ com.mzhou.merchant.utlis.GetPhoneNum:
 com.mzhou.merchant.utlis.GetPhoneNum$UserBean:
     85:85:public java.lang.String getUsername()
     88:89:public void setUsername(java.lang.String)
-    91:91:public java.lang.String getPhonenum()
     94:95:public void setPhonenum(java.lang.String)
     106:108:public GetPhoneNum$UserBean(com.mzhou.merchant.utlis.GetPhoneNum)
 com.mzhou.merchant.utlis.HttpRequest:

@@ -1014,6 +1014,7 @@ public class UserControlEnterpriseActivity extends Activity {
 									loginUserBean.setUsertype("1");
  					 				loginUserBean.setIsbinder("1");
  					 				loginUserBean.setLastlogin("1");
+ 					 				loginUserBean.setStatus("1");
 									dbLoginManager.updateByStatus(loginUserBean);
 									
 									System.out.println("更新用户信息");
@@ -1039,7 +1040,8 @@ public class UserControlEnterpriseActivity extends Activity {
 											+ userBean.getInfo()
 											.getHeadurl());
 									userInfoBean.setCategory(userBean.getInfo().getCategory());
-									userInfoBean.setUsertype("0");
+									userInfoBean.setUsertype("1");
+									userInfoBean.setStatus("1");
 									dbUserManager.updateByStatus(userInfoBean);
 									System.out.println("更新登录信息");
 								} else {
