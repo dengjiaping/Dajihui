@@ -1068,7 +1068,7 @@ com.mzhou.merchant.activity.ActivityStart:
     boolean loginself
     boolean loginself_enterprise
     boolean isEnterprise
-    441:448:public void writeFiles(java.lang.String,java.lang.String)
+    445:452:public void writeFiles(java.lang.String,java.lang.String)
 com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
     private static final int REQUEST_CODE

@@ -743,9 +743,9 @@ public class UserControlCommonActivity extends Activity {
 				.findViewById(R.id.user_login_username_hint);
 		final EditText pw = (EditText) dialog
 				.findViewById(R.id.user_login_password_hint);
-		Button binder = (Button) dialog.findViewById(R.id.binder_ok);
+		Button binderbtnButton = (Button) dialog.findViewById(R.id.binder_ok);
 		Button binder_cancel = (Button) dialog.findViewById(R.id.binder_cancel);
-		binder.setOnClickListener(new OnClickListener() {
+		binderbtnButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
@@ -766,6 +766,7 @@ public class UserControlCommonActivity extends Activity {
 								MyUtlis.toastInfo(context, userBean.getMsg()
 										.toString());
 								if (userBean.getStatus().equals("true")) {
+									binder = true;
 									Log.i("print", userBean.toString());
 									user_manager_alter_count.setText(un
 											.getText().toString());

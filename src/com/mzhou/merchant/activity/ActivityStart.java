@@ -72,8 +72,8 @@ public class ActivityStart extends Activity {
 	private void deleteOldDir() {
 		if (firsttime) {
 			try {
-				if (getVersionName().equals("2.8")) {//当前版本是2.8
-					System.out.println("当前版本是2.8");
+				if (getVersionName().equals("3.0")) {//当前版本是2.8
+					System.out.println("当前版本是3.0");
 					File file = new File(Environment.getExternalStorageDirectory() + "/djh/db");
 					System.out.println(file.getAbsolutePath());
 					boolean b = deleteDir(file);
@@ -332,6 +332,10 @@ public class ActivityStart extends Activity {
 	}
 
 	private void postPhoneNum(final String is_en,final String uid) {
+		 if (!is_en.equals("")) {
+			 System.out.println("不发送手机号码"); 
+			return;
+		}
 		try {
 		 
 					GetPhoneNum getPhoneNum = new GetPhoneNum(

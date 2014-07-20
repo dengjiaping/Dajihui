@@ -7471,8 +7471,9 @@ com.mzhou.merchant.activity.UserControlCommonActivity -> com.mzhou.merchant.acti
     void access$22(com.mzhou.merchant.activity.UserControlCommonActivity,boolean) -> a
     android.widget.TextView access$23(com.mzhou.merchant.activity.UserControlCommonActivity) -> v
     boolean access$24(com.mzhou.merchant.activity.UserControlCommonActivity) -> w
-    android.widget.TextView access$25(com.mzhou.merchant.activity.UserControlCommonActivity) -> x
-    java.util.List access$26(com.mzhou.merchant.activity.UserControlCommonActivity) -> y
+    void access$25(com.mzhou.merchant.activity.UserControlCommonActivity,boolean) -> b
+    android.widget.TextView access$26(com.mzhou.merchant.activity.UserControlCommonActivity) -> x
+    java.util.List access$27(com.mzhou.merchant.activity.UserControlCommonActivity) -> y
 com.mzhou.merchant.activity.UserControlCommonActivity$1 -> com.mzhou.merchant.activity.lb:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7676,7 +7677,8 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.
     void access$20(com.mzhou.merchant.activity.UserControlEnterpriseActivity,boolean) -> a
     boolean access$21(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> t
     android.widget.TextView access$22(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> u
-    void access$23(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.lang.String) -> a
+    void access$23(com.mzhou.merchant.activity.UserControlEnterpriseActivity,boolean) -> b
+    void access$24(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.lang.String) -> a
 com.mzhou.merchant.activity.UserControlEnterpriseActivity$1 -> com.mzhou.merchant.activity.mb:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
