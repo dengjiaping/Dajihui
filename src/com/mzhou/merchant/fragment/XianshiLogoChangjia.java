@@ -1,5 +1,7 @@
 package com.mzhou.merchant.fragment;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -73,7 +75,7 @@ public class XianshiLogoChangjia extends Fragment {
 		view = mView;
 		init();
 		loadButton(mView);
-		getdata();
+//		getdata();
 		thread.start();
 		setAd();
 		return mView;
@@ -167,6 +169,8 @@ public class XianshiLogoChangjia extends Fragment {
 												for (ProductsBean productsBean : productsBeans) {
 													mList.addLast(productsBean);
 												}
+												System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
+												Collections.sort(mList);
 												page_up++;
 												mAdapter.notifyDataSetChanged();
 												mPullRefreshScrollView
@@ -265,6 +269,7 @@ public class XianshiLogoChangjia extends Fragment {
 //					.parseProductsJson(result);
 			if (productsBeans != null) {
 				mList.addAll(productsBeans);
+				Collections.sort(mList);
 				mGridView.setAdapter(mAdapter);
 				
 			}

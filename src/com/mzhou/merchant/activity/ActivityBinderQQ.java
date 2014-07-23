@@ -206,6 +206,7 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 											intent.setClass(ActivityBinderQQ.this,
 													UserControlCommonActivity.class);
 											intent.putExtra("fromqq", true);
+											intent.putExtra("binder", false);
 											startActivity(intent);
 											finish();
 											
@@ -272,6 +273,7 @@ public class ActivityBinderQQ extends Activity implements OnClickListener {
 											intent.setClass(ActivityBinderQQ.this,
 													UserControlEnterpriseActivity.class);
 											intent.putExtra("fromqq", true);
+											intent.putExtra("binder", false);
 											startActivity(intent);
 											finish();
 									}

@@ -117,10 +117,10 @@ public class GetDataByPostUtil extends Activity {
 			params1.add(new BasicNameValuePair("data[openid]", openid));
 			params1.add(new BasicNameValuePair("data[un]", username));
 			params1.add(new BasicNameValuePair("data[pw]", passwd));
-//			 Log.i("print", " --binder-- -->"+params1.toString());
+ 			 Log.i("print", " --binder-- -->"+params1.toString());
 			httppost.setEntity(new UrlEncodedFormEntity(params1));
 			String data = queryStringForPost(httppost, context);
-//			  Log.i("print", " --binder-- -->"+data);
+ 			  Log.i("print", " --binder-- -->"+data);
 			return data;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

@@ -3,7 +3,7 @@
     package="com.mzhou.merchant.activity"
     android:installLocation="preferExternal"
     android:versionCode="3" 
-    android:versionName="3.0" >
+    android:versionName="3.1" >
     
     <uses-sdk
         android:minSdkVersion="8"

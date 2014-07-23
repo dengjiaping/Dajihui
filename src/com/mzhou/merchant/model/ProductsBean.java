@@ -1,7 +1,7 @@
 package com.mzhou.merchant.model;
 
 import java.io.Serializable;
-public class ProductsBean implements Serializable
+public class ProductsBean implements Serializable ,Comparable<ProductsBean>
 {
 	private static final long serialVersionUID = 1L;
 	private String id; 
@@ -77,6 +77,21 @@ public class ProductsBean implements Serializable
 				+ classid + ", brand=" + brand + ", is_en=" + is_en
 				+ ", is_show=" + is_show + ", pic=" + pic + ", order_sort="
 				+ order_sort + ", category=" + category + "]";
+	}
+	@Override
+	public int compareTo(ProductsBean o) {
+
+		if (this.getOrder_sort() != null && o.getOrder_sort() != null) {
+
+			if (Integer.parseInt(o.getOrder_sort()) <= Integer
+					.parseInt(this.getOrder_sort())) {
+				return 1;
+			}
+			return -1;
+
+		}
+		return 0;
+	
 	}
 	 
 	 

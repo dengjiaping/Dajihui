@@ -10915,6 +10915,8 @@ com.mzhou.merchant.model.ProductsBean -> com.mzhou.merchant.model.ProductsBean:
     java.lang.String getCategory() -> getCategory
     void setCategory(java.lang.String) -> setCategory
     java.lang.String toString() -> toString
+    int compareTo(com.mzhou.merchant.model.ProductsBean) -> compareTo
+    int compareTo(java.lang.Object) -> compareTo
 com.mzhou.merchant.model.ProductsByIdBean -> com.mzhou.merchant.model.ProductsByIdBean:
     long serialVersionUID -> serialVersionUID
     java.lang.String id -> id

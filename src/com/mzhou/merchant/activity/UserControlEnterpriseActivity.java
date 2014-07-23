@@ -968,7 +968,8 @@ public class UserControlEnterpriseActivity extends Activity {
 				} else {
 					if (dbLoginManager.getCurrentBean().getOpenid() == null || dbLoginManager.getCurrentBean().getOpenid().equals("null") || dbLoginManager.getCurrentBean().getOpenid().equals("")) {
 						MyUtlis.toastInfo(context, "openid为空！");
-						return ;
+						return ; 
+
 					}
 					userManager.Binder(context, MyConstants.EN_LOGIN_URL,
 							dbLoginManager.getCurrentBean().getOpenid(), un.getText().toString(), pw
