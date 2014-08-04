@@ -13,13 +13,13 @@
     </style>
 <style name="ad_image">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_height">160dp</item>
         <item name="android:scaleType">fitXY</item>
         
     </style>
 <style name="ad_logo">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">170dp</item>
+        <item name="android:layout_height">160dp</item>
         <item name="android:scaleType">fitCenter</item>
         
     </style>

@@ -3,20 +3,20 @@
     <!-- itemgrid 3 -->
     <style name="item_grid3">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_height">65dp</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
 
     <style name="item_grid4">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_height">65dp</item>
         <item name="android:scaleType">fitXY</item>
     </style>
 
     <!-- itemgrid 4 -->
     <style name="ad_image">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_height">165dp</item>
         <item name="android:scaleType">fitXY</item>
     </style>
 
