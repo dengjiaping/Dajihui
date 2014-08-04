@@ -127,18 +127,27 @@ public class LogoItemListActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if (DbLoginManager.getInstance(context).getLoginStatus()) {
+				try {
+					if (DbLoginManager.getInstance(context).getLoginStatus()) {
+						Intent intent = new Intent();
+						intent.setClass(context,
+								UserControlEnterpriseActivity.class);
+						startActivity(intent);
+						finish(); 
+					}else {
+						 Intent intent = new Intent();
+							intent.setClass(context, ActivityLogin.class);
+							intent.putExtra("isEnterprise", true);
+							startActivity(intent);
+							finish(); 
+					}
+				} catch (Exception e) {
 					Intent intent = new Intent();
 					intent.setClass(context,
 							UserControlEnterpriseActivity.class);
 					startActivity(intent);
 					finish(); 
-				}else {
-					 Intent intent = new Intent();
-						intent.setClass(context, ActivityLogin.class);
-						intent.putExtra("isEnterprise", true);
-						startActivity(intent);
-						finish(); 
+					e.printStackTrace();
 				}
 			}
 		});

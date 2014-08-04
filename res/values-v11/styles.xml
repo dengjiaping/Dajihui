@@ -8,7 +8,7 @@
     </style>
 <style name="item_grid4">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_height">70dp</item>
         <item name="android:scaleType">fitXY</item>
     </style>
 <style name="ad_image">
