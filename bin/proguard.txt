@@ -273,13 +273,16 @@
 # view res/layout/item_grid2.xml #generated:6
 -keep class com.mzhou.merchant.myview.SquareLayout { <init>(...); }
 
-# view AndroidManifest.xml #generated:338
+# view AndroidManifest.xml #generated:343
 -keep class com.mzhou.merchant.service.DownLoadService { <init>(...); }
 
 # view res/layout/activity_main.xml #generated:2
 -keep class com.mzhou.merchant.slidemenu.SlidingMenu { <init>(...); }
 
 # view AndroidManifest.xml #generated:327
+-keep class com.tencent.connect.common.AssistActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:332
 -keep class com.tencent.tauth.AuthActivity { <init>(...); }
 
 # view res/layout/item_pager_image.xml #generated:6

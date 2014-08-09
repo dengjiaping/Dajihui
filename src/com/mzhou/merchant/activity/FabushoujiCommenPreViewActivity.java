@@ -1,12 +1,8 @@
 package com.mzhou.merchant.activity;
 
 import java.io.File;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
-
-import com.mzhou.merchant.model.ProductsByIdBean;
-import com.mzhou.merchant.utlis.MyConstants;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,17 +14,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
-import android.widget.Gallery.LayoutParams;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Gallery;
+import android.widget.Gallery.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mzhou.merchant.model.ProductsByIdBean;
+import com.mzhou.merchant.utlis.MyConstants;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 @SuppressWarnings("deprecation")
 public class FabushoujiCommenPreViewActivity extends Activity {
@@ -69,6 +71,13 @@ public class FabushoujiCommenPreViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.fabu_shouji_preview);
 		init();
 		loadButton();
@@ -86,10 +95,16 @@ public class FabushoujiCommenPreViewActivity extends Activity {
 
 		p = (ProductsByIdBean) bundle.getSerializable("productinfo");
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.ic_stub)
-				.showImageForEmptyUri(R.drawable.ic_stub)
-				.showImageOnFail(R.drawable.ic_stub).cacheInMemory()
-				.cacheOnDisc().bitmapConfig(Bitmap.Config.RGB_565).build();
+		.showImageOnLoading(R.drawable.ad_loading)
+		.showImageForEmptyUri(R.drawable.ad_loading)
+		.showImageOnFail(R.drawable.ad_loading)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
+		 
 		imageLoader = ImageLoader.getInstance();
 		imageAdapter = new ImageAdapter();
 		imageitemAdapter = new ImageItemAdapter();

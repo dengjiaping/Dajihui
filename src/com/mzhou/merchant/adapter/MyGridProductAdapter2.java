@@ -45,16 +45,15 @@ public class MyGridProductAdapter2 extends BaseAdapter {
 		this.mList = mList;
 		 imageLoader = ImageLoader.getInstance();
 		 options = new DisplayImageOptions.Builder()
-			.showStubImage(R.drawable.ic_stub)
+			.showImageOnLoading(R.drawable.ic_stub)
 			.showImageForEmptyUri(R.drawable.ic_stub)
 			.showImageOnFail(R.drawable.ic_stub)
-			.delayBeforeLoading(0)
-			.cacheOnDisc()
-			.displayer(new FadeInBitmapDisplayer(200))
 			.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
-			
+			.cacheInMemory(true)
+			.cacheOnDisk(true)
+			.considerExifParams(true)
 			.bitmapConfig(Bitmap.Config.RGB_565)
-			.build(); 
+			.build();
 		/*this.imageLoader = imageLoader;
 		this.options = options;*/
 	}

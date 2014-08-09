@@ -2,9 +2,36 @@ package com.mzhou.merchant.activity;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -25,32 +52,7 @@ import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 public class UserControlEnterpriseActivity extends Activity {
 	private ImageView title_bar_showleft;// 返回
@@ -134,6 +136,13 @@ public class UserControlEnterpriseActivity extends Activity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.user_manager_enterprise);
 		init();
 		loadButton();
@@ -155,13 +164,17 @@ public class UserControlEnterpriseActivity extends Activity {
 		binder = intent.getBooleanExtra("binder", false);
 		userManager = new UserManager();
 		imageLoader = ImageLoader.getInstance();
+		 
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.head_default)
-				.showImageForEmptyUri(R.drawable.head_default)
-				.showImageOnFail(R.drawable.head_default).cacheInMemory()
-				.cacheOnDisc().delayBeforeLoading(0)
-				.bitmapConfig(Bitmap.Config.RGB_565)
-				.displayer(new RoundedBitmapDisplayer(10)).build();
+		.showImageOnLoading(R.drawable.head_default)
+		.showImageForEmptyUri(R.drawable.head_default)
+		.showImageOnFail(R.drawable.head_default)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 		mList = new LinkedList<String>();
 
 		File savePath = new File(saveDir);
@@ -287,26 +300,28 @@ public class UserControlEnterpriseActivity extends Activity {
 
 	private void setName(String json_name) {
 		GroupUsers groupUsers = parseJson(json_name);
-		user_manager_tv_name1.setText(nameString(groupUsers, 0));
-		user_manager_tv_name2.setText(nameString(groupUsers, 1));
-		user_manager_tv_name3.setText(nameString(groupUsers, 2));
-		user_manager_tv_name4.setText(nameString(groupUsers, 3));
-		user_manager_tv_name5.setText(nameString(groupUsers, 4));
-		user_manager_tv_name6.setText(nameString(groupUsers, 5));
-		user_manager_tv_name7.setText(nameString(groupUsers, 6));
-		user_manager_tv_name8.setText(nameString(groupUsers, 7));
-		user_manager_tv_name9.setText(nameString(groupUsers, 8));
-		user_manager_tv_name10.setText(nameString(groupUsers, 9));
-		user_manager_tv_nub1.setText(numberString(groupUsers, 0));
-		user_manager_tv_nub2.setText(numberString(groupUsers, 1));
-		user_manager_tv_nub3.setText(numberString(groupUsers, 2));
-		user_manager_tv_nub4.setText(numberString(groupUsers, 3));
-		user_manager_tv_nub5.setText(numberString(groupUsers, 4));
-		user_manager_tv_nub6.setText(numberString(groupUsers, 5));
-		user_manager_tv_nub7.setText(numberString(groupUsers, 6));
-		user_manager_tv_nub8.setText(numberString(groupUsers, 7));
-		user_manager_tv_nub9.setText(numberString(groupUsers, 8));
-		user_manager_tv_nub10.setText(numberString(groupUsers, 9));
+		if (groupUsers != null) {
+			user_manager_tv_name1.setText(nameString(groupUsers, 0));
+			user_manager_tv_name2.setText(nameString(groupUsers, 1));
+			user_manager_tv_name3.setText(nameString(groupUsers, 2));
+			user_manager_tv_name4.setText(nameString(groupUsers, 3));
+			user_manager_tv_name5.setText(nameString(groupUsers, 4));
+			user_manager_tv_name6.setText(nameString(groupUsers, 5));
+			user_manager_tv_name7.setText(nameString(groupUsers, 6));
+			user_manager_tv_name8.setText(nameString(groupUsers, 7));
+			user_manager_tv_name9.setText(nameString(groupUsers, 8));
+			user_manager_tv_name10.setText(nameString(groupUsers, 9));
+			user_manager_tv_nub1.setText(numberString(groupUsers, 0));
+			user_manager_tv_nub2.setText(numberString(groupUsers, 1));
+			user_manager_tv_nub3.setText(numberString(groupUsers, 2));
+			user_manager_tv_nub4.setText(numberString(groupUsers, 3));
+			user_manager_tv_nub5.setText(numberString(groupUsers, 4));
+			user_manager_tv_nub6.setText(numberString(groupUsers, 5));
+			user_manager_tv_nub7.setText(numberString(groupUsers, 6));
+			user_manager_tv_nub8.setText(numberString(groupUsers, 7));
+			user_manager_tv_nub9.setText(numberString(groupUsers, 8));
+			user_manager_tv_nub10.setText(numberString(groupUsers, 9));
+		}
 	}
 
 	@Override
@@ -1069,7 +1084,7 @@ public class UserControlEnterpriseActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		if (file.exists() && file != null) {
+		if (file != null && file.exists() ) {
 			file.delete();
 			deleteDir(file);
 		}
@@ -1152,9 +1167,14 @@ public class UserControlEnterpriseActivity extends Activity {
 	 * @return
 	 */
 	private GroupUsers parseJson(String string) {
-		if (string != null && !string.equals("") && !string.equals("[]")) {
-			GroupUsers groupUsers = JSON.parseObject(string, GroupUsers.class);
-			return groupUsers;
+		try {
+			if (string != null && !string.equals("") && !string.equals("[]")) {
+				GroupUsers groupUsers = JSON.parseObject(string, GroupUsers.class);
+				return groupUsers;
+			}
+			
+		} catch (Exception e) {
+			return null;
 		}
 		return null;
 	}

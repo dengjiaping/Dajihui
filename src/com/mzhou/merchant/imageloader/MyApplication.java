@@ -57,16 +57,14 @@ public class MyApplication extends Application {
 				deleteDir(destDir);
 			}
 		}
-		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-				context).threadPoolSize(2)
-				.imageDownloader(new BaseImageDownloader(context))
-				.threadPriority(Thread.NORM_PRIORITY + 2)
-				.discCache(new UnlimitedDiscCache(destDir))
-				.discCacheSize(500 * 1024 * 1024)
-				.imageDownloader(new BaseImageDownloader(context))
-				.tasksProcessingOrder(QueueProcessingType.FIFO).enableLogging() // Not		
-				// common
-				.build();
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context)
+		.threadPriority(Thread.NORM_PRIORITY - 2)
+		.denyCacheImageMultipleSizesInMemory()
+		.diskCacheFileNameGenerator(new Md5FileNameGenerator())
+		.diskCacheSize(50 * 1024 * 1024) // 50 Mb
+		.tasksProcessingOrder(QueueProcessingType.FIFO)
+		.writeDebugLogs() // Remove for release app
+		.build();
 		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);
 	}

@@ -26,10 +26,13 @@ public class WebIsConnectUtil extends Activity {
 	public static boolean isNetworkAvailable(Context paramContext) {
 		ConnectivityManager connectivitymanager = (ConnectivityManager) paramContext
 				.getSystemService("connectivity");
-		NetworkInfo networkinfo = connectivitymanager.getActiveNetworkInfo();
-		if (connectivitymanager != null)
+		if (connectivitymanager != null){
+			NetworkInfo networkinfo = connectivitymanager.getActiveNetworkInfo();
 			if ((networkinfo != null && networkinfo.isAvailable()))
 				return true;
+		}
+		
+			
 		return false;
 	}
 

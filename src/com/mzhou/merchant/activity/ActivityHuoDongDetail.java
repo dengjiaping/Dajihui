@@ -1,5 +1,7 @@
 package com.mzhou.merchant.activity;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +35,13 @@ public class ActivityHuoDongDetail extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.xianshi_huodong_one);
 		init();

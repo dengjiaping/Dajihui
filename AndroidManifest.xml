@@ -324,6 +324,11 @@
             android:name="com.mzhou.merchant.activity.ActivityLogin"
             android:screenOrientation="portrait" >
         </activity>
+         <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"

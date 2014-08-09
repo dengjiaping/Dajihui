@@ -5,6 +5,8 @@
     <string name="rootdir">/djh</string>
     <string name="dbdir">/db</string>
     <string name="none"></string>
+    <string name="share_to_qq">QQ好友</string>
+<string name="share_to_qqzone">QQ空间</string>
     <string name="xianshi_logo_intro1">\n\n该企业还没有上传产品\n\n请注册企业会员发布\n\n</string>
     <string name="xianshi_logo_intro2">立刻注册</string>
     <string name="call_btn">拨打电话</string>
@@ -53,6 +55,7 @@
     <string name="refresh">刷新</string>
     <string name="delete">删除</string>
     <string name="look">查看</string>
+    <string name="share">分享</string>
     <string name="edit">修改</string>
     <string name="local">从手机相册选择</string>
     <string name="search_null">搜索关键字不为空！</string>

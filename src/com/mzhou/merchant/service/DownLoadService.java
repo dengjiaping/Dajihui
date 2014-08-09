@@ -1,6 +1,7 @@
 package com.mzhou.merchant.service;
 
 import java.io.FileOutputStream;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.mzhou.merchant.db.manager.DbActivityManager;
 import com.mzhou.merchant.db.manager.DbAdManager;
@@ -33,6 +35,14 @@ public class DownLoadService extends Service {
 @Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
+	
+	Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+        
+        @Override
+        public void uncaughtException(Thread thread, Throwable ex) {
+            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+        }
+    });
 		super.onCreate();
 	
 	}

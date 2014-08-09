@@ -1,5 +1,6 @@
 package com.mzhou.merchant.activity;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -55,6 +57,13 @@ public class LogoItemListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.xianshi_logo_item);
 		init();
 		loadButton();
@@ -198,8 +207,8 @@ public class LogoItemListActivity extends Activity {
 										public void getProductInfo(
 												List<ProductsBean> productsBeans) {
 											if ((productsBeans != null)
-													&& (!productsBeans
-															.equals("[]"))) {
+													&& (productsBeans
+															.size() !=0)) {
 												for (ProductsBean productsBean : productsBeans) {
 													mList.addLast(productsBean);
 												}
@@ -235,8 +244,8 @@ public class LogoItemListActivity extends Activity {
 										public void getProductInfo(
 												List<ProductsBean> productsBeans) {
 											if ((productsBeans != null)
-													&& (!productsBeans
-															.equals("[]"))) {
+													&& (productsBeans
+															.size() !=0)) {
 												for (ProductsBean productsBean : productsBeans) {
 													mList.addLast(productsBean);
 

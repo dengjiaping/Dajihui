@@ -1,5 +1,7 @@
 package com.mzhou.merchant.activity;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -18,20 +20,22 @@ import com.mzhou.merchant.model.ProductsBean;
 import com.mzhou.merchant.model.PublishProductBean;
 import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
-import com.mzhou.merchant.utlis.GetDataByPostUtil;
-import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
+import com.tencent.connect.share.QQShare;
+import com.tencent.connect.share.QzoneShare;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
+
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +45,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MyProductAlreadyCheckActivity extends Activity {
@@ -56,11 +61,20 @@ public class MyProductAlreadyCheckActivity extends Activity {
 	private String uptime;
 	private String uid_enterprise;
 	private boolean isEnterprise;
-
+	 private QQShare mQQShare = null;
+	  private QzoneShare mQzoneShare = null;
+	  private com.tencent.tauth.Tencent	mTencent = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.view_pager_yifabu);
 		init();
 		loadButton();
@@ -74,7 +88,9 @@ public class MyProductAlreadyCheckActivity extends Activity {
 	 * 
 	 */
 	private void init() {
-		
+	 	mTencent = Tencent.createInstance(MyConstants.APP_ID, MyProductAlreadyCheckActivity.this);
+    	mQQShare = new QQShare(this, mTencent.getQQToken());
+    	 mQzoneShare = new QzoneShare(this, mTencent.getQQToken());
 		if (DbLoginManager.getInstance(this).getLoginStatus()) {
 			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
 			if ( userInfoBean.getUsertype().equals("1")) {
@@ -128,6 +144,7 @@ public class MyProductAlreadyCheckActivity extends Activity {
 				View view1 = inflater.inflate(R.layout.dialog_menu_product,
 						null);
 				Button look = (Button) view1.findViewById(R.id.look);
+				Button share = (Button) view1.findViewById(R.id.share);
 				Button delete = (Button) view1.findViewById(R.id.delete);
 				Button refresh = (Button) view1.findViewById(R.id.refresh);
 				Button cancel = (Button) view1.findViewById(R.id.cancel);
@@ -159,6 +176,77 @@ public class MyProductAlreadyCheckActivity extends Activity {
 							intent.putExtra("id", mList.get(arg2).getId());
 							startActivity(intent);
 						}
+					}
+				});
+	share.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+						 //share_qq_zone  share_qq  share_qq_cancel
+						AlertDialog.Builder builder = new AlertDialog.Builder(MyProductAlreadyCheckActivity.this);
+						LayoutInflater inflater = LayoutInflater.from(MyProductAlreadyCheckActivity.this);
+						View view = inflater.inflate(R.layout.share_to_qq, null);
+						view.setMinimumWidth(2000);
+						Button share_qq_cancel = (Button) view.findViewById(R.id.share_qq_cancel);
+						TextView share_qq = (TextView) view.findViewById(R.id.share_qq);
+						TextView share_qq_zone = (TextView) view.findViewById(R.id.share_qq_zone);
+						builder.setView(view);
+						final AlertDialog dialog = builder.create();
+						dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+						WindowManager.LayoutParams wmlp = dialog.getWindow()
+								.getAttributes();
+						wmlp.gravity = Gravity.BOTTOM;
+						dialog.show();
+						share_qq_cancel.setOnClickListener(new OnClickListener() {
+							
+							@Override
+							public void onClick(View v) {
+								 dialog.dismiss();
+							}
+						});
+						share_qq.setOnClickListener(new OnClickListener() {
+							
+							@Override
+							public void onClick(View v) {
+								dialog.dismiss();
+								//share to qq
+							 	final Bundle params = new Bundle();
+								String title = "【大机汇】"+"分享产品";
+								String summary = 	"分享了一个新产品【"+mList.get(arg2).getBrand()+"】，点击查看更多详细信息";
+								String imageUrl = MyUtlis.getHeadPic(mList.get(arg2).getPic(), MyProductAlreadyCheckActivity.this);
+								params.putString(QQShare.SHARE_TO_QQ_TITLE, title);
+								params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://www.baidu.com");
+								params.putString(QQShare.SHARE_TO_QQ_SUMMARY, summary);
+								params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,imageUrl);
+								params.putString(QQShare.SHARE_TO_QQ_APP_NAME, "大机汇");
+								 params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
+						            params.putInt(QQShare.SHARE_TO_QQ_EXT_INT,0x00);  
+						            	doShareToQQ(params);
+							}
+						});
+						share_qq_zone.setOnClickListener(new OnClickListener() {
+							
+							@Override
+							public void onClick(View v) {
+								dialog.dismiss();
+								final Bundle params = new Bundle();
+				                params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneShare.SHARE_TO_QZONE_TYPE_IMAGE_TEXT);
+				            	String title = "【大机汇】"+"分享产品";
+								String summary = 	"分享了一个新产品【"+mList.get(arg2).getBrand()+"】，点击查看更多详细信息";
+				                params.putString(QzoneShare.SHARE_TO_QQ_TITLE, title);
+				                params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY,summary);
+				                params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://www.baidu.com");
+				                String imageUrl = MyUtlis.getHeadPic(mList.get(arg2).getPic(), MyProductAlreadyCheckActivity.this);
+				                // 支持传多个imageUrl
+				                ArrayList<String> imageUrls = new ArrayList<String>();
+				                imageUrls.add(imageUrl);
+				                // params.putString(Tencent.SHARE_TO_QQ_IMAGE_URL, imageUrl);
+				                params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageUrls);
+				                doShareToQzone(params);
+							}
+						});
+						
 					}
 				});
 				edit.setOnClickListener(new OnClickListener() {
@@ -213,6 +301,42 @@ public class MyProductAlreadyCheckActivity extends Activity {
 		});
 
 	}
+	   /**
+     * 用异步方式启动分享
+     * @param params
+     */
+  
+   private void doShareToQQ(final Bundle params) {
+    	System.out.println("传入的参数是------"+params.toString());
+        final Activity activity = MyProductAlreadyCheckActivity.this;
+        new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                mQQShare.shareToQQ(activity, params, new IUiListener() {
+
+                    @Override
+                    public void onCancel() {
+                    	System.out.println("qq share ---onCancel-----");
+                    }
+
+                    @Override
+                    public void onComplete(Object response) {
+                    	System.out.println("qq share --------");
+                    	System.out.println(response.toString());
+                    	System.out.println("qq share --------"); 
+                    	MyUtlis.toastInfo(MyProductAlreadyCheckActivity.this, "分享成功!");
+                    }
+
+                    @Override
+                    public void onError(UiError e) {
+                    	System.out.println("qq share --------"+e.errorMessage);
+                    }
+
+                });
+            }
+        }).start();
+    } 
 	private void showRefreshDialog(  Context context, final int arg2) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(context);
 		builder.setTitle("提示");
@@ -366,8 +490,8 @@ public class MyProductAlreadyCheckActivity extends Activity {
 											public void getProductInfo(
 													List<ProductsBean> productsBeans) {
 												if ((productsBeans != null)
-														&& (!productsBeans
-																.equals("[]"))) {
+														&& (productsBeans
+																.size() !=0)) {
 													for (ProductsBean productsBean : productsBeans) {
 														mList.addLast(productsBean);
 													}
@@ -407,8 +531,8 @@ public class MyProductAlreadyCheckActivity extends Activity {
 											public void getProductInfo(
 													List<ProductsBean> productsBeans) {
 												if ((productsBeans != null)
-														&& (!productsBeans
-																.equals("[]"))) {
+														&& (productsBeans
+																.size() !=0)) {
 													for (ProductsBean productsBean : productsBeans) {
 														mList.addLast(productsBean);
 
@@ -450,8 +574,8 @@ public class MyProductAlreadyCheckActivity extends Activity {
 											public void getProductInfo(
 													List<ProductsBean> productsBeans) {
 												if ((productsBeans != null)
-														&& (!productsBeans
-																.equals("[]"))) {
+														&& (productsBeans
+																.size() !=0)) {
 													for (ProductsBean productsBean : productsBeans) {
 														mList.addLast(productsBean);
 													}
@@ -488,8 +612,8 @@ public class MyProductAlreadyCheckActivity extends Activity {
 											public void getProductInfo(
 													List<ProductsBean> productsBeans) {
 												if ((productsBeans != null)
-														&& (!productsBeans
-																.equals("[]"))) {
+														&& (productsBeans
+																.size() != 0)) {
 													for (ProductsBean productsBean : productsBeans) {
 														mList.addLast(productsBean);
 
@@ -516,5 +640,53 @@ public class MyProductAlreadyCheckActivity extends Activity {
 
 		}
 	}
+	   @Override
+	    protected void onDestroy() {
+	        super.onDestroy();
+	        if (mQzoneShare != null) {
+	            mQzoneShare.releaseResource();
+	            mQzoneShare = null;
+	        }
+	        if (mQQShare != null) {
+	            mQQShare.releaseResource();
+	            mQQShare = null;
+	        }
+	        if (mTencent != null) {
+	        	mTencent = null;
+			}
+	    }
+	   
+	   /**
+	     * 用异步方式启动分享
+	     * @param params
+	     */
+	    private void doShareToQzone(final Bundle params) {
+	        final Activity activity = MyProductAlreadyCheckActivity.this;
+	        new Thread(new Runnable() {
+	            
+	            @Override
+	            public void run() {
+	                // TODO Auto-generated method stub
+	            	mQzoneShare.shareToQzone(activity, params, new IUiListener() {
 
+	                    @Override
+	                    public void onCancel() {
+	                      System.out.println("oncancel  ");
+	                    }
+
+	                    @Override
+	                    public void onError(UiError e) {
+	                        // TODO Auto-generated method stub
+	                        System.out.println("----erro-----"+e.errorMessage);
+	                    }
+
+						@Override
+						public void onComplete(Object response) {
+							// TODO Auto-generated method stub
+							 System.out.println("onComplete: " + response.toString());
+						}
+
+	                });
+	            }
+	        }).start();}
 }

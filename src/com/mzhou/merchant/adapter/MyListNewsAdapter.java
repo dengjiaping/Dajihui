@@ -43,16 +43,16 @@ public class MyListNewsAdapter extends BaseAdapter {
 		this.context = context;
 		this.mnewsList = mnewsList;
 		imageLoader = ImageLoader.getInstance();
-		 options = new DisplayImageOptions.Builder()
-			.showStubImage(R.drawable.ic_stub)
-			.showImageForEmptyUri(R.drawable.ic_stub)
-			.showImageOnFail(R.drawable.ic_stub)
-			.delayBeforeLoading(0)
-			.cacheOnDisc()
-			.displayer(new FadeInBitmapDisplayer(200))
-			.imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-			.bitmapConfig(Bitmap.Config.RGB_565)
-			.build(); 
+		options = new DisplayImageOptions.Builder()
+		.showImageOnLoading(R.drawable.ic_stub)
+		.showImageForEmptyUri(R.drawable.ic_stub)
+		.showImageOnFail(R.drawable.ic_stub)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 	}
 
 	private int clickTemp = -1;

@@ -1,5 +1,7 @@
 package com.mzhou.merchant.activity;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import com.mzhou.merchant.dao.biz.JobManager;
 import com.mzhou.merchant.model.JobItemBean;
 import com.mzhou.merchant.utlis.GetDataByPostUtil;
@@ -12,6 +14,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -46,6 +49,13 @@ public class ZhaopinContentActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.xianshi_zhaoping);
 		init();
 		loadButton();

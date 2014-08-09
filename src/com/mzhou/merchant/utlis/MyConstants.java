@@ -3,7 +3,7 @@ package com.mzhou.merchant.utlis;
 import com.mzhou.merchant.activity.R;
 
 public class MyConstants {
-	
+	public static String APP_ID = "1101307194";//1101307194  100523165
 	public static class Config {
 		public static final boolean DEVELOPER_MODE = false;
 	}

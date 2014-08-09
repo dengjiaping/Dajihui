@@ -1,6 +1,7 @@
 package com.mzhou.merchant.activity;
 
 import java.io.File;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 
 
@@ -9,6 +10,7 @@ import com.mzhou.merchant.model.ProductsEnterpriseByIdBean;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 import android.app.Activity;
 import android.content.Context;
@@ -68,6 +70,13 @@ public class FabushoujiEnterprisePreViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.fabu_shouji_preview_enterprise);
 		init();
 		loadButton();
@@ -82,11 +91,18 @@ public class FabushoujiEnterprisePreViewActivity extends Activity {
 		array = new String[array1.length];
 
 		p = (ProductsEnterpriseByIdBean) bundle.getSerializable("productinfo");
+		 
+		
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.ic_stub)
-				.showImageForEmptyUri(R.drawable.ic_stub)
-				.showImageOnFail(R.drawable.ic_stub).cacheInMemory()
-				.cacheOnDisc().bitmapConfig(Bitmap.Config.RGB_565).build();
+		.showImageOnLoading(R.drawable.ic_stub)
+		.showImageForEmptyUri(R.drawable.ic_stub)
+		.showImageOnFail(R.drawable.ic_stub)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 		imageLoader = ImageLoader.getInstance();
 		imageAdapter = new ImageAdapter();
 		imageitemAdapter = new ImageItemAdapter();

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -62,6 +63,7 @@ import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 /**
@@ -168,6 +170,13 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.fabu_shouji_enterprise);
 		init();
 		loadButton();
@@ -184,12 +193,16 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.ad_loading)
-				.showImageForEmptyUri(R.drawable.ad_loading)
-				.showImageOnFail(R.drawable.ad_loading).cacheInMemory()
-				.cacheOnDisc().delayBeforeLoading(0)
-				.displayer(new RoundedBitmapDisplayer(4))
-				.bitmapConfig(Bitmap.Config.RGB_565).build();
+		.showImageOnLoading(R.drawable.ad_loading)
+		.showImageForEmptyUri(R.drawable.ad_loading)
+		.showImageOnFail(R.drawable.ad_loading)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
+		 
 		File savePath = new File(saveDir);
 		if (!savePath.exists()) {
 			savePath.mkdirs();
@@ -861,7 +874,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		if (file.exists() && file != null) {
+		if ( file != null && file.exists() ) {
 			file.delete();
 			deleteDir(file);
 		}

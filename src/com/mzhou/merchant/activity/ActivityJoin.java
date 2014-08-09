@@ -1,5 +1,6 @@
 package com.mzhou.merchant.activity;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -49,6 +50,13 @@ public class ActivityJoin extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.xianshi_huodong_join);
 		init();

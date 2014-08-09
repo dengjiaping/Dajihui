@@ -7,7 +7,7 @@
     </style>
 <style name="item_grid4">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_height">100dp</item>
         <item name="android:scaleType">fitXY</item>
     </style>
 
@@ -19,7 +19,7 @@
     </style>
 <style name="ad_logo">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_height">180dp</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
      <style name="show_image">

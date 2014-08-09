@@ -1,5 +1,6 @@
 package com.mzhou.merchant.activity;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -70,6 +72,13 @@ public class ActivitySS extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.xianshi_sousuo);
 		init();
 		loadButton();
@@ -79,7 +88,7 @@ public class ActivitySS extends Activity {
 	}
 
 	/**
-	 * ³õÊ¼»¯Êý¾Ý
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private void init() {
 		page_news = 2;
@@ -89,17 +98,17 @@ public class ActivitySS extends Activity {
 		mproductList = new LinkedList<ProductsBean>();
 		mnewsList = new LinkedList<NewsBean>();
 		mnewsAdapter = new MyListNewsAdapter(context, mnewsList);
-		 imageLoader = ImageLoader.getInstance();
-		 options = new DisplayImageOptions.Builder()
-			.showStubImage(R.drawable.ic_stub)
-			.showImageForEmptyUri(R.drawable.ic_stub)
-			.showImageOnFail(R.drawable.ic_stub)
-			.delayBeforeLoading(0)
-			.cacheOnDisc()
-			.displayer(new FadeInBitmapDisplayer(200))
-			.imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-			.bitmapConfig(Bitmap.Config.RGB_565)
-			.build(); 
+		options = new DisplayImageOptions.Builder()
+		.showImageOnLoading(R.drawable.ad_loading)
+		.showImageForEmptyUri(R.drawable.ad_loading)
+		.showImageOnFail(R.drawable.ad_loading)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
+		 
 		 mproductAdapter = new MyGridProductAdapter4(context, mproductList,imageLoader,options);
 	}
 
@@ -215,7 +224,7 @@ public class ActivitySS extends Activity {
 	}
 
 	/**
-	 * ¼ÓÔØ findviewbyid
+	 * ï¿½ï¿½ï¿½ï¿½ findviewbyid
 	 * 
 	 * @param mView
 	 */

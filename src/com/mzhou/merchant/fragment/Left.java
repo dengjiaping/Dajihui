@@ -1,10 +1,13 @@
 package com.mzhou.merchant.fragment;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,6 +43,7 @@ import com.mzhou.merchant.slidemenu.SlidingMenu;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 public class Left extends Fragment {
 
@@ -77,6 +81,13 @@ public class Left extends Fragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		View view = inflater.inflate(R.layout.fragment_left, null);
 		init();
 		loadButton(view);
@@ -90,12 +101,15 @@ public class Left extends Fragment {
 		imageLoader = ImageLoader.getInstance();
 
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.head_default)
-				.showImageForEmptyUri(R.drawable.head_default)
-				.showImageOnFail(R.drawable.head_default)
-				.cacheOnDisc().delayBeforeLoading(0)
-				.bitmapConfig(Bitmap.Config.RGB_565)
-				.build();
+		.showImageOnLoading(R.drawable.ic_stub)
+		.showImageForEmptyUri(R.drawable.ic_stub)
+		.showImageOnFail(R.drawable.ic_stub)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 
 	}
 

@@ -124,6 +124,9 @@ public class SlidingMenu extends RelativeLayout  {
 	public void computeScroll() {
 		if (!mScroller.isFinished()) {
 			if (mScroller.computeScrollOffset()) {
+				if (mSlidingView == null) {
+					return;
+				}
 				int oldX = mSlidingView.getScrollX();
 				int oldY = mSlidingView.getScrollY();
 				int x = mScroller.getCurrX();

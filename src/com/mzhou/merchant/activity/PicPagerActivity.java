@@ -6,6 +6,7 @@ import it.sephiroth.android.library.imagezoom.ImageViewTouchBase.DisplayType;
 import it.sephiroth.android.library.imagezoom.ImageViewTouchBase.OnDrawableChangeListener;
 
 import java.io.File;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +58,13 @@ public class PicPagerActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.ac_image_pager);
 		int pagerPosition = init();
 		if (savedInstanceState != null) {
@@ -79,12 +88,15 @@ public class PicPagerActivity extends Activity {
 		int pagerPosition = bundle.getInt(Extra.IMAGE_POSITION, 0);
 		pub = bundle.getBoolean("pub", false);
 		options = new DisplayImageOptions.Builder()
-		.showStubImage(R.drawable.ic_stub)
-		.showImageForEmptyUri(R.drawable.ic_stub)
-		.showImageOnFail(R.drawable.ic_stub).cacheInMemory()
-		.cacheOnDisc().delayBeforeLoading(0)
-		.imageScaleType(ImageScaleType.EXACTLY)
-		.bitmapConfig(Bitmap.Config.RGB_565).build();
+		.showImageOnLoading(R.drawable.ad_loading)
+		.showImageForEmptyUri(R.drawable.ad_loading)
+		.showImageOnFail(R.drawable.ad_loading)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 		return pagerPosition;
 	}
 
@@ -107,7 +119,7 @@ public class PicPagerActivity extends Activity {
 	 * @param pagerPosition
 	 */
 	private void setdata(int pagerPosition) {
-		if (imageUrls != null && !imageUrls.equals("")) {
+		if (imageUrls != null &&  imageUrls.length != 0) {
 
 			for (int i = 0; i < imageUrls.length; i++) {
 				imageUrls[i] = imageUrls[i].replace("/mnt", "file:/");
@@ -161,7 +173,7 @@ public class PicPagerActivity extends Activity {
 				layout.setVisibility(View.GONE);
 			String[]	deleteUrls = deleteBitmap(imageUrls, currentposition);
 			imageUrls = deleteUrls;
-				if (deleteUrls.length != 0 && !deleteUrls.equals("[]")) {
+				if (deleteUrls.length != 0 ) {
 					pager.removeAllViews();
 					adapter.notifyDataSetChanged();
 					pager.setAdapter(adapter);

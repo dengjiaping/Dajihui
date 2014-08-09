@@ -2,28 +2,13 @@ package com.mzhou.merchant.activity;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
-import com.mzhou.merchant.dao.IUser.IgetQQBinder;
-import com.mzhou.merchant.dao.biz.UserManager;
-import com.mzhou.merchant.db.manager.DbLoginManager;
-import com.mzhou.merchant.db.manager.DbUserManager;
-import com.mzhou.merchant.model.AllBean;
-import com.mzhou.merchant.model.LoginUserBean;
-import com.mzhou.merchant.model.UserInfoBean;
-import com.mzhou.merchant.utlis.HttpMultipartPost;
-import com.mzhou.merchant.utlis.JsonParse;
-import com.mzhou.merchant.utlis.MyConstants;
-import com.mzhou.merchant.utlis.MyUtlis;
-import com.mzhou.merchant.utlis.WebIsConnectUtil;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -40,10 +25,11 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -52,8 +38,24 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
+
+import com.mzhou.merchant.dao.IBack.IUploadBackInfo;
+import com.mzhou.merchant.dao.IUser.IgetQQBinder;
+import com.mzhou.merchant.dao.biz.UserManager;
+import com.mzhou.merchant.db.manager.DbLoginManager;
+import com.mzhou.merchant.db.manager.DbUserManager;
+import com.mzhou.merchant.model.AllBean;
+import com.mzhou.merchant.model.LoginUserBean;
+import com.mzhou.merchant.model.UserInfoBean;
+import com.mzhou.merchant.utlis.HttpMultipartPost;
+import com.mzhou.merchant.utlis.JsonParse;
+import com.mzhou.merchant.utlis.MyConstants;
+import com.mzhou.merchant.utlis.MyUtlis;
+import com.mzhou.merchant.utlis.WebIsConnectUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 public class UserControlCommonActivity extends Activity {
 	private ImageView title_bar_showleft;
@@ -111,6 +113,13 @@ public class UserControlCommonActivity extends Activity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.user_manager_common);
 		init();
 		loadButton();
@@ -130,13 +139,17 @@ public class UserControlCommonActivity extends Activity {
 		context = UserControlCommonActivity.this;
 		userManager = new UserManager();
 		imageLoader = ImageLoader.getInstance();
+		 
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.head_default)
-				.showImageForEmptyUri(R.drawable.head_default)
-				.showImageOnFail(R.drawable.head_default).cacheInMemory()
-				.cacheOnDisc().delayBeforeLoading(0)
-				.bitmapConfig(Bitmap.Config.RGB_565)
-				.displayer(new RoundedBitmapDisplayer(10)).build();
+		.showImageOnLoading(R.drawable.head_default)
+		.showImageForEmptyUri(R.drawable.head_default)
+		.showImageOnFail(R.drawable.head_default)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 		mList = new LinkedList<String>();
 
 		File savePath = new File(saveDir);
@@ -726,8 +739,11 @@ public class UserControlCommonActivity extends Activity {
 						
 						 
 						}
-						MyUtlis.toastInfo(getBaseContext(),
-								userBean.getMsg());
+						if (userBean != null && userBean.getMsg() != null) {
+							MyUtlis.toastInfo(getBaseContext(),
+									userBean.getMsg());
+						}
+						
 					}
 			});
 
@@ -851,7 +867,7 @@ public class UserControlCommonActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		if (file.exists() && file != null) {
+		if (file != null && file.exists() ) {
 			file.delete();
 			deleteDir(file);
 		}

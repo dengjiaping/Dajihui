@@ -1,7 +1,31 @@
 package com.mzhou.merchant.fragment;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 import java.util.List;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
@@ -18,44 +42,17 @@ import com.mzhou.merchant.adapter.MyGridProductAdapter4;
 import com.mzhou.merchant.dao.IProduct.IgetProductInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
 import com.mzhou.merchant.db.manager.DbAdManager;
-import com.mzhou.merchant.db.manager.DbJobManager;
 import com.mzhou.merchant.db.manager.DbLoginManager;
 import com.mzhou.merchant.db.manager.DbProductManager;
-import com.mzhou.merchant.db.manager.DbUserManager;
 import com.mzhou.merchant.model.AdBean;
-import com.mzhou.merchant.model.JobBean;
 import com.mzhou.merchant.model.ProductsBean;
 import com.mzhou.merchant.myview.MyGridView;
-import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.ViewFlipper;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class XianshiFourG extends Fragment {
 	private static boolean isRun = true;
@@ -85,7 +82,13 @@ public class XianshiFourG extends Fragment {
 	private boolean flag = false;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		View mView = inflater.inflate(R.layout.view_pager_four_g, null);
 		view = mView;
 		init();
@@ -151,9 +154,17 @@ public class XianshiFourG extends Fragment {
 		productsManager = new ProductsManager();
 
 		imageLoader = ImageLoader.getInstance();
-		options = new DisplayImageOptions.Builder().showStubImage(R.drawable.ic_stub).showImageForEmptyUri(R.drawable.ic_stub)
-				.showImageOnFail(R.drawable.ic_stub).delayBeforeLoading(0).cacheOnDisc().displayer(new FadeInBitmapDisplayer(200))
-				.imageScaleType(ImageScaleType.EXACTLY_STRETCHED).bitmapConfig(Bitmap.Config.RGB_565).build();
+		 
+		options = new DisplayImageOptions.Builder()
+		.showImageOnLoading(R.drawable.ic_stub)
+		.showImageForEmptyUri(R.drawable.ic_stub)
+		.showImageOnFail(R.drawable.ic_stub)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 		mAdapter = new MyGridProductAdapter4(context, mList, imageLoader, options);
 		page_down = 1;
 		page_up = 2;
@@ -192,7 +203,7 @@ public class XianshiFourG extends Fragment {
 					productsManager.getProductInfoIml(new IgetProductInfo() {
 						@Override
 						public void getProductInfo(List<ProductsBean> productsBeans) {
-							if ((productsBeans != null) && (!productsBeans.equals("[]"))) {
+							if ((productsBeans != null) && (productsBeans.size() != 0)) {
 								for (ProductsBean productsBean : productsBeans) {
 									mList.addFirst(productsBean);
 									flag = true;
@@ -222,7 +233,7 @@ public class XianshiFourG extends Fragment {
 					productsManager.getProductInfoIml(new IgetProductInfo() {
 						@Override
 						public void getProductInfo(List<ProductsBean> productsBeans) {
-							if ((productsBeans != null) && (!productsBeans.equals("[]"))) {
+							if ((productsBeans != null) && (productsBeans.size() != 0)) {
 								for (ProductsBean productsBean : productsBeans) {
 									mList.addLast(productsBean);
 								}
@@ -327,7 +338,7 @@ public class XianshiFourG extends Fragment {
 			 * .parseProductsJson(result);
 			 */
 			mList.clear();
-			if (productsBeans != null && !productsBeans.equals("[]")) {
+			if ((productsBeans != null) && (productsBeans.size() != 0)) {
 				mList.addAll(productsBeans);
 				MyUtlis.sortListOrder(mList);
 				uptime = mList.get(0).getCtime();
@@ -545,9 +556,6 @@ public class XianshiFourG extends Fragment {
 	@Override
 	public void onStop() {
 		thread.interrupt();
-		imageLoader.stop();
-		imageLoader.clearMemoryCache();
-		System.gc();
 		super.onStop();
 	}
 }

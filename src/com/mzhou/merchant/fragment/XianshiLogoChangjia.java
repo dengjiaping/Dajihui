@@ -1,5 +1,6 @@
 package com.mzhou.merchant.fragment;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -34,6 +35,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +72,13 @@ public class XianshiLogoChangjia extends Fragment {
 	private LinkedList<AdBean> adSortList;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		View mView = inflater.inflate(R.layout.view_pager_logo, null);
 		view = mView;
 		init();
@@ -488,8 +496,6 @@ public void onResume() {
 	@Override
 	public void onStop() {
 			thread.interrupt();
-			imageLoader.clearMemoryCache();
-			imageLoader.stop();
 			System.gc();
 		super.onStop();
 	}

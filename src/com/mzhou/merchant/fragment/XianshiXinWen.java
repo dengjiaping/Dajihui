@@ -1,5 +1,6 @@
 package com.mzhou.merchant.fragment;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -49,6 +51,13 @@ public class XianshiXinWen extends Fragment {
 	// **************************
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		View view = inflater.inflate(R.layout.xianshi_xinwen_list, null);
 		init();
 		loadButton(view);
@@ -94,8 +103,7 @@ public class XianshiXinWen extends Fragment {
 							newsManager.getNewsInfoIml(new IgetNewsInfo() {
 								@Override
 								public void getNewsInfo(List<NewsBean> newsBean) {
-									if ((newsBean != null)
-											&& (!newsBean.equals("[]"))) {
+									if ((newsBean != null) && ( newsBean.size() != 0)) {
 
 										for (NewsBean attactBean : newsBean) {
 											mList.addFirst(attactBean);
@@ -134,8 +142,7 @@ public class XianshiXinWen extends Fragment {
 							newsManager.getNewsInfoIml(new IgetNewsInfo() {
 								@Override
 								public void getNewsInfo(List<NewsBean> newsBean) {
-									if ((newsBean != null)
-											&& (!newsBean.equals("[]"))) {
+									if ((newsBean != null) && ( newsBean.size() != 0)) {
 
 										for (NewsBean attactBean : newsBean) {
 											mList.addLast(attactBean);
@@ -199,8 +206,7 @@ public class XianshiXinWen extends Fragment {
 
 		@Override
 		protected void onPostExecute(List<NewsBean> result) {
-
-			if ((result != null) && (!result.equals("[]"))) {
+			if ((result != null) && ( result.size() != 0)) {
 				mList.addAll(result);
 				MyUtlis.sortListNewsBeanOrder(mList);
 				uptime = mList.get(0).getCtime();
@@ -256,8 +262,6 @@ public class XianshiXinWen extends Fragment {
 	public void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		imageLoader.stop();
-		imageLoader.clearMemoryCache();
 		System.gc();
 	}
 }

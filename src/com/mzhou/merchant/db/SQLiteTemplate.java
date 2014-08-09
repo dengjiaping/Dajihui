@@ -276,7 +276,7 @@ public class SQLiteTemplate {
 				closeDatabase(null);
 			}
 		}
-		return null;
+		return false;
 	}
 
 	/**
@@ -299,7 +299,7 @@ public class SQLiteTemplate {
 				closeDatabase(null);
 			}
 		}
-		return null;
+		return false;
 	}
 
 	/**
@@ -326,7 +326,7 @@ public class SQLiteTemplate {
 				closeDatabase(cursor);
 			}
 		}
-		return null;
+		return false;
 	}
 
 	/**

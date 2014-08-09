@@ -82,7 +82,6 @@ android.support.v4.app.Fragment:
     760:766:public void setHasOptionsMenu(boolean)
     812:812:public boolean getUserVisibleHint()
     819:827:public android.support.v4.app.LoaderManager getLoaderManager()
-    846:850:public void startActivityForResult(android.content.Intent,int)
     1288:1289:public void registerForContextMenu(android.view.View)
     1299:1300:public void unregisterForContextMenu(android.view.View)
     1410:1416:android.support.v4.app.Fragment findFragmentByWho(java.lang.String)
@@ -1064,6 +1063,12 @@ com.handmark.pulltorefresh.library.internal.ViewCompat:
 com.handmark.pulltorefresh.library.internal.ViewCompat$SDK11
 com.handmark.pulltorefresh.library.internal.ViewCompat$SDK16:
     58:58:ViewCompat$SDK16()
+com.mzhou.merchant.activity.ActivityBinderQQ:
+    private java.lang.String openid
+    93:93:public void getInfo()
+    96:108:private void saveLoginInfo(com.mzhou.merchant.model.AllBean,java.lang.String)
+    112:135:private void saveUserInfo(com.mzhou.merchant.model.AllBean,java.lang.String)
+    366:366:private void showResult(java.lang.String,java.lang.String)
 com.mzhou.merchant.activity.ActivityStart:
     boolean loginself
     boolean loginself_enterprise
@@ -1125,7 +1130,7 @@ com.mzhou.merchant.activity.R$styleable:
     public static final int PullToRefresh_ptrShowIndicator
     public static final int PullToRefresh_ptrSubHeaderTextAppearance
     public static final int TogglePrefAttrs_android_preferenceLayoutChild
-    1301:1301:public R$styleable()
+    1309:1309:public R$styleable()
 com.mzhou.merchant.activity.R$xml
 com.mzhou.merchant.activity.UserControlCommonActivity:
     private static final int REQUEST_CODE
@@ -1250,7 +1255,61 @@ com.mzhou.merchant.utlis.HttpRequest:
 com.mzhou.merchant.utlis.JsonParse:
     27:27:public JsonParse()
     245:260:public static java.util.List parseProductsCategoryJson(java.lang.String)
-com.mzhou.merchant.utlis.MyConstants
+com.mzhou.merchant.utlis.MyConstants:
+    public static final java.lang.String LOGIN_URL
+    public static final java.lang.String PHONE_NUM
+    public static final java.lang.String EN_LOGIN_URL
+    public static final java.lang.String AD_URL
+    public static final java.lang.String ATTRACT_URL
+    public static final java.lang.String UPLOAD_URL
+    public static final java.lang.String PURCHASE_URL
+    public static final java.lang.String PRODUCT_URL
+    public static final java.lang.String BRAND_URL
+    public static final java.lang.String NEWS_URL
+    public static final java.lang.String PICTURE_URL
+    public static final java.lang.String JOB_URL
+    public static final java.lang.String SEARCH_URL
+    public static final java.lang.String ACTIVITY_URL
+    public static final java.lang.String CHECKVERSION_URL
+    public static final java.lang.String FEEDBACK_URL
+    public static final java.lang.String PRODUCT_LOGO
+    public static final java.lang.String PRODUCT_LOGO_PRODUCT
+    public static final java.lang.String PRODUCT_MAIN
+    public static final java.lang.String PRODUCT_INDEX
+    public static final java.lang.String PRODUCT_PINGPAI
+    public static final java.lang.String PRODUCT_WUMA
+    public static final java.lang.String PRODUCT_SANMA
+    public static final java.lang.String PRODUCT_WAIDAN
+    public static final java.lang.String PRODUCT_TD
+    public static final java.lang.String PRODUCT_GX
+    public static final java.lang.String PRODUCT_FOURG
+    public static final java.lang.String QIUGOU
+    public static final java.lang.String ZHAOSHANG
+    public static final java.lang.String ZHAOPING
+    public static final java.lang.String XINWEN
+    public static final java.lang.String ACTIVITY
+    public static final java.lang.String DRAWABLE_DEFOULT
+    public static final int MY
+    public static final int LOGO
+    public static final int MAIN
+    public static final int PINGPAI
+    public static final int WUMA
+    public static final int SANMA
+    public static final int TD
+    public static final int GX
+    public static final int FOURG
+    public static final int WAIDAN
+    public static final int SLEEPTIME
+    public static final int REQUEST_NICKNAME
+    public static final int REQUEST_PASSWORD
+    public static final int REQUEST_NAME
+    public static final int REQUEST_PHONENUB
+    public static final int REQUEST_EMAIL
+    public static final int REQUEST_COMPANY
+    public static final int REQUEST_ADDRESS
+    public static final int REQUEST_NET
+    public static final int REQUEST_FAX
+    5:5:public MyConstants()
 com.mzhou.merchant.utlis.MyConstants$Config
 com.mzhou.merchant.utlis.MyConstants$Extra
 com.mzhou.merchant.utlis.MyUtlis:
@@ -1496,161 +1555,80 @@ com.nostra13.universalimageloader.utils.StorageUtils:
     private static final java.lang.String INDIVIDUAL_DIR_NAME
     34:35:private StorageUtils()
     84:91:public static java.io.File getOwnCacheDirectory(android.content.Context,java.lang.String)
-com.tencent.open.AsynLoadImg
-com.tencent.open.AsynLoadImgBack
-com.tencent.open.OpenApi:
-    259:393:public org.json.JSONObject a(android.content.Context,java.lang.String,android.os.Bundle)
-    508:508:public static java.lang.String a()
-com.tencent.open.RedoDialog
-com.tencent.open.ServerSetting:
-    public static final int REDIRECT_URL
-    public static final int AUTHORIZE_CGI
-    public static final int STORY_URL
-    public static final int INVITE_URL
-    public static final int REPORT_URL
-    public static final int GRAPH_BASE_URL
-    public static final int BRAG_URL
-    public static final int ASK_URL
-    public static final int GIFT_URL
-    public static final int LOCAL_STORAGE_URL
-    public static final int ENVIRONMENT_NORMOL
-    public static final int ENVIRONMENT_EXPERIENCE
-    private static final java.lang.String SERVER_TYPE
-    private static final java.lang.String DEFAULT_REDIRECT_URI
-    private static final java.lang.String DEFAULT_CGI_AUTHORIZE
-    private static final java.lang.String DEFAULT_URL_SEND_STORY
-    private static final java.lang.String DEFAULT_URL_INVITE
-    private static final java.lang.String DEFAULT_URL_REPORT
-    private static final java.lang.String DEFAULT_URL_GRAPH_BASE
-    private static final java.lang.String DEFAULT_URL_BRAG
-    private static final java.lang.String DEFAULT_URL_ASK
-    private static final java.lang.String DEFAULT_URL_GIFT
-    private static final java.lang.String DEFAULT_LOCAL_STORAGE_URI
-    private static final java.lang.String SERVER_PREFS
-    private static final java.lang.String KEY_REDIRECT_URL
-    private static final java.lang.String KEY_AUTHORIZE_CGI
-    private static final java.lang.String KEY_STORY_URL
-    private static final java.lang.String KEY_INVITE_URL
-    private static final java.lang.String KEY_REPORT_URL
-    private static final java.lang.String KEY_GRAPH_BASE_URL
-    private static final java.lang.String KEY_BRAG_URL
-    private static final java.lang.String KEY_ASK_URL
-    private static final java.lang.String KEY_GIFT_URL
-    private static final java.lang.String KEY_LOCAL_STORAGE_URl
-    81:92:public void changeServer()
-    231:295:public void setEnvironment(android.content.Context,int)
-com.tencent.open.TContext:
-    68:68:public long e()
-com.tencent.open.TemporaryStorage:
-    13:13:public TemporaryStorage()
-    24:24:public static java.lang.Object a(java.lang.String,java.lang.Object)
-com.tencent.open.TencentStat:
-    18:18:public TencentStat()
-com.tencent.open.Util:
-    92:884:public Util()
-    290:386:public static com.tencent.open.Util$Statistic a(android.content.Context,java.lang.String,android.os.Bundle)
-    1075:1103:public static boolean b(android.content.Context)
-    1173:1183:public static boolean b()
-com.tencent.open.cgireport.MobileInfoUtil:
-    21:21:public MobileInfoUtil()
-com.tencent.open.cgireport.ReportComm
-com.tencent.open.e:
-    672:672:e()
-com.tencent.open.g
-com.tencent.open.j
-com.tencent.open.k
-com.tencent.open.l
-com.tencent.open.o
-com.tencent.plus.AvatarConstants
-com.tencent.plus.DensityUtil:
-    6:6:public DensityUtil()
-    19:20:public static int px2dip(android.content.Context,float)
-    31:32:public static int px2sp(android.content.Context,float)
-    42:43:public static int sp2px(android.content.Context,float)
-com.tencent.qqconnect.dataprovider.CallbackManager
-com.tencent.qqconnect.dataprovider.Constants
-com.tencent.qqconnect.dataprovider.DataType
-com.tencent.qqconnect.dataprovider.ErrorCode
-com.tencent.qqconnect.dataprovider.datatype.TextAndMediaPath:
-    10:13:public TextAndMediaPath(java.lang.String,java.lang.String)
-    16:16:public java.lang.String getText()
-    20:20:public java.lang.String getMediaPath()
-com.tencent.qqconnect.dataprovider.datatype.TextOnly:
-    9:11:public TextOnly(java.lang.String)
-    14:14:public java.lang.String getText()
-com.tencent.record.debug.Trace
-com.tencent.record.debug.TraceLevel
-com.tencent.record.info.Const
-com.tencent.record.info.DeviceDash
-com.tencent.record.info.Global:
-    70:70:public Global()
-    214:214:public static final android.content.SharedPreferences a(java.lang.String,int)
-com.tencent.record.info.Option
-com.tencent.record.info.StorageDash:
-    20:20:public StorageDash()
-com.tencent.record.util.DataUtils
-com.tencent.record.util.FileUtils:
-    24:24:public FileUtils()
-com.tencent.record.util.StrUtils:
-    16:16:public StrUtils()
-com.tencent.record.util.Utils
-com.tencent.record.util.Utils$Bit:
-    22:22:public Utils$Bit()
-com.tencent.stat.MtaSDkException:
-    public MtaSDkException(java.lang.String,java.lang.Throwable)
-    public MtaSDkException(java.lang.Throwable)
-com.tencent.stat.StatAppMonitor
-com.tencent.stat.StatConfig:
-    public StatConfig()
-    public static void setDebugEnable(boolean)
-    public static void setSessionTimoutMillis(int)
-    public static void setMaxBatchReportCount(int)
-    public static void setMaxSendRetryCount(int)
-    public static void setMaxStoreEventCount(int)
-    public static java.lang.String getCustomProperty(java.lang.String)
-    public static java.lang.String getCustomProperty(java.lang.String,java.lang.String)
-    public static void setAppKey(java.lang.String)
-    public static void setQQ(android.content.Context,java.lang.String)
-    public static void setMaxParallelTimmingEvents(int)
-    public static void setMaxSessionStatReportCount(int)
-    public static void setMaxDaySessionNumbers(int)
-    public static void setMaxReportEventLength(int)
-com.tencent.stat.StatService:
-    public StatService()
-    public static void startNewSession(android.content.Context)
-    public static void stopSession()
-    public static void setEnvAttributes(android.content.Context,java.util.Map)
-    public static void reportError(android.content.Context,java.lang.String)
-    public static void reportException(android.content.Context,java.lang.Throwable)
-    public static void trackCustomKVEvent(android.content.Context,java.lang.String,java.util.Properties)
-    public static varargs void trackCustomBeginEvent(android.content.Context,java.lang.String,java.lang.String[])
-    public static varargs void trackCustomEndEvent(android.content.Context,java.lang.String,java.lang.String[])
-    public static void trackCustomBeginKVEvent(android.content.Context,java.lang.String,java.util.Properties)
-    public static void trackCustomEndKVEvent(android.content.Context,java.lang.String,java.util.Properties)
-    public static void reportAppMonitorStat(android.content.Context,com.tencent.stat.StatAppMonitor)
-    public static void commitEvents(android.content.Context,int)
-com.tencent.stat.common.Env:
-    public static void appendEnvAttr(android.content.Context,java.util.Map)
-com.tencent.stat.common.StatConstants
-com.tencent.stat.common.StatLogger:
-    public int getLogLevel()
-    public void setLogLevel(int)
-    public void setTag(java.lang.String)
-    public void verbose(java.lang.Object)
-    public void v(java.lang.Object)
-com.tencent.stat.event.CustomEvent:
-    public com.tencent.stat.event.CustomEvent$Key getKey()
-    public void setDuration(long)
-    public void setProperties(java.util.Properties)
-com.tencent.stat.event.ErrorEvent:
-    public ErrorEvent(android.content.Context,int,java.lang.String)
-com.tencent.stat.event.MonitorStatEvent
-com.tencent.tauth.AuthActivity:
+com.tencent.a.a.d:
+    60:61:public static final void c(java.lang.String,java.lang.String)
+com.tencent.a.b.a:
+    70:70:public a()
+com.tencent.a.b.b:
+    16:22:public b()
+com.tencent.a.b.c:
+    18:18:public c()
+com.tencent.a.c.a:
+    16:16:public a()
+com.tencent.a.c.b:
+    16:16:public b()
+com.tencent.a.c.c:
+    14:22:public c()
+com.tencent.a.c.c$a:
+    22:22:public c$a()
+com.tencent.a.c.d:
+    23:23:public d()
+com.tencent.connect.UserInfo:
+    public static final java.lang.String GRAPH_OPEN_ID
+    26:27:public UserInfo(android.content.Context,com.tencent.connect.auth.QQAuth,com.tencent.connect.auth.QQToken)
+    37:41:public void getVipUserInfo(com.tencent.tauth.IUiListener)
+    44:48:public void getVipUserRichInfo(com.tencent.tauth.IUiListener)
+    55:60:public void getTenPayAddr(com.tencent.tauth.IUiListener)
+    67:71:public void getOpenId(com.tencent.tauth.IUiListener)
+com.tencent.connect.a.a:
+    20:20:public a()
+com.tencent.connect.auth.AuthConstants
+com.tencent.connect.auth.QQAuth:
+    153:155:public int login(android.support.v4.app.Fragment,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String)
+    248:249:public int reAuth(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)
+    260:269:public void logout(android.content.Context)
+    291:293:public void setAccessToken(java.lang.String,java.lang.String)
+    316:320:public void setOpenId(android.content.Context,java.lang.String)
+    343:346:public boolean onActivityResult(int,int,android.content.Intent)
+com.tencent.connect.auth.QQToken:
+    public static final int AUTH_WEB
+    public static final int AUTH_QQ
+    public static final int AUTH_QZONE
+    27:28:public void setAppId(java.lang.String)
+    53:53:public int getAuthSource()
+    57:58:public void setAuthSource(int)
+    61:61:public long getExpireTimeInSecond()
+com.tencent.connect.avatar.QQAvatar
+com.tencent.connect.avatar.c:
+    6:6:public c()
+com.tencent.connect.common.AssistActivity:
+    private static final java.lang.String RESTART_FLAG
     private static final java.lang.String TAG
-com.tencent.tauth.Constants:
+    19:20:public static android.content.Intent getAssistActivityIntent(android.content.Context)
+com.tencent.connect.common.BaseApi:
+    private static final java.lang.String KEY_REQUEST_CODE
+    protected static final java.lang.String DEFAULT_PF
+    protected static final java.lang.String PREFERENCE_PF
+    protected static final java.lang.String ACTIVITY_ENCRY_TOKEN
+    protected static final java.lang.String ACTIVITY_AGENT
+    protected static final java.lang.String ACTION_CHECK_TOKEN
+    protected static final java.lang.String PARAM_ENCRY_EOKEN
+    private static final int MSG_COMPLETE
+    protected static final java.lang.String VERSION
+    protected static final java.lang.String PLATFORM
+    protected android.app.ProgressDialog mProgressDialog
+    298:307:protected void handleDownloadLastestQQ(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    311:319:protected void showProgressDialog(android.content.Context,java.lang.String,java.lang.String)
+    322:322:protected android.content.Intent getAgentIntent()
+    327:344:protected android.content.Intent getAgentIntentWithTarget(java.lang.String)
+com.tencent.connect.common.Constants:
+    public static final java.lang.String QQ_APPID
+    private static final boolean ISLITE
+    private static final java.lang.String SDK_VER
     public static final java.lang.String SDK_VERSION
     public static final java.lang.String SDK_QUA
     public static final java.lang.String SDK_VERSION_STRING
+    public static final java.lang.String SDK_VERSION_REPORT
     public static final java.lang.String SDK_BUILD
     public static final java.lang.String PARAM_ACCESS_TOKEN
     public static final java.lang.String PARAM_KEY_STR
@@ -1658,38 +1636,17 @@ com.tencent.tauth.Constants:
     public static final java.lang.String PARAM_PLATFORM
     public static final java.lang.String SOURCE_QZONE
     public static final java.lang.String SOURCE_QQ
+    public static final java.lang.String DEFAULT_PF
     public static final java.lang.String PARAM_CLIENT_ID
     public static final java.lang.String PARAM_APP_ID
     public static final java.lang.String PARAM_CONSUMER_KEY
     public static final java.lang.String PARAM_OPEN_ID
     public static final java.lang.String PARAM_HOPEN_ID
     public static final java.lang.String PARAM_PLATFORM_ID
+    public static final java.lang.String KEY_REQUEST_CODE
     public static final java.lang.String PREFERENCE_PF
     public static final java.lang.String PARAM_SCOPE
     public static final java.lang.String PARAM_EXPIRES_IN
-    public static final java.lang.String PARAM_SOURCE
-    public static final java.lang.String PARAM_ACT
-    public static final java.lang.String PARAM_APP_ICON
-    public static final java.lang.String PARAM_APP_DESC
-    public static final java.lang.String PARAM_APP_CUSTOM
-    public static final java.lang.String PARAM_RECEIVER
-    public static final java.lang.String PARAM_TITLE
-    public static final java.lang.String PARAM_COMMENT
-    public static final java.lang.String PARAM_SUMMARY
-    public static final java.lang.String PARAM_APPNAME
-    public static final java.lang.String PARAM_IMAGE
-    public static final java.lang.String PARAM_IMAGE_URL
-    public static final java.lang.String PARAM_TARGET_URL
-    public static final java.lang.String PARAM_APP_SOURCE
-    public static final java.lang.String PARAM_URL
-    public static final java.lang.String PARAM_TYPE
-    public static final java.lang.String PARAM_PLAY_URL
-    public static final java.lang.String PARAM_SHARE_URL
-    public static final java.lang.String PARAM_AVATAR_URI
-    public static final java.lang.String PARAM_IMG_URL
-    public static final java.lang.String PARAM_SEND_MSG
-    public static final java.lang.String PARAM_TYPE_ID
-    public static final java.lang.String PARAM_AVATAR_RETURN_ACTIVITY
     public static final int ERROR_IO
     public static final int ERROR_URL
     public static final int ERROR_JSON
@@ -1698,48 +1655,28 @@ com.tencent.tauth.Constants:
     public static final int ERROR_CONNECTTIMEOUT
     public static final int ERROR_SOCKETTIMEOUT
     public static final int ERROR_HTTPSTATUS_ERROR
-    public static final int ERROR_IO_CharConversionException
-    public static final int ERROR_IO_CharacterCodingException_MalformedInputException
-    public static final int ERROR_IO_CharacterCodingException_UnmappableCharacterException
-    public static final int ERROR_IO_ClientProtocolException_HttpResponseException
-    public static final int ERROR_IO_ClosedChannelException
-    public static final int ERROR_IO_ConnectionClosedException
-    public static final int ERROR_IO_EOFException
-    public static final int ERROR_IO_FileLockInterruptionException
-    public static final int ERROR_IO_FileNotFoundException
-    public static final int ERROR_IO_HttpRetryException
-    public static final int ERROR_IO_InterruptedIOException_ConnectTimeoutException
-    public static final int ERROR_IO_InterruptedIOException_SocketTimeoutException
-    public static final int ERROR_IO_InvalidPropertiesFormatException
-    public static final int ERROR_IO_MalformedChunkCodingException
-    public static final int ERROR_IO_MalformedURLException
-    public static final int ERROR_IO_NoHttpResponseException
-    public static final int ERROR_IO_ObjectStreamException_InvalidClassException
-    public static final int ERROR_IO_ObjectStreamException_InvalidObjectException
-    public static final int ERROR_IO_ObjectStreamException_NotActiveException
-    public static final int ERROR_IO_ObjectStreamException_NotSerializableException
-    public static final int ERROR_IO_ObjectStreamException_OptionalDataException
-    public static final int ERROR_IO_ObjectStreamException_StreamCorruptedException
-    public static final int ERROR_IO_ObjectStreamException_WriteAbortedException
-    public static final int ERROR_IO_ProtocolException
-    public static final int ERROR_IO_SSLException_SSLHandshakeException
-    public static final int ERROR_IO_SSLException_SSLKeyException
-    public static final int ERROR_IO_SSLException_SSLPeerUnverifiedException
-    public static final int ERROR_IO_SSLException_SSLProtocolException
-    public static final int ERROR_IO_SocketException_BindException
-    public static final int ERROR_IO_SocketException_ConnectException
-    public static final int ERROR_IO_SocketException_NoRouteToHostException
-    public static final int ERROR_IO_SocketException_PortUnreachableException
-    public static final int ERROR_IO_SyncFailedException
-    public static final int ERROR_IO_UTFDataFormatException
-    public static final int ERROR_IO_UnknownHostException
-    public static final int ERROR_IO_UnknownServiceException
-    public static final int ERROR_IO_UnsupportedEncodingException
-    public static final int ERROR_IO_ZipException
+    public static final int ERROR_NETWORK_UNAVAILABLE
+    public static final int ERROR_FILE_EXISTED
+    public static final int ERROR_NO_SDCARD
+    public static final int ERROR_LOCATION_TIMEOUT
+    public static final int ERROR_LOCATION_VERIFY_FAILED
+    public static final int ERROR_QQVERSION_LOW
+    public static final java.lang.String MSG_LOCATION_TIMEOUT_ERROR
+    public static final java.lang.String MSG_LOCATION_VERIFY_ERROR
     public static final java.lang.String MSG_IO_ERROR
     public static final java.lang.String MSG_URL_ERROR
     public static final java.lang.String MSG_JSON_ERROR
+    public static final java.lang.String MSG_SHARE_TYPE_ERROR
+    public static final java.lang.String MSG_PARAM_NULL_ERROR
     public static final java.lang.String MSG_PARAM_ERROR
+    public static final java.lang.String MSG_PARAM_QQ_VERSION_ERROR
+    public static final java.lang.String MSG_PARAM_TITLE_NULL_ERROR
+    public static final java.lang.String MSG_PARAM_IMAGE_ERROR
+    public static final java.lang.String MSG_PARAM_TARGETURL_NULL_ERROR
+    public static final java.lang.String MSG_PARAM_TARGETURL_ERROR
+    public static final java.lang.String MSG_PARAM_IMAGE_URL_FORMAT_ERROR
+    public static final java.lang.String MSG_PARAM_IMAGE_URL_MUST_BE_LOCAL
+    public static final java.lang.String MSG_PARAM_APPSHARE_TOO_LOW
     public static final java.lang.String MSG_UNKNOWN_ERROR
     public static final java.lang.String MSG_CONNECTTIMEOUT_ERROR
     public static final java.lang.String MSG_SOCKETTIMEOUT_ERROR
@@ -1748,22 +1685,10 @@ com.tencent.tauth.Constants:
     public static final java.lang.String MSG_SHARE_NOSD_ERROR
     public static final java.lang.String MSG_SHARE_GETIMG_ERROR
     public static final java.lang.String MSG_SHARE_TO_QQ_ERROR
+    public static final java.lang.String MSG_NO_SDCARD
     public static final java.lang.String HTTP_GET
     public static final java.lang.String HTTP_POST
     public static final java.lang.String GRAPH_BASE
-    public static final java.lang.String GRAPH_OPEN_ID
-    public static final java.lang.String GRAPH_SIMPLE_USER_INFO
-    public static final java.lang.String GRAPH_USER_INFO
-    public static final java.lang.String GRAPH_USER_PROFILE
-    public static final java.lang.String GRAPH_ADD_SHARE
-    public static final java.lang.String GRAPH_VIP_INFO
-    public static final java.lang.String GRAPH_VIP_RICH_INFO
-    public static final java.lang.String GRAPH_ADD_TOPIC
-    public static final java.lang.String GRAPH_LIST_ALBUM
-    public static final java.lang.String GRAPH_ADD_ALBUM
-    public static final java.lang.String GRAPH_UPLOAD_PIC
-    public static final java.lang.String GRAPH_ADD_PIC_T
-    public static final java.lang.String GRAPH_SET_AVATAR
     public static final java.lang.String GRAPH_INTIMATE_FRIENDS
     public static final java.lang.String GRAPH_NICK_TIPS
     public static final java.lang.String KEY_PARAMS
@@ -1779,66 +1704,482 @@ com.tencent.tauth.Constants:
     public static final int UI_ACTIVITY
     public static final int UI_DIALOG
     public static final int UI_CHECK_TOKEN
-    public static final java.lang.String ACTION_LOGIN
-    public static final java.lang.String ACTION_STORY
-    public static final java.lang.String ACTION_INVITE
-    public static final java.lang.String ACTION_PAY
-    public static final java.lang.String ACTION_CHALLENGE
-    public static final java.lang.String ACTION_BRAG
-    public static final java.lang.String ACTION_ASK
-    public static final java.lang.String ACTION_GIFT
-    public static final java.lang.String ACTION_SHARE_QQ
-    public static final java.lang.String ACTION_CHECK_TOKEN
-    public static final java.lang.String PARAM_ENCRY_EOKEN
-    public static final java.lang.String ACTION_AVATAR
+    public static final int UI_DOWNLOAD_QQ
     public static final int ACTIVITY_OK
     public static final int ACTIVITY_CANCEL
+    public static final int REQUEST_API
+    public static final int RESULT_LOGIN
     public static final java.lang.String MOBILEQQ_PACKAGE_NAME
-    public static final java.lang.String MOBILEQQ_CLASS_NAME
-    11:11:public Constants()
-com.tencent.tauth.DataConvert
-com.tencent.tauth.DownloadFileFromWeiyun
-com.tencent.tauth.DownloadFileFromWeiyun$1
-com.tencent.tauth.DownloadFileFromWeiyun$2
-com.tencent.tauth.DownloadFileFromWeiyun$3
-com.tencent.tauth.IDownloadFileFromWeiyunStatus
-com.tencent.tauth.IUploadFileToWeiyunStatus
+    public static final java.lang.String CANCEL_URI
+    public static final java.lang.String CLOSE_URI
+    public static final java.lang.String DOWNLOAD_URI
+    10:10:public Constants()
+com.tencent.connect.dataprovider.CallbackManager
+com.tencent.connect.dataprovider.Constants
+com.tencent.connect.dataprovider.DataType:
+    public static final int CONTENT_AND_IMAGE_PATH
+    public static final int CONTENT_AND_VIDEO_PATH
+    public static final int CONTENT_ONLY
+    6:55:public DataType()
+com.tencent.connect.dataprovider.DataType$TextAndMediaPath:
+    15:18:public DataType$TextAndMediaPath(java.lang.String,java.lang.String)
+    21:21:public java.lang.String getText()
+    25:25:public java.lang.String getMediaPath()
+com.tencent.connect.dataprovider.DataType$TextOnly:
+    58:60:public DataType$TextOnly(java.lang.String)
+    63:63:public java.lang.String getText()
+com.tencent.connect.dataprovider.ErrorCode
+com.tencent.connect.share.QQShare:
+    public static final java.lang.String SHARE_TO_QQ_IMAGE_URL
+    public static final java.lang.String SHARE_TO_QQ_IMAGE_LOCAL_URL
+    public static final java.lang.String SHARE_TO_QQ_TITLE
+    public static final java.lang.String SHARE_TO_QQ_SUMMARY
+    public static final java.lang.String SHARE_TO_QQ_SITE
+    public static final java.lang.String SHARE_TO_QQ_TARGET_URL
+    public static final java.lang.String SHARE_TO_QQ_APP_NAME
+    public static final java.lang.String SHARE_TO_QQ_AUDIO_URL
+    public static final java.lang.String SHARE_TO_QQ_KEY_TYPE
+    public static final java.lang.String SHARE_TO_QQ_EXT_STR
+    public static final java.lang.String SHARE_TO_QQ_EXT_INT
+    public static final int SHARE_TO_QQ_FLAG_QZONE_AUTO_OPEN
+    public static final int SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE
+    public static final int SHARE_TO_QQ_TYPE_DEFAULT
+    public static final int SHARE_TO_QQ_TYPE_AUDIO
+    public static final int SHARE_TO_QQ_TYPE_IMAGE
+    public static final int SHARE_TO_QQ_TYPE_APP
+com.tencent.connect.share.QzoneShare:
+    public static final java.lang.String SHARE_TO_QZONE_KEY_TYPE
+    public static final int SHARE_TO_QZONE_TYPE_NO_TYPE
+    public static final int SHARE_TO_QZONE_TYPE_IMAGE_TEXT
+    public static final int SHARE_TO_QZONE_TYPE_IMAGE
+    public static final int SHARE_TO_QZONE_TYPE_APP
+    public static final java.lang.String SHARE_TO_QQ_IMAGE_URL
+    public static final java.lang.String SHARE_TO_QQ_IMAGE_LOCAL_URL
+    public static final java.lang.String SHARE_TO_QQ_TITLE
+    public static final java.lang.String SHARE_TO_QQ_SUMMARY
+    public static final java.lang.String SHARE_TO_QQ_SITE
+    public static final java.lang.String SHARE_TO_QQ_TARGET_URL
+    public static final java.lang.String SHARE_TO_QQ_APP_NAME
+    public static final java.lang.String SHARE_TO_QQ_AUDIO_URL
+    public static final java.lang.String SHARE_TO_QQ_EXT_STR
+    public static final java.lang.String SHARE_TO_QQ_EXT_INT
+com.tencent.connect.share.a:
+    31:31:public a()
+com.tencent.map.a.a.a
+com.tencent.map.a.a.b
+com.tencent.map.a.a.c
+com.tencent.map.a.a.d
+com.tencent.map.b.a
+com.tencent.map.b.a$1
+com.tencent.map.b.b
+com.tencent.map.b.b$a
+com.tencent.map.b.b$b
+com.tencent.map.b.c
+com.tencent.map.b.c$a
+com.tencent.map.b.c$b
+com.tencent.map.b.d
+com.tencent.map.b.d$a
+com.tencent.map.b.e
+com.tencent.map.b.e$a
+com.tencent.map.b.e$b
+com.tencent.map.b.e$c
+com.tencent.map.b.f:
+    private android.content.Context a
+    private com.tencent.map.b.f$c c
+    private byte[] j
+    public f()
+    public final boolean a(android.content.Context,com.tencent.map.b.f$a,int)
+    public final void a()
+    public final boolean b()
+    public final boolean c()
+    static synthetic void a(com.tencent.map.b.f)
+com.tencent.map.b.f$b:
+    public final java.util.List a()
+com.tencent.map.b.f$c:
+    public f$c(com.tencent.map.b.f)
+com.tencent.map.b.g
+com.tencent.map.b.h
+com.tencent.map.b.i
+com.tencent.map.b.j
+com.tencent.map.b.k
+com.tencent.map.b.l
+com.tencent.map.b.m
+com.tencent.map.b.m$a
+com.tencent.map.b.m$b
+com.tencent.map.b.m$c
+com.tencent.map.b.n
+com.tencent.map.b.n$a
+com.tencent.map.b.n$b
+com.tencent.map.b.n$c
+com.tencent.map.b.o
+com.tencent.map.b.p
+com.tencent.map.b.q
+com.tencent.map.b.r
+com.tencent.map.b.s
+com.tencent.map.b.t
+com.tencent.map.b.u
+com.tencent.map.b.v
+com.tencent.open.LocationApi
+com.tencent.open.LocationApi$1
+com.tencent.open.LocationApi$2
+com.tencent.open.LocationApi$3
+com.tencent.open.LocationApi$a
+com.tencent.open.LocationApi$b
+com.tencent.open.SocialApi
+com.tencent.open.SocialApiIml
+com.tencent.open.SocialApiIml$1
+com.tencent.open.SocialApiIml$a
+com.tencent.open.SocialApiIml$b
+com.tencent.open.SocialApiIml$c
+com.tencent.open.SocialConstants
+com.tencent.open.TDialog:
+    private com.tencent.tauth.IUiListener h
+    private boolean n
+    private com.tencent.connect.auth.QQToken o
+    203:210:public TDialog(android.content.Context,java.lang.String,java.lang.String,com.tencent.tauth.IUiListener,com.tencent.connect.auth.QQToken)
+com.tencent.open.TaskGuide
+com.tencent.open.TaskGuide$1
+com.tencent.open.TaskGuide$2
+com.tencent.open.TaskGuide$3
+com.tencent.open.TaskGuide$4
+com.tencent.open.TaskGuide$a
+com.tencent.open.TaskGuide$a$1
+com.tencent.open.TaskGuide$b
+com.tencent.open.TaskGuide$c
+com.tencent.open.TaskGuide$c$1
+com.tencent.open.TaskGuide$d
+com.tencent.open.TaskGuide$e
+com.tencent.open.TaskGuide$f
+com.tencent.open.TaskGuide$g
+com.tencent.open.TaskGuide$h
+com.tencent.open.TaskGuide$i
+com.tencent.open.TaskGuide$j
+com.tencent.open.TaskGuide$k
+com.tencent.open.a.c:
+    21:21:public c()
+com.tencent.open.b
+com.tencent.open.b$a
+com.tencent.open.c
+com.tencent.open.c$a
+com.tencent.open.e
+com.tencent.open.qzone.Albums
+com.tencent.open.qzone.Albums$AlbumSecurity
+com.tencent.open.t.Weibo
+com.tencent.open.utils.ApkExternalInfoTool:
+    public static final java.lang.String CHANNELID
+    14:16:public ApkExternalInfoTool()
+com.tencent.open.utils.AsynLoadImgBack:
+    public static final int LOAD_IMAGE_COMPLETED
+    public static final int LOAD_IMAGE_PATH_NULL
+    public static final int LOAD_IMAGE_NO_SDCARD
+    public static final int LOAD_IMAGE_IMAGE_FORMAT_ERROR
+com.tencent.open.utils.DataConvert
+com.tencent.open.utils.HttpUtils:
+    872:998:public static org.json.JSONObject upload(com.tencent.connect.auth.QQToken,android.content.Context,java.lang.String,android.os.Bundle)
+com.tencent.open.utils.ServerSetting:
+    public static final int ENVIRONMENT_NORMOL
+    public static final int ENVIRONMENT_EXPERIENCE
+    public static final java.lang.String KEY_OPEN_SETTING
+    public static final java.lang.String KEY_OPEN_ENV
+    public static final java.lang.String KEY_HOST_FUSION
+    public static final java.lang.String KEY_HOST_APPIC
+    public static final java.lang.String KEY_HOST_OPEN_MOBILE
+    public static final java.lang.String KEY_HOST_MAPP_QZONE
+    public static final java.lang.String KEY_HOST_ANALY
+    public static final java.lang.String KEY_HOST_QZAPP_QLOGO
+    public static final java.lang.String KEY_HOST_I_GTIMG
+    public static final java.lang.String KEY_HOST_APP_SUPPORT
+    public static final java.lang.String KEY_HOST_QZS_QQ
+    public static final java.lang.String DEFAULT_REDIRECT_URI
+    public static final java.lang.String DEFAULT_CGI_AUTHORIZE
+    public static final java.lang.String DEFAULT_URL_SEND_STORY
+    public static final java.lang.String DEFAULT_URL_INVITE
+    public static final java.lang.String DEFAULT_URL_REPORT
+    public static final java.lang.String DEFAULT_URL_GRAPH_BASE
+    public static final java.lang.String DEFAULT_URL_BRAG
+    public static final java.lang.String DEFAULT_URL_ASK
+    public static final java.lang.String DEFAULT_URL_GIFT
+    public static final java.lang.String DEFAULT_LOCAL_STORAGE_URI
+    public static final java.lang.String DEFAULT_URL_VOICE
+    public static final java.lang.String DEFAULT_URL_REACTIVE
+    public static final java.lang.String DOWNLOAD_QQ_URL
+    public static final java.lang.String CGI_FETCH_QQ_URL
+    public static final java.lang.String APP_DETAIL_PAGE
+    78:79:public void changeServer()
+    124:167:public void setEnvironment(android.content.Context,int)
+com.tencent.open.utils.SystemUtils:
+    public static final java.lang.String QQ_VERSION_NAME_4_2_0
+    public static final java.lang.String QQ_VERSION_NAME_4_3_0
+    public static final java.lang.String QQ_VERSION_NAME_4_5_0
+    public static final java.lang.String QQ_VERSION_NAME_4_6_0
+    public static final java.lang.String QQ_VERSION_NAME_5_0_0
+    public static final java.lang.String QQ_SHARE_CALLBACK_ACTION
+    public static final java.lang.String QZONE_SHARE_CALLBACK_ACTION
+    24:24:public SystemUtils()
+    180:187:public static java.lang.String getRealPathFromUri(android.app.Activity,android.net.Uri)
+    212:239:public static boolean checkMobileQQ(android.content.Context)
+com.tencent.open.utils.TemporaryStorage:
+    13:13:public TemporaryStorage()
+com.tencent.open.utils.Util:
+    80:100:public static java.lang.String encodePostBody(android.os.Bundle,java.lang.String)
+    259:358:public static com.tencent.open.utils.Util$Statistic upload(android.content.Context,java.lang.String,android.os.Bundle)
+    371:389:private static java.lang.String a(org.apache.http.HttpResponse)
+    468:472:public static void showAlert(android.content.Context,java.lang.String,java.lang.String)
+    776:784:public static java.lang.String toHexString(java.lang.String)
+    790:815:public static java.lang.String hexToString(java.lang.String)
+    825:832:public static java.lang.String getAppVersion(android.content.Context)
+com.tencent.open.utils.Util$TBufferedOutputStream
+com.tencent.open.utils.ZipLong:
+    15:16:public ZipLong(byte[])
+    24:29:public ZipLong(byte[],int)
+com.tencent.open.weiyun.FileManager
+com.tencent.open.weiyun.FileManager$DownLoadImp
+com.tencent.open.weiyun.FileManager$DownLoadImp$1
+com.tencent.open.weiyun.FileManager$DownLoadImp$2
+com.tencent.open.weiyun.FileManager$DownLoadImp$3
+com.tencent.open.weiyun.FileManager$GetFileListListener
+com.tencent.open.weiyun.FileManager$UploadFileImp
+com.tencent.open.weiyun.FileManager$UploadFileImp$1
+com.tencent.open.weiyun.FileManager$UploadFileImp$2
+com.tencent.open.weiyun.FileManager$UploadFileImp$3
+com.tencent.open.weiyun.FileManager$WeiyunFileType
+com.tencent.open.weiyun.IDownLoadFileCallBack
+com.tencent.open.weiyun.IGetFileListListener
+com.tencent.open.weiyun.IUploadFileCallBack
+com.tencent.open.weiyun.RecordManager
+com.tencent.open.weiyun.RecordManager$1
+com.tencent.open.weiyun.RecordManager$2
+com.tencent.open.weiyun.RecordManager$3
+com.tencent.open.weiyun.RecordManager$4
+com.tencent.open.weiyun.RecordManager$5
+com.tencent.open.weiyun.RecordManager$6
+com.tencent.open.weiyun.WeiyunFile
+com.tencent.open.wpa.WPA
+com.tencent.open.yyb.AppbarActivity:
+    private static final java.lang.String WEBVIEW_PATH
+    public static final java.lang.String MYAPP_CACHE_PATH
+    private static final java.lang.String UA_PREFIX
+    private static final int FLOATING_DIALOG_HEIGHT
+    private int titlebarTop
+    410:427:public void showFloatingDialog()
+    430:436:private int getTitbarTop()
+    458:510:public void login()
+    637:638:public void setShareVisibility(boolean)
+    641:642:public void setAppbarTitle(java.lang.String)
+    645:646:public void setShareModel(com.tencent.open.yyb.ShareModel)
+    649:649:private java.lang.String buildTransaction(java.lang.String)
+com.tencent.open.yyb.AppbarActivity$2:
+    460:460:AppbarActivity$2(com.tencent.open.yyb.AppbarActivity)
+com.tencent.open.yyb.AppbarAgent:
+    public static final java.lang.String TO_APPBAR_DETAIL
+    public static final java.lang.String TO_APPBAR_NEWS
+    public static final java.lang.String TO_APPBAR_SEND_BLOG
+    private android.os.Bundle a
+    61:62:public AppbarAgent(com.tencent.connect.auth.QQToken)
+    65:72:public void startAppbarLabel(android.app.Activity,java.lang.String)
+    75:102:public void startAppbar(android.app.Activity,java.lang.String)
+    105:105:private boolean a(java.lang.String)
+    110:127:private void a(android.app.Activity,java.lang.String)
+    130:145:private android.os.Bundle b(java.lang.String)
+    149:152:private java.lang.String c(java.lang.String)
+    156:166:private java.lang.String a()
+    170:183:private java.lang.String a(android.os.Bundle)
+    187:199:private java.lang.String b()
+com.tencent.open.yyb.AppbarJsBridge:
+    public static final java.lang.String CALLBACK_LOGIN
+    public static final java.lang.String CALLBACK_SHARE
+    public static final java.lang.String BUTTON_CLICK_CALLBACK_FUNCTION_NAME
+    public static final java.lang.String READY_CALLBACK_FUNCTION_NAME
+    public static final java.lang.String JS_BRIDGE_SCHEME
+    public static final int JSBRIDGE_VERSION
+    public static final int Result_OK
+    public static final int Result_Fail
+    public static final int Code_None
+    public static final int Code_Java_Exception
+    public static final int AUTHORIZE_FAIL
+    public static final int SHARE_QQ
+    public static final int SHARE_QZ
+    public static final int SHARE_WX
+    public static final int SHARE_TIMELINE
+    77:79:public void closeWebView(android.net.Uri,int,java.lang.String,java.lang.String)
+    89:101:public void pageControl(android.net.Uri,int,java.lang.String,java.lang.String)
+    105:146:public void share(android.net.Uri,int,java.lang.String,java.lang.String)
+    160:199:public void getAppInfo(android.net.Uri,int,java.lang.String,java.lang.String)
+    206:214:public void openNewWindow(android.net.Uri,int,java.lang.String,java.lang.String)
+    218:230:public void setWebView(android.net.Uri,int,java.lang.String,java.lang.String)
+    234:236:public void openLoginActivity(android.net.Uri,int,java.lang.String,java.lang.String)
+com.tencent.open.yyb.MoreFloatingDialog:
+    private static final java.lang.String SOURCE_FLOATING_BG
+    private static final java.lang.String SOURCE_QQ_BG
+    private static final java.lang.String SOURCE_QZONE_BG
+    private static final java.lang.String SOURCE_WEIXIN_BG
+    private static final java.lang.String SOURCE_FRIENDS_BG
+    private static final float SHARE_ICON_SIZE
+    private static final float NINE_PATCH_TOP
+    79:79:public int getContentViewHeight()
+    99:99:public int getHeight()
+com.tencent.open.yyb.TitleBar:
+    public static final float TITLEBAR_HEIGHT
+    public static final float BACKBTN_LEFT_MARGIN
+    public static final float SHAREBTN_RIGHT_MARGIN
+    private static final java.lang.String SOURCE_TITLEBAR
+    private static final java.lang.String SOURCE_BACK_BTN
+    private static final java.lang.String SOURCE_MORE_BTN
+    private static final float BACK_PADDING_LEFT
+    private static final float BACK_PADDING_TOP
+    private static final float BACK_PADDING_RIGHT
+    private static final float BACK_PADDING_BOTTOM
+    private static final float BACK_BTN_WIDTH
+    private static final float BACK_BTN_HEIGHT
+    private static final float SHARE_BTN_SIZE
+    private static final int ID_BACK_BTN
+com.tencent.open.yyb.b:
+    33:159:public b()
+com.tencent.open.yyb.b$a
+com.tencent.qqconnect.dataprovider.datatype.TextAndMediaPath:
+    10:13:public TextAndMediaPath(java.lang.String,java.lang.String)
+    16:16:public java.lang.String getText()
+    20:20:public java.lang.String getMediaPath()
+com.tencent.qqconnect.dataprovider.datatype.TextOnly:
+    9:11:public TextOnly(java.lang.String)
+    14:14:public java.lang.String getText()
+com.tencent.stat.DeviceInfo:
+    public static final int NEW_USER
+    public static final int OLD_USER
+    public static final int UPGRADE_USER
+    public static final java.lang.String TAG_MID
+    public static final java.lang.String TAG_IMEI
+    public static final java.lang.String TAG_MAC
+    public static final java.lang.String TAG_ANDROID_ID
+    public static final java.lang.String TAG_TIMESTAMPS
+    public static final java.lang.String TAG_VERSION
+    public static final java.lang.String TAG_FLAG
+com.tencent.stat.MtaSDkException:
+    public MtaSDkException(java.lang.String,java.lang.Throwable)
+    public MtaSDkException(java.lang.Throwable)
+com.tencent.stat.NetworkMonitor:
+    public long getMillisecondsConsume()
+    public int getStatusCode()
+    public java.lang.String getDomain()
+    public int getPort()
+    public java.lang.String getRemoteIp()
+com.tencent.stat.StatAppMonitor
+com.tencent.stat.StatConfig:
+    public StatConfig()
+    public static boolean isDebugEnable()
+    public static void setDebugEnable(boolean)
+    public static void setSessionTimoutMillis(int)
+    public static void setMaxBatchReportCount(int)
+    public static void setMaxSendRetryCount(int)
+    public static void setMaxStoreEventCount(int)
+    public static java.lang.String getCustomProperty(java.lang.String)
+    public static java.lang.String getCustomProperty(java.lang.String,java.lang.String)
+    public static void setAppKey(java.lang.String)
+    public static void setQQ(android.content.Context,java.lang.String)
+    public static void setMaxParallelTimmingEvents(int)
+    public static void setMaxSessionStatReportCount(int)
+    public static void setMaxDaySessionNumbers(int)
+    public static void setMaxReportEventLength(int)
+    public static void setEnableConcurrentProcess(boolean)
+    public static void setCustomUserId(android.content.Context,java.lang.String)
+    static void a(boolean)
+    public static void initNativeCrashReport(android.content.Context,java.lang.String)
+com.tencent.stat.StatGameUser
+com.tencent.stat.StatMid:
+    public StatMid()
+com.tencent.stat.StatNativeCrashReport:
+    public static final java.lang.String PRE_TAG_TOMBSTONE_FNAME
+    public native java.lang.String stringFromJNI()
+    public native boolean initJNICrash(java.lang.String)
+    public native void enableNativeCrashDebug(boolean)
+    public native void enableNativeCrash(boolean)
+    public native java.lang.String makeJniCrash()
+    public static java.lang.String onNativeCrashHappened()
+    public static void doNativeCrashTest()
+    public static void setNativeCrashEnable(boolean)
+    public static boolean isNativeCrashEnable()
+    public static void setNativeCrashDebugEnable(boolean)
+    public static boolean isNativeCrashDebugEnable()
+    public static void initNativeCrash(android.content.Context,java.lang.String)
+com.tencent.stat.StatService:
+    public StatService()
+    public static void startNewSession(android.content.Context)
+    public static void stopSession()
+    public static void setEnvAttributes(android.content.Context,java.util.Map)
+    public static void reportGameUser(android.content.Context,com.tencent.stat.StatGameUser)
+    public static void reportError(android.content.Context,java.lang.String)
+    public static void reportException(android.content.Context,java.lang.Throwable)
+    public static void trackCustomKVEvent(android.content.Context,java.lang.String,java.util.Properties)
+    public static varargs void trackCustomBeginEvent(android.content.Context,java.lang.String,java.lang.String[])
+    public static varargs void trackCustomEndEvent(android.content.Context,java.lang.String,java.lang.String[])
+    public static void trackCustomBeginKVEvent(android.content.Context,java.lang.String,java.util.Properties)
+    public static void trackCustomEndKVEvent(android.content.Context,java.lang.String,java.util.Properties)
+    public static void reportAppMonitorStat(android.content.Context,com.tencent.stat.StatAppMonitor)
+    public static void commitEvents(android.content.Context,int)
+    public static void testSpeed(android.content.Context,java.util.Map)
+com.tencent.stat.a.b:
+    public void a(long)
+    public void a(java.util.Properties)
+com.tencent.stat.a.c:
+    public c(java.lang.String,java.lang.String[],java.util.Properties)
+com.tencent.stat.a.g
+com.tencent.stat.a.h
+com.tencent.stat.common.StatConstants:
+    public static final java.lang.String VERSION
+    public static final java.lang.String MTA_SERVER
+    public static final java.lang.String MTA_STAT_URL
+    public static final java.lang.String MTA_COOPERATION_TAG
+    public static final int STAT_DB_VERSION
+    public static final int SDK_ONLINE_CONFIG_TYPE
+    public static final int USER_ONLINE_CONFIG_TYPE
+    public StatConstants()
+com.tencent.stat.common.StatLogger:
+    public int getLogLevel()
+    public void setLogLevel(int)
+    public void setTag(java.lang.String)
+    public void verbose(java.lang.Object)
+    public void v(java.lang.Object)
+com.tencent.stat.common.a:
+    public static void a(android.content.Context,java.util.Map)
+com.tencent.tauth.AuthActivity:
+    private static final java.lang.String ACTION_KEY
+    private static final java.lang.String ACTION_SHARE_TO_QQ
+    private static final java.lang.String ACTION_SHARE_TO_QZONE
 com.tencent.tauth.Tencent:
-    148:149:public java.lang.String getAccessToken()
-    169:171:public void setAccessToken(java.lang.String,java.lang.String)
-    204:205:public long getExpiresIn()
-    282:292:public void logout(android.content.Context)
-    312:314:public int invite(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    336:338:public int story(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    360:362:public int ask(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    383:385:public int gift(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    409:412:public int pay(android.app.Activity,com.tencent.tauth.IUiListener)
-    433:435:public int challenge(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    456:458:public int brag(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    500:501:public org.json.JSONObject request(java.lang.String,android.os.Bundle,java.lang.String)
-    505:512:public org.json.JSONObject requestSync(java.lang.String,android.os.Bundle,java.lang.String)
-    523:530:public org.json.JSONObject upload(java.lang.String,android.os.Bundle)
-    587:587:public java.lang.String getSDKVersion()
-    603:606:public void setAvatar(android.app.Activity,android.os.Bundle)
-    623:629:public void setAvatar(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    650:655:public void setAvatar(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener,int,int)
-    669:715:public void shareToQQ(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    724:773:private void shareToMobileQQ(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    780:846:private void doShareToQQ(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    852:871:private void shareToH5QQ(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-    882:905:private java.lang.String fillShareToQQParams(java.lang.String,android.os.Bundle)
-    43:43:static synthetic void access$000(com.tencent.tauth.Tencent,android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
-com.tencent.tauth.Tencent$1
-com.tencent.tauth.UploadFileToWeiyun
-com.tencent.tauth.UploadFileToWeiyun$1
-com.tencent.tauth.UploadFileToWeiyun$2
-com.tencent.tauth.UploadFileToWeiyun$3
-com.tencent.tauth.WeiyunConstants
-com.tencent.tauth.bean.Album
-com.tencent.tauth.bean.OpenId
-com.tencent.tauth.bean.Pic
-com.tencent.tauth.bean.UserInfo
-com.tencent.tauth.bean.UserProfile
+    private com.tencent.open.LocationApi mLocationApi
+    private com.tencent.open.yyb.AppbarAgent mAgent
+    136:136:public int login(android.support.v4.app.Fragment,java.lang.String,com.tencent.tauth.IUiListener)
+    152:152:public int loginWithOEM(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener,java.lang.String,java.lang.String,java.lang.String)
+    161:161:public int reAuth(android.app.Activity,java.lang.String,com.tencent.tauth.IUiListener)
+    165:167:public int invite(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    171:173:public int story(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    177:179:public int gift(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    183:185:public int ask(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    190:192:public void requestAsync(java.lang.String,android.os.Bundle,java.lang.String,com.tencent.tauth.IRequestListener,java.lang.Object)
+    197:197:public org.json.JSONObject request(java.lang.String,android.os.Bundle,java.lang.String)
+    202:204:public void shareToQQ(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    207:209:public void shareToQzone(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    212:214:public void releaseResource()
+    229:229:public java.lang.String getAccessToken()
+    233:233:public long getExpiresIn()
+    260:261:public void handleLoginData(android.content.Intent,com.tencent.tauth.IUiListener)
+    280:282:public void setAccessToken(java.lang.String,java.lang.String)
+    293:298:public void setOpenId(java.lang.String)
+    306:307:public boolean isReady()
+    319:331:public boolean isSupportSSOLogin(android.app.Activity)
+    341:343:public int reactive(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    347:350:public int searchNearby(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    354:357:public int deleteLocation(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    361:363:public int brag(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    367:369:public int challenge(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    373:377:public void setAvatar(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    381:385:public void setAvatar(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener,int,int)
+    388:390:public void grade(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    394:396:public void voice(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    399:401:public void showTaskGuideWindow(android.app.Activity,android.os.Bundle,com.tencent.tauth.IUiListener)
+    404:408:public void startAppbar(android.app.Activity,java.lang.String)
+    411:415:public void startAppbarLabel(android.app.Activity,java.lang.String)
+    423:431:public boolean joinQQGroup(android.app.Activity,java.lang.String)
 it.sephiroth.android.library.imagezoom.ImageViewTouch:
     static final float SCROLL_DELTA_THRESHOLD
     59:60:public void setDoubleTapListener(it.sephiroth.android.library.imagezoom.ImageViewTouch$OnImageViewTouchDoubleTapListener)

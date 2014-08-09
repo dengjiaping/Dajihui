@@ -1,5 +1,6 @@
 package com.mzhou.merchant.fragment;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -84,7 +85,13 @@ public class XianshiGX extends Fragment {
 	private boolean flag = false;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		View mView = inflater.inflate(R.layout.view_pager_sanma, null);
 		view = mView;
 		init();
@@ -147,15 +154,15 @@ public class XianshiGX extends Fragment {
 		productsManager = new ProductsManager();
 		 imageLoader = ImageLoader.getInstance();
 		 options = new DisplayImageOptions.Builder()
-			.showStubImage(R.drawable.ic_stub)
+			.showImageOnLoading(R.drawable.ic_stub)
 			.showImageForEmptyUri(R.drawable.ic_stub)
 			.showImageOnFail(R.drawable.ic_stub)
-			.delayBeforeLoading(0)
-			.cacheOnDisc()
-			.displayer(new FadeInBitmapDisplayer(200))
 			.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+			.cacheInMemory(true)
+			.cacheOnDisk(true)
+			.considerExifParams(true)
 			.bitmapConfig(Bitmap.Config.RGB_565)
-			.build(); 
+			.build();
 		 mAdapter = new MyGridProductAdapter4(context, mList,imageLoader,options);
 		page_down = 1;
 		page_up = 2;
@@ -201,9 +208,7 @@ public class XianshiGX extends Fragment {
 										@Override
 										public void getProductInfo(
 												List<ProductsBean> productsBeans) {
-											if ((productsBeans != null)
-													&& (!productsBeans
-															.equals("[]"))) {
+											if ((productsBeans != null) && (productsBeans.size() != 0)) {
 												for (ProductsBean productsBean : productsBeans) {
 													mList.addFirst(productsBean);
 													flag = true;
@@ -239,9 +244,7 @@ public class XianshiGX extends Fragment {
 										@Override
 										public void getProductInfo(
 												List<ProductsBean> productsBeans) {
-											if ((productsBeans != null)
-													&& (!productsBeans
-															.equals("[]"))) {
+											if ((productsBeans != null) && (productsBeans.size() != 0)) {
 												for (ProductsBean productsBean : productsBeans) {
 													mList.addLast(productsBean);
 												}
@@ -353,7 +356,7 @@ public class XianshiGX extends Fragment {
 				List<ProductsBean> productsBeans = JsonParse
 						.parseProductsJson(result);*/
 			mList.clear();
-				if (productsBeans != null && !productsBeans.equals("[]")) {
+			if ((productsBeans != null) && (productsBeans.size() != 0)) {
 					mList.addAll(productsBeans);
 					MyUtlis.sortListOrder(mList);
 					mGridView.setAdapter(mAdapter);
@@ -586,8 +589,6 @@ public class XianshiGX extends Fragment {
 	@Override
 	public void onStop() {
 			thread.interrupt();
-			imageLoader.stop();
-			imageLoader.clearMemoryCache();
 			System.gc();
 		super.onStop();
 	}

@@ -3,6 +3,7 @@ package com.mzhou.merchant.activity;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -14,13 +15,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +60,7 @@ import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 public class EditShoujiEnterpriseActivity extends Activity {
 	private ImageView showLeft;
@@ -156,6 +157,13 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.fabu_shouji_enterprise);
 		init();
 		loadButton();
@@ -175,12 +183,16 @@ public class EditShoujiEnterpriseActivity extends Activity {
  
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.ad_loading)
-				.showImageForEmptyUri(R.drawable.ad_loading)
-				.showImageOnFail(R.drawable.ad_loading).cacheInMemory()
-				.cacheOnDisc().delayBeforeLoading(0)
-				.displayer(new RoundedBitmapDisplayer(4))
-				.bitmapConfig(Bitmap.Config.RGB_565).build();
+		.showImageOnLoading(R.drawable.ad_loading)
+		.showImageForEmptyUri(R.drawable.ad_loading)
+		.showImageOnFail(R.drawable.ad_loading)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
+		 
 		productsManager = new ProductsManager();
 		isLast = true;
 		Intent intent = getIntent();
@@ -862,7 +874,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 			for (int i = 0; i < arry.length; i++) {
 				mList.add(arry[i]);
 			}
-			if (mList.size() != 5) {
+			if (mList != null &&mList.size() != 5) {
 				isLast = false;
 				imageview_add.setVisibility(View.VISIBLE);
 			}
@@ -894,7 +906,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		if (file.exists() && file != null) {
+		if (file != null && file.exists()  ) {
 			file.delete();
 			deleteDir(file);
 		}

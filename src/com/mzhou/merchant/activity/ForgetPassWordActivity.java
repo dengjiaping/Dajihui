@@ -1,5 +1,7 @@
 package com.mzhou.merchant.activity;
 
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import com.mzhou.merchant.dao.IUser.Iforgetquestion;
 import com.mzhou.merchant.model.GetQuestionBean;
 import com.mzhou.merchant.utlis.CustomProgressDialog;
@@ -13,6 +15,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -37,6 +40,13 @@ public class ForgetPassWordActivity extends Activity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.user_login_forgetpassword);
 		next = (Button) findViewById(R.id.user_login_forgetpassword_button);
 		user_register_forget_count = (EditText) findViewById(R.id.user_register_forget_count);

@@ -2,6 +2,7 @@ package com.mzhou.merchant.activity;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +36,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Window;
 import android.widget.ImageView;
 
@@ -54,6 +56,13 @@ public class ActivityStart extends Activity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.start);
 		loginManager= DbLoginManager.getInstance(this);
 		userManager = DbUserManager.getInstance(this);

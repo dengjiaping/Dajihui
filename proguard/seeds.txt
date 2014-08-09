@@ -3424,8 +3424,18 @@ com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nost
 com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme UNKNOWN
 com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme[] values()
 com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme: com.nostra13.universalimageloader.core.download.ImageDownloader$Scheme valueOf(java.lang.String)
-com.tencent.open.KeyboardDetectorRelativeLayout
-com.tencent.open.KeyboardDetectorRelativeLayout: KeyboardDetectorRelativeLayout(android.content.Context,android.util.AttributeSet)
+com.tencent.connect.avatar.ImageActivity
+com.tencent.connect.avatar.b
+com.tencent.connect.avatar.b: b(android.content.Context,android.util.AttributeSet)
+com.tencent.connect.avatar.g
+com.tencent.connect.avatar.g: g(android.content.Context,android.util.AttributeSet)
+com.tencent.connect.common.AssistActivity
+com.tencent.connect.common.AssistActivity: AssistActivity()
+com.tencent.connect.dataprovider.DataType$TextAndMediaPath
+com.tencent.connect.dataprovider.DataType$TextAndMediaPath: android.os.Parcelable$Creator CREATOR
+com.tencent.connect.dataprovider.DataType$TextOnly
+com.tencent.connect.dataprovider.DataType$TextOnly: android.os.Parcelable$Creator CREATOR
+com.tencent.map.b.f$c
 com.tencent.open.PKDialog
 com.tencent.open.PKDialog: java.lang.String TAG
 com.tencent.open.PKDialog: int WEBVIEW_HEIGHT
@@ -3438,12 +3448,12 @@ com.tencent.open.PKDialog: java.lang.String mUrl
 com.tencent.open.PKDialog: com.tencent.tauth.IUiListener listener
 com.tencent.open.PKDialog: com.tencent.open.PKDialog$OnTimeListener mListener
 com.tencent.open.PKDialog: android.os.Handler mHandler
-com.tencent.open.PKDialog: com.tencent.open.KeyboardDetectorRelativeLayout mFlMain
+com.tencent.open.PKDialog: com.tencent.open.b.a mFlMain
 com.tencent.open.PKDialog: android.webkit.WebView mWebView
 com.tencent.open.PKDialog: java.lang.ref.WeakReference sWeakContext
 com.tencent.open.PKDialog: int mWebviewHeight
 com.tencent.open.PKDialog: android.widget.Toast sToast
-com.tencent.open.PKDialog: PKDialog(android.content.Context,java.lang.String,java.lang.String,com.tencent.tauth.IUiListener,com.tencent.open.TContext)
+com.tencent.open.PKDialog: PKDialog(android.content.Context,java.lang.String,java.lang.String,com.tencent.tauth.IUiListener,com.tencent.connect.auth.QQToken)
 com.tencent.open.PKDialog: void onBackPressed()
 com.tencent.open.PKDialog: void onCreate(android.os.Bundle)
 com.tencent.open.PKDialog: void createViews()
@@ -3454,6 +3464,7 @@ com.tencent.open.PKDialog: void showProcessDialog(android.content.Context,java.l
 com.tencent.open.PKDialog: void loadUrlWithBrowser(java.lang.String,java.lang.String,java.lang.String)
 com.tencent.open.PKDialog: void onKeyboardShown(int)
 com.tencent.open.PKDialog: void onKeyboardHidden()
+com.tencent.open.PKDialog: void onConsoleMessage(java.lang.String)
 com.tencent.open.PKDialog: android.os.Handler access$200(com.tencent.open.PKDialog)
 com.tencent.open.PKDialog: java.lang.String access$300()
 com.tencent.open.PKDialog: java.lang.ref.WeakReference access$400()
@@ -3470,7 +3481,6 @@ com.tencent.open.PKDialog$FbWebViewClient: boolean shouldOverrideUrlLoading(andr
 com.tencent.open.PKDialog$FbWebViewClient: void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String)
 com.tencent.open.PKDialog$FbWebViewClient: void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap)
 com.tencent.open.PKDialog$FbWebViewClient: void onPageFinished(android.webkit.WebView,java.lang.String)
-com.tencent.open.PKDialog$FbWebViewClient: void onReceivedSslError(android.webkit.WebView,android.webkit.SslErrorHandler,android.net.http.SslError)
 com.tencent.open.PKDialog$FbWebViewClient: PKDialog$FbWebViewClient(com.tencent.open.PKDialog,com.tencent.open.PKDialog$1)
 com.tencent.open.PKDialog$JsListener
 com.tencent.open.PKDialog$JsListener: com.tencent.open.PKDialog this$0
@@ -3488,7 +3498,7 @@ com.tencent.open.PKDialog$OnTimeListener: java.lang.String mAppid
 com.tencent.open.PKDialog$OnTimeListener: com.tencent.tauth.IUiListener mWeakL
 com.tencent.open.PKDialog$OnTimeListener: PKDialog$OnTimeListener(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.tencent.tauth.IUiListener)
 com.tencent.open.PKDialog$OnTimeListener: void onComplete(java.lang.String)
-com.tencent.open.PKDialog$OnTimeListener: void onComplete(org.json.JSONObject)
+com.tencent.open.PKDialog$OnTimeListener: void onComplete(java.lang.Object)
 com.tencent.open.PKDialog$OnTimeListener: void onError(com.tencent.tauth.UiError)
 com.tencent.open.PKDialog$OnTimeListener: void onCancel()
 com.tencent.open.PKDialog$OnTimeListener: void access$700(com.tencent.open.PKDialog$OnTimeListener,java.lang.String)
@@ -3504,14 +3514,13 @@ com.tencent.open.TDialog$FbWebViewClient: boolean shouldOverrideUrlLoading(andro
 com.tencent.open.TDialog$FbWebViewClient: void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String)
 com.tencent.open.TDialog$FbWebViewClient: void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap)
 com.tencent.open.TDialog$FbWebViewClient: void onPageFinished(android.webkit.WebView,java.lang.String)
-com.tencent.open.TDialog$FbWebViewClient: void onReceivedSslError(android.webkit.WebView,android.webkit.SslErrorHandler,android.net.http.SslError)
 com.tencent.open.TDialog$FbWebViewClient: TDialog$FbWebViewClient(com.tencent.open.TDialog,com.tencent.open.TDialog$1)
 com.tencent.open.TDialog$JsListener
 com.tencent.open.TDialog$JsListener: com.tencent.open.TDialog this$0
 com.tencent.open.TDialog$JsListener: TDialog$JsListener(com.tencent.open.TDialog)
 com.tencent.open.TDialog$JsListener: void onAddShare(java.lang.String)
 com.tencent.open.TDialog$JsListener: void onInvite(java.lang.String)
-com.tencent.open.TDialog$JsListener: void onCancelAddShare(int)
+com.tencent.open.TDialog$JsListener: void onCancelAddShare(java.lang.String)
 com.tencent.open.TDialog$JsListener: void onCancelLogin()
 com.tencent.open.TDialog$JsListener: void onCancelInvite()
 com.tencent.open.TDialog$JsListener: void onComplete(java.lang.String)
@@ -3527,7 +3536,7 @@ com.tencent.open.TDialog$OnTimeListener: java.lang.String mAppid
 com.tencent.open.TDialog$OnTimeListener: com.tencent.tauth.IUiListener mWeakL
 com.tencent.open.TDialog$OnTimeListener: TDialog$OnTimeListener(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.tencent.tauth.IUiListener)
 com.tencent.open.TDialog$OnTimeListener: void onComplete(java.lang.String)
-com.tencent.open.TDialog$OnTimeListener: void onComplete(org.json.JSONObject)
+com.tencent.open.TDialog$OnTimeListener: void onComplete(java.lang.Object)
 com.tencent.open.TDialog$OnTimeListener: void onError(com.tencent.tauth.UiError)
 com.tencent.open.TDialog$OnTimeListener: void onCancel()
 com.tencent.open.TDialog$OnTimeListener: void access$000(com.tencent.open.TDialog$OnTimeListener,java.lang.String)
@@ -3535,17 +3544,49 @@ com.tencent.open.TDialog$THandler
 com.tencent.open.TDialog$THandler: com.tencent.open.TDialog$OnTimeListener mL
 com.tencent.open.TDialog$THandler: TDialog$THandler(com.tencent.open.TDialog$OnTimeListener,android.os.Looper)
 com.tencent.open.TDialog$THandler: void handleMessage(android.os.Message)
-com.tencent.plus.ImageActivity
-com.tencent.plus.MaskView
-com.tencent.plus.MaskView: MaskView(android.content.Context,android.util.AttributeSet)
-com.tencent.plus.TouchView
-com.tencent.plus.TouchView: TouchView(android.content.Context,android.util.AttributeSet)
+com.tencent.open.TaskGuide$d: com.tencent.open.TaskGuide$d a
+com.tencent.open.TaskGuide$d: com.tencent.open.TaskGuide$d b
+com.tencent.open.TaskGuide$d: com.tencent.open.TaskGuide$d c
+com.tencent.open.TaskGuide$d: com.tencent.open.TaskGuide$d d
+com.tencent.open.TaskGuide$d: com.tencent.open.TaskGuide$d e
+com.tencent.open.TaskGuide$d: com.tencent.open.TaskGuide$d f
+com.tencent.open.a$a: a$a()
+com.tencent.open.a$a: void call(java.lang.String,java.util.List,com.tencent.open.a$b)
+com.tencent.open.a$a: boolean customCallback()
+com.tencent.open.b.a
+com.tencent.open.b.a: a(android.content.Context,android.util.AttributeSet)
+com.tencent.open.f: com.tencent.open.a jsBridge
+com.tencent.open.f: android.webkit.WebChromeClient mChromeClient
+com.tencent.open.f: f(android.content.Context)
+com.tencent.open.f: f(android.content.Context,int)
+com.tencent.open.f: void onCreate(android.os.Bundle)
+com.tencent.open.f: void onConsoleMessage(java.lang.String)
+com.tencent.open.qzone.Albums$AlbumSecurity: com.tencent.open.qzone.Albums$AlbumSecurity publicToAll
+com.tencent.open.qzone.Albums$AlbumSecurity: com.tencent.open.qzone.Albums$AlbumSecurity privateOnly
+com.tencent.open.qzone.Albums$AlbumSecurity: com.tencent.open.qzone.Albums$AlbumSecurity friendsOnly
+com.tencent.open.qzone.Albums$AlbumSecurity: com.tencent.open.qzone.Albums$AlbumSecurity needQuestion
+com.tencent.open.utils.HttpUtils$HttpStatusException: java.lang.String ERROR_INFO
+com.tencent.open.utils.HttpUtils$NetworkUnavailableException: java.lang.String ERROR_INFO
+com.tencent.open.weiyun.FileManager$WeiyunFileType: com.tencent.open.weiyun.FileManager$WeiyunFileType ImageFile
+com.tencent.open.weiyun.FileManager$WeiyunFileType: com.tencent.open.weiyun.FileManager$WeiyunFileType MusicFile
+com.tencent.open.weiyun.FileManager$WeiyunFileType: com.tencent.open.weiyun.FileManager$WeiyunFileType VideoFile
+com.tencent.open.weiyun.FileManager$WeiyunFileType: com.tencent.open.weiyun.FileManager$WeiyunFileType[] values()
+com.tencent.open.weiyun.FileManager$WeiyunFileType: com.tencent.open.weiyun.FileManager$WeiyunFileType valueOf(java.lang.String)
+com.tencent.open.yyb.AppbarActivity
+com.tencent.open.yyb.ShareModel
+com.tencent.open.yyb.ShareModel: android.os.Parcelable$Creator CREATOR
 com.tencent.qqconnect.dataprovider.datatype.TextAndMediaPath
 com.tencent.qqconnect.dataprovider.datatype.TextAndMediaPath: android.os.Parcelable$Creator CREATOR
 com.tencent.qqconnect.dataprovider.datatype.TextOnly
 com.tencent.qqconnect.dataprovider.datatype.TextOnly: android.os.Parcelable$Creator CREATOR
 com.tencent.stat.EasyActivity
 com.tencent.stat.EasyListActivity
+com.tencent.stat.StatNativeCrashReport
+com.tencent.stat.StatNativeCrashReport: java.lang.String stringFromJNI()
+com.tencent.stat.StatNativeCrashReport: boolean initJNICrash(java.lang.String)
+com.tencent.stat.StatNativeCrashReport: void enableNativeCrashDebug(boolean)
+com.tencent.stat.StatNativeCrashReport: void enableNativeCrash(boolean)
+com.tencent.stat.StatNativeCrashReport: java.lang.String makeJniCrash()
 com.tencent.stat.StatReportStrategy: com.tencent.stat.StatReportStrategy INSTANT
 com.tencent.stat.StatReportStrategy: com.tencent.stat.StatReportStrategy ONLY_WIFI
 com.tencent.stat.StatReportStrategy: com.tencent.stat.StatReportStrategy BATCH
@@ -3555,12 +3596,14 @@ com.tencent.stat.StatReportStrategy: com.tencent.stat.StatReportStrategy PERIOD
 com.tencent.stat.StatReportStrategy: com.tencent.stat.StatReportStrategy ONLY_WIFI_NO_CACHE
 com.tencent.stat.StatReportStrategy: com.tencent.stat.StatReportStrategy[] values()
 com.tencent.stat.StatReportStrategy: com.tencent.stat.StatReportStrategy valueOf(java.lang.String)
-com.tencent.stat.event.EventType: com.tencent.stat.event.EventType PAGE_VIEW
-com.tencent.stat.event.EventType: com.tencent.stat.event.EventType SESSION_ENV
-com.tencent.stat.event.EventType: com.tencent.stat.event.EventType ERROR
-com.tencent.stat.event.EventType: com.tencent.stat.event.EventType CUSTOM
-com.tencent.stat.event.EventType: com.tencent.stat.event.EventType ADDITION
-com.tencent.stat.event.EventType: com.tencent.stat.event.EventType MONITOR_STAT
+com.tencent.stat.a.f: com.tencent.stat.a.f a
+com.tencent.stat.a.f: com.tencent.stat.a.f b
+com.tencent.stat.a.f: com.tencent.stat.a.f c
+com.tencent.stat.a.f: com.tencent.stat.a.f d
+com.tencent.stat.a.f: com.tencent.stat.a.f e
+com.tencent.stat.a.f: com.tencent.stat.a.f f
+com.tencent.stat.a.f: com.tencent.stat.a.f g
+com.tencent.stat.a.f: com.tencent.stat.a.f h
 com.tencent.tauth.AuthActivity
 com.tencent.tauth.AuthActivity: AuthActivity()
 it.sephiroth.android.library.imagezoom.ImageViewTouch

@@ -1,12 +1,7 @@
 package com.mzhou.merchant.activity;
 
-import com.mzhou.merchant.dao.IProduct.IGetCompanyInfo;
-import com.mzhou.merchant.dao.biz.ProductsManager;
-import com.mzhou.merchant.model.AboutCompany;
-import com.mzhou.merchant.utlis.MyConstants;
-import com.mzhou.merchant.utlis.WebIsConnectUtil;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import java.lang.Thread.UncaughtExceptionHandler;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,10 +9,19 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mzhou.merchant.dao.IProduct.IGetCompanyInfo;
+import com.mzhou.merchant.dao.biz.ProductsManager;
+import com.mzhou.merchant.model.AboutCompany;
+import com.mzhou.merchant.utlis.MyConstants;
+import com.mzhou.merchant.utlis.WebIsConnectUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 public class CompanyIntroduceActivity extends Activity {
 
@@ -39,6 +43,13 @@ public class CompanyIntroduceActivity extends Activity {
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+	         
+	        @Override
+	        public void uncaughtException(Thread thread, Throwable ex) {
+	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
+	        }
+	    });
 		setContentView(R.layout.xianshi_guanyu);
 		init();
 		loadButton();
@@ -114,11 +125,16 @@ public class CompanyIntroduceActivity extends Activity {
 		productsManager = new ProductsManager();
 		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
-				.showStubImage(R.drawable.ad_loading)
-				.showImageForEmptyUri(R.drawable.ad_loading)
-				.showImageOnFail(R.drawable.ad_loading).cacheInMemory()
-				.cacheOnDisc().delayBeforeLoading(0)
-				.bitmapConfig(Bitmap.Config.RGB_565).build();
+		.showImageOnLoading(R.drawable.ad_loading)
+		.showImageForEmptyUri(R.drawable.ad_loading)
+		.showImageOnFail(R.drawable.ad_loading)
+		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
+		.cacheInMemory(true)
+		.cacheOnDisk(true)
+		.considerExifParams(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
+		 
 		Intent intent = getIntent();
 		brand = intent.getStringExtra("brand");
 		Log.i("print", brand);
