@@ -2530,8 +2530,6 @@ com.handmark.pulltorefresh.library.extras.PullToRefreshWebView2
 com.handmark.pulltorefresh.library.extras.PullToRefreshWebView2: PullToRefreshWebView2(android.content.Context,android.util.AttributeSet)
 com.mzhou.merchant.activity.ActivityAbout
 com.mzhou.merchant.activity.ActivityAbout: ActivityAbout()
-com.mzhou.merchant.activity.ActivityBinderQQ
-com.mzhou.merchant.activity.ActivityBinderQQ: ActivityBinderQQ()
 com.mzhou.merchant.activity.ActivityFankui
 com.mzhou.merchant.activity.ActivityFankui: ActivityFankui()
 com.mzhou.merchant.activity.ActivityFourPhone
@@ -3397,12 +3395,18 @@ com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.
 com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType[] values()
 com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType valueOf(java.lang.String)
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType NONE
+com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType NONE_SAFE
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType IN_SAMPLE_POWER_OF_2
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType IN_SAMPLE_INT
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType EXACTLY
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType EXACTLY_STRETCHED
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType[] values()
 com.nostra13.universalimageloader.core.assist.ImageScaleType: com.nostra13.universalimageloader.core.assist.ImageScaleType valueOf(java.lang.String)
+com.nostra13.universalimageloader.core.assist.LoadedFrom: com.nostra13.universalimageloader.core.assist.LoadedFrom NETWORK
+com.nostra13.universalimageloader.core.assist.LoadedFrom: com.nostra13.universalimageloader.core.assist.LoadedFrom DISC_CACHE
+com.nostra13.universalimageloader.core.assist.LoadedFrom: com.nostra13.universalimageloader.core.assist.LoadedFrom MEMORY_CACHE
+com.nostra13.universalimageloader.core.assist.LoadedFrom: com.nostra13.universalimageloader.core.assist.LoadedFrom[] values()
+com.nostra13.universalimageloader.core.assist.LoadedFrom: com.nostra13.universalimageloader.core.assist.LoadedFrom valueOf(java.lang.String)
 com.nostra13.universalimageloader.core.assist.QueueProcessingType: com.nostra13.universalimageloader.core.assist.QueueProcessingType FIFO
 com.nostra13.universalimageloader.core.assist.QueueProcessingType: com.nostra13.universalimageloader.core.assist.QueueProcessingType LIFO
 com.nostra13.universalimageloader.core.assist.QueueProcessingType: com.nostra13.universalimageloader.core.assist.QueueProcessingType[] values()

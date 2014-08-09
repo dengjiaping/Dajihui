@@ -203,7 +203,6 @@ public class PicPagerActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		imageLoader.clearMemoryCache();
 		super.onDestroy();
 	}
 

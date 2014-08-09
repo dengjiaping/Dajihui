@@ -8,9 +8,11 @@
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 -libraryjars libs/apache-mime4j-0.6.jar
 -libraryjars libs/fastjson-1.1.32.jar
--libraryjars libs/universal-image-loader-1.8.4-with-sources.jar
+-libraryjars libs/universal-image-loader-1.9.3-SNAPSHOT.jar
 -libraryjars libs/httpmime-4.0.jar
 -libraryjars libs/android-support-v4.jar
+-libraryjars libs/open_sdk_r3833.jar
+-libraryjars libs/mta-sdk-1.6.2.jar
 -dontoptimize
 -keepattributes Signature 
 -keepattributes *Annotation*
