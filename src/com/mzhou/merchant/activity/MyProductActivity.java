@@ -28,7 +28,7 @@ public class MyProductActivity extends Activity {
 	private ImageView showLeft;
 
 	private LocalActivityManager manager = null;
-	private Context context;
+ 	private Context context;
 	private boolean authstr;
 
 	@Override
@@ -43,8 +43,9 @@ public class MyProductActivity extends Activity {
 	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
 	        }
 	    });
-		setContentView(R.layout.user_manager_myproduct);
+		
 		init(savedInstanceState);
+		setContentView(R.layout.user_manager_myproduct);
 		InitTextView();
 		InitViewPager();
 	}
@@ -52,8 +53,8 @@ public class MyProductActivity extends Activity {
 	private void init(Bundle savedInstanceState) {
 		Bundle bundle = getIntent().getExtras();
 		authstr = bundle.getBoolean("authstr");
-		context = getBaseContext();
-		manager = new LocalActivityManager(this, true);
+		context = MyProductActivity.this;
+		manager = new LocalActivityManager(MyProductActivity.this, true);
 		manager.dispatchCreate(savedInstanceState);
 	}
 
@@ -82,9 +83,9 @@ public class MyProductActivity extends Activity {
 	private void InitViewPager() {
 		mPager = (ViewPager) findViewById(R.id.vPager);
 		listViews = new ArrayList<View>();
-		Intent intent = new Intent(context, MyProductAlreadyCheckActivity.class);
+		Intent intent = new Intent(MyProductActivity.this, MyProductAlreadyCheckActivity.class);
 		listViews.add(getView("Black", intent));
-		Intent intent2 = new Intent(context, MyProductNoCheckActivity.class);
+		Intent intent2 = new Intent(MyProductActivity.this, MyProductNoCheckActivity.class);
 		listViews.add(getView("Gray", intent2));
 		MyPagerAdapter mpAdapter = new MyPagerAdapter(listViews);
 		mPager.setAdapter(mpAdapter);

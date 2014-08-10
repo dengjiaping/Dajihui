@@ -53,7 +53,7 @@ public class MyProductAlreadyCheckActivity extends Activity {
 	private LinkedList<ProductsBean> mList;
 	private ProductsManager productsManager;
 	private MyGridProductAdapter2 mAdapter;
-	private Context context;
+ 	private Context context;
 	private PullToRefreshScrollView mPullRefreshScrollView;
 	private MyGridView mGridView;
  	private int page;
@@ -89,10 +89,10 @@ public class MyProductAlreadyCheckActivity extends Activity {
 	 */
 	private void init() {
 	 	mTencent = Tencent.createInstance(MyConstants.APP_ID, MyProductAlreadyCheckActivity.this);
-    	mQQShare = new QQShare(this, mTencent.getQQToken());
-    	 mQzoneShare = new QzoneShare(this, mTencent.getQQToken());
-		if (DbLoginManager.getInstance(this).getLoginStatus()) {
-			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
+    	mQQShare = new QQShare(MyProductAlreadyCheckActivity.this, mTencent.getQQToken());
+    	 mQzoneShare = new QzoneShare(MyProductAlreadyCheckActivity.this, mTencent.getQQToken());
+		if (DbLoginManager.getInstance(MyProductAlreadyCheckActivity.this).getLoginStatus()) {
+			UserInfoBean userInfoBean = DbUserManager.getInstance(MyProductAlreadyCheckActivity.this).getLogingUserInfo();
 			if ( userInfoBean.getUsertype().equals("1")) {
 				uid_enterprise = userInfoBean.getUid();
 				isEnterprise= true;
@@ -105,9 +105,9 @@ public class MyProductAlreadyCheckActivity extends Activity {
 			isEnterprise = false;
 			uid ="0";
 		}
-		context = getBaseContext();
+		context = MyProductAlreadyCheckActivity.this;
 		mList = new LinkedList<ProductsBean>();
-		mAdapter = new MyGridProductAdapter2(context, mList);
+		mAdapter = new MyGridProductAdapter2(MyProductAlreadyCheckActivity.this, mList);
 		productsManager = new ProductsManager();
 		page = 2;
 	}

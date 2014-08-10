@@ -101,7 +101,7 @@ public class ProductsManager extends Activity {
 	 * @param is_show
 	 * @param isday
 	 */
- 	public void AsynGetMyProducts(Context context, String uid,
+ 	public void AsynGetMyProducts(Activity context, String uid,
 			 int page, String uptime, String is_en, String is_show) {
  		MyproductList asynGetProductsInfo = new MyproductList(
  				context, "userlist", uid,  page, uptime, is_en, is_show);
@@ -226,12 +226,12 @@ public class ProductsManager extends Activity {
 		private int page;
 		private String subject;
 		private String uid;
-		private Context context;
+		private Activity context;
 		private String uptime;
 		private String is_en;
 		private String is_show;
 
-		public MyproductList(Context context, String subject,
+		public MyproductList(Activity context, String subject,
 				String uid,  int page, String uptime, String is_en,
 				String is_show) {
 			this.uid = uid;
@@ -245,8 +245,8 @@ public class ProductsManager extends Activity {
 
 		@Override
 		protected void onPreExecute() {
-			startProgressDialog(context,
-					context.getResources().getString(R.string.loading));
+//			startProgressDialog(context,
+//					context.getResources().getString(R.string.loading));
 			super.onPreExecute();
 		}
 
@@ -265,7 +265,7 @@ public class ProductsManager extends Activity {
 
 		@Override
 		protected void onPostExecute(String result) {
-			stopProgressDialog();
+//			stopProgressDialog();
 			List<ProductsBean> productsBeans = JsonParse
 					.parseProductsJson(result);
 			getProductInfo.getProductInfo(productsBeans);

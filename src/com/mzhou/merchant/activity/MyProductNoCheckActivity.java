@@ -62,7 +62,7 @@ public class MyProductNoCheckActivity extends Activity {
 	private LinkedList<ProductsBean> mList;
 	private ProductsManager productsManager;
 	private MyGridProductAdapter2 mAdapter;
-	private Context context;
+ 	private Context context;
 	private PullToRefreshScrollView mPullRefreshScrollView;
 	private MyGridView mGridView;
 	private int page;
@@ -99,9 +99,9 @@ public class MyProductNoCheckActivity extends Activity {
 	 */
 	private void init() {
 		 mTencent = Tencent.createInstance(MyConstants.APP_ID, MyProductNoCheckActivity.this);
-    	mQQShare = new QQShare(this, mTencent.getQQToken());
-    	 mQzoneShare = new QzoneShare(this, mTencent.getQQToken());
-		if (DbLoginManager.getInstance(this).getLoginStatus()) {
+    	mQQShare = new QQShare(MyProductNoCheckActivity.this, mTencent.getQQToken());
+    	 mQzoneShare = new QzoneShare(MyProductNoCheckActivity.this, mTencent.getQQToken());
+		if (DbLoginManager.getInstance(MyProductNoCheckActivity.this).getLoginStatus()) {
 			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
 			if ( userInfoBean.getUsertype().equals("1")) {
 				uid_enterprise = userInfoBean.getUid();
@@ -115,9 +115,9 @@ public class MyProductNoCheckActivity extends Activity {
 			isEnterprise = false;
 			uid ="0";
 		}
-		context = getBaseContext();
+		context = MyProductNoCheckActivity.this;
 		mList = new LinkedList<ProductsBean>();
-		mAdapter = new MyGridProductAdapter2(context, mList);
+		mAdapter = new MyGridProductAdapter2(MyProductNoCheckActivity.this, mList);
 		productsManager = new ProductsManager();
 		page = 2;
 		uptime = new String("0");
@@ -441,12 +441,12 @@ public class MyProductNoCheckActivity extends Activity {
 		case 2:
 			PublishProductBean databack =(PublishProductBean) msg.obj;
 			if ( "true".equals(databack.getStatus())) {
-				MyUtlis.toastInfo(context, databack.getMsg());
+				MyUtlis.toastInfo(MyProductNoCheckActivity.this, databack.getMsg());
 				mList.remove(msg.arg2);
 				MyUtlis.sortListOrder(mList);
 				mAdapter.notifyDataSetChanged();
 			} else {
-				MyUtlis.toastInfo(context, databack.getMsg());
+				MyUtlis.toastInfo(MyProductNoCheckActivity.this, databack.getMsg());
 			}
 			break;
 
