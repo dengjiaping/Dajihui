@@ -103,7 +103,6 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		getdata();
 	}
 
 	@Override
@@ -238,7 +237,7 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 									flag = true;
 								}
 								MyUtlis.sortListOrder(mList);
-								uptime = mList.get(0).getCtime();
+								uptime = mList.get(1).getCtime();
 								mAdapter.notifyDataSetChanged();
 								mPullRefreshScrollView.onRefreshComplete();
 							} else {
@@ -343,7 +342,7 @@ public class XianshiJinRiShoujiZhaoShang extends Fragment {
 				mList.addAll(productsBeans);
 				// Log.i("print", mList.toString());
 				MyUtlis.sortListOrder(mList);
-				uptime = mList.get(0).getCtime();
+				uptime = mList.get(1).getCtime();
 				mGridView.setAdapter(mAdapter);
 				mPullRefreshScrollView.scrollTo(0, 0);
 			} else {

@@ -436,7 +436,7 @@ public class MyProductAlreadyCheckActivity extends Activity {
 							mList.addLast(productsBean);
 						}
 						MyUtlis.sortListOrder(mList);
-						uptime = mList.get(0).getCtime();
+						uptime = mList.get(1).getCtime();
 						mGridView.setAdapter(mAdapter);
 					}
 
@@ -455,7 +455,7 @@ public class MyProductAlreadyCheckActivity extends Activity {
 							mList.addLast(productsBean);
 						}
 						MyUtlis.sortListOrder(mList);
-						uptime = mList.get(0).getCtime();
+						uptime = mList.get(1).getCtime();
 						mGridView.setAdapter(mAdapter);
 					}
 

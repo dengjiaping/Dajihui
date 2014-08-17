@@ -3,8 +3,9 @@ package com.mzhou.merchant.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
 
-public class CustomHelper extends SDCardSQLiteOpenHelper {
+public class CustomHelper extends SQLiteOpenHelper {
 
 	public CustomHelper(Context context, String dbName,CursorFactory factory,int dbVersion) {
 		super(context, dbName, factory, dbVersion);

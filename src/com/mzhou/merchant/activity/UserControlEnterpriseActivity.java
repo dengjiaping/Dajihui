@@ -249,9 +249,6 @@ public class UserControlEnterpriseActivity extends Activity {
 	 * 设置返回来的值，用sharedPreference来去出来
 	 */
 	private void setData() {
-		
- 
-		
 		UserInfoBean userInfoBean = dbUserManager.getLogingUserInfo();
 		imageLoader.displayImage(userInfoBean.getHeadurl(), user_manager_user_head, options);
 		nicknameTextView.setText(userInfoBean.getNickname());

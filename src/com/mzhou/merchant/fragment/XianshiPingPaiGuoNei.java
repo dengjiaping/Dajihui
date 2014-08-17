@@ -102,9 +102,7 @@ public class XianshiPingPaiGuoNei extends Fragment {
 	}
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
-		getdata();
 	}
 	private void getdata() {
 		GetProducts getProducts = new GetProducts();
@@ -352,7 +350,7 @@ public class XianshiPingPaiGuoNei extends Fragment {
 					mList.clear();
 					mList.addAll(productsBeans);
 					MyUtlis.sortListOrder(mList);
-					uptime = mList.get(0).getCtime();
+					uptime = mList.get(1).getCtime();
 					mGridView.setAdapter(mAdapter);
 					mPullRefreshScrollView.scrollTo(0, 0);
 				} else {

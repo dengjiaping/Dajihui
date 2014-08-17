@@ -229,7 +229,7 @@ public class XianshiZhaoShang extends Fragment {
 				if (productsBeans != null) {
 					mList.addAll(productsBeans);
 					MyUtlis.sortListAttactBeanOrder(mList);
-					uptime = mList.get(0).getCtime();
+					uptime = mList.get(1).getCtime();
 					actualListView.setAdapter(mAdapter);
 			} else {
 				uptime = new String("11");

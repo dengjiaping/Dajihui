@@ -107,7 +107,6 @@ public class XianshiLogoProduct extends Fragment {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		getdata();
 	}
 
 	@Override
@@ -249,7 +248,7 @@ public class XianshiLogoProduct extends Fragment {
 									flag = true;
 								}
 								MyUtlis.sortListOrder(mList);
-								uptime = mList.get(0).getCtime();
+								uptime = mList.get(1).getCtime();
 								mAdapter.notifyDataSetChanged();
 								mPullRefreshScrollView.onRefreshComplete();
 							} else {
@@ -353,7 +352,7 @@ public class XianshiLogoProduct extends Fragment {
 				mList.addAll(productsBeans);
 				// Log.i("print", mList.toString());
 				MyUtlis.sortListOrder(mList);
-				uptime = mList.get(0).getCtime();
+				uptime = mList.get(1).getCtime();
 				mGridView.setAdapter(mAdapter);
 
 			} else {

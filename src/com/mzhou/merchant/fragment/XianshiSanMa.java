@@ -104,7 +104,6 @@ public class XianshiSanMa extends Fragment {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		getdata();
 	}
 	private void getdata() {
 		GetProducts getProducts = new GetProducts();
@@ -357,7 +356,7 @@ public class XianshiSanMa extends Fragment {
 					mList.addAll(productsBeans);
 					MyUtlis.sortListOrder(mList);
 					mGridView.setAdapter(mAdapter);
-					uptime = mList.get(0).getCtime();
+					uptime = mList.get(1).getCtime();
 					mPullRefreshScrollView.scrollTo(0, 0);
 				} else {
 					uptime = new String("11");

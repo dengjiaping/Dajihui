@@ -189,12 +189,14 @@ public class Left extends Fragment {
 							intent.setClass(getActivity(),
 									UserControlEnterpriseActivity.class);
 							startActivity(intent);
+							getActivity().finish();
 						}else {//普通会员
 							System.out.println("普通会员");
 							Intent intent = new Intent();
 							intent.setClass(getActivity(),
 									UserControlCommonActivity.class);
 							startActivity(intent);
+							getActivity().finish();
 						}
 					}
 				}else {//当前没有登录状态
@@ -202,6 +204,7 @@ public class Left extends Fragment {
 					Intent intent = new Intent();
 					intent.setClass(getActivity(), ActivityLogin.class);
 					startActivity(intent);
+					getActivity().finish();
 				}
 	 
 				getActivity().finish();
@@ -366,7 +369,7 @@ public class Left extends Fragment {
 				Intent intent = new Intent();
 				intent.setClass(getActivity(), ActivitySS.class);
 				startActivity(intent);
-
+				getActivity().finish();
 			}
 		});
 		title_bar_zhaopin.setOnClickListener(new OnClickListener() {

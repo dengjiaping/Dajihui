@@ -102,7 +102,6 @@ public class XianshiFourG extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		getdata();
 	}
 
 	private void getdata() {
@@ -210,7 +209,7 @@ public class XianshiFourG extends Fragment {
 								}
 
 								MyUtlis.sortListOrder(mList);
-								uptime = mList.get(0).getCtime();
+								uptime = mList.get(1).getCtime();
 								mAdapter.notifyDataSetChanged();
 								mPullRefreshScrollView.onRefreshComplete();
 							} else {
@@ -322,26 +321,16 @@ public class XianshiFourG extends Fragment {
 
 		@Override
 		protected LinkedList<ProductsBean> doInBackground(Void... params) {
-			/*
-			 * String result = MyUtlis.readFiles(MyConstants.PRODUCT_FOURG,
-			 * getActivity()); return result;
-			 */
 			return DbProductManager.getInstance(context).getProductByCategory("fourg");
 		}
 
 		@Override
 		protected void onPostExecute(LinkedList<ProductsBean> productsBeans) {
-			/*
-			 * if ((result != null) && (!result.equals("")) &&
-			 * (WebIsConnectUtil.showNetState(getActivity()))) {
-			 * List<ProductsBean> productsBeans = JsonParse
-			 * .parseProductsJson(result);
-			 */
 			mList.clear();
 			if ((productsBeans != null) && (productsBeans.size() != 0)) {
 				mList.addAll(productsBeans);
 				MyUtlis.sortListOrder(mList);
-				uptime = mList.get(0).getCtime();
+				uptime = mList.get(1).getCtime();
 				mGridView.setAdapter(mAdapter);
 				mPullRefreshScrollView.scrollTo(0, 0);
 			} else {
@@ -349,10 +338,6 @@ public class XianshiFourG extends Fragment {
 				mGridView.setAdapter(mAdapter);
 				mPullRefreshScrollView.scrollTo(0, 0);
 			}
-			/*
-			 * mPullRefreshScrollView.scrollTo(0, 0); }
-			 */
-
 			super.onPostExecute(productsBeans);
 		}
 	}
@@ -439,10 +424,6 @@ public class XianshiFourG extends Fragment {
 	private void setAd() {
 		adSortList = new LinkedList<AdBean>();
 		AdBean adBean = new AdBean("", MyConstants.PICTURE_URL, "", "", "", "", "");
-		/*
-		 * String ad = sp.getString("ad_pinpai", ""); adBeans =
-		 * JsonParse.parseAdJson(ad);
-		 */
 		adBeans = DbAdManager.getInstance(context).getAdByCategory("ad_fourg");
 
 		if (adBeans != null) {

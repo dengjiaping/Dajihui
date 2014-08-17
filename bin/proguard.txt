@@ -32,217 +32,217 @@
 # view res/layout/xianshi_sousuo.xml #generated:17
 -keep class com.handmark.pulltorefresh.library.PullToRefreshScrollView { <init>(...); }
 
-# view AndroidManifest.xml #generated:135
+# view AndroidManifest.xml #generated:132
 -keep class com.mzhou.merchant.activity.ActivityAbout { <init>(...); }
 
-# view AndroidManifest.xml #generated:127
+# view AndroidManifest.xml #generated:124
 -keep class com.mzhou.merchant.activity.ActivityBinderQQ { <init>(...); }
 
-# view AndroidManifest.xml #generated:191
+# view AndroidManifest.xml #generated:188
 -keep class com.mzhou.merchant.activity.ActivityFankui { <init>(...); }
 
-# view AndroidManifest.xml #generated:119
+# view AndroidManifest.xml #generated:116
 -keep class com.mzhou.merchant.activity.ActivityFourPhone { <init>(...); }
 
-# view AndroidManifest.xml #generated:115
+# view AndroidManifest.xml #generated:112
 -keep class com.mzhou.merchant.activity.ActivityGX { <init>(...); }
 
-# view AndroidManifest.xml #generated:75
+# view AndroidManifest.xml #generated:72
 -keep class com.mzhou.merchant.activity.ActivityHuoDong { <init>(...); }
 
-# view AndroidManifest.xml #generated:67
+# view AndroidManifest.xml #generated:64
 -keep class com.mzhou.merchant.activity.ActivityHuoDongDetail { <init>(...); }
 
-# view AndroidManifest.xml #generated:83
+# view AndroidManifest.xml #generated:80
 -keep class com.mzhou.merchant.activity.ActivityIndex { <init>(...); }
 
-# view AndroidManifest.xml #generated:319
+# view AndroidManifest.xml #generated:316
 -keep class com.mzhou.merchant.activity.ActivityJoin { <init>(...); }
 
-# view AndroidManifest.xml #generated:323
+# view AndroidManifest.xml #generated:320
 -keep class com.mzhou.merchant.activity.ActivityLogin { <init>(...); }
 
-# view AndroidManifest.xml #generated:143
+# view AndroidManifest.xml #generated:140
 -keep class com.mzhou.merchant.activity.ActivityLogo { <init>(...); }
 
-# view AndroidManifest.xml #generated:123
+# view AndroidManifest.xml #generated:120
 -keep class com.mzhou.merchant.activity.ActivityLogoProduct { <init>(...); }
 
-# view AndroidManifest.xml #generated:51
+# view AndroidManifest.xml #generated:48
 -keep class com.mzhou.merchant.activity.ActivityMain { <init>(...); }
 
-# view AndroidManifest.xml #generated:147
+# view AndroidManifest.xml #generated:144
 -keep class com.mzhou.merchant.activity.ActivityPP { <init>(...); }
 
-# view AndroidManifest.xml #generated:151
+# view AndroidManifest.xml #generated:148
 -keep class com.mzhou.merchant.activity.ActivityQG { <init>(...); }
 
-# view AndroidManifest.xml #generated:163
+# view AndroidManifest.xml #generated:160
 -keep class com.mzhou.merchant.activity.ActivitySM { <init>(...); }
 
-# view AndroidManifest.xml #generated:167
+# view AndroidManifest.xml #generated:164
 -keep class com.mzhou.merchant.activity.ActivitySS { <init>(...); }
 
-# view AndroidManifest.xml #generated:42
+# view AndroidManifest.xml #generated:39
 -keep class com.mzhou.merchant.activity.ActivityStart { <init>(...); }
 
-# view AndroidManifest.xml #generated:171
+# view AndroidManifest.xml #generated:168
 -keep class com.mzhou.merchant.activity.ActivityTD { <init>(...); }
 
-# view AndroidManifest.xml #generated:139
+# view AndroidManifest.xml #generated:136
 -keep class com.mzhou.merchant.activity.ActivityUserAgree { <init>(...); }
 
-# view AndroidManifest.xml #generated:55
+# view AndroidManifest.xml #generated:52
 -keep class com.mzhou.merchant.activity.ActivityVideoPlayer { <init>(...); }
 
-# view AndroidManifest.xml #generated:175
+# view AndroidManifest.xml #generated:172
 -keep class com.mzhou.merchant.activity.ActivityWD { <init>(...); }
 
-# view AndroidManifest.xml #generated:179
+# view AndroidManifest.xml #generated:176
 -keep class com.mzhou.merchant.activity.ActivityWM { <init>(...); }
 
-# view AndroidManifest.xml #generated:187
+# view AndroidManifest.xml #generated:184
 -keep class com.mzhou.merchant.activity.ActivityXinWen { <init>(...); }
 
-# view AndroidManifest.xml #generated:207
+# view AndroidManifest.xml #generated:204
 -keep class com.mzhou.merchant.activity.ActivityZP { <init>(...); }
 
-# view AndroidManifest.xml #generated:183
+# view AndroidManifest.xml #generated:180
 -keep class com.mzhou.merchant.activity.ActivityZS { <init>(...); }
 
-# view AndroidManifest.xml #generated:255
+# view AndroidManifest.xml #generated:252
 -keep class com.mzhou.merchant.activity.CompanyContactUsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:87
+# view AndroidManifest.xml #generated:84
 -keep class com.mzhou.merchant.activity.CompanyIntroduceActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:155
+# view AndroidManifest.xml #generated:152
 -keep class com.mzhou.merchant.activity.EditShoujiCommenActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:159
+# view AndroidManifest.xml #generated:156
 -keep class com.mzhou.merchant.activity.EditShoujiEnterpriseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:91
+# view AndroidManifest.xml #generated:88
 -keep class com.mzhou.merchant.activity.FabuActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:63
+# view AndroidManifest.xml #generated:60
 -keep class com.mzhou.merchant.activity.FabuQiugouActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:59
+# view AndroidManifest.xml #generated:56
 -keep class com.mzhou.merchant.activity.FabuShoujiCommenActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:223
+# view AndroidManifest.xml #generated:220
 -keep class com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:231
+# view AndroidManifest.xml #generated:228
 -keep class com.mzhou.merchant.activity.FabuZhaopinActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:99
+# view AndroidManifest.xml #generated:96
 -keep class com.mzhou.merchant.activity.FabuZhaoshangActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:295
+# view AndroidManifest.xml #generated:292
 -keep class com.mzhou.merchant.activity.FabushoujiCommenPreViewActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:227
+# view AndroidManifest.xml #generated:224
 -keep class com.mzhou.merchant.activity.FabushoujiEnterprisePreViewActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:235
+# view AndroidManifest.xml #generated:232
 -keep class com.mzhou.merchant.activity.ForgetPassWordActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:95
+# view AndroidManifest.xml #generated:92
 -keep class com.mzhou.merchant.activity.ForgetPassWordAnActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:79
+# view AndroidManifest.xml #generated:76
 -keep class com.mzhou.merchant.activity.ForgetPassWordModifyActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:195
+# view AndroidManifest.xml #generated:192
 -keep class com.mzhou.merchant.activity.LoginCommenActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:103
+# view AndroidManifest.xml #generated:100
 -keep class com.mzhou.merchant.activity.LoginEnterpriseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:303
+# view AndroidManifest.xml #generated:300
 -keep class com.mzhou.merchant.activity.LogoItemListActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:299
+# view AndroidManifest.xml #generated:296
 -keep class com.mzhou.merchant.activity.MyProductActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:307
+# view AndroidManifest.xml #generated:304
 -keep class com.mzhou.merchant.activity.MyProductAlreadyCheckActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:211
+# view AndroidManifest.xml #generated:208
 -keep class com.mzhou.merchant.activity.MyProductNoCheckActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:111
+# view AndroidManifest.xml #generated:108
 -keep class com.mzhou.merchant.activity.PicPagerActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:219
+# view AndroidManifest.xml #generated:216
 -keep class com.mzhou.merchant.activity.RegisterCommonActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:239
+# view AndroidManifest.xml #generated:236
 -keep class com.mzhou.merchant.activity.RegisterEnterpriseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:131
+# view AndroidManifest.xml #generated:128
 -keep class com.mzhou.merchant.activity.ShoujiCommenActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:275
+# view AndroidManifest.xml #generated:272
 -keep class com.mzhou.merchant.activity.ShoujiEnterpriseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:287
+# view AndroidManifest.xml #generated:284
 -keep class com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:315
+# view AndroidManifest.xml #generated:312
 -keep class com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:243
+# view AndroidManifest.xml #generated:240
 -keep class com.mzhou.merchant.activity.UserControlAleterPasswdActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:199
+# view AndroidManifest.xml #generated:196
 -keep class com.mzhou.merchant.activity.UserControlCommonActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:267
+# view AndroidManifest.xml #generated:264
 -keep class com.mzhou.merchant.activity.UserControlCompanyActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:71
+# view AndroidManifest.xml #generated:68
 -keep class com.mzhou.merchant.activity.UserControlEnterpriseActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:215
+# view AndroidManifest.xml #generated:212
 -keep class com.mzhou.merchant.activity.UserControlEnterpriseNameActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:283
+# view AndroidManifest.xml #generated:280
 -keep class com.mzhou.merchant.activity.UserControlFaxActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:251
+# view AndroidManifest.xml #generated:248
 -keep class com.mzhou.merchant.activity.UserControlNameActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:279
+# view AndroidManifest.xml #generated:276
 -keep class com.mzhou.merchant.activity.UserControlNetActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:247
+# view AndroidManifest.xml #generated:244
 -keep class com.mzhou.merchant.activity.UserControlNicknameActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:259
+# view AndroidManifest.xml #generated:256
 -keep class com.mzhou.merchant.activity.UserControlPhonenubActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:263
+# view AndroidManifest.xml #generated:260
 -keep class com.mzhou.merchant.activity.UserControlQQActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:271
+# view AndroidManifest.xml #generated:268
 -keep class com.mzhou.merchant.activity.UserControladressActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:291
+# view AndroidManifest.xml #generated:288
 -keep class com.mzhou.merchant.activity.XinwenCommentFabuActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:311
+# view AndroidManifest.xml #generated:308
 -keep class com.mzhou.merchant.activity.XinwenCommentListActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:107
+# view AndroidManifest.xml #generated:104
 -keep class com.mzhou.merchant.activity.XinwenContentActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:203
+# view AndroidManifest.xml #generated:200
 -keep class com.mzhou.merchant.activity.ZhaopinContentActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:35
+# view AndroidManifest.xml #generated:32
 -keep class com.mzhou.merchant.imageloader.MyApplication { <init>(...); }
 
 # view res/layout/my_textview.xml #generated:8
@@ -273,16 +273,16 @@
 # view res/layout/item_grid2.xml #generated:6
 -keep class com.mzhou.merchant.myview.SquareLayout { <init>(...); }
 
-# view AndroidManifest.xml #generated:343
+# view AndroidManifest.xml #generated:340
 -keep class com.mzhou.merchant.service.DownLoadService { <init>(...); }
 
 # view res/layout/activity_main.xml #generated:2
 -keep class com.mzhou.merchant.slidemenu.SlidingMenu { <init>(...); }
 
-# view AndroidManifest.xml #generated:327
+# view AndroidManifest.xml #generated:324
 -keep class com.tencent.connect.common.AssistActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:332
+# view AndroidManifest.xml #generated:329
 -keep class com.tencent.tauth.AuthActivity { <init>(...); }
 
 # view res/layout/item_pager_image.xml #generated:6

@@ -177,7 +177,7 @@ public class LogoItemListActivity extends Activity {
 					 
 					title_bar_title.setText(mList.get(0).getBrand());
 						MyUtlis.sortListOrder(mList);
-						uptime = mList.get(0).getCtime();
+						uptime = mList.get(1).getCtime();
 						mGridView.setAdapter(mAdapter);
 				}else {
 					item_linear_toast.setVisibility(View.VISIBLE);

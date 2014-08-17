@@ -1076,11 +1076,13 @@ com.mzhou.merchant.activity.EditShoujiEnterpriseActivity:
     private static final int REQUEST_CODE
     private static final int REQUEST_CODE1
 com.mzhou.merchant.activity.FabuShoujiCommenActivity:
-    private static final int REQUEST_CODE
-    private static final int REQUEST_CODE1
+    private static final int CHOOSE_PIC
+    private static final int TAKE_PIC
+    622:629:private java.lang.String getImagePath(android.net.Uri)
 com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity:
-    private static final int REQUEST_CODE
-    private static final int REQUEST_CODE1
+    private static final int CHOOSE_PIC
+    private static final int TAKE_PIC
+    private android.net.Uri mImageUri
 com.mzhou.merchant.activity.PicPagerActivity:
     private static final java.lang.String STATE_POSITION
 com.mzhou.merchant.activity.R:
@@ -1151,9 +1153,7 @@ com.mzhou.merchant.dao.IUser:
     8:8:public IUser()
 com.mzhou.merchant.db.DBManager:
     46:52:public synchronized void closeDatabase(android.database.sqlite.SQLiteDatabase,android.database.Cursor)
-com.mzhou.merchant.db.SDCardSQLiteOpenHelper:
-    162:203:public synchronized android.database.sqlite.SQLiteDatabase getReadableDatabase()
-    210:217:public synchronized void close()
+com.mzhou.merchant.db.SDCardSQLiteOpenHelper
 com.mzhou.merchant.db.SQLiteTemplate:
     83:92:public synchronized void execSQL(java.lang.String,java.lang.Object[])
     124:143:public synchronized varargs void deleteByIds(java.lang.String,java.lang.Object[])
@@ -1246,6 +1246,14 @@ com.mzhou.merchant.utlis.GetPhoneNum$UserBean:
     106:108:public GetPhoneNum$UserBean(com.mzhou.merchant.utlis.GetPhoneNum)
 com.mzhou.merchant.utlis.HttpRequest:
     17:17:public HttpRequest()
+com.mzhou.merchant.utlis.ImageUtils:
+    20:20:public ImageUtils()
+    26:28:public static java.lang.String getPhotoFileName()
+    61:84:public static android.graphics.Bitmap getimageWidthHeight(java.lang.String)
+    90:114:public static android.graphics.Bitmap resizeImage(android.graphics.Bitmap,int,int)
+    119:129:public static android.graphics.Bitmap compressImageWidthHeight(android.graphics.Bitmap)
+    204:216:public static android.graphics.Bitmap getDiskBitmap(java.lang.String)
+    224:251:public static android.net.Uri getImageURI(java.lang.String,java.io.File)
 com.mzhou.merchant.utlis.JsonParse:
     27:27:public JsonParse()
     245:260:public static java.util.List parseProductsCategoryJson(java.lang.String)
@@ -1417,16 +1425,21 @@ com.nostra13.universalimageloader.core.DisplayBitmapTask:
     private static final java.lang.String LOG_TASK_CANCELLED_IMAGEAWARE_REUSED
     private static final java.lang.String LOG_TASK_CANCELLED_IMAGEAWARE_COLLECTED
 com.nostra13.universalimageloader.core.DisplayImageOptions$Builder:
+    237:238:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder showStubImage(int)
     258:259:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder showImageOnLoading(android.graphics.drawable.Drawable)
     281:282:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder showImageForEmptyUri(android.graphics.drawable.Drawable)
     304:305:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder showImageOnFail(android.graphics.drawable.Drawable)
     315:316:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder resetViewBeforeLoading()
     324:325:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder resetViewBeforeLoading(boolean)
+    335:336:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder cacheInMemory()
+    352:352:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder cacheOnDisc()
     362:362:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder cacheOnDisc(boolean)
     396:398:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder decodingOptions(android.graphics.BitmapFactory$Options)
+    403:404:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder delayBeforeLoading(int)
     409:410:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder extraForDownloader(java.lang.Object)
     425:426:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder preProcessor(com.nostra13.universalimageloader.core.process.BitmapProcessor)
     435:436:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder postProcessor(com.nostra13.universalimageloader.core.process.BitmapProcessor)
+    444:446:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder displayer(com.nostra13.universalimageloader.core.display.BitmapDisplayer)
     450:451:com.nostra13.universalimageloader.core.DisplayImageOptions$Builder syncLoading(boolean)
     459:460:public com.nostra13.universalimageloader.core.DisplayImageOptions$Builder handler(android.os.Handler)
 com.nostra13.universalimageloader.core.ImageLoader:
@@ -1617,6 +1630,8 @@ com.nostra13.universalimageloader.core.decode.BaseImageDecoder:
 com.nostra13.universalimageloader.core.decode.ImageDecodingInfo:
     107:107:public java.lang.String getOriginalImageUri()
 com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer
+com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer
+com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer$RoundedDrawable
 com.nostra13.universalimageloader.core.display.RoundedVignetteBitmapDisplayer
 com.nostra13.universalimageloader.core.display.RoundedVignetteBitmapDisplayer$RoundedVignetteDrawable
 com.nostra13.universalimageloader.core.download.BaseImageDownloader:

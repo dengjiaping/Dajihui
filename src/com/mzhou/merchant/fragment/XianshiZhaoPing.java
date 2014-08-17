@@ -110,7 +110,7 @@ public class XianshiZhaoPing extends Fragment {
 											flag = true;
 										}
 										MyUtlis.sortListJobBeanOrder(mList);
-										uptime = mList.get(0).getCtime();
+										uptime = mList.get(1).getCtime();
 										mAdapter.notifyDataSetChanged();
 										mPullRefreshListView
 												.onRefreshComplete();
@@ -238,7 +238,7 @@ public class XianshiZhaoPing extends Fragment {
 			if (result != null) {
 				mList.addAll(result);
 				MyUtlis.sortListJobBeanOrder(mList);
-				uptime = mList.get(0).getCtime();
+				uptime = mList.get(1).getCtime();
 				mPullRefreshListView.setAdapter(mAdapter);
 			} else {
 				uptime = new String("11");

@@ -231,7 +231,7 @@ public class XianshiQiuGou extends Fragment {
 							.getRefreshableView();
 					mList.addAll(productsBeans);
 					MyUtlis.sortListAttactBeanOrder(mList);
-					uptime = mList.get(0).getCtime();
+					uptime = mList.get(1).getCtime();
 					actualListView.setAdapter(mAdapter);
 			}
 

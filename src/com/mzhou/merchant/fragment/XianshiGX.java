@@ -105,7 +105,6 @@ public class XianshiGX extends Fragment {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		getdata();
 	}
 	private void getdata() {
 		GetProducts getProducts = new GetProducts();

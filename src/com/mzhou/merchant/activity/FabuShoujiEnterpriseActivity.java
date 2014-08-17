@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.Thread.UncaughtExceptionHandler;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -12,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -57,6 +60,7 @@ import com.mzhou.merchant.model.User;
 import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
+import com.mzhou.merchant.utlis.ImageUtils;
 import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
@@ -126,8 +130,9 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	private EditText user_manager_centerFox;
 	private EditText user_manager_centerNub;
 
-	private static final int REQUEST_CODE = 1;
-	private static final int REQUEST_CODE1 = 2;
+	private static final int CHOOSE_PIC = 34;
+	private static final int TAKE_PIC = 43;
+ 
 	private MyGridView gridView;
  	private LinkedList<String> mList;
 	boolean isLast = false;
@@ -153,13 +158,13 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	private String center;
 	private String name;
 	private Context context;
-	private File file;
 	private int REQUEST = 1234;
 	public static int RESULT = 4321;
 	protected ImageLoader imageLoader;
 	private DisplayImageOptions options;
+	 
 	private String saveDir = Environment.getExternalStorageDirectory()
-			.getPath() + "/temp_pic";
+			.getPath() +File.separator+ "djh"+File.separator+"pic"+File.separator;
 //	private boolean isRecord = false;//if video  has recording
 //	private int MAX_VIDEO = 1024 * 1024 * 10 ; //the max size of video
 //	private String videopath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/recordvideo.3gp";// the video path
@@ -202,14 +207,22 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 		.considerExifParams(true)
 		.bitmapConfig(Bitmap.Config.RGB_565)
 		.build();
-		 
+		configFile();
+	}
+	private void configFile() {
 		File savePath = new File(saveDir);
 		if (!savePath.exists()) {
 			savePath.mkdirs();
 		}
-		file = new File(saveDir, "temp_pic.jpg");
+		File file = new File(saveDir+"temp_pic.jpg");
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
-
 	/**
 	 * 鍔犺浇鎺т欢鎸夐挳
 	 */
@@ -294,10 +307,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 						}
 			}
 		});
-		File savePath = new File(saveDir);
-		if (!savePath.exists()) {
-			savePath.mkdirs();
-		}
+		 
 	}
 
 	/**
@@ -429,29 +439,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 					public void onClick(View v) {
 						dialog.dismiss();
 
-						String state = Environment
-								.getExternalStorageState();
-						if (state.equals(Environment.MEDIA_MOUNTED)) {
-							file = new File(saveDir, System
-									.currentTimeMillis() + ".jpg");
-							file.delete();
-							if (!file.exists()) {
-								try {
-									file.createNewFile();
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
-							}
-							Intent intent = new Intent(
-									"android.media.action.IMAGE_CAPTURE");
-							intent.putExtra(MediaStore.EXTRA_OUTPUT,
-									Uri.fromFile(file));
-							startActivityForResult(intent,
-									REQUEST_CODE1);
-						} else {
-							MyUtlis.toastInfo(context, getResources()
-									.getString(R.string.no_sdcard));
-						}
+						takePhoto();
 
 					}
 				});
@@ -459,11 +447,8 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
-						Intent intent = new Intent(Intent.ACTION_PICK);
-						intent.setType("image/*");
-						startActivityForResult(intent, REQUEST_CODE);
 						dialog.dismiss();
-
+						choosePicture();
 					}
 				});
 				cancel.setOnClickListener(new OnClickListener() {
@@ -473,8 +458,6 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 						dialog.dismiss();
 					}
 				});
-
-			
 			}
 		});
 		publish.setOnClickListener(new OnClickListener() {
@@ -568,6 +551,30 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 //			}
 //		});
 	}
+	/**
+	 * 照相
+	 */
+	private void takePhoto() {
+		String status = Environment.getExternalStorageState();
+		if (status.equals(Environment.MEDIA_MOUNTED)) {// 判断是否有SD卡
+			Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+			Uri imageUri = Uri.fromFile(new File(saveDir+ "temp_pic.jpg"));
+			openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+			startActivityForResult(openCameraIntent, TAKE_PIC);
+		} else {
+			MyUtlis.toastInfo(context, getResources()
+					.getString(R.string.no_sdcard));
+		}
+	}
+
+	/**
+	 * 选择图片
+	 */
+	private void choosePicture() {
+		Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+		openAlbumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+		startActivityForResult(openAlbumIntent, CHOOSE_PIC);
+	}
 	private void postData() throws Exception{
 		if (WebIsConnectUtil
 				.showNetState(FabuShoujiEnterpriseActivity.this)) {
@@ -624,7 +631,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 												intent.putExtra(
 														"authstr", true);
 												startActivity(intent);
-												imageLoader.clearMemoryCache();
+													deleteDir( new File(saveDir));
 												finish();
 											}
 											MyUtlis.toastInfo(context,
@@ -784,60 +791,49 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 		}
 	}
 
-	/**
-	 * 
-	 * @param uri
-	 */
-	private String getImagePath(final Uri uri) {
-		String[] projection = { MediaStore.Images.Media.DATA };
-		Cursor cursor = MediaStore.Images.Media.query(getContentResolver(),
-				uri, projection);
-		cursor.moveToFirst();
-		String path = cursor.getString(cursor
-				.getColumnIndex(MediaStore.Images.Media.DATA));
-		cursor.close();
-		return path;
-	}
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {
+			ContentResolver resolver = getContentResolver();
+			Uri originalUri = data.getData();
+			try {
+				Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+				if (photo != null) {
+					String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
+							String.valueOf(System.currentTimeMillis()));
+					if (choose_pic_path.length() > 0) {
+						mList.add("file:/"+choose_pic_path);
+						if (mList.size() == MAXSIZE) {
+							isLast = true;
+							imageview_add.setVisibility(View.GONE);
+						}
+						adapter.notifyDataSetChanged();
+					} 
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		 
-		if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
-			mImageUri = data.getData();
-			if (mImageUri != null) {
-				String path = getImagePath(mImageUri);
-				File file = new File(path);
-				mList.addLast("file:/"+file.getAbsolutePath());
+		} else if (requestCode == TAKE_PIC
+				&& resultCode ==   RESULT_OK) {
+			Bitmap newBitmap = ImageUtils.getimage(saveDir+ "temp_pic.jpg");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+			String newName = dateFormat.format(new Date(System.currentTimeMillis())) ;
+			String pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,newName);
+				mList.add("file:/"+pic_path);
 				if (mList.size() == MAXSIZE) {
-					isLast = true;
-					imageview_add.setVisibility(View.GONE);
+					isLast = true;imageview_add.setVisibility(View.GONE);
 				}
 				adapter.notifyDataSetChanged();
-			}
-
-		} else if (requestCode == REQUEST_CODE1
-				&& resultCode == Activity.RESULT_OK) {
-
-			if (file != null && file.exists()) {
-				// BitmapFactory.Options option = new BitmapFactory.Options();
-				// option.inSampleSize = 2;
-				String path = file.getAbsolutePath();
-				mList.addLast("file:/"+path);
-				if (mList.size() == MAXSIZE) {
-					isLast = true;
-					imageview_add.setVisibility(View.GONE);
-				}
-				adapter.notifyDataSetChanged();
-			}
-
+				newBitmap.recycle();
 		}
 		else if (requestCode == REQUEST && resultCode == RESULT) {
-				mList.clear();
+ 		mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
 			for (int i = 0; i < arry.length; i++) {
-				mList.addLast(arry[i]);
+				mList.add(arry[i]);
 			}
 			if (mList.size() != 5) {
 				isLast = false;
@@ -845,14 +841,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 			}
 			adapter.notifyDataSetChanged();
 
-		}  else if (requestCode == REQUEST && resultCode == 0) {
-			if (mList != null) {
-				mList.clear();
-				imageview_add.setVisibility(View.VISIBLE);
-			}
-			adapter.notifyDataSetChanged();
 		} 
-
 	}
 
 	/**
@@ -874,21 +863,6 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		if ( file != null && file.exists() ) {
-			file.delete();
-			deleteDir(file);
-		}
-		File savePath = new File(saveDir);
-		if (savePath.exists() && savePath != null) {
-			try {
-				savePath.delete();
-				 
-			} catch (Exception e) {
-				 
-			}finally{
-				deleteDir(savePath);
-			}
-		}
 		super.onDestroy();
 	}
 	private void iniPopupWindow() {

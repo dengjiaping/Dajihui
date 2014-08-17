@@ -99,9 +99,7 @@ public class XianshiWaiDan extends Fragment {
 	}
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
-		getdata();
 	}
 	private void getdata() {
 		GetProducts getProducts = new GetProducts();
@@ -202,7 +200,7 @@ public class XianshiWaiDan extends Fragment {
 											flag = true;
 										}
 										MyUtlis.sortListOrder(mList);
-										uptime = mList.get(0).getCtime();
+										uptime = mList.get(1).getCtime();
 										mAdapter.notifyDataSetChanged();
 										mPullRefreshScrollView.onRefreshComplete();
 									} else {
@@ -335,7 +333,7 @@ public class XianshiWaiDan extends Fragment {
 				if (productsBeans != null ) {
 					mList.addAll(productsBeans);
 					MyUtlis.sortListOrder(mList);
-					uptime = mList.get(0).getCtime();
+					uptime = mList.get(1).getCtime();
 					mGridView.setAdapter(mAdapter);
 					mPullRefreshScrollView.scrollTo(0, 0);
 				}else {

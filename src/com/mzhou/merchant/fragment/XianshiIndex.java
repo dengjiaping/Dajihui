@@ -113,7 +113,6 @@ public class XianshiIndex extends Fragment {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		getdata();
 	}
 	/**
 	 * check the version 
@@ -439,10 +438,10 @@ public class XianshiIndex extends Fragment {
 //			List<ProductsBean> productsBeans = JsonParse
 //					.parseProductsJson(result);
 			mList.clear();
-			if (productsBeans != null) {
+			if (productsBeans != null ) {
 				mList.addAll(productsBeans);
 				MyUtlis.sortListOrder(mList);
-				uptime = mList.get(0).getCtime();
+				uptime = mList.get(1).getCtime();
 				mGridView.setAdapter(mAdapter);
 			} else {
 				uptime = new String("11");

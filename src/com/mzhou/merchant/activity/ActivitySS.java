@@ -98,10 +98,11 @@ public class ActivitySS extends Activity {
 		mproductList = new LinkedList<ProductsBean>();
 		mnewsList = new LinkedList<NewsBean>();
 		mnewsAdapter = new MyListNewsAdapter(context, mnewsList);
+		imageLoader = ImageLoader.getInstance();
 		options = new DisplayImageOptions.Builder()
-		.showImageOnLoading(R.drawable.ad_loading)
-		.showImageForEmptyUri(R.drawable.ad_loading)
-		.showImageOnFail(R.drawable.ad_loading)
+		.showImageOnLoading(R.drawable.ic_stub)
+		.showImageForEmptyUri(R.drawable.ic_stub)
+		.showImageOnFail(R.drawable.ic_stub)
 		.imageScaleType(ImageScaleType.EXACTLY_STRETCHED)
 		.cacheInMemory(true)
 		.cacheOnDisk(true)
@@ -245,6 +246,10 @@ public class ActivitySS extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	if (keyCode == KeyEvent.KEYCODE_BACK) {
+		Intent intent = new Intent();
+		intent.setClass(ActivitySS.this,
+				ActivityIndex.class);
+		startActivity(intent);
 		finish();
 	}
 		return true;
@@ -254,6 +259,10 @@ public class ActivitySS extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(ActivitySS.this,
+						ActivityIndex.class);
+				startActivity(intent);
 				finish();
 			}
 		});

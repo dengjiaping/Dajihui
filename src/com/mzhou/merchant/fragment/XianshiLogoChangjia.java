@@ -83,7 +83,7 @@ public class XianshiLogoChangjia extends Fragment {
 		view = mView;
 		init();
 		loadButton(mView);
-//		getdata();
+ 	getdata();
 		thread.start();
 		setAd();
 		return mView;
@@ -377,7 +377,6 @@ public void onResume() {
 	// TODO Auto-generated method stub
 	super.onResume();
 	mList.clear();
-	getdata();
 }
 	private void setAd() {
 		
