@@ -54,6 +54,7 @@ public class DownLoadService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 //		sp = getSharedPreferences("phonemerchant", 1);
+		new Thread(new indexThread()).start();
 		new Thread(new adThread()).start();
 		new Thread(new downloadThread()).start();
 		return super.onStartCommand(intent, flags, startId);
@@ -271,7 +272,7 @@ public class DownLoadService extends Service {
 		}
 	}
 
-	class indexThread implements Runnable {
+ 	class indexThread implements Runnable {
 
 		@Override
 		public void run() {
@@ -286,20 +287,20 @@ public class DownLoadService extends Service {
 		}
 
 	}
-
+ 
 	class downloadThread implements Runnable {
 
 		@Override
 		public void run() {
 
 			//首页，classid = 0
-			String index = GetDataByPostUtil.getProductInfo(getBaseContext(),
-					MyConstants.PRODUCT_URL, "prolist",  0, 1, "0");
-
-			if (!isEmpity(index)) {
-//				writeFiles(index, MyConstants.PRODUCT_INDEX);
-				saveProductData("index",index);
-			}
+//			String index = GetDataByPostUtil.getProductInfo(getBaseContext(),
+//					MyConstants.PRODUCT_URL, "prolist",  0, 1, "0");
+//
+//			if (!isEmpity(index)) {
+////				writeFiles(index, MyConstants.PRODUCT_INDEX);
+//				saveProductData("index",index);
+//			}
 		
 			String zhaoshang = GetDataByPostUtil.GetAttactInfo(
 					getBaseContext(), MyConstants.ATTRACT_URL, "list", "0", 1,

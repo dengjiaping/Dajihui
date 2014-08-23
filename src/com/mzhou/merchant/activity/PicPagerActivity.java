@@ -8,6 +8,7 @@ import it.sephiroth.android.library.imagezoom.ImageViewTouchBase.OnDrawableChang
 import java.io.File;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android.app.Activity;
@@ -122,7 +123,10 @@ public class PicPagerActivity extends Activity {
 		if (imageUrls != null &&  imageUrls.length != 0) {
 
 			for (int i = 0; i < imageUrls.length; i++) {
-				imageUrls[i] = imageUrls[i].replace("/mnt", "file:/");
+				if (imageUrls[i].startsWith("/mnt")) {
+					imageUrls[i] = imageUrls[i].replace("/mnt", "file:/");
+				}
+				
 			}
 			adapter = new ImagePagerAdapter();
 			pager.setAdapter(adapter);
@@ -315,10 +319,7 @@ public class PicPagerActivity extends Activity {
 	 * @return
 	 */
 	private String[] deleteBitmap(String[] images, int position) {
-		List<String> list = new ArrayList<String>();
-		for (int i = 0; i < images.length; i++) {
-			list.add(images[i]);
-		}
+		List<String> list  = Arrays.asList(images);
 		list.remove(position - 1);
 		String[] newStr = list.toArray(new String[list.size()]); // 返回一个包含所有对象的指定类型的数组
 		return newStr;

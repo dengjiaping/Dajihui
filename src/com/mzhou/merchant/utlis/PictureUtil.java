@@ -4,7 +4,9 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -22,7 +24,7 @@ public class PictureUtil {
 			if (array != null) {
 				for (int i = 0; i < array.length; i++) {
 					String string = array[i];
-					if (!string.contains("http")) {
+					if (!string.startsWith("http")) {
 						Bitmap bitmap = getimage(string);
 						linkedList.addLast(Bitmap2StrByBase64(bitmap));
 					}else {
@@ -94,12 +96,21 @@ public static String Bitmap2StrByBase64(Bitmap bit){
 		        return Base64.encodeToString(buffer,Base64.DEFAULT);
 		}
 	private static String[] clearPath(String[] filePath) {
-		LinkedList<String> list = new LinkedList<String>();
+		List<String> list = new ArrayList<String>();
 //		String string = "drawable://" + R.drawable.roominfo_add_btn_normal;
 		for (int i = 0; i < filePath.length; i++) {
-			String s1 = filePath[i].replace("/mnt/", "/");
-			String s2 = s1.replace("file://", "/");
-			list.add(s2);
+			if (filePath[i].startsWith("/mnt")) {
+				String s1 = filePath[i].replace("/mnt/", "/");
+				String s2 = s1.replace("file://", "/");
+				list.add(s2);
+			}else if (filePath[i].startsWith("file://")) {
+				String s2 = filePath[i].replace("file://", "/");
+				list.add(s2);
+			}else if (filePath[i].startsWith("http")) {
+				
+			}else {
+				list.add(filePath[i]);
+			}
 		}
 		/*if (list.contains(string)) {
 			list.remove(string);

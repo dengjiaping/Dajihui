@@ -248,7 +248,11 @@ public class XianshiLogoProduct extends Fragment {
 									flag = true;
 								}
 								MyUtlis.sortListOrder(mList);
-								uptime = mList.get(1).getCtime();
+								if (mList.size() != 0) {
+									uptime = mList.get(0).getCtime();
+								}else {
+									uptime = new String("11");
+								}
 								mAdapter.notifyDataSetChanged();
 								mPullRefreshScrollView.onRefreshComplete();
 							} else {
@@ -352,7 +356,11 @@ public class XianshiLogoProduct extends Fragment {
 				mList.addAll(productsBeans);
 				// Log.i("print", mList.toString());
 				MyUtlis.sortListOrder(mList);
-				uptime = mList.get(1).getCtime();
+				if (mList.size() != 0) {
+					uptime = mList.get(0).getCtime();
+				}else {
+					uptime = new String("11");
+				}
 				mGridView.setAdapter(mAdapter);
 
 			} else {

@@ -5319,56 +5319,55 @@ com.mzhou.merchant.activity.EditShoujiCommenActivity -> com.mzhou.merchant.activ
     android.widget.EditText pub_product_ah -> D
     java.lang.String classid -> E
     com.mzhou.merchant.myview.MyGridView gridView -> F
-    java.util.LinkedList mList -> G
+    java.util.List mList -> G
     boolean isLast -> a
     int MAXSIZE -> H
-    android.net.Uri mImageUri -> I
-    com.mzhou.merchant.activity.EditShoujiCommenActivity$ImageAdapter adapter -> J
-    java.lang.String rom -> K
-    java.lang.String ah -> L
-    java.lang.String brand -> M
-    java.lang.String type -> N
-    java.lang.String chip -> O
-    java.lang.String size -> P
-    java.lang.String distinguish -> Q
-    java.lang.String system -> R
-    java.lang.String prec_pixel -> S
-    java.lang.String next_pixel -> T
-    java.lang.String content -> U
-    java.lang.String email -> V
-    java.lang.String phonenub -> W
-    java.lang.String address -> X
-    java.lang.String company -> Y
-    java.lang.String net -> Z
-    java.lang.String name -> aa
-    java.io.File file -> ab
-    int REQUEST -> ac
+    com.mzhou.merchant.activity.EditShoujiCommenActivity$ImageAdapter adapter -> I
+    java.lang.String rom -> J
+    java.lang.String ah -> K
+    java.lang.String brand -> L
+    java.lang.String type -> M
+    java.lang.String chip -> N
+    java.lang.String size -> O
+    java.lang.String distinguish -> P
+    java.lang.String system -> Q
+    java.lang.String prec_pixel -> R
+    java.lang.String next_pixel -> S
+    java.lang.String content -> T
+    java.lang.String email -> U
+    java.lang.String phonenub -> V
+    java.lang.String address -> W
+    java.lang.String company -> X
+    java.lang.String net -> Y
+    java.lang.String name -> Z
+    int REQUEST -> aa
     int RESULT -> b
     com.nostra13.universalimageloader.core.ImageLoader imageLoader -> c
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ad
-    java.lang.String saveDir -> ae
-    android.content.Context context -> af
-    android.widget.TextView title_bar_title -> ag
-    java.lang.String productid -> ah
-    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> ai
-    java.lang.String picfromServer -> aj
-    android.widget.ImageView imageview_add -> ak
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ab
+    java.lang.String saveDir -> ac
+    android.content.Context context -> ad
+    android.widget.TextView title_bar_title -> ae
+    java.lang.String productid -> af
+    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> ag
+    java.lang.String picfromServer -> ah
+    android.widget.ImageView imageview_add -> ai
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
-    void loadButton() -> b
-    void getdataFromWeb() -> c
-    void selectPicture() -> d
-    void listennerButton() -> e
-    java.lang.String getdata() -> f
-    java.lang.String getImagePath(android.net.Uri) -> a
+    void configFile() -> b
+    void loadButton() -> c
+    void getdataFromWeb() -> d
+    void selectPicture() -> e
+    void takePhoto() -> f
+    void choosePicture() -> g
+    void listennerButton() -> h
+    java.lang.String getdata() -> i
     void onResume() -> onResume
     void onPause() -> onPause
     void onStop() -> onStop
     void onStart() -> onStart
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    boolean deleteDir(java.io.File) -> a
     void onDestroy() -> onDestroy
-    void iniPopupWindow() -> g
+    void iniPopupWindow() -> j
     com.nostra13.universalimageloader.core.DisplayImageOptions access$0(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> a
     android.widget.EditText access$1(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> b
     android.widget.EditText access$2(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> c
@@ -5390,36 +5389,35 @@ com.mzhou.merchant.activity.EditShoujiCommenActivity -> com.mzhou.merchant.activ
     android.widget.TextView access$18(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> s
     void access$19(com.mzhou.merchant.activity.EditShoujiCommenActivity,java.lang.String) -> a
     java.lang.String access$20(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> t
-    java.util.LinkedList access$21(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> u
-    android.content.Context access$22(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> v
-    int access$23(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> w
-    android.widget.PopupWindow access$24(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> x
-    android.widget.ImageView access$25(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> y
-    java.lang.String access$26(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> z
-    void access$27(com.mzhou.merchant.activity.EditShoujiCommenActivity,java.io.File) -> a
-    java.io.File access$28(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> A
-    java.lang.String access$29(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> B
-    java.lang.String access$30(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> C
-    java.lang.String access$31(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> D
-    java.lang.String access$32(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> E
-    java.lang.String access$33(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> F
-    java.lang.String access$34(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> G
-    java.lang.String access$35(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> H
-    java.lang.String access$36(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> I
-    java.lang.String access$37(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> J
-    java.lang.String access$38(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> K
-    java.lang.String access$39(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> L
-    java.lang.String access$40(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> M
-    java.lang.String access$41(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> N
-    java.lang.String access$42(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> O
-    java.lang.String access$43(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> P
-    java.lang.String access$44(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> Q
-    java.lang.String access$45(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> R
-    java.lang.String access$46(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> S
-    java.lang.String access$47(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> T
-    java.lang.String access$48(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> U
-    java.util.List access$49(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> V
-    void access$50(com.mzhou.merchant.activity.EditShoujiCommenActivity,java.lang.String) -> b
+    java.util.List access$21(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> u
+    int access$22(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> v
+    android.widget.PopupWindow access$23(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> w
+    android.widget.ImageView access$24(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> x
+    android.content.Context access$25(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> y
+    void access$26(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> z
+    void access$27(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> A
+    java.lang.String access$28(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> B
+    java.lang.String access$29(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> C
+    java.lang.String access$30(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> D
+    java.lang.String access$31(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> E
+    java.lang.String access$32(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> F
+    java.lang.String access$33(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> G
+    java.lang.String access$34(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> H
+    java.lang.String access$35(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> I
+    java.lang.String access$36(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> J
+    java.lang.String access$37(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> K
+    java.lang.String access$38(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> L
+    java.lang.String access$39(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> M
+    java.lang.String access$40(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> N
+    java.lang.String access$41(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> O
+    java.lang.String access$42(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> P
+    java.lang.String access$43(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> Q
+    java.lang.String access$44(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> R
+    java.lang.String access$45(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> S
+    java.lang.String access$46(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> T
+    java.lang.String access$47(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> U
+    java.util.List access$48(com.mzhou.merchant.activity.EditShoujiCommenActivity) -> V
+    void access$49(com.mzhou.merchant.activity.EditShoujiCommenActivity,java.lang.String) -> b
 com.mzhou.merchant.activity.EditShoujiCommenActivity$1 -> com.mzhou.merchant.activity.dx:
     com.mzhou.merchant.activity.EditShoujiCommenActivity this$0 -> a
     void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
@@ -5466,7 +5464,7 @@ com.mzhou.merchant.activity.EditShoujiCommenActivity$9 -> com.mzhou.merchant.act
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.mzhou.merchant.activity.EditShoujiCommenActivity$ImageAdapter -> com.mzhou.merchant.activity.ek:
     android.content.Context mContext -> b
-    java.util.LinkedList mList -> c
+    java.util.List mList -> c
     com.mzhou.merchant.activity.EditShoujiCommenActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
@@ -5522,39 +5520,37 @@ com.mzhou.merchant.activity.EditShoujiEnterpriseActivity -> com.mzhou.merchant.a
     android.widget.EditText user_manager_centerFox -> X
     android.widget.EditText user_manager_centerNub -> Y
     com.mzhou.merchant.myview.MyGridView gridView -> Z
-    java.util.LinkedList mList -> aa
+    java.util.List mList -> aa
     boolean isLast -> a
     int MAXSIZE -> ab
-    android.net.Uri mImageUri -> ac
-    com.mzhou.merchant.activity.EditShoujiEnterpriseActivity$ImageAdapter adapter -> ad
-    java.lang.String brand -> ae
-    java.lang.String type -> af
-    java.lang.String chip -> ag
-    java.lang.String size -> ah
-    java.lang.String distinguish -> ai
-    java.lang.String system -> aj
-    java.lang.String prec_pixel -> ak
-    java.lang.String next_pixel -> al
-    java.lang.String content -> am
-    java.lang.String rom -> an
-    java.lang.String ah -> ao
-    java.lang.String address -> ap
-    java.lang.String company -> aq
-    java.lang.String net -> ar
-    java.lang.String fax -> as
-    java.lang.String center -> at
-    java.lang.String name -> au
-    android.content.Context context -> av
-    java.io.File file -> aw
-    int REQUEST -> ax
-    int RESULT -> b
-    com.nostra13.universalimageloader.core.ImageLoader imageLoader -> c
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ay
-    java.lang.String saveDir -> az
-    java.lang.String productid -> aA
-    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> aB
-    java.lang.String picfromServer -> aC
-    android.widget.ImageView imageview_add -> aD
+    com.mzhou.merchant.activity.EditShoujiEnterpriseActivity$ImageAdapter adapter -> ac
+    java.lang.String brand -> ad
+    java.lang.String type -> ae
+    java.lang.String chip -> af
+    java.lang.String size -> ag
+    java.lang.String distinguish -> ah
+    java.lang.String system -> ai
+    java.lang.String prec_pixel -> aj
+    java.lang.String next_pixel -> ak
+    java.lang.String content -> al
+    java.lang.String rom -> am
+    java.lang.String ah -> an
+    java.lang.String address -> ao
+    java.lang.String company -> ap
+    java.lang.String net -> aq
+    java.lang.String fax -> ar
+    java.lang.String center -> as
+    java.lang.String name -> at
+    android.content.Context context -> au
+    com.nostra13.universalimageloader.core.ImageLoader imageLoader -> b
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> av
+    int REQUEST -> aw
+    int RESULT -> c
+    java.lang.String saveDir -> ax
+    java.lang.String productid -> ay
+    com.mzhou.merchant.dao.biz.ProductsManager productsManager -> az
+    java.lang.String picfromServer -> aA
+    android.widget.ImageView imageview_add -> aB
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -5564,12 +5560,12 @@ com.mzhou.merchant.activity.EditShoujiEnterpriseActivity -> com.mzhou.merchant.a
     void iniPopupWindow() -> f
     java.lang.String getdata() -> g
     java.lang.String getNameJsondata() -> h
-    java.lang.String getImagePath(android.net.Uri) -> a
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    boolean deleteDir(java.io.File) -> a
+    void takePhoto() -> i
+    void choosePicture() -> j
     void onDestroy() -> onDestroy
     com.mzhou.merchant.model.GroupUsers getNameJson(java.lang.String) -> a
-    java.util.LinkedList access$0(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> a
+    java.util.List access$0(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> a
     com.nostra13.universalimageloader.core.DisplayImageOptions access$1(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> b
     android.widget.EditText access$2(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> c
     android.widget.EditText access$3(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> d
@@ -5617,32 +5613,31 @@ com.mzhou.merchant.activity.EditShoujiEnterpriseActivity -> com.mzhou.merchant.a
     int access$45(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> Q
     android.widget.PopupWindow access$46(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> R
     android.widget.ImageView access$47(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> S
-    java.lang.String access$48(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> T
-    void access$49(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity,java.io.File) -> a
-    java.io.File access$50(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> U
-    java.lang.String access$51(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> V
-    java.lang.String access$52(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> W
-    java.lang.String access$53(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> X
-    java.lang.String access$54(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> Y
-    java.lang.String access$55(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> Z
-    java.lang.String access$56(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aa
-    java.lang.String access$57(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ab
-    java.lang.String access$58(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ac
-    java.lang.String access$59(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ad
-    java.lang.String access$60(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ae
-    java.lang.String access$61(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> af
-    java.lang.String access$62(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ag
-    java.lang.String access$63(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ah
-    java.lang.String access$64(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ai
-    java.lang.String access$65(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aj
-    java.lang.String access$66(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ak
-    java.lang.String access$67(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> al
-    java.lang.String access$68(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> am
-    java.lang.String access$69(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> an
-    java.lang.String access$70(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ao
-    android.widget.TextView access$71(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ap
-    java.util.List access$72(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aq
-    void access$73(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity,java.lang.String) -> c
+    void access$48(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> T
+    void access$49(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> U
+    java.lang.String access$50(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> V
+    java.lang.String access$51(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> W
+    java.lang.String access$52(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> X
+    java.lang.String access$53(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> Y
+    java.lang.String access$54(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> Z
+    java.lang.String access$55(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aa
+    java.lang.String access$56(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ab
+    java.lang.String access$57(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ac
+    java.lang.String access$58(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ad
+    java.lang.String access$59(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ae
+    java.lang.String access$60(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> af
+    java.lang.String access$61(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ag
+    java.lang.String access$62(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ah
+    java.lang.String access$63(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ai
+    java.lang.String access$64(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aj
+    java.lang.String access$65(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ak
+    java.lang.String access$66(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> al
+    java.lang.String access$67(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> am
+    java.lang.String access$68(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> an
+    java.lang.String access$69(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ao
+    android.widget.TextView access$70(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> ap
+    java.util.List access$71(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity) -> aq
+    void access$72(com.mzhou.merchant.activity.EditShoujiEnterpriseActivity,java.lang.String) -> c
 com.mzhou.merchant.activity.EditShoujiEnterpriseActivity$1 -> com.mzhou.merchant.activity.el:
     com.mzhou.merchant.activity.EditShoujiEnterpriseActivity this$0 -> a
     void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
@@ -5798,65 +5793,64 @@ com.mzhou.merchant.activity.FabuQiugouActivity$3 -> com.mzhou.merchant.activity.
     com.mzhou.merchant.activity.FabuQiugouActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.FabuShoujiCommenActivity -> com.mzhou.merchant.activity.FabuShoujiCommenActivity:
-    android.widget.ImageView showLeft -> d
-    android.widget.Button publish -> e
-    android.widget.Button preview -> f
-    android.widget.ImageView category_postion -> g
-    android.widget.LinearLayout user_manager_category -> h
-    java.util.List moreList -> i
-    android.widget.PopupWindow pwMyPopWindow -> j
-    android.widget.ListView lvPopupList -> k
-    android.widget.TextView user_manager_category_stub -> l
-    int NUM_OF_VISIBLE_LIST_ROWS -> m
-    android.widget.EditText pub_product_pingpai -> n
-    android.widget.EditText pub_product_xinghao -> o
-    android.widget.EditText pub_product_xinpian -> p
-    android.widget.EditText pub_product_chicun -> q
-    android.widget.EditText pub_product_fenbianlv -> r
-    android.widget.EditText pub_product_xitong -> s
-    android.widget.EditText pub_product_qianxiangsu -> t
-    android.widget.EditText pub_product_houxiangsu -> u
-    android.widget.EditText pub_product_jianjie -> v
-    android.widget.EditText pub_product_name -> w
-    android.widget.EditText pub_product_number -> x
-    android.widget.EditText pub_product_companyName -> y
-    android.widget.EditText pub_product_address -> z
-    android.widget.EditText pub_product_net -> A
-    android.widget.EditText pub_product_email -> B
-    android.widget.EditText pub_product_rom -> C
-    android.widget.EditText pub_product_ah -> D
-    java.lang.String classid -> E
-    com.mzhou.merchant.myview.MyGridView gridView -> F
-    java.util.List mList -> G
-    boolean isLast -> a
-    int MAXSIZE -> H
-    com.mzhou.merchant.activity.FabuShoujiCommenActivity$ImageAdapter adapter -> I
-    java.lang.String uid -> J
-    java.lang.String rom -> K
-    java.lang.String ah -> L
-    java.lang.String brand -> M
-    java.lang.String type -> N
-    java.lang.String chip -> O
-    java.lang.String size -> P
-    java.lang.String distinguish -> Q
-    java.lang.String system -> R
-    java.lang.String prec_pixel -> S
-    java.lang.String next_pixel -> T
-    java.lang.String content -> U
-    java.lang.String email -> V
-    java.lang.String phonenub -> W
-    java.lang.String address -> X
-    java.lang.String company -> Y
-    java.lang.String net -> Z
-    java.lang.String name -> aa
-    int REQUEST -> ab
-    int RESULT -> b
-    com.nostra13.universalimageloader.core.ImageLoader imageLoader -> c
-    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ac
-    java.lang.String saveDir -> ad
-    android.content.Context context -> ae
-    android.widget.ImageView imageview_add -> af
-    java.lang.String TAG -> ag
+    android.widget.ImageView showLeft -> c
+    android.widget.Button publish -> d
+    android.widget.Button preview -> e
+    android.widget.ImageView category_postion -> f
+    android.widget.LinearLayout user_manager_category -> g
+    java.util.List moreList -> h
+    android.widget.PopupWindow pwMyPopWindow -> i
+    android.widget.ListView lvPopupList -> j
+    android.widget.TextView user_manager_category_stub -> k
+    int NUM_OF_VISIBLE_LIST_ROWS -> l
+    android.widget.EditText pub_product_pingpai -> m
+    android.widget.EditText pub_product_xinghao -> n
+    android.widget.EditText pub_product_xinpian -> o
+    android.widget.EditText pub_product_chicun -> p
+    android.widget.EditText pub_product_fenbianlv -> q
+    android.widget.EditText pub_product_xitong -> r
+    android.widget.EditText pub_product_qianxiangsu -> s
+    android.widget.EditText pub_product_houxiangsu -> t
+    android.widget.EditText pub_product_jianjie -> u
+    android.widget.EditText pub_product_name -> v
+    android.widget.EditText pub_product_number -> w
+    android.widget.EditText pub_product_companyName -> x
+    android.widget.EditText pub_product_address -> y
+    android.widget.EditText pub_product_net -> z
+    android.widget.EditText pub_product_email -> A
+    android.widget.EditText pub_product_rom -> B
+    android.widget.EditText pub_product_ah -> C
+    java.lang.String classid -> D
+    com.mzhou.merchant.myview.MyGridView gridView -> E
+    java.util.List mList -> F
+    int MAXSIZE -> G
+    com.mzhou.merchant.activity.FabuShoujiCommenActivity$ImageAdapter adapter -> H
+    java.lang.String uid -> I
+    java.lang.String rom -> J
+    java.lang.String ah -> K
+    java.lang.String brand -> L
+    java.lang.String type -> M
+    java.lang.String chip -> N
+    java.lang.String size -> O
+    java.lang.String distinguish -> P
+    java.lang.String system -> Q
+    java.lang.String prec_pixel -> R
+    java.lang.String next_pixel -> S
+    java.lang.String content -> T
+    java.lang.String email -> U
+    java.lang.String phonenub -> V
+    java.lang.String address -> W
+    java.lang.String company -> X
+    java.lang.String net -> Y
+    java.lang.String name -> Z
+    int REQUEST -> aa
+    int RESULT -> a
+    com.nostra13.universalimageloader.core.ImageLoader imageLoader -> b
+    com.nostra13.universalimageloader.core.DisplayImageOptions options -> ab
+    java.lang.String saveDir -> ac
+    android.content.Context context -> ad
+    android.widget.ImageView imageview_add -> ae
+    java.lang.String TAG -> af
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void configFile() -> b
@@ -6002,7 +5996,7 @@ com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity -> com.mzhou.merchant.a
     android.widget.EditText user_manager_centerFox -> W
     android.widget.EditText user_manager_centerNub -> X
     com.mzhou.merchant.myview.MyGridView gridView -> Y
-    java.util.LinkedList mList -> Z
+    java.util.List mList -> Z
     boolean isLast -> a
     int MAXSIZE -> aa
     com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity$ImageAdapter adapter -> ab
@@ -6048,7 +6042,7 @@ com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity -> com.mzhou.merchant.a
     void onDestroy() -> onDestroy
     void iniPopupWindow() -> l
     com.mzhou.merchant.model.GroupUsers getNameJson(java.lang.String) -> a
-    java.util.LinkedList access$0(com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity) -> a
+    java.util.List access$0(com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity) -> a
     com.nostra13.universalimageloader.core.DisplayImageOptions access$1(com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity) -> b
     int access$2(com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity) -> c
     android.widget.PopupWindow access$3(com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity) -> d
@@ -10759,9 +10753,9 @@ com.mzhou.merchant.fragment.XianshiZhaoPing -> com.mzhou.merchant.c.fx:
     void onDestroy() -> n
     android.content.Context access$0(com.mzhou.merchant.fragment.XianshiZhaoPing) -> a
     java.util.LinkedList access$1(com.mzhou.merchant.fragment.XianshiZhaoPing) -> b
-    void access$2(com.mzhou.merchant.fragment.XianshiZhaoPing,java.lang.String) -> a
-    com.handmark.pulltorefresh.library.PullToRefreshListView access$3(com.mzhou.merchant.fragment.XianshiZhaoPing) -> c
-    com.mzhou.merchant.adapter.MyJobAdapter access$4(com.mzhou.merchant.fragment.XianshiZhaoPing) -> d
+    com.handmark.pulltorefresh.library.PullToRefreshListView access$2(com.mzhou.merchant.fragment.XianshiZhaoPing) -> c
+    com.mzhou.merchant.adapter.MyJobAdapter access$3(com.mzhou.merchant.fragment.XianshiZhaoPing) -> d
+    void access$4(com.mzhou.merchant.fragment.XianshiZhaoPing,java.lang.String) -> a
     com.mzhou.merchant.dao.biz.JobManager access$5(com.mzhou.merchant.fragment.XianshiZhaoPing) -> e
     java.lang.String access$6(com.mzhou.merchant.fragment.XianshiZhaoPing) -> f
     void access$7(com.mzhou.merchant.fragment.XianshiZhaoPing,boolean) -> a
@@ -11588,6 +11582,9 @@ com.mzhou.merchant.service.DownLoadService$adThread -> com.mzhou.merchant.servic
     com.mzhou.merchant.service.DownLoadService this$0 -> a
     void run() -> run
 com.mzhou.merchant.service.DownLoadService$downloadThread -> com.mzhou.merchant.service.c:
+    com.mzhou.merchant.service.DownLoadService this$0 -> a
+    void run() -> run
+com.mzhou.merchant.service.DownLoadService$indexThread -> com.mzhou.merchant.service.d:
     com.mzhou.merchant.service.DownLoadService this$0 -> a
     void run() -> run
 com.mzhou.merchant.slidemenu.SlidingMenu -> com.mzhou.merchant.slidemenu.SlidingMenu:

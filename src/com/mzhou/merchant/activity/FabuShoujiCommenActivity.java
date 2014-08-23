@@ -3,11 +3,14 @@ package com.mzhou.merchant.activity;
 import java.io.File;
 import java.io.IOException;
 import java.lang.Thread.UncaughtExceptionHandler;
+import java.lang.reflect.Array;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -93,7 +96,7 @@ public class FabuShoujiCommenActivity extends Activity {
 	private MyGridView gridView;
    	private List<String> mList;
 
-	boolean isLast = false;
+//	boolean isLast = false;
 	private int MAXSIZE = 5;
  	private ImageAdapter adapter;
 	private String uid;
@@ -223,13 +226,11 @@ private final String TAG="FabuShoujiCommenActivity";
 	private void selectPicture() {
 		adapter = new ImageAdapter(this,mList);
 		gridView.setAdapter(adapter);
-		gridView.setSelector(R.drawable.grid_item_background);
 		gridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					final int position, long id) {
-						if (mList.size() != 0) {
 							String[] imageUrls = new String[mList.size()];
 							Intent intent = new Intent();
 							intent.setClass(FabuShoujiCommenActivity.this,
@@ -240,7 +241,6 @@ private final String TAG="FabuShoujiCommenActivity";
 									position);
 							intent.putExtra("pub", true);
 							startActivityForResult(intent, REQUEST);
-						}
 			}
 
 		});
@@ -434,9 +434,7 @@ private final String TAG="FabuShoujiCommenActivity";
 				p.setAh(ah);
 				p.setNet(net);
 				String[] array = new String[mList.size()] ;
-				for (int i = 0; i < mList.size(); i++) {
-					array[i] = mList.get(i);
-				}
+				mList.toArray(array);
 				Intent intent = new Intent();
 				intent.setClass(FabuShoujiCommenActivity.this,
 						FabushoujiCommenPreViewActivity.class);
@@ -611,78 +609,72 @@ private final String TAG="FabuShoujiCommenActivity";
 		 
 	}
 
-	/**
-	 * 获得照片的绝对路径
-	 * 
-	 * @param uri
-	 *            拍照或者选取照片返回的数据
-	 * @return 返回字符串
-	 */
-	private String getImagePath(final Uri uri) {
-		String[] projection = { MediaStore.Images.Media.DATA };
-		Cursor cursor = MediaStore.Images.Media.query(getContentResolver(),
-				uri, projection);
-		cursor.moveToFirst();
-		String path = cursor.getString(cursor
-				.getColumnIndex(MediaStore.Images.Media.DATA));
-		cursor.close();
-		return path;
-	}
+ 
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		Log.i(TAG, "[onActivityResult]    requestCode="+requestCode+",resultCode="+resultCode+",mList="+mList.toString());
-		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {
-			ContentResolver resolver = getContentResolver();
-			Uri originalUri = data.getData();
-			try {
-				Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-				if (photo != null) {
-					String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
-							String.valueOf(System.currentTimeMillis()));
-					if (choose_pic_path.length() > 0) {
-						Log.i(TAG, "[onActivityResult]    choose_pic_path="+choose_pic_path);
-						mList.add("file:/"+choose_pic_path);
-						if (mList.size() == MAXSIZE) {
-							isLast = true;
-							imageview_add.setVisibility(View.GONE);
-						}
-						adapter.notifyDataSetChanged();
-					} 
+		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {//choose picture 
+			if (mList.size() < MAXSIZE) {
+				ContentResolver resolver = getContentResolver();
+				Uri originalUri = data.getData();
+				try {
+					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+					if (photo != null) {
+						String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
+								String.valueOf(System.currentTimeMillis()));
+						if (choose_pic_path.length() > 0) {
+							Log.i(TAG, "[onActivityResult]    choose_pic_path="+choose_pic_path);
+								mList.add("file:/"+choose_pic_path);
+								if (mList.size() == MAXSIZE) {
+									imageview_add.setVisibility(View.GONE);
+								}
+							adapter.notifyDataSetChanged();
+						} 
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				e.printStackTrace();
+			}else {
+				MyUtlis.toastInfo(context, "图片最多只能显示5张!");
 			}
+		
 		 
 		} else if (requestCode == TAKE_PIC
-				&& resultCode ==   RESULT_OK) {
-			Bitmap newBitmap = ImageUtils.getimage(saveDir+ "temp_pic.jpg");
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-			String newName = dateFormat.format(new Date(System.currentTimeMillis())) ;
-			String pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,newName);
-			Log.i(TAG, "[onActivityResult]    pic_path="+pic_path);
+				&& resultCode ==   RESULT_OK) {//take picture
+			if (mList.size() < MAXSIZE) {
+				Bitmap newBitmap = ImageUtils.getimage(saveDir+ "temp_pic.jpg");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss",Locale.CHINA);
+				String newName = dateFormat.format(new Date(System.currentTimeMillis())) ;
+				String pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,newName);
+				Log.i(TAG, "[onActivityResult]    pic_path="+pic_path);
 				mList.add("file:/"+pic_path);
 				if (mList.size() == MAXSIZE) {
-					isLast = true;imageview_add.setVisibility(View.GONE);
+					imageview_add.setVisibility(View.GONE);
 				}
 				adapter.notifyDataSetChanged();
 				newBitmap.recycle();
+			}
 		}
-		else if (requestCode == REQUEST && resultCode == RESULT) {
- 		mList.clear();
+		else if (requestCode == REQUEST && resultCode == RESULT) {//preview back
+			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-			for (int i = 0; i < arry.length; i++) {
-				mList.add(arry[i]);
-			}
-			if (mList.size() != 5) {
-				isLast = false;
+			mList = Arrays.asList(arry);
+			if (mList.size() < MAXSIZE) {
 				imageview_add.setVisibility(View.VISIBLE);
 			}
 			adapter.notifyDataSetChanged();
 
-		} 
+		} else if (requestCode == REQUEST && resultCode == 0) {
+			if (mList != null) {
+				mList.clear();
+				imageview_add.setVisibility(View.VISIBLE);
+			}
+		 
+			adapter.notifyDataSetChanged();
+		}
 	}
 	protected void onResume() {
 		Log.i(TAG, "onResume");

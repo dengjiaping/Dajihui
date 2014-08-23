@@ -175,9 +175,13 @@ public class LogoItemListActivity extends Activity {
 						mList.addLast(productsBean);
 					}
 					 
-					title_bar_title.setText(mList.get(0).getBrand());
 						MyUtlis.sortListOrder(mList);
-						uptime = mList.get(1).getCtime();
+						if (mList.size() != 0) {
+							title_bar_title.setText(mList.get(0).getBrand());
+							uptime = mList.get(0).getCtime();
+						}else {
+							uptime = new String("11");
+						}
 						mGridView.setAdapter(mAdapter);
 				}else {
 					item_linear_toast.setVisibility(View.VISIBLE);
@@ -213,8 +217,9 @@ public class LogoItemListActivity extends Activity {
 													mList.addLast(productsBean);
 												}
 												MyUtlis.sortListOrder(mList);
-												uptime = mList.get(0)
-														.getCtime();
+												if (mList.size() != 0) {
+													uptime = mList.get(0).getCtime();
+												}
 												mAdapter.notifyDataSetChanged();
 												mPullRefreshScrollView
 														.onRefreshComplete();

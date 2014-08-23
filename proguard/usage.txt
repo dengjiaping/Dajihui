@@ -1070,15 +1070,20 @@ com.mzhou.merchant.activity.ActivityStart:
     454:461:public void writeFiles(java.lang.String,java.lang.String)
 com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
-    private static final int REQUEST_CODE
-    private static final int REQUEST_CODE1
+    private static final int CHOOSE_PIC
+    private static final int TAKE_PIC
+    741:750:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.EditShoujiEnterpriseActivity:
     private static final int REQUEST_CODE
     private static final int REQUEST_CODE1
+    private android.net.Uri mImageUri
+    private static final int CHOOSE_PIC
+    private static final int TAKE_PIC
+    766:773:private java.lang.String getImagePath(android.net.Uri)
+    841:850:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.FabuShoujiCommenActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
-    622:629:private java.lang.String getImagePath(android.net.Uri)
 com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
@@ -1220,8 +1225,7 @@ com.mzhou.merchant.myview.MyTextView:
     164:164:public float getMYTextSize()
     168:171:public void setMYTextSize(float)
 com.mzhou.merchant.service.DownLoadService:
-    437:444:public void writeFiles(java.lang.String,java.lang.String)
-com.mzhou.merchant.service.DownLoadService$indexThread
+    438:445:public void writeFiles(java.lang.String,java.lang.String)
 com.mzhou.merchant.slidemenu.SlidingMenu:
     private static final int VELOCITY
     78:81:public void addViews(android.view.View,android.view.View,android.view.View)
@@ -1320,11 +1324,11 @@ com.mzhou.merchant.utlis.MyUtlis:
     387:402:public static java.lang.String readFiles(java.lang.String,android.content.Context)
 com.mzhou.merchant.utlis.MyUtlis$1
 com.mzhou.merchant.utlis.PictureUtil:
-    16:16:public PictureUtil()
-    89:94:public static java.lang.String encodeBase64File(java.lang.String)
-    115:130:public static int calculateInSampleSize(android.graphics.BitmapFactory$Options,int,int)
-    134:140:public static android.graphics.Bitmap getSmallBitmap(java.lang.String)
-    147:161:private static android.graphics.Bitmap resize(android.graphics.Bitmap,int,int)
+    18:18:public PictureUtil()
+    91:96:public static java.lang.String encodeBase64File(java.lang.String)
+    126:141:public static int calculateInSampleSize(android.graphics.BitmapFactory$Options,int,int)
+    145:151:public static android.graphics.Bitmap getSmallBitmap(java.lang.String)
+    158:172:private static android.graphics.Bitmap resize(android.graphics.Bitmap,int,int)
 com.mzhou.merchant.utlis.SIMCarInfo
 com.mzhou.merchant.utlis.ToolsUtils:
     18:18:public ToolsUtils()

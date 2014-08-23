@@ -232,7 +232,9 @@ public class ActivityHuoDong extends Activity {
 							.getRefreshableView();
 					mList.addAll(productsBeans);
 					MyUtlis.sortListActivityBeanOrder(mList);
-					uptime = mList.get(1).getCtime();
+					if (mList.size() != 0) {
+						uptime = mList.get(0).getCtime();
+					}
 					actualListView.setAdapter(mAdapter);
 //				}
 			}

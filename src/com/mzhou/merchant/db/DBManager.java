@@ -32,7 +32,7 @@ public class DBManager {
 
 	}
 
-	public synchronized static DBManager getInstance(Context mContext) {
+	public   static DBManager getInstance(Context mContext) {
 		if (null == dBManager) {
 			dBManager = new DBManager(mContext);
 		}

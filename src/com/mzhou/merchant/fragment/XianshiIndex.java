@@ -441,7 +441,11 @@ public class XianshiIndex extends Fragment {
 			if (productsBeans != null ) {
 				mList.addAll(productsBeans);
 				MyUtlis.sortListOrder(mList);
-				uptime = mList.get(1).getCtime();
+				if (mList.size() != 0) {
+					uptime = mList.get(0).getCtime();
+				}else {
+					uptime = new String("11");
+				}
 				mGridView.setAdapter(mAdapter);
 			} else {
 				uptime = new String("11");

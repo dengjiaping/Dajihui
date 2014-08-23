@@ -110,7 +110,11 @@ public class XianshiXinWen extends Fragment {
 											flag = true;
 										}
 										MyUtlis.sortListNewsBeanOrder(mList);
-										uptime = mList.get(1).getCtime();
+										if (mList.size() != 0) {
+											uptime = mList.get(0).getCtime();
+										}else {
+											uptime = new String("11");
+										}
 										mAdapter.notifyDataSetChanged();
 										mPullRefreshListView
 												.onRefreshComplete();
@@ -209,7 +213,11 @@ public class XianshiXinWen extends Fragment {
 			if ((result != null) && ( result.size() != 0)) {
 				mList.addAll(result);
 				MyUtlis.sortListNewsBeanOrder(mList);
-				uptime = mList.get(1).getCtime();
+				if (mList.size() != 0) {
+					uptime = mList.get(0).getCtime();
+				}else {
+					uptime = new String("11");
+				}
 				mPullRefreshListView.setAdapter(mAdapter);
 			} else {
 				uptime = new String("11");

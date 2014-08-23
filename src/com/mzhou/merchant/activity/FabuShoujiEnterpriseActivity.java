@@ -8,9 +8,11 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -134,7 +136,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	private static final int TAKE_PIC = 43;
  
 	private MyGridView gridView;
- 	private LinkedList<String> mList;
+ 	private  List<String> mList;
 	boolean isLast = false;
 	private int MAXSIZE = 5;
 	private Uri mImageUri;
@@ -291,21 +293,17 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					final int position, long id) {
-						if (mList.size() != 0) {
-							String[] imageUrls = new String[mList.size()];
-							Intent intent = new Intent();
-							intent.setClass(FabuShoujiEnterpriseActivity.this,
-									PicPagerActivity.class);
-							for (int i = 0; i < mList.size() ; i++) {
-								imageUrls[i] = mList.get(i);
-							}
-							intent.putExtra(MyConstants.Extra.IMAGES, imageUrls);
-							intent.putExtra(MyConstants.Extra.IMAGE_POSITION,
-									position);
-							intent.putExtra("pub", true);
-							startActivityForResult(intent, REQUEST);
-						}
-			}
+				String[] imageUrls = new String[mList.size()];
+				Intent intent = new Intent();
+				intent.setClass(FabuShoujiEnterpriseActivity.this,
+						PicPagerActivity.class);
+				  mList.toArray(imageUrls);
+				intent.putExtra(MyConstants.Extra.IMAGES, imageUrls);
+				intent.putExtra(MyConstants.Extra.IMAGE_POSITION,
+						position);
+				intent.putExtra("pub", true);
+				startActivityForResult(intent, REQUEST);
+}
 		});
 		 
 	}
@@ -579,13 +577,12 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 		if (WebIsConnectUtil
 				.showNetState(FabuShoujiEnterpriseActivity.this)) {
 			getdata();
-
 			if (!brand.toString().equals("")) {
 				if (!content.toString().equals("")) {
-					if (mList.size() == 5) {
+ 					if (mList.size() == 5) {
 						String[] array = (String[]) mList
 								.toArray(new String[mList.size()]);
-						if (array.length > 0) {
+ 						if (array.length > 0) {
 							Map<String, String> params = new HashMap<String, String>();
 							params.put("uid", uid_enterprise);
 							params.put("subject", "add");
@@ -608,6 +605,7 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 							params.put("data[center]", center);
 							params.put("data[fax]", fax);
 							params.put("data[net]", net);
+							System.out.println("parameters="+params.toString());
 								HttpMultipartPost task = new HttpMultipartPost(
 										context,
 										MyConstants.PRODUCT_URL, array,
@@ -639,21 +637,21 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 															.toString());
 										}else {
 											MyUtlis.toastInfo(context,
-													"上传失败，请重试！");
-										}
-										}else {
-											MyUtlis.toastInfo(context,
-													"上传失败，请重试！");
-										}
-										
-									}
-								});
+ 													"上传失败，请重试！");
+ 										}
+ 										}else {
+ 											MyUtlis.toastInfo(context,
+ 													"上传失败，请重试！");
+ 										}
+ 										
+ 									}
+ 								});
 							}
 
-						} else {
-							MyUtlis.toastInfo(context, getResources()
-									.getString(R.string.picSize_null));
-						}
+ 						} else {
+ 							MyUtlis.toastInfo(context, getResources()
+ 									.getString(R.string.picSize_null));
+ 						}
 					} else {
 						MyUtlis.toastInfo(context, getResources()
 								.getString(R.string.picCount_low));
@@ -794,54 +792,64 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {
-			ContentResolver resolver = getContentResolver();
-			Uri originalUri = data.getData();
-			try {
-				Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-				if (photo != null) {
-					String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
-							String.valueOf(System.currentTimeMillis()));
-					if (choose_pic_path.length() > 0) {
-						mList.add("file:/"+choose_pic_path);
-						if (mList.size() == MAXSIZE) {
-							isLast = true;
-							imageview_add.setVisibility(View.GONE);
-						}
-						adapter.notifyDataSetChanged();
-					} 
+		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {//choose picture 
+			if (mList.size() < MAXSIZE) {
+				ContentResolver resolver = getContentResolver();
+				Uri originalUri = data.getData();
+				try {
+					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+					if (photo != null) {
+						String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
+								String.valueOf(System.currentTimeMillis()));
+						if (choose_pic_path.length() > 0) {
+								mList.add("file:/"+choose_pic_path);
+								if (mList.size() == MAXSIZE) {
+									imageview_add.setVisibility(View.GONE);
+								}
+							adapter.notifyDataSetChanged();
+						} 
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				e.printStackTrace();
+			}else {
+				MyUtlis.toastInfo(context, "图片最多只能显示5张!");
 			}
+		
 		 
 		} else if (requestCode == TAKE_PIC
-				&& resultCode ==   RESULT_OK) {
-			Bitmap newBitmap = ImageUtils.getimage(saveDir+ "temp_pic.jpg");
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-			String newName = dateFormat.format(new Date(System.currentTimeMillis())) ;
-			String pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,newName);
+				&& resultCode ==   RESULT_OK) {//take picture
+			if (mList.size() < MAXSIZE) {
+				Bitmap newBitmap = ImageUtils.getimage(saveDir+ "temp_pic.jpg");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss",Locale.CHINA);
+				String newName = dateFormat.format(new Date(System.currentTimeMillis())) ;
+				String pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,newName);
 				mList.add("file:/"+pic_path);
 				if (mList.size() == MAXSIZE) {
-					isLast = true;imageview_add.setVisibility(View.GONE);
+					imageview_add.setVisibility(View.GONE);
 				}
 				adapter.notifyDataSetChanged();
 				newBitmap.recycle();
+			}
 		}
-		else if (requestCode == REQUEST && resultCode == RESULT) {
- 		mList.clear();
+		else if (requestCode == REQUEST && resultCode == RESULT) {//preview back
+			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-			for (int i = 0; i < arry.length; i++) {
-				mList.add(arry[i]);
-			}
-			if (mList.size() != 5) {
-				isLast = false;
+			mList = Arrays.asList(arry);
+			if (mList.size() < MAXSIZE) {
 				imageview_add.setVisibility(View.VISIBLE);
 			}
 			adapter.notifyDataSetChanged();
 
-		} 
+		} else if (requestCode == REQUEST && resultCode == 0) {
+			if (mList != null) {
+				mList.clear();
+				imageview_add.setVisibility(View.VISIBLE);
+			}
+		 
+			adapter.notifyDataSetChanged();
+		}
 	}
 
 	/**

@@ -4,15 +4,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.Thread.UncaughtExceptionHandler;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -54,6 +59,7 @@ import com.mzhou.merchant.model.User;
 import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.HttpMultipartPost;
+import com.mzhou.merchant.utlis.ImageUtils;
 import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
@@ -117,7 +123,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	private static final int REQUEST_CODE = 1;
 	private static final int REQUEST_CODE1 = 2;
 	private MyGridView gridView;
-	private LinkedList<String> mList;
+	private  List<String> mList;
 	boolean isLast = false;
 	private int MAXSIZE = 5;
 	private Uri mImageUri;
@@ -140,19 +146,19 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	private String center;
 	private String name;
 	private Context context;
-	private File file;
-	private int REQUEST = 1234;
-	public static int RESULT = 4321;
 	protected ImageLoader imageLoader;
 	private DisplayImageOptions options;
+	private int REQUEST = 1234;
+	public static int RESULT = 4321;
+	
 	private String saveDir = Environment.getExternalStorageDirectory()
-			.getPath() + "/temp_pic";
-
+			.getPath() +File.separator+ "djh"+File.separator+"pic"+File.separator;
 	private String productid;
 	private ProductsManager productsManager;
 	private String picfromServer;
 	private ImageView imageview_add;
-
+	private static final int CHOOSE_PIC = 34;
+	private static final int TAKE_PIC = 43;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -197,11 +203,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 		isLast = true;
 		Intent intent = getIntent();
 		productid = intent.getStringExtra("id");
-		File savePath = new File(saveDir);
-		if (!savePath.exists()) {
-			savePath.mkdirs();
-		}
-		file = new File(saveDir, "temp_pic.jpg");
+		 
 	}
 
 	private void loadButton() {
@@ -314,7 +316,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 											picfromServer, getResources()
 													.getString(R.string.spilt));
 									while (tokenizer.hasMoreTokens()) {
-										mList.addLast(MyConstants.PICTURE_URL
+										mList.add(MyConstants.PICTURE_URL
 												+ tokenizer.nextToken());
 									}
 									adapter = new ImageAdapter(context);
@@ -358,10 +360,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 					}
 
 		});
-		File savePath = new File(saveDir);
-		if (!savePath.exists()) {
-			savePath.mkdirs();
-		}
+		 
 	}
  
 
@@ -419,41 +418,15 @@ public class EditShoujiEnterpriseActivity extends Activity {
 					@Override
 					public void onClick(View v) {
 						dialog.dismiss();
-
-						String state = Environment
-								.getExternalStorageState();
-						if (state.equals(Environment.MEDIA_MOUNTED)) {
-							file = new File(saveDir, System
-									.currentTimeMillis() + ".jpg");
-							file.delete();
-							if (!file.exists()) {
-								try {
-									file.createNewFile();
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
-							}
-							Intent intent = new Intent(
-									"android.media.action.IMAGE_CAPTURE");
-							intent.putExtra(MediaStore.EXTRA_OUTPUT,
-									Uri.fromFile(file));
-							startActivityForResult(intent,
-									REQUEST_CODE1);
-						} else {
-							MyUtlis.toastInfo(context, getResources()
-									.getString(R.string.no_sdcard));
-						}
-
+						 takePhoto();
 					}
 				});
 				select.setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
-						Intent intent = new Intent(Intent.ACTION_PICK);
-						intent.setType("image/*");
-						startActivityForResult(intent, REQUEST_CODE);
 						dialog.dismiss();
+						choosePicture();
 
 					}
 				});
@@ -803,79 +776,52 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-
-		if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
-			mImageUri = data.getData();
-			if (mImageUri != null) {
-				String path = getImagePath(mImageUri);
-				File file = new File(path);
-
-				/*FileInputStream fis;
+		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {//choose picture 
+			if (mList.size() < MAXSIZE) {
+				ContentResolver resolver = getContentResolver();
+				Uri originalUri = data.getData();
 				try {
-					fis = new FileInputStream(file);
-					int fileLen = fis.available();
-					if (fileLen > 2 * 1024 * 1024) {
-						// pic size bigger the 2M
-						MyUtlis.toastInfo(context,
-								getResources()
-										.getString(R.string.picSize_small));
+					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+					if (photo != null) {
+						String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
+								String.valueOf(System.currentTimeMillis()));
+						if (choose_pic_path.length() > 0) {
+								mList.add("file:/"+choose_pic_path);
+								if (mList.size() == MAXSIZE) {
+									imageview_add.setVisibility(View.GONE);
+								}
+							adapter.notifyDataSetChanged();
+						} 
 					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
+				} catch (IOException e) {
 					e.printStackTrace();
-				}*/
-
-				mList.addLast("file:/"+file.getAbsolutePath());
+				}
+			}else {
+				MyUtlis.toastInfo(context, "图片最多只能显示5张!");
+			}
+		
+		 
+		} else if (requestCode == TAKE_PIC
+				&& resultCode ==   RESULT_OK) {//take picture
+			if (mList.size() < MAXSIZE) {
+				Bitmap newBitmap = ImageUtils.getimage(saveDir+ "temp_pic.jpg");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss",Locale.CHINA);
+				String newName = dateFormat.format(new Date(System.currentTimeMillis())) ;
+				String pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,newName);
+				mList.add("file:/"+pic_path);
 				if (mList.size() == MAXSIZE) {
-					isLast = true;
 					imageview_add.setVisibility(View.GONE);
 				}
 				adapter.notifyDataSetChanged();
+				newBitmap.recycle();
 			}
-
-		} else if (requestCode == REQUEST_CODE1
-				&& resultCode == Activity.RESULT_OK) {
-
-			if (file != null && file.exists()) {
-				// BitmapFactory.Options option = new BitmapFactory.Options();
-				// option.inSampleSize = 2;
-				String path = file.getAbsolutePath();
-				/*FileInputStream fis;
-				try {
-					File file = new File(path);
-					fis = new FileInputStream(file);
-					int fileLen = fis.available();
-					if (fileLen > 2 * 1024 * 1024) {
-						// pic size bigger the 2M
-						MyUtlis.toastInfo(context,
-								getResources()
-										.getString(R.string.picSize_small));
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
-				mList.addLast("file:/"+path);
-				if (mList.size() == MAXSIZE) {
-					isLast = true;
-					imageview_add.setVisibility(View.GONE);
-				}
-				adapter.notifyDataSetChanged();
-			}
-
 		}
-		if (requestCode == REQUEST && resultCode == RESULT) {
-			if (mList != null) {
-				mList.clear();
-			}
+		else if (requestCode == REQUEST && resultCode == RESULT) {//preview back
+			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-
-			for (int i = 0; i < arry.length; i++) {
-				mList.add(arry[i]);
-			}
-			if (mList != null &&mList.size() != 5) {
-				isLast = false;
+			mList = Arrays.asList(arry);
+			if (mList.size() < MAXSIZE) {
 				imageview_add.setVisibility(View.VISIBLE);
 			}
 			adapter.notifyDataSetChanged();
@@ -885,9 +831,9 @@ public class EditShoujiEnterpriseActivity extends Activity {
 				mList.clear();
 				imageview_add.setVisibility(View.VISIBLE);
 			}
+		 
 			adapter.notifyDataSetChanged();
 		}
-
 	}
 
  
@@ -903,19 +849,32 @@ public class EditShoujiEnterpriseActivity extends Activity {
 		}
 		return dir.delete();
 	}
+	/**
+	 * 照相
+	 */
+	private void takePhoto() {
+		String status = Environment.getExternalStorageState();
+		if (status.equals(Environment.MEDIA_MOUNTED)) {// 判断是否有SD卡
+			Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+			Uri imageUri = Uri.fromFile(new File(saveDir+ "temp_pic.jpg"));
+			openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+			startActivityForResult(openCameraIntent, TAKE_PIC);
+		} else {
+			MyUtlis.toastInfo(context, getResources()
+					.getString(R.string.no_sdcard));
+		}
+	}
 
+	/**
+	 * 选择图片
+	 */
+	private void choosePicture() {
+		Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
+		openAlbumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+		startActivityForResult(openAlbumIntent, CHOOSE_PIC);
+	}
 	@Override
 	protected void onDestroy() {
-		if (file != null && file.exists()  ) {
-			file.delete();
-			deleteDir(file);
-		}
-		File savePath = new File(saveDir);
-		if (savePath.exists() && savePath != null) {
-			savePath.delete();
-			deleteDir(savePath);
-		}
-
 		super.onDestroy();
 	}
 
