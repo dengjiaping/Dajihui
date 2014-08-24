@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -115,6 +116,10 @@ public class LogoItemListActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
+//				Intent intent = new Intent();
+//				intent.setClass(getBaseContext(),
+//						ActivityLogo.class);
+//				startActivity(intent);
 				finish();
 
 			}
@@ -275,5 +280,15 @@ public class LogoItemListActivity extends Activity {
 
 				});
 	}
-
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+//			Intent intent = new Intent();
+//			intent.setClass(getBaseContext(),
+//					ActivityLogo.class);
+//			startActivity(intent);
+			finish();
+		}
+		return true;
+	}
 }

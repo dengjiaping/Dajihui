@@ -34,17 +34,14 @@ public class DownLoadService extends Service {
 //	private SharedPreferences sp;
 @Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
-	
 	Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
-        
         @Override
         public void uncaughtException(Thread thread, Throwable ex) {
             Log.e("@"+this.getClass().getName(), "Crash dump", ex);
         }
     });
 		super.onCreate();
-	
+		new Thread(new downloadThread()).start();
 	}
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -54,96 +51,12 @@ public class DownLoadService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 //		sp = getSharedPreferences("phonemerchant", 1);
-		new Thread(new indexThread()).start();
-		new Thread(new adThread()).start();
-		new Thread(new downloadThread()).start();
+//		new Thread(new indexThread()).start();
+		
 		return super.onStartCommand(intent, flags, startId);
 	}
 
-	class adThread implements Runnable {
-
-		@Override
-		public void run() {
-			//首页
-			String ad_index = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "ind", 0);
-			if (!isEmpity(ad_index)) {
-				saveAdData("ad_index", ad_index);
-			}
-			//今日手机招商
-			String ad_main = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "mer", 0);
-			if (!isEmpity(ad_main)) {
-				saveAdData("ad_main", ad_main);
-				
-			}
-			//品牌国内
-			String ad_pinpai = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", MyConstants.PINGPAI);
-			if (!isEmpity(ad_pinpai)) {
-				saveAdData("ad_pinpai", ad_pinpai);
-				
-			}
-			//五码
-			String ad_wuma = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", MyConstants.WUMA);
-			if (!isEmpity(ad_wuma)) {
-				
-				saveAdData("ad_wuma", ad_wuma);
-			}
-			//三马
-			String ad_sanma = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", MyConstants.SANMA);
-			if (!isEmpity(ad_sanma)) {
-				saveAdData("ad_sanma", ad_sanma);
-				
-			}
-			//外单
-			String ad_waidan = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", MyConstants.WAIDAN);
-			if (!isEmpity(ad_waidan)) {
-				
-				saveAdData("ad_waidan", ad_waidan);
-			}
-			//手表手机
-			String ad_td = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", MyConstants.TD);
-			if (!isEmpity(ad_td)) {
-				
-				saveAdData("ad_td", ad_td);
-			}
-			//品牌厂家
-			String ad_brand = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "bra", 0);
-			if (!isEmpity(ad_brand)) {
-				
-				saveAdData("ad_brand", ad_brand);
-			}
-			//个性手机
-			String ad_gx = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", MyConstants.GX);
-			if (!isEmpity(ad_gx)) {
-				saveAdData("ad_gx", ad_gx);
-				
-			}
-			//4G手机
-			String ad_fourg = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", MyConstants.FOURG);
-			if (!isEmpity(ad_fourg)) {
-				saveAdData("ad_fourg", ad_fourg);
-				
-			}
-			//2g3g  品牌产品
-			String ad_2g3g = GetDataByPostUtil.GetAdInfo(getBaseContext(),
-					MyConstants.AD_URL, "list", "pro", 8);
-			if (!isEmpity(ad_2g3g)) {
-				saveAdData("ad_2g3g", ad_2g3g);
-				
-			}
-
-		}
-
-	}
+ 
 	/**
 	 * save the ad data
 	 * @param category 
@@ -157,7 +70,9 @@ public class DownLoadService extends Service {
 			return;
 		}
 		if (adBeans.size() != 0) {
-			adManager.deleteByCategory(category);
+			if (adManager.isExist(category)) {
+				adManager.deleteByCategory(category);
+			}
 		}
 		for (int j = 0; j < adBeans.size(); j++) {
 			AdBean adBean = adBeans.get(j);
@@ -179,7 +94,9 @@ public class DownLoadService extends Service {
 			return;
 		}
 		if (beans.size() != 0) {
-			attachManager.deleteByCategory(category);
+			if(attachManager.isExist(category)){
+				attachManager.deleteByCategory(category);
+			}
 		}
 		for (int j = 0; j < beans.size(); j++) {
 			AttactBean attactBean = beans.get(j);
@@ -261,7 +178,9 @@ public class DownLoadService extends Service {
 			return;
 		}
 		if (beans.size() != 0) {
-			manager.deleteByCategory(category);
+			if (manager.isExist(category)) {
+				manager.deleteByCategory(category);
+			}
 		}
 		for (int j = 0; j < beans.size(); j++) {
 			ProductsBean attactBean = beans.get(j);
@@ -272,28 +191,11 @@ public class DownLoadService extends Service {
 		}
 	}
 
- 	class indexThread implements Runnable {
-
-		@Override
-		public void run() {
-			//首页，classid = 0
-			String index = GetDataByPostUtil.getProductInfo(getBaseContext(),
-					MyConstants.PRODUCT_URL, "prolist",  0, 1, "0");
-
-			if (!isEmpity(index)) {
-//				writeFiles(index, MyConstants.PRODUCT_INDEX);
-				saveProductData("index",index);
-			}
-		}
-
-	}
- 
-	class downloadThread implements Runnable {
-
-		@Override
-		public void run() {
-
-			//首页，classid = 0
+// 	class indexThread implements Runnable {
+//
+//		@Override
+//		public void run() {
+//			//首页，classid = 0
 //			String index = GetDataByPostUtil.getProductInfo(getBaseContext(),
 //					MyConstants.PRODUCT_URL, "prolist",  0, 1, "0");
 //
@@ -301,7 +203,115 @@ public class DownLoadService extends Service {
 ////				writeFiles(index, MyConstants.PRODUCT_INDEX);
 //				saveProductData("index",index);
 //			}
+//		}
+//
+//	}
+// 
+	class downloadThread implements Runnable {
+
+		@Override
+		public void run() {
+
+//			首页，classid = 0
+			String index = GetDataByPostUtil.getProductInfo(getBaseContext(),
+					MyConstants.PRODUCT_URL, "prolist",  0, 1, "0");
+
+			if (!isEmpity(index)) {
+//				writeFiles(index, MyConstants.PRODUCT_INDEX);
+				saveProductData("index",index);
+			}
 		
+			
+			
+
+			//首页
+			String ad_index = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "ind", 0);
+			if (!isEmpity(ad_index)) {
+				saveAdData("ad_index", ad_index);
+			}
+			//今日手机招商
+			String ad_main = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "mer", 0);
+			if (!isEmpity(ad_main)) {
+				saveAdData("ad_main", ad_main);
+				
+			}
+			//品牌国内
+			String ad_pinpai = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", MyConstants.PINGPAI);
+			if (!isEmpity(ad_pinpai)) {
+				saveAdData("ad_pinpai", ad_pinpai);
+				
+			}
+			//五码
+			String ad_wuma = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", MyConstants.WUMA);
+			if (!isEmpity(ad_wuma)) {
+				
+				saveAdData("ad_wuma", ad_wuma);
+			}
+			//三马
+			String ad_sanma = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", MyConstants.SANMA);
+			if (!isEmpity(ad_sanma)) {
+				saveAdData("ad_sanma", ad_sanma);
+				
+			}
+			//外单
+			String ad_waidan = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", MyConstants.WAIDAN);
+			if (!isEmpity(ad_waidan)) {
+				
+				saveAdData("ad_waidan", ad_waidan);
+			}
+			//手表手机
+			String ad_td = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", MyConstants.TD);
+			if (!isEmpity(ad_td)) {
+				
+				saveAdData("ad_td", ad_td);
+			}
+			//品牌厂家
+			String ad_brand = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "bra", 0);
+			if (!isEmpity(ad_brand)) {
+				
+				saveAdData("ad_brand", ad_brand);
+			}
+			//个性手机
+			String ad_gx = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", MyConstants.GX);
+			if (!isEmpity(ad_gx)) {
+				saveAdData("ad_gx", ad_gx);
+				
+			}
+			//4G手机
+			String ad_fourg = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", MyConstants.FOURG);
+			if (!isEmpity(ad_fourg)) {
+				saveAdData("ad_fourg", ad_fourg);
+				
+			}
+			//2g3g  品牌产品
+			String ad_2g3g = GetDataByPostUtil.GetAdInfo(getBaseContext(),
+					MyConstants.AD_URL, "list", "pro", 8);
+			if (!isEmpity(ad_2g3g)) {
+				saveAdData("ad_2g3g", ad_2g3g);
+				
+			}
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			String zhaoshang = GetDataByPostUtil.GetAttactInfo(
 					getBaseContext(), MyConstants.ATTRACT_URL, "list", "0", 1,
 					"0");

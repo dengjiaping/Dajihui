@@ -161,8 +161,7 @@ public class DbUserManager {
 				values.put("status", bean.getStatus());
 			}
 			
-			st.update(DATABASE_TABLENAME, values, "usertype =? and username = ?", new String[]{bean.getUsertype(),bean.getUsername()});
-			return st.insert(DATABASE_TABLENAME, values);
+			return st.update(DATABASE_TABLENAME, values, "usertype =? and username = ?", new String[]{bean.getUsertype(),bean.getUsername()});
 		}
 		/**
 		 * 跟据当前状态来更新数据
@@ -222,8 +221,7 @@ public class DbUserManager {
 				values.put("status", bean.getStatus());
 			}
 			
-			st.update(DATABASE_TABLENAME, values, " status =? ", new String[]{"1"});
-			return st.insert(DATABASE_TABLENAME, values);
+			return	st.update(DATABASE_TABLENAME, values, " status =? ", new String[]{"1"});
 		}
 		/**
 		 * 更新用户登录状态
@@ -307,6 +305,7 @@ public class DbUserManager {
 					bean.setAddress(cursor.getString(cursor.getColumnIndex("address")));
 					bean.setNet(cursor.getString(cursor.getColumnIndex("net")));
 					bean.setFax(cursor.getString(cursor.getColumnIndex("fax")));
+					bean.setCompany(cursor.getString(cursor.getColumnIndex("company")));
 					bean.setCenter(cursor.getString(cursor.getColumnIndex("center")));
 					bean.setUid(cursor.getString(cursor.getColumnIndex("uid")));
 					bean.setUsertype(cursor.getString(cursor.getColumnIndex("usertype")));
@@ -341,6 +340,7 @@ public class DbUserManager {
 					bean.setNet(cursor.getString(cursor.getColumnIndex("net")));
 					bean.setFax(cursor.getString(cursor.getColumnIndex("fax")));
 					bean.setCenter(cursor.getString(cursor.getColumnIndex("center")));
+					bean.setCompany(cursor.getString(cursor.getColumnIndex("company")));
 					bean.setUid(cursor.getString(cursor.getColumnIndex("uid")));
 					bean.setUsertype(cursor.getString(cursor.getColumnIndex("usertype")));
 					bean.setStatus(cursor.getString(cursor.getColumnIndex("status")));

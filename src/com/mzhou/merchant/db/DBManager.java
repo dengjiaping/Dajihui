@@ -14,7 +14,7 @@ import android.database.sqlite.SQLiteDatabase;
  */
 public class DBManager {
 	private int version = 1;
- 	private String databaseName="dajihui_new";
+ 	private String databaseName="dajihui_new.db";
 
 	// 本地Context对象
 	private Context mContext = null;
@@ -32,7 +32,7 @@ public class DBManager {
 
 	}
 
-	public   static DBManager getInstance(Context mContext) {
+	public  synchronized static DBManager getInstance(Context mContext) {
 		if (null == dBManager) {
 			dBManager = new DBManager(mContext);
 		}
@@ -55,7 +55,7 @@ public class DBManager {
 	 * 打开数据库 注:SQLiteDatabase资源一旦被关闭,该底层会重新产生一个新的SQLiteDatabase
 	 */
 	public synchronized SQLiteDatabase openDatabase() {
-		return getDatabaseHelper().getWritableDatabase();
+		return getDataBaseCustomHelper().getWritableDatabase();
 	}
 
 	/**
@@ -63,8 +63,8 @@ public class DBManager {
 	 * 
 	 * @return
 	 */
-	public synchronized CustomHelper getDatabaseHelper() {
-		return new CustomHelper(mContext, this.databaseName, null,
+	public  synchronized  CustomHelper getDataBaseCustomHelper() {
+		return   CustomHelper.getInstance(mContext, "dajihuinew.db", null,
 				this.version);
 	}
 

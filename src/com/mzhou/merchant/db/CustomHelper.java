@@ -1,16 +1,26 @@
 package com.mzhou.merchant.db;
 
 import android.content.Context;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class CustomHelper extends SQLiteOpenHelper {
 
-	public CustomHelper(Context context, String dbName,CursorFactory factory,int dbVersion) {
+ 
+
+
+public class CustomHelper extends SQLiteOpenHelper {
+	private static   CustomHelper instance = null ;
+	private CustomHelper(Context context, String dbName,CursorFactory factory,int dbVersion) {
 		super(context, dbName, factory, dbVersion);
 	}
-
+	synchronized public static CustomHelper getInstance(Context context, String dbName,CursorFactory factory,int dbVersion){
+		if (instance ==null) {
+			instance = new CustomHelper(context, dbName, factory, dbVersion);
+		}
+		return instance;
+	}
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		//ad table

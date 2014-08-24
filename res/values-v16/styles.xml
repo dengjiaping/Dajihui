@@ -2,7 +2,7 @@
 
   <style name="item_grid3">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_height">65dp</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
 <style name="item_grid4">

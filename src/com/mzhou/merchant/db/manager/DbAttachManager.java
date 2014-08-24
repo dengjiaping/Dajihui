@@ -33,7 +33,10 @@ public class DbAttachManager {
 			}
 			return instance;
 		}
-
+		public boolean isExist(String category){
+			SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
+			return st.isExistsBySQL(SELECT_BY_CATEGORY, new String[]{category});
+		}
 		public long insert(AttactBean bean) {
 			SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
 				ContentValues values = new ContentValues();

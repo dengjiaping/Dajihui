@@ -87,49 +87,143 @@ public class CompanyContactUsActivity extends Activity {
 		user_manager_tv_net.setText(p.getNet());
 		String string = p.getContact();
 		if (string != null && !string.equals("") && !string.equals("[]")) {
-			try {
+			
 				
 			GroupUsers groupUsers = JSON.parseObject(string, GroupUsers.class);
 
-			user_manager_tv_name1.setText(groupUsers.getUsers().get(0)
-					.getName());
-			user_manager_tv_name2.setText(groupUsers.getUsers().get(1)
-					.getName());
-			user_manager_tv_name3.setText(groupUsers.getUsers().get(2)
-					.getName());
-			user_manager_tv_name4.setText(groupUsers.getUsers().get(3)
-					.getName());
-			user_manager_tv_name5.setText(groupUsers.getUsers().get(4)
-					.getName());
-			user_manager_tv_name6.setText(groupUsers.getUsers().get(5)
-					.getName());
-			user_manager_tv_name7.setText(groupUsers.getUsers().get(6)
-					.getName());
-			user_manager_tv_name8.setText(groupUsers.getUsers().get(7)
-					.getName());
-			user_manager_tv_name9.setText(groupUsers.getUsers().get(8)
-					.getName());
-			user_manager_tv_name10.setText(groupUsers.getUsers().get(9)
-					.getName());
+			try {
+				user_manager_tv_name1.setText(groupUsers.getUsers().get(0)
+						.getName());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name2.setText(groupUsers.getUsers().get(1)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name3.setText(groupUsers.getUsers().get(2)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name4.setText(groupUsers.getUsers().get(3)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name5.setText(groupUsers.getUsers().get(4)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name6.setText(groupUsers.getUsers().get(5)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name7.setText(groupUsers.getUsers().get(6)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name8.setText(groupUsers.getUsers().get(7)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name9.setText(groupUsers.getUsers().get(8)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_name10.setText(groupUsers.getUsers().get(9)
+						.getName());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-			user_manager_tv_nub1.setText(groupUsers.getUsers().get(0)
-					.getNumber());
-			user_manager_tv_nub2.setText(groupUsers.getUsers().get(1)
-					.getNumber());
-			user_manager_tv_nub3.setText(groupUsers.getUsers().get(2)
-					.getNumber());
-			user_manager_tv_nub4.setText(groupUsers.getUsers().get(3)
-					.getNumber());
-			user_manager_tv_nub5.setText(groupUsers.getUsers().get(4)
-					.getNumber());
-			user_manager_tv_nub6.setText(groupUsers.getUsers().get(5)
-					.getNumber());
-			user_manager_tv_nub7.setText(groupUsers.getUsers().get(6)
-					.getNumber());
-			user_manager_tv_nub8.setText(groupUsers.getUsers().get(7)
-					.getNumber());
-			user_manager_tv_nub9.setText(groupUsers.getUsers().get(8)
-					.getNumber());
+			try {
+				user_manager_tv_nub1.setText(groupUsers.getUsers().get(0)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub2.setText(groupUsers.getUsers().get(1)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub3.setText(groupUsers.getUsers().get(2)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub4.setText(groupUsers.getUsers().get(3)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub5.setText(groupUsers.getUsers().get(4)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub6.setText(groupUsers.getUsers().get(5)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub7.setText(groupUsers.getUsers().get(6)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub8.setText(groupUsers.getUsers().get(7)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				user_manager_tv_nub9.setText(groupUsers.getUsers().get(8)
+						.getNumber());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}try {
 			user_manager_tv_nub10.setText(groupUsers.getUsers().get(9)
 					.getNumber());
 

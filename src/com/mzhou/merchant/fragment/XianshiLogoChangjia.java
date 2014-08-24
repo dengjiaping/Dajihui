@@ -24,6 +24,7 @@ import com.mzhou.merchant.myview.MyGridView;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
+import com.mzhou.merchant.webview.WebViewActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import android.net.Uri;
@@ -376,7 +377,6 @@ public class XianshiLogoChangjia extends Fragment {
 public void onResume() {
 	// TODO Auto-generated method stub
 	super.onResume();
-	mList.clear();
 }
 	private void setAd() {
 		
@@ -479,10 +479,11 @@ public void onResume() {
 			intent.putExtra("title", adSortList.get(i).getName() + "");
 			startActivity(intent);
 		} else if (adSortList.get(i).getType().toString().equals("3")) {
-			Intent viewIntent = new Intent(
-					"android.intent.action.VIEW",
-					Uri.parse("http://" + adSortList.get(i).getUrl().toString()));
-			startActivity(viewIntent);
+			Intent intent = new Intent();
+			intent.setClass(context, WebViewActivity.class);
+			intent.putExtra("title", "http://" + adSortList.get(i).getUrl().toString());
+			intent.putExtra("titleurl", "http://" + adSortList.get(i).getUrl().toString());
+			startActivity(intent);
 		}
 
 	}
@@ -495,7 +496,6 @@ public void onResume() {
 	@Override
 	public void onStop() {
 			thread.interrupt();
-			System.gc();
 		super.onStop();
 	}
 }

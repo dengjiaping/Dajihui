@@ -3387,6 +3387,8 @@ com.mzhou.merchant.slidemenu.SlidingMenu: SlidingMenu(android.content.Context,an
 com.mzhou.merchant.slidemenu.SlidingMenu: SlidingMenu(android.content.Context,android.util.AttributeSet,int)
 com.mzhou.merchant.utlis.GetDataByPostUtil
 com.mzhou.merchant.utlis.WebIsConnectUtil
+com.mzhou.merchant.webview.WebViewActivity
+com.mzhou.merchant.webview.WebViewActivity: WebViewActivity()
 com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType IO_ERROR
 com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType DECODING_ERROR
 com.nostra13.universalimageloader.core.assist.FailReason$FailType: com.nostra13.universalimageloader.core.assist.FailReason$FailType NETWORK_DENIED

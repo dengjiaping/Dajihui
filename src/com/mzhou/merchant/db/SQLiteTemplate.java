@@ -33,11 +33,12 @@ public class SQLiteTemplate {
 	 * 数据库连接
 	 */
 	private SQLiteDatabase dataBase = null;
+	private static SQLiteTemplate  instance = null;
 
 	private SQLiteTemplate() {
 	}
 
-	private SQLiteTemplate(DBManager dBManager, boolean isTransaction) {
+	private   SQLiteTemplate(DBManager dBManager, boolean isTransaction) {
 		this.dBManager = dBManager;
 		this.isTransaction = isTransaction;
 	}
@@ -48,9 +49,12 @@ public class SQLiteTemplate {
 	 * 
 	 * @return
 	 */
-	public  synchronized static SQLiteTemplate getInstance(DBManager dBManager,
+	public    static SQLiteTemplate getInstance(DBManager dBManager,
 			boolean isTransaction) {
-		return new SQLiteTemplate(dBManager, isTransaction);
+		if (instance == null) {
+			instance  = new SQLiteTemplate(dBManager, isTransaction);
+		}
+		return instance;
 	}
 
 	/**

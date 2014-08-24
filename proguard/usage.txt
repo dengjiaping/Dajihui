@@ -1131,7 +1131,7 @@ com.mzhou.merchant.activity.R$styleable:
     public static final int PullToRefresh_ptrShowIndicator
     public static final int PullToRefresh_ptrSubHeaderTextAppearance
     public static final int TogglePrefAttrs_android_preferenceLayoutChild
-    1310:1310:public R$styleable()
+    1313:1313:public R$styleable()
 com.mzhou.merchant.activity.R$xml
 com.mzhou.merchant.activity.UserControlCommonActivity:
     private static final int REQUEST_CODE
@@ -1160,31 +1160,31 @@ com.mzhou.merchant.db.DBManager:
     46:52:public synchronized void closeDatabase(android.database.sqlite.SQLiteDatabase,android.database.Cursor)
 com.mzhou.merchant.db.SDCardSQLiteOpenHelper
 com.mzhou.merchant.db.SQLiteTemplate:
-    83:92:public synchronized void execSQL(java.lang.String,java.lang.Object[])
-    124:143:public synchronized varargs void deleteByIds(java.lang.String,java.lang.Object[])
-    155:164:public synchronized int deleteByField(java.lang.String,java.lang.String,java.lang.String)
-    202:211:public synchronized int deleteById(java.lang.String,java.lang.String)
-    224:234:public synchronized int updateById(java.lang.String,java.lang.String,android.content.ContentValues)
-    270:279:public synchronized java.lang.Boolean isExistsById(java.lang.String,java.lang.String)
-    289:302:public synchronized java.lang.Boolean isExistsByField(java.lang.String,java.lang.String,java.lang.String)
-    402:417:public synchronized java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,int,int)
-    426:441:public synchronized java.lang.Integer getCount(java.lang.String,java.lang.String[])
-    469:484:public synchronized java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,java.lang.String)
-    493:493:public java.lang.String getPrimaryKey()
-    502:503:public void setPrimaryKey(java.lang.String)
+    87:96:public synchronized void execSQL(java.lang.String,java.lang.Object[])
+    128:147:public synchronized varargs void deleteByIds(java.lang.String,java.lang.Object[])
+    159:168:public synchronized int deleteByField(java.lang.String,java.lang.String,java.lang.String)
+    206:215:public synchronized int deleteById(java.lang.String,java.lang.String)
+    228:238:public synchronized int updateById(java.lang.String,java.lang.String,android.content.ContentValues)
+    274:283:public synchronized java.lang.Boolean isExistsById(java.lang.String,java.lang.String)
+    293:306:public synchronized java.lang.Boolean isExistsByField(java.lang.String,java.lang.String,java.lang.String)
+    406:421:public synchronized java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,int,int)
+    430:445:public synchronized java.lang.Integer getCount(java.lang.String,java.lang.String[])
+    473:488:public synchronized java.util.LinkedList queryForList(com.mzhou.merchant.db.SQLiteTemplate$RowMapper,java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+    497:497:public java.lang.String getPrimaryKey()
+    506:507:public void setPrimaryKey(java.lang.String)
 com.mzhou.merchant.db.manager.DbActivityManager:
     55:59:public void delete(int)
     70:71:public java.util.LinkedList getAdByID(java.lang.String)
 com.mzhou.merchant.db.manager.DbActivityManager$1
 com.mzhou.merchant.db.manager.DbAdManager:
-    49:53:public void delete(int)
-    62:65:public void deleteAll()
-    70:71:public java.util.LinkedList getAdByID(java.lang.String)
+    52:56:public void delete(int)
+    65:68:public void deleteAll()
+    73:74:public java.util.LinkedList getAdByID(java.lang.String)
 com.mzhou.merchant.db.manager.DbAdManager$1
 com.mzhou.merchant.db.manager.DbAttachManager:
-    50:54:public void delete(int)
-    63:66:public void deleteAll()
-    89:90:public java.util.LinkedList getListAll()
+    53:57:public void delete(int)
+    66:69:public void deleteAll()
+    92:93:public java.util.LinkedList getListAll()
 com.mzhou.merchant.db.manager.DbAttachManager$2
 com.mzhou.merchant.db.manager.DbJobManager:
     50:54:public void delete(int)
@@ -1198,14 +1198,14 @@ com.mzhou.merchant.db.manager.DbNewsManager:
     64:65:public java.util.LinkedList getAdByID(java.lang.String)
 com.mzhou.merchant.db.manager.DbNewsManager$1
 com.mzhou.merchant.db.manager.DbProductManager:
-    54:58:public void delete(int)
-    70:73:public void deleteAll()
-    99:100:public java.util.LinkedList getListAll()
+    57:61:public void delete(int)
+    73:76:public void deleteAll()
+    102:103:public java.util.LinkedList getListAll()
 com.mzhou.merchant.db.manager.DbProductManager$2
 com.mzhou.merchant.db.manager.DbUserManager:
-    253:256:public void delete(int)
-    261:263:public void deleteAll()
-    282:283:public boolean getLoginStatusByUsertype(java.lang.String)
+    251:254:public void delete(int)
+    259:261:public void deleteAll()
+    280:281:public boolean getLoginStatusByUsertype(java.lang.String)
 com.mzhou.merchant.myview.BaikeConstant:
     17:17:public BaikeConstant()
     34:36:public static java.lang.String replaceBreakLineToSpace(java.lang.String)
@@ -1225,7 +1225,7 @@ com.mzhou.merchant.myview.MyTextView:
     164:164:public float getMYTextSize()
     168:171:public void setMYTextSize(float)
 com.mzhou.merchant.service.DownLoadService:
-    438:445:public void writeFiles(java.lang.String,java.lang.String)
+    448:455:public void writeFiles(java.lang.String,java.lang.String)
 com.mzhou.merchant.slidemenu.SlidingMenu:
     private static final int VELOCITY
     78:81:public void addViews(android.view.View,android.view.View,android.view.View)

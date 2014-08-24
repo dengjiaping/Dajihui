@@ -6717,6 +6717,7 @@ com.mzhou.merchant.activity.LogoItemListActivity -> com.mzhou.merchant.activity.
     void listenerButton() -> c
     void getdata() -> d
     void refreshListener() -> e
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     com.mzhou.merchant.adapter.MyGridProductAdapter2 access$0(com.mzhou.merchant.activity.LogoItemListActivity) -> a
     java.util.LinkedList access$1(com.mzhou.merchant.activity.LogoItemListActivity) -> b
     android.content.Context access$2(com.mzhou.merchant.activity.LogoItemListActivity) -> c
@@ -9120,6 +9121,8 @@ com.mzhou.merchant.dao.biz.UserManager$AsynRegister -> com.mzhou.merchant.dao.bi
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 com.mzhou.merchant.db.CustomHelper -> com.mzhou.merchant.b.a:
+    com.mzhou.merchant.db.CustomHelper instance -> a
+    com.mzhou.merchant.db.CustomHelper getInstance(android.content.Context,java.lang.String,android.database.sqlite.SQLiteDatabase$CursorFactory,int) -> a
     void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
     void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
     void onOpen(android.database.sqlite.SQLiteDatabase) -> onOpen
@@ -9130,12 +9133,13 @@ com.mzhou.merchant.db.DBManager -> com.mzhou.merchant.b.b:
     com.mzhou.merchant.db.DBManager dBManager -> d
     com.mzhou.merchant.db.DBManager getInstance(android.content.Context) -> a
     android.database.sqlite.SQLiteDatabase openDatabase() -> a
-    com.mzhou.merchant.db.CustomHelper getDatabaseHelper() -> b
+    com.mzhou.merchant.db.CustomHelper getDataBaseCustomHelper() -> b
 com.mzhou.merchant.db.SQLiteTemplate -> com.mzhou.merchant.b.c:
     java.lang.String mPrimaryKey -> a
     com.mzhou.merchant.db.DBManager dBManager -> b
     boolean isTransaction -> c
     android.database.sqlite.SQLiteDatabase dataBase -> d
+    com.mzhou.merchant.db.SQLiteTemplate instance -> e
     com.mzhou.merchant.db.SQLiteTemplate getInstance(com.mzhou.merchant.db.DBManager,boolean) -> a
     void execSQL(java.lang.String) -> a
     long insert(java.lang.String,android.content.ContentValues) -> a
@@ -9171,9 +9175,10 @@ com.mzhou.merchant.db.manager.DbAdManager -> com.mzhou.merchant.b.a.c:
     java.lang.String SELECT_BY_CATEGORY -> f
     com.mzhou.merchant.db.DBManager manager -> g
     com.mzhou.merchant.db.manager.DbAdManager getInstance(android.content.Context) -> a
+    boolean isExist(java.lang.String) -> a
     long insert(com.mzhou.merchant.model.AdBean) -> a
-    void deleteByCategory(java.lang.String) -> a
-    java.util.LinkedList getAdByCategory(java.lang.String) -> b
+    void deleteByCategory(java.lang.String) -> b
+    java.util.LinkedList getAdByCategory(java.lang.String) -> c
 com.mzhou.merchant.db.manager.DbAdManager$2 -> com.mzhou.merchant.b.a.d:
     com.mzhou.merchant.db.manager.DbAdManager this$0 -> a
     com.mzhou.merchant.model.AdBean mapRow(android.database.Cursor,int) -> b
@@ -9186,9 +9191,10 @@ com.mzhou.merchant.db.manager.DbAttachManager -> com.mzhou.merchant.b.a.e:
     java.lang.String SELECT_BY_CATEGORY -> e
     com.mzhou.merchant.db.DBManager manager -> f
     com.mzhou.merchant.db.manager.DbAttachManager getInstance(android.content.Context) -> a
+    boolean isExist(java.lang.String) -> a
     long insert(com.mzhou.merchant.model.AttactBean) -> a
-    void deleteByCategory(java.lang.String) -> a
-    java.util.LinkedList getAdByCategory(java.lang.String) -> b
+    void deleteByCategory(java.lang.String) -> b
+    java.util.LinkedList getAdByCategory(java.lang.String) -> c
 com.mzhou.merchant.db.manager.DbAttachManager$1 -> com.mzhou.merchant.b.a.f:
     com.mzhou.merchant.db.manager.DbAttachManager this$0 -> a
     com.mzhou.merchant.model.AttactBean mapRow(android.database.Cursor,int) -> b
@@ -9270,10 +9276,11 @@ com.mzhou.merchant.db.manager.DbProductManager -> com.mzhou.merchant.b.a.o:
     java.lang.String SELECT_BY_ITEM -> f
     com.mzhou.merchant.db.DBManager manager -> g
     com.mzhou.merchant.db.manager.DbProductManager getInstance(android.content.Context) -> a
+    boolean isExist(java.lang.String) -> a
     long insert(com.mzhou.merchant.model.ProductsBean) -> a
-    void deleteByCategory(java.lang.String) -> a
-    void deleteByItem(java.lang.String) -> b
-    java.util.LinkedList getProductByCategory(java.lang.String) -> c
+    void deleteByCategory(java.lang.String) -> b
+    void deleteByItem(java.lang.String) -> c
+    java.util.LinkedList getProductByCategory(java.lang.String) -> d
 com.mzhou.merchant.db.manager.DbProductManager$1 -> com.mzhou.merchant.b.a.p:
     com.mzhou.merchant.db.manager.DbProductManager this$0 -> a
     com.mzhou.merchant.model.ProductsBean mapRow(android.database.Cursor,int) -> b
@@ -11578,13 +11585,7 @@ com.mzhou.merchant.service.DownLoadService -> com.mzhou.merchant.service.DownLoa
 com.mzhou.merchant.service.DownLoadService$1 -> com.mzhou.merchant.service.a:
     com.mzhou.merchant.service.DownLoadService this$0 -> a
     void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-com.mzhou.merchant.service.DownLoadService$adThread -> com.mzhou.merchant.service.b:
-    com.mzhou.merchant.service.DownLoadService this$0 -> a
-    void run() -> run
-com.mzhou.merchant.service.DownLoadService$downloadThread -> com.mzhou.merchant.service.c:
-    com.mzhou.merchant.service.DownLoadService this$0 -> a
-    void run() -> run
-com.mzhou.merchant.service.DownLoadService$indexThread -> com.mzhou.merchant.service.d:
+com.mzhou.merchant.service.DownLoadService$downloadThread -> com.mzhou.merchant.service.b:
     com.mzhou.merchant.service.DownLoadService this$0 -> a
     void run() -> run
 com.mzhou.merchant.slidemenu.SlidingMenu -> com.mzhou.merchant.slidemenu.SlidingMenu:
@@ -11795,6 +11796,54 @@ com.mzhou.merchant.utlis.WebIsConnectUtil -> com.mzhou.merchant.utlis.WebIsConne
     boolean isWiFiActive(android.content.Context) -> c
     boolean showNetState(android.content.Context) -> d
     boolean showNetStateNoDialog(android.content.Context) -> e
+com.mzhou.merchant.webview.WebViewActivity -> com.mzhou.merchant.webview.WebViewActivity:
+    android.webkit.WebView webView -> b
+    java.io.Serializable titleurl -> c
+    android.content.Context context -> d
+    java.lang.String title -> e
+    boolean blockLoadingNetworkImage -> a
+    android.widget.ProgressBar download_progressbar -> f
+    android.widget.TextView title_bar_title -> g
+    android.widget.ImageView title_bar_showleft -> h
+    void onCreate(android.os.Bundle) -> onCreate
+    void init() -> a
+    void loadButton() -> b
+    void setdata() -> c
+    void setting() -> d
+    void clickButton() -> e
+    void onDestroy() -> onDestroy
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void deleteCacheDir(android.content.Context) -> a
+    void callHiddenWebViewMethod(java.lang.String) -> a
+    void onPause() -> onPause
+    void onResume() -> onResume
+    android.widget.ProgressBar access$0(com.mzhou.merchant.webview.WebViewActivity) -> a
+    android.webkit.WebView access$1(com.mzhou.merchant.webview.WebViewActivity) -> b
+com.mzhou.merchant.webview.WebViewActivity$1 -> com.mzhou.merchant.webview.a:
+    com.mzhou.merchant.webview.WebViewActivity this$0 -> a
+    void onLoadResource(android.webkit.WebView,java.lang.String) -> onLoadResource
+    void onPageFinished(android.webkit.WebView,java.lang.String) -> onPageFinished
+    void onReceivedError(android.webkit.WebView,int,java.lang.String,java.lang.String) -> onReceivedError
+    boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
+com.mzhou.merchant.webview.WebViewActivity$2 -> com.mzhou.merchant.webview.b:
+    com.mzhou.merchant.webview.WebViewActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.mzhou.merchant.webview.WebViewActivity$FullscreenableChromeClient -> com.mzhou.merchant.webview.c:
+    android.widget.FrameLayout$LayoutParams COVER_SCREEN_PARAMS -> c
+    android.app.Activity mActivity -> a
+    android.widget.FrameLayout mContentView -> d
+    android.view.View mCustomView -> e
+    android.webkit.WebChromeClient$CustomViewCallback mCustomViewCallback -> f
+    android.widget.FrameLayout mFullscreenContainer -> g
+    int mOriginalOrientation -> h
+    com.mzhou.merchant.webview.WebViewActivity this$0 -> b
+    void onProgressChanged(android.webkit.WebView,int) -> onProgressChanged
+    void setFullscreen(boolean) -> a
+    void onHideCustomView() -> onHideCustomView
+    void onShowCustomView(android.view.View,int,android.webkit.WebChromeClient$CustomViewCallback) -> onShowCustomView
+com.mzhou.merchant.webview.WebViewActivity$FullscreenableChromeClient$FullscreenHolder -> com.mzhou.merchant.webview.d:
+    com.mzhou.merchant.webview.WebViewActivity$FullscreenableChromeClient this$1 -> a
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
 com.nostra13.universalimageloader.cache.disc.DiscCacheAware -> com.a.a.a.a.a:
     java.io.File get(java.lang.String) -> a
     boolean save(java.lang.String,java.io.InputStream,com.nostra13.universalimageloader.utils.IoUtils$CopyListener) -> a

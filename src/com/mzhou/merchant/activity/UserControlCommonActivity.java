@@ -686,6 +686,8 @@ public class UserControlCommonActivity extends Activity {
 			params.put("data[company]", company);
 			params.put("data[address]", address);
 			params.put("data[net]", net);
+			Log.i("print", "params--------->" +
+					params.toString());
 			HttpMultipartPost task = new HttpMultipartPost(context,
 					MyConstants.LOGIN_URL, array, params);
 			task.execute();
@@ -694,10 +696,10 @@ public class UserControlCommonActivity extends Activity {
 				@Override
 				public void getBackAttactInfo(String json) {
 
-					AllBean userBean = JsonParse.parseUserJson(json);
-						if (userBean != null && userBean.getStatus().equals("true")) {
-							// Log.i("print", "userbing--------->" +
-							// userBean.toString());
+					AllBean allBean = JsonParse.parseUserJson(json);
+						if (allBean != null && allBean.getStatus().equals("true")) {
+							  Log.i("print", "userbing--------->" +
+							  allBean.toString());
 							System.out.println("修改用户信息成功");
 							if (fromqq) {//如果是从qq那边过来的，将保存设置未已经保存
 								isSave = true;
@@ -713,24 +715,25 @@ public class UserControlCommonActivity extends Activity {
 							dbLoginManager.updateByUserNameAndUserType(loginUserBean);
 							System.out.println("更新用户信息");
 							//更新用户信息
-							UserInfoBean userInfoBean = new UserInfoBean();
-							userInfoBean.setNickname(userBean
+//							UserInfoBean userInfoBean = new UserInfoBean();
+							UserInfoBean userInfoBean = allBean.getInfo();
+							userInfoBean.setNickname(allBean
 									.getInfo().getNickname());
-							userInfoBean.setUsername(user_manager_alter_count.getText().toString());
+//							userInfoBean.setUsername(user_manager_alter_count.getText().toString());
 							if (pwchange) {
 								userInfoBean.setPassword(pw);
 							}
-							userInfoBean.setContact( userBean.getInfo()
-									.getContact());
-							userInfoBean.setPhonenub(userBean.getInfo().getPhonenub());
-							userInfoBean.setEmail(userBean.getInfo().getEmail());
-							userInfoBean.setCompany(userBean.getInfo().getCompany());
-							userInfoBean.setAddress(userBean.getInfo().getAddress());
-							userInfoBean.setNet(userBean.getInfo().getNet());
+//							userInfoBean.setContact( allBean.getInfo()
+//									.getContact());
+//							userInfoBean.setPhonenub(allBean.getInfo().getPhonenub());
+//							userInfoBean.setEmail(allBean.getInfo().getEmail());
+//							userInfoBean.setCompany(allBean.getInfo().getCompany());
+//							userInfoBean.setAddress(allBean.getInfo().getAddress());
+//							userInfoBean.setNet(allBean.getInfo().getNet());
 							userInfoBean.setHeadurl(MyConstants.PICTURE_URL
-									+ userBean.getInfo()
+									+ allBean.getInfo()
 									.getHeadurl());
-							userInfoBean.setCategory(userBean.getInfo().getCategory());
+//							userInfoBean.setCategory(allBean.getInfo().getCategory());
 							userInfoBean.setUsertype("0");
 							userInfoBean.setStatus("1");
 						 
@@ -739,9 +742,9 @@ public class UserControlCommonActivity extends Activity {
 						
 						 
 						}
-						if (userBean != null && userBean.getMsg() != null) {
+						if (allBean != null && allBean.getMsg() != null) {
 							MyUtlis.toastInfo(getBaseContext(),
-									userBean.getMsg());
+									allBean.getMsg());
 						}
 						
 					}

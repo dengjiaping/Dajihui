@@ -55,6 +55,7 @@ import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
+import com.mzhou.merchant.webview.WebViewActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -633,10 +634,13 @@ public class XianshiIndex extends Fragment {
 			intent.putExtra("title", adSortList.get(i).getName() + "");
 			startActivity(intent);
 		} else if (adSortList.get(i).getType().toString().equals("3")) {
-			Intent viewIntent = new Intent(
-					"android.intent.action.VIEW",
-					Uri.parse("http://" + adSortList.get(i).getUrl().toString()));
-			startActivity(viewIntent);
+			
+			//title ,  titleurl
+			Intent intent = new Intent();
+			intent.setClass(context, WebViewActivity.class);
+			intent.putExtra("title", "http://" + adSortList.get(i).getUrl().toString());
+			intent.putExtra("titleurl", "http://" + adSortList.get(i).getUrl().toString());
+			startActivity(intent);
 		}
 
 	}
