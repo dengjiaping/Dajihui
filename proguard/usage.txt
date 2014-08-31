@@ -1256,8 +1256,8 @@ com.mzhou.merchant.utlis.ImageUtils:
     61:84:public static android.graphics.Bitmap getimageWidthHeight(java.lang.String)
     90:114:public static android.graphics.Bitmap resizeImage(android.graphics.Bitmap,int,int)
     119:129:public static android.graphics.Bitmap compressImageWidthHeight(android.graphics.Bitmap)
-    204:216:public static android.graphics.Bitmap getDiskBitmap(java.lang.String)
-    224:251:public static android.net.Uri getImageURI(java.lang.String,java.io.File)
+    207:219:public static android.graphics.Bitmap getDiskBitmap(java.lang.String)
+    227:254:public static android.net.Uri getImageURI(java.lang.String,java.io.File)
 com.mzhou.merchant.utlis.JsonParse:
     27:27:public JsonParse()
     245:260:public static java.util.List parseProductsCategoryJson(java.lang.String)
