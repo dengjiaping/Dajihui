@@ -634,17 +634,15 @@ public class XianshiIndex extends Fragment {
 			intent.putExtra("title", adSortList.get(i).getName() + "");
 			startActivity(intent);
 		} else if (adSortList.get(i).getType().toString().equals("3")) {
-			
-			//title ,  titleurl
-			/*Intent intent = new Intent();
+			Intent intent = new Intent();
 			intent.setClass(context, WebViewActivity.class);
 			intent.putExtra("title", "http://" + adSortList.get(i).getUrl().toString());
 			intent.putExtra("titleurl", "http://" + adSortList.get(i).getUrl().toString());
-			startActivity(intent);*/
-			Intent viewIntent = new Intent(
+			startActivity(intent); 
+			/*Intent viewIntent = new Intent(
 	 				"android.intent.action.VIEW",
 	 				Uri.parse("http://" + adSortList.get(i).getUrl().toString()));
-	 		startActivity(viewIntent);	
+	 		startActivity(viewIntent);	*/
 		} else if (adSortList.get(i).getType().toString().equals("4")) {
 			Intent intent = new Intent();
 			intent.setClass(getActivity(), ShoujiEnterpriseActivity.class);

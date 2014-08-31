@@ -151,7 +151,6 @@ public class MyProductAlreadyCheckActivity extends Activity {
 				Button edit = (Button) view1.findViewById(R.id.edit);
 
 				view1.setMinimumWidth(2000);
-				share.setVisibility(View.GONE);
 
 				builder.setView(view1);
 				final AlertDialog dialog = builder.create();
