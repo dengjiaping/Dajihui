@@ -133,7 +133,7 @@ public class ImageUtils {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();  
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//����ѹ������������100��ʾ��ѹ������ѹ�������ݴ�ŵ�baos��  
         int options = 100;  
-        while ( baos.toByteArray().length / 1024>1024) {  //ѭ���ж����ѹ����ͼƬ�Ƿ����100kb,���ڼ���ѹ��         
+        while ( baos.toByteArray().length / 1024>2*1024) {  //ѭ���ж����ѹ����ͼƬ�Ƿ����100kb,���ڼ���ѹ��         
             baos.reset();//����baos�����baos  
             image.compress(Bitmap.CompressFormat.JPEG, options, baos);//����ѹ��options%����ѹ�������ݴ�ŵ�baos��  
             options -= 10;//ÿ�ζ�����10  
@@ -161,10 +161,13 @@ public class ImageUtils {
 			try {
 				fileOutputStream = new FileOutputStream(photoFile);
 				if (photoBitmap != null) {
-					if (photoBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)) {
+					Bitmap newBitmap = compressImage(photoBitmap);
+					if (newBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)) {
 						fileOutputStream.flush();
 						// fileOutputStream.close();
 					}
+					newBitmap.recycle();
+					photoBitmap.recycle();
 				}
 			} catch (FileNotFoundException e) {
 				photoFile.delete();

@@ -7144,6 +7144,7 @@ com.mzhou.merchant.activity.PicPagerActivity -> com.mzhou.merchant.activity.PicP
     com.mzhou.merchant.activity.PicPagerActivity$ImagePagerAdapter adapter -> l
     java.lang.String[] imageUrls -> m
     int currentposition -> n
+    java.lang.String currentUrls -> o
     void onCreate(android.os.Bundle) -> onCreate
     int init() -> a
     void loadbutton() -> b
@@ -7153,22 +7154,25 @@ com.mzhou.merchant.activity.PicPagerActivity -> com.mzhou.merchant.activity.PicP
     void onDestroy() -> onDestroy
     void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     void displayBitmap(java.lang.String) -> a
-    java.lang.String[] deleteBitmap(java.lang.String[],int) -> a
+    java.lang.String[] deleteBitmap(java.lang.String[],java.lang.String) -> a
     void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
     java.lang.String[] access$0(com.mzhou.merchant.activity.PicPagerActivity) -> a
     void access$1(com.mzhou.merchant.activity.PicPagerActivity,it.sephiroth.android.library.imagezoom.ImageViewTouch) -> a
     it.sephiroth.android.library.imagezoom.ImageViewTouch access$2(com.mzhou.merchant.activity.PicPagerActivity) -> b
     void access$3(com.mzhou.merchant.activity.PicPagerActivity,java.lang.String) -> a
     android.widget.RelativeLayout access$4(com.mzhou.merchant.activity.PicPagerActivity) -> c
-    void access$5(com.mzhou.merchant.activity.PicPagerActivity,int) -> a
-    android.widget.TextView access$6(com.mzhou.merchant.activity.PicPagerActivity) -> d
-    boolean access$7(com.mzhou.merchant.activity.PicPagerActivity) -> e
-    android.widget.ImageView access$8(com.mzhou.merchant.activity.PicPagerActivity) -> f
-    int access$9(com.mzhou.merchant.activity.PicPagerActivity) -> g
-    java.lang.String[] access$10(com.mzhou.merchant.activity.PicPagerActivity,java.lang.String[],int) -> a
-    void access$11(com.mzhou.merchant.activity.PicPagerActivity,java.lang.String[]) -> a
-    android.support.v4.view.ViewPager access$12(com.mzhou.merchant.activity.PicPagerActivity) -> h
-    com.mzhou.merchant.activity.PicPagerActivity$ImagePagerAdapter access$13(com.mzhou.merchant.activity.PicPagerActivity) -> i
+    void access$5(com.mzhou.merchant.activity.PicPagerActivity,java.lang.String) -> b
+    void access$6(com.mzhou.merchant.activity.PicPagerActivity,int) -> a
+    android.widget.TextView access$7(com.mzhou.merchant.activity.PicPagerActivity) -> d
+    boolean access$8(com.mzhou.merchant.activity.PicPagerActivity) -> e
+    android.widget.ImageView access$9(com.mzhou.merchant.activity.PicPagerActivity) -> f
+    java.lang.String access$10(com.mzhou.merchant.activity.PicPagerActivity) -> g
+    java.lang.String[] access$11(com.mzhou.merchant.activity.PicPagerActivity,java.lang.String[],java.lang.String) -> a
+    void access$12(com.mzhou.merchant.activity.PicPagerActivity,java.lang.String[]) -> a
+    android.support.v4.view.ViewPager access$13(com.mzhou.merchant.activity.PicPagerActivity) -> h
+    void access$14(com.mzhou.merchant.activity.PicPagerActivity,com.mzhou.merchant.activity.PicPagerActivity$ImagePagerAdapter) -> a
+    com.mzhou.merchant.activity.PicPagerActivity$ImagePagerAdapter access$15(com.mzhou.merchant.activity.PicPagerActivity) -> i
+    int access$16(com.mzhou.merchant.activity.PicPagerActivity) -> j
 com.mzhou.merchant.activity.PicPagerActivity$1 -> com.mzhou.merchant.activity.lq:
     com.mzhou.merchant.activity.PicPagerActivity this$0 -> a
     void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException

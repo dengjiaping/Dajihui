@@ -438,7 +438,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:hint="@string/nub1"
-                    android:maxLength="10"
+                    android:inputType="phone"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -455,7 +455,6 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:hint="@string/name2"
-                    android:maxLength="10"
                     android:singleLine="true" />
 
                 <EditText
@@ -466,8 +465,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub2"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -495,8 +494,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub3"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -524,8 +523,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub4"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -553,8 +552,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub5"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -582,8 +581,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub6"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -611,8 +610,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub7"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -640,8 +639,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub8"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -669,8 +668,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub9"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -698,8 +697,8 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+                     android:inputType="phone"
                     android:hint="@string/nub10"
-                    android:maxLength="10"
                     android:singleLine="true" />
             </LinearLayout>
 

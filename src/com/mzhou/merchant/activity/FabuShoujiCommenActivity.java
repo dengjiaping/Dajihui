@@ -622,8 +622,19 @@ private final String TAG="FabuShoujiCommenActivity";
 				try {
 					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
 					if (photo != null) {
-						String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
-								String.valueOf(System.currentTimeMillis()));
+						
+						String[] proj = {MediaStore.Images.Media.DATA};
+						Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
+						int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+						cursor.moveToFirst(); 
+						String choose_pic_path = cursor.getString(column_index); 
+						
+						
+//						Bitmap newBitmap = ImageUtils.compressImage(photo);
+//						photo.recycle();
+//						String choose_pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,
+//								String.valueOf(System.currentTimeMillis()));
+//						newBitmap.recycle();
 						if (choose_pic_path.length() > 0) {
 							Log.i(TAG, "[onActivityResult]    choose_pic_path="+choose_pic_path);
 								mList.add("file:/"+choose_pic_path);
@@ -661,7 +672,11 @@ private final String TAG="FabuShoujiCommenActivity";
 			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-			mList = Arrays.asList(arry);
+			for (int i = 0; i < arry.length; i++) {
+				
+				mList.add(arry[i]);
+			}
+//			mList = Arrays.asList(arry);
 			if (mList.size() < MAXSIZE) {
 				imageview_add.setVisibility(View.VISIBLE);
 			}

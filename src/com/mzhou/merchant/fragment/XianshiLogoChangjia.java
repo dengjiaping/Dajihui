@@ -13,6 +13,7 @@ import com.mzhou.merchant.activity.ActivityLogo;
 import com.mzhou.merchant.activity.LogoItemListActivity;
 import com.mzhou.merchant.activity.R;
 import com.mzhou.merchant.activity.ShoujiCommenActivity;
+import com.mzhou.merchant.activity.ShoujiEnterpriseActivity;
 import com.mzhou.merchant.adapter.MyGridProductAdapter3;
 import com.mzhou.merchant.dao.IProduct.IgetProductInfo;
 import com.mzhou.merchant.dao.biz.ProductsManager;
@@ -479,10 +480,20 @@ public void onResume() {
 			intent.putExtra("title", adSortList.get(i).getName() + "");
 			startActivity(intent);
 		} else if (adSortList.get(i).getType().toString().equals("3")) {
-			Intent intent = new Intent();
+			/*Intent intent = new Intent();
 			intent.setClass(context, WebViewActivity.class);
 			intent.putExtra("title", "http://" + adSortList.get(i).getUrl().toString());
 			intent.putExtra("titleurl", "http://" + adSortList.get(i).getUrl().toString());
+			startActivity(intent);*/
+			
+			Intent viewIntent = new Intent(
+	 				"android.intent.action.VIEW",
+	 				Uri.parse("http://" + adSortList.get(i).getUrl().toString()));
+	 		startActivity(viewIntent);	
+		}else if (adSortList.get(i).getType().toString().equals("4")) {
+			Intent intent = new Intent();
+			intent.setClass(getActivity(), ShoujiEnterpriseActivity.class);
+			intent.putExtra("id", adSortList.get(i).getUrl().toString());
 			startActivity(intent);
 		}
 

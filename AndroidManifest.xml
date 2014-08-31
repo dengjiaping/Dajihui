@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mzhou.merchant.activity"
-    android:installLocation="preferExternal"
+    android:installLocation="auto"
     android:versionCode="3" 
-    android:versionName="3.4.5" >
+    android:versionName="3.4.7" >
     
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
     <uses-feature android:name="android.hardware.camera" />

@@ -55,6 +55,7 @@ public class PicPagerActivity extends Activity {
 	private ImagePagerAdapter adapter;
 	private String[] imageUrls;
 	private int currentposition;
+	private String currentUrls ="";
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -175,11 +176,11 @@ public class PicPagerActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				layout.setVisibility(View.GONE);
-			String[]	deleteUrls = deleteBitmap(imageUrls, currentposition);
+			String[]	deleteUrls = deleteBitmap(imageUrls, currentUrls);
 			imageUrls = deleteUrls;
 				if (deleteUrls.length != 0 ) {
 					pager.removeAllViews();
-					adapter.notifyDataSetChanged();
+					adapter = new ImagePagerAdapter();
 					pager.setAdapter(adapter);
 					pager.setCurrentItem(currentposition - 1);
 
@@ -256,6 +257,7 @@ public class PicPagerActivity extends Activity {
 				@Override
 				public void onSingleTapConfirmed() {
 					layout.setVisibility(View.VISIBLE);
+					currentUrls = imageUrls[position];
 					int po = position + 1;
 					currentposition = po;
 					currentpage.setText(po + File.separator + imageUrls.length);
@@ -318,9 +320,13 @@ public class PicPagerActivity extends Activity {
 	 * @param position
 	 * @return
 	 */
-	private String[] deleteBitmap(String[] images, int position) {
-		List<String> list  = Arrays.asList(images);
-		list.remove(position - 1);
+	private String[] deleteBitmap(String[] images, String position) {
+		List<String> list  = new ArrayList<String>();
+		for (int i = 0; i < images.length; i++) {
+			if (!position.equals(images[i])) {
+				list.add(images[i]);
+			}
+		}
 		String[] newStr = list.toArray(new String[list.size()]); // 返回一个包含所有对象的指定类型的数组
 		return newStr;
 

@@ -799,8 +799,19 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 				try {
 					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
 					if (photo != null) {
-						String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
-								String.valueOf(System.currentTimeMillis()));
+						
+						String[] proj = {MediaStore.Images.Media.DATA};
+						Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
+						int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+						cursor.moveToFirst(); 
+						String choose_pic_path = cursor.getString(column_index); 
+						
+						
+//						Bitmap newBitmap = ImageUtils.compressImage(photo);
+//						photo.recycle();
+//						String choose_pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,
+//								String.valueOf(System.currentTimeMillis()));
+//						newBitmap.recycle();
 						if (choose_pic_path.length() > 0) {
 								mList.add("file:/"+choose_pic_path);
 								if (mList.size() == MAXSIZE) {
@@ -836,7 +847,9 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-			mList = Arrays.asList(arry);
+	for (int i = 0; i < arry.length; i++) {
+				mList.add(arry[i]);
+			}
 			if (mList.size() < MAXSIZE) {
 				imageview_add.setVisibility(View.VISIBLE);
 			}
