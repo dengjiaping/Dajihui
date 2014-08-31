@@ -565,11 +565,11 @@ public class XianshiSanMa extends Fragment {
 	 				Uri.parse("http://" + adSortList.get(i).getUrl().toString()));
 	 		startActivity(viewIntent);	
 	 		
-			Intent intent = new Intent();
+			/*Intent intent = new Intent();
 			intent.setClass(context, WebViewActivity.class);
 			intent.putExtra("title", "http://" + adSortList.get(i).getUrl().toString());
 			intent.putExtra("titleurl", "http://" + adSortList.get(i).getUrl().toString());
-			startActivity(intent);
+			startActivity(intent);*/
 		}else if (adSortList.get(i).getType().toString().equals("4")) {
 			Intent intent = new Intent();
 			intent.setClass(getActivity(), ShoujiEnterpriseActivity.class);
