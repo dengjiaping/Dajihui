@@ -646,24 +646,26 @@ public class FabuShoujiEnterpriseActivity extends Activity {
  										
  									}
  								});
-							}
+							}else {
+	 							MyUtlis.toastInfo(context, getResources()
+	 									.getString(R.string.picCount_low));
+	 						}
 
  						} else {
  							MyUtlis.toastInfo(context, getResources()
- 									.getString(R.string.picSize_null));
+ 									.getString(R.string.picCount_low));
  						}
 					} else {
 						MyUtlis.toastInfo(context, getResources()
-								.getString(R.string.picCount_low));
-
+								.getString(R.string.introduce_null));
 					}
 				} else {
-					MyUtlis.toastInfo(context, getResources()
-							.getString(R.string.introduce_null));
+					MyUtlis.toastInfo(context,
+							getResources().getString(R.string.brand_null));
 				}
 			} else {
 				MyUtlis.toastInfo(context,
-						getResources().getString(R.string.brand_null));
+						getResources().getString(R.string.nowifi));
 			}
 	}
 

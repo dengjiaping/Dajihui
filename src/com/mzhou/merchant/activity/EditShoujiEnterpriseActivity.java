@@ -543,7 +543,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 
 								} else {
 									MyUtlis.toastInfo(context, getResources()
-											.getString(R.string.picSize_null));
+											.getString(R.string.picCount_low));
 								}
 							} else {
 								MyUtlis.toastInfo(context, getResources()

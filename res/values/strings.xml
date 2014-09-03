@@ -363,7 +363,6 @@
     <string name="descr_image">Image</string>
     <string name="no_sdcard">没有SD卡或SD卡被卸载！</string>
     <string name="time_zh">yyyy年MM月dd日  HH时mm分ss秒</string>
-    <string name="picSize_null">请选择图片!</string>
     <!-- <string name="picSize_big">图片总量大于10M，请压缩后再上传！</string> -->
     <!-- <string name="picSize_small">单张图片大小建议不能超过2M!</string> -->
     <string name="brand_null">品牌不能为空！</string>

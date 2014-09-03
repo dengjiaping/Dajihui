@@ -875,7 +875,7 @@ containing a value of this type.
     }
     public static final class string {
         public static final int about_company=0x7f0b0015;
-        public static final int about_company_no_intro=0x7f0b014d;
+        public static final int about_company_no_intro=0x7f0b014c;
         public static final int aboutus_string1=0x7f0b0059;
         public static final int aboutus_string2=0x7f0b005a;
         public static final int aboutus_string3=0x7f0b005b;
@@ -897,7 +897,7 @@ containing a value of this type.
          */
         public static final int already_publish_title=0x7f0b006e;
         public static final int app_name=0x7f0b0006;
-        public static final int bind_mcontact_voice_verify_defaultLanguage=0x7f0b0155;
+        public static final int bind_mcontact_voice_verify_defaultLanguage=0x7f0b0154;
         public static final int binder_btn_cancel=0x7f0b001f;
         public static final int binder_btn_ok=0x7f0b001e;
         public static final int binder_dialog_email=0x7f0b00b9;
@@ -908,7 +908,7 @@ containing a value of this type.
         /**  <string name="picSize_big">图片总量大于10M，请压缩后再上传！</string> 
  <string name="picSize_small">单张图片大小建议不能超过2M!</string> 
          */
-        public static final int brand_null=0x7f0b014a;
+        public static final int brand_null=0x7f0b0149;
         public static final int call_btn=0x7f0b000e;
         public static final int cancel=0x7f0b0038;
         public static final int cannotchange=0x7f0b0035;
@@ -957,7 +957,7 @@ containing a value of this type.
         public static final int edit=0x7f0b003d;
         public static final int edit_product_info=0x7f0b0020;
         public static final int enterprise_member=0x7f0b002e;
-        public static final int exit_process=0x7f0b014e;
+        public static final int exit_process=0x7f0b014d;
         public static final int exitfail=0x7f0b005e;
         public static final int exitok=0x7f0b005d;
         public static final int fabu_activity_bigger=0x7f0b0012;
@@ -965,7 +965,7 @@ containing a value of this type.
         public static final int fabushouji_spinner=0x7f0b0145;
         public static final int from=0x7f0b0034;
         public static final int introduce_company=0x7f0b0016;
-        public static final int introduce_null=0x7f0b014b;
+        public static final int introduce_null=0x7f0b014a;
         public static final int isloginstatus=0x7f0b002c;
         public static final int join_huodong=0x7f0b0068;
         public static final int loading=0x7f0b006b;
@@ -975,10 +975,10 @@ containing a value of this type.
         public static final int logo_item_tiltle=0x7f0b006f;
         public static final int look=0x7f0b003b;
         public static final int main_intro=0x7f0b001b;
-        public static final int menu_item_clear_disc_cache=0x7f0b0154;
-        public static final int menu_item_clear_memory_cache=0x7f0b0153;
-        public static final int menu_item_pause_on_fling=0x7f0b0152;
-        public static final int menu_item_pause_on_scroll=0x7f0b0151;
+        public static final int menu_item_clear_disc_cache=0x7f0b0153;
+        public static final int menu_item_clear_memory_cache=0x7f0b0152;
+        public static final int menu_item_pause_on_fling=0x7f0b0151;
+        public static final int menu_item_pause_on_scroll=0x7f0b0150;
         public static final int moreItem=0x7f0b0013;
         public static final int morewords=0x7f0b0014;
         public static final int name1=0x7f0b0041;
@@ -1009,8 +1009,7 @@ containing a value of this type.
         public static final int nub7=0x7f0b0051;
         public static final int nub8=0x7f0b0052;
         public static final int nub9=0x7f0b0053;
-        public static final int picCount_low=0x7f0b014c;
-        public static final int picSize_null=0x7f0b0149;
+        public static final int picCount_low=0x7f0b014b;
         public static final int preview=0x7f0b0022;
         public static final int product=0x7f0b0029;
         /**  pub_product 
@@ -1149,7 +1148,7 @@ containing a value of this type.
         public static final int title_bar_zhaopin=0x7f0b00dd;
         public static final int title_bar_zhaoshang=0x7f0b00ce;
         public static final int title_string=0x7f0b0057;
-        public static final int to_login=0x7f0b014f;
+        public static final int to_login=0x7f0b014e;
         public static final int tv_viewpager=0x7f0b0028;
         public static final int upload=0x7f0b006d;
         public static final int user_agree_content=0x7f0b0055;
@@ -1246,7 +1245,7 @@ containing a value of this type.
          */
         public static final int user_register_title=0x7f0b009d;
         public static final int user_register_username_is_null=0x7f0b00b0;
-        public static final int version=0x7f0b0150;
+        public static final int version=0x7f0b014f;
         public static final int xianshi_logo_intro1=0x7f0b000c;
         public static final int xianshi_logo_intro2=0x7f0b000d;
         /**  view_pager_main 

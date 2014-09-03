@@ -450,7 +450,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                          android:layout_weight="1"
-                        android:singleLine="true"
+                        
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
@@ -474,7 +474,6 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:singleLine="true"
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
