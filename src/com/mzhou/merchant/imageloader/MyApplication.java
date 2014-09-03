@@ -17,7 +17,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
-
+import android.app.Application; 
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
  */
@@ -35,7 +35,8 @@ public class MyApplication extends Application {
 		// CrashHandler crashHandler = CrashHandler.getInstance();
 		// crashHandler.init(this);
 		super.onCreate();
-
+		 CrashHandler crashHandler = CrashHandler.getInstance();    
+	        crashHandler.init(getApplicationContext(),this);
 		initImageLoader(getApplicationContext());
 	}
 
@@ -67,6 +68,7 @@ public class MyApplication extends Application {
 		.build();
 		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);
+		  
 	}
 	private static boolean deleteDir(File dir) {
 		if (dir.isDirectory()) {
@@ -80,4 +82,10 @@ public class MyApplication extends Application {
 		}
 		return dir.delete();
 	}
+
+	public void finishActivity() {
+		 android.os.Process.killProcess(android.os.Process.myPid()); 
+		
+	}
+	
 }

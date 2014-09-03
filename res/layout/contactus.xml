@@ -123,6 +123,7 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
+                    android:singleLine="false"
                      />
             </LinearLayout>
             <LinearLayout
@@ -156,6 +157,7 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
+                     android:singleLine="false"
                      />
             </LinearLayout>
             <LinearLayout

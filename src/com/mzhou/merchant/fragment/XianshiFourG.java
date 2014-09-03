@@ -83,13 +83,8 @@ public class XianshiFourG extends Fragment {
 	private boolean flag = false;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
-	         
-	        @Override
-	        public void uncaughtException(Thread thread, Throwable ex) {
-	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
-	        }
-	    });
+		
+	  
 		View mView = inflater.inflate(R.layout.view_pager_four_g, null);
 		view = mView;
 		init();

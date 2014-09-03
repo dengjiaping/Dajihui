@@ -58,13 +58,8 @@ public class LogoItemListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
-	         
-	        @Override
-	        public void uncaughtException(Thread thread, Throwable ex) {
-	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
-	        }
-	    });
+		
+	    
 		setContentView(R.layout.xianshi_logo_item);
 		init();
 		loadButton();

@@ -50,13 +50,7 @@ public class XianshiQiuGou extends Fragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
-	         
-	        @Override
-	        public void uncaughtException(Thread thread, Throwable ex) {
-	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
-	        }
-	    });
+		 
 		View view = inflater.inflate(R.layout.xianshi_qiugou_list, null);
 		init();
 		loadButton(view);
