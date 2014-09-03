@@ -520,7 +520,7 @@ private final String TAG="FabuShoujiCommenActivity";
 
 						} else {
 							MyUtlis.toastInfo(context, getResources()
-									.getString(R.string.picSize_null));
+									.getString(R.string.picCount_low));
 						}
 					} else {
 						MyUtlis.toastInfo(context, getResources()
@@ -535,6 +535,9 @@ private final String TAG="FabuShoujiCommenActivity";
 				MyUtlis.toastInfo(context,
 						getResources().getString(R.string.brand_null));
 			}
+		}else {
+			MyUtlis.toastInfo(context,
+					getResources().getString(R.string.nowifi));
 		}
 	}
 	/**

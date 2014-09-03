@@ -123,7 +123,7 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
-                    android:singleLine="true" />
+                     />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/user_manager_address"
@@ -156,7 +156,7 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
-                    android:singleLine="true" />
+                     />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/user_manager_net"
