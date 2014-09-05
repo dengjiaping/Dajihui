@@ -722,8 +722,6 @@
                     style="@style/MMLineEditText"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="20"
-                    android:singleLine="true"
                     android:textSize="@dimen/LargeTextSize" />
             </LinearLayout>
 
@@ -746,8 +744,6 @@
                     style="@style/MMLineEditText"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="20"
-                    android:singleLine="true"
                     android:textSize="@dimen/LargeTextSize" />
             </LinearLayout>
 
@@ -771,8 +767,6 @@
                     style="@style/MMLineEditText"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="20"
-                    android:singleLine="true"
                     android:textSize="@dimen/LargeTextSize" />
             </LinearLayout>
 
@@ -796,8 +790,6 @@
                     style="@style/MMLineEditText"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="20"
-                    android:singleLine="true"
                     android:textSize="@dimen/LargeTextSize" />
             </LinearLayout>
 
@@ -821,8 +813,6 @@
                     style="@style/MMLineEditText"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="20"
-                    android:singleLine="true"
                     android:textSize="@dimen/LargeTextSize" />
             </LinearLayout>
 

@@ -34,12 +34,8 @@ public class DownLoadService extends Service {
 //	private SharedPreferences sp;
 @Override
 	public void onCreate() {
-	Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
-        @Override
-        public void uncaughtException(Thread thread, Throwable ex) {
-            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
-        }
-    });
+	
+  
 		super.onCreate();
 		new Thread(new downloadThread()).start();
 	}
@@ -53,7 +49,7 @@ public class DownLoadService extends Service {
 //		sp = getSharedPreferences("phonemerchant", 1);
 //		new Thread(new indexThread()).start();
 		
-		return super.onStartCommand(intent, flags, startId);
+		return START_NOT_STICKY;
 	}
 
  

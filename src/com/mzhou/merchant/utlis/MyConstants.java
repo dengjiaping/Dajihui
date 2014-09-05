@@ -17,6 +17,8 @@ public class MyConstants {
 	 */
 	public static final String LOGIN_URL = "http://dajihui.npulse.cn/myapi/user";
 	public static final String PHONE_NUM = "http://dajihui.npulse.cn/myapi/phone";
+	
+	public static final String ERROR_URL = "http://dajihui.npulse.cn/myapi/error";
 	/**
 	 * 企业会员url
 	 */

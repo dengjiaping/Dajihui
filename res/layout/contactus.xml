@@ -57,7 +57,7 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
-                    android:singleLine="true" />
+                    android:singleLine="false" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/user_manager_centerFax"
@@ -90,7 +90,7 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
-                    android:singleLine="true" />
+                    android:singleLine="false" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/user_manager_company"
@@ -123,7 +123,8 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
-                   />
+                    android:singleLine="false"
+                     />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/user_manager_address"
@@ -156,7 +157,8 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
-                      />
+                     android:singleLine="false"
+                     />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/user_manager_net"
@@ -190,7 +192,7 @@
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="5.0dip"
                     android:layout_weight="1.0"
-                    android:singleLine="true" />
+                    android:singleLine="false" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="fill_parent"

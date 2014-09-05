@@ -36,14 +36,8 @@ public class MyProductActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
-	         
-	        @Override
-	        public void uncaughtException(Thread thread, Throwable ex) {
-	            Log.e("@"+this.getClass().getName(), "Crash dump", ex);
-	        }
-	    });
 		
+ 
 		init(savedInstanceState);
 		setContentView(R.layout.user_manager_myproduct);
 		InitTextView();

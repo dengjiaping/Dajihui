@@ -560,6 +560,26 @@ public class GetDataByPostUtil extends Activity {
 		}
 		return "[]";
 	}
+	public static String saveErrorInfo(Context context, String url,
+			String subject, String uid,String is_en,String reason) {
+		HttpPost httppost = new HttpPost(url);
+		try {
+			List<NameValuePair> params1 = new ArrayList<NameValuePair>();
+			params1.add(new BasicNameValuePair("uid", uid));
+			params1.add(new BasicNameValuePair("subject", subject));
+			params1.add(new BasicNameValuePair("data[is_en]", is_en));
+			params1.add(new BasicNameValuePair("data[reason]", reason));
+			params1.add(new BasicNameValuePair("is_en", is_en));
+			httppost.setEntity(new UrlEncodedFormEntity(params1));
+			Log.i("print", "saveErrorInfo--params1---->" + params1);
+			String data = queryStringForPost(httppost, context);
+			Log.i("print", "saveErrorInfo--return--result-->" + data);
+			return data;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return "[]";
+	}
 
 	/**
 	 * logo列表
