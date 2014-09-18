@@ -9,10 +9,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import android.app.Activity;
@@ -133,6 +136,8 @@ public class EditShoujiCommenActivity extends Activity {
 	private ImageView imageview_add;
 	private static final int CHOOSE_PIC = 34;
 	private static final int TAKE_PIC = 43;
+	
+	private Set<String> delList;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -163,7 +168,7 @@ public class EditShoujiCommenActivity extends Activity {
 		.considerExifParams(true)
 		.bitmapConfig(Bitmap.Config.RGB_565)
 		.build();
-		 
+		delList = new HashSet<String>();
 		productsManager = new ProductsManager();
 		Intent intent = getIntent();
 		productid = intent.getStringExtra("id");
@@ -457,7 +462,17 @@ public class EditShoujiCommenActivity extends Activity {
 									param1.put("data[ah]", ah);
 									param1.put("data[company]", company);
 									param1.put("data[net]", net);
-
+									
+									
+									Iterator<String> iterator = delList.iterator();
+									StringBuilder builder = new StringBuilder();
+									while (iterator.hasNext()) {
+										String type = (String) iterator.next();
+										builder.append(type);
+										builder.append(",");
+									}
+									param1.put("data[deldata]", builder.toString());
+									
 									long picSize = 0;
 									for (int i = 0; i < array.length; i++) {
 										FileInputStream fis;
@@ -705,14 +720,32 @@ public class EditShoujiCommenActivity extends Activity {
 			}
 		}
 		else if (requestCode == REQUEST && resultCode == RESULT) {//preview back
+			
+			
+			//preview back
 			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-			mList = Arrays.asList(arry);
+			for (int i = 0; i < arry.length; i++) {
+				
+				mList.add(arry[i]);
+			}
+			
+			///
+			String[] delarry = data.getExtras().getStringArray(
+					MyConstants.Extra.DEL_IMAGES) ;
+					for (int i = 0; i < delarry.length; i++) {
+						delList.add(delarry[i]);
+					}
+					//
+					
+//			mList = Arrays.asList(arry);
 			if (mList.size() < MAXSIZE) {
 				imageview_add.setVisibility(View.VISIBLE);
 			}
 			adapter.notifyDataSetChanged();
+
+		
 
 		} else if (requestCode == REQUEST && resultCode == 0) {
 			if (mList != null) {

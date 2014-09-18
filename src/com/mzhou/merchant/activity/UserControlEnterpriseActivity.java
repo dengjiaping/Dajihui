@@ -290,6 +290,7 @@ public class UserControlEnterpriseActivity extends Activity {
 	}
 
 	private void setName(String json_name) {
+		System.out.println("setName===="+json_name);
 		GroupUsers groupUsers = parseJson(json_name);
 		if (groupUsers != null) {
 			user_manager_tv_name1.setText(nameString(groupUsers, 0));
@@ -848,7 +849,7 @@ public class UserControlEnterpriseActivity extends Activity {
 			String net = user_manager_tv_net.getText().toString();
 			final String pw = user_manager_alter_passwd_stub.getText()
 					.toString();
-			String json_name = getJsonName();
+			final String json_name = getJsonName();
 
 			String[] array = (String[]) mList.toArray(new String[mList
 					.size()]);

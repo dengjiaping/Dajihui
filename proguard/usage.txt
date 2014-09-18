@@ -1072,15 +1072,15 @@ com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
-    734:743:private boolean deleteDir(java.io.File)
+    767:776:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.EditShoujiEnterpriseActivity:
     private static final int REQUEST_CODE
     private static final int REQUEST_CODE1
     private android.net.Uri mImageUri
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
-    761:768:private java.lang.String getImagePath(android.net.Uri)
-    836:845:private boolean deleteDir(java.io.File)
+    867:874:private java.lang.String getImagePath(android.net.Uri)
+    954:963:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.FabuShoujiCommenActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
@@ -1088,6 +1088,11 @@ com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
     private android.net.Uri mImageUri
+com.mzhou.merchant.activity.MyProductNoCheckActivity:
+    577:605:private void doShareToQzone(android.os.Bundle)
+    63:63:static synthetic com.tencent.connect.share.QzoneShare access$13(com.mzhou.merchant.activity.MyProductNoCheckActivity)
+com.mzhou.merchant.activity.MyProductNoCheckActivity$11
+com.mzhou.merchant.activity.MyProductNoCheckActivity$11$1
 com.mzhou.merchant.activity.PicPagerActivity:
     private static final java.lang.String STATE_POSITION
 com.mzhou.merchant.activity.R:
@@ -1131,7 +1136,7 @@ com.mzhou.merchant.activity.R$styleable:
     public static final int PullToRefresh_ptrShowIndicator
     public static final int PullToRefresh_ptrSubHeaderTextAppearance
     public static final int TogglePrefAttrs_android_preferenceLayoutChild
-    1312:1312:public R$styleable()
+    1326:1326:public R$styleable()
 com.mzhou.merchant.activity.R$xml
 com.mzhou.merchant.activity.UserControlCommonActivity:
     private static final int REQUEST_CODE
@@ -1206,6 +1211,8 @@ com.mzhou.merchant.db.manager.DbUserManager:
     251:254:public void delete(int)
     259:261:public void deleteAll()
     280:281:public boolean getLoginStatusByUsertype(java.lang.String)
+com.mzhou.merchant.fragment.Right:
+    203:208:private java.lang.String getVersionName()
 com.mzhou.merchant.imageloader.CrashHandler:
     public static final java.lang.String TAG
 com.mzhou.merchant.myview.BaikeConstant:
@@ -1268,6 +1275,7 @@ com.mzhou.merchant.utlis.MyConstants:
     public static final java.lang.String PHONE_NUM
     public static final java.lang.String ERROR_URL
     public static final java.lang.String EN_LOGIN_URL
+    public static final java.lang.String SHARE_URL
     public static final java.lang.String AD_URL
     public static final java.lang.String ATTRACT_URL
     public static final java.lang.String UPLOAD_URL

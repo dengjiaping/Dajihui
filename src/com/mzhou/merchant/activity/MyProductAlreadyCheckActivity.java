@@ -210,7 +210,7 @@ public class MyProductAlreadyCheckActivity extends Activity {
 								String summary = 	"分享了一个新产品【"+mList.get(arg2).getBrand()+"】，点击查看更多详细信息";
 								String imageUrl = MyUtlis.getHeadPic(mList.get(arg2).getPic(), MyProductAlreadyCheckActivity.this);
 								params.putString(QQShare.SHARE_TO_QQ_TITLE, title);
-								params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://dajihui.npulse.cn/share/index?id="+mList.get(arg2).getId());
+								params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, MyConstants.SHARE_URL+mList.get(arg2).getId()+".html");
 								params.putString(QQShare.SHARE_TO_QQ_SUMMARY, summary);
 								params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,imageUrl);
 								params.putString(QQShare.SHARE_TO_QQ_APP_NAME, "大机汇");
@@ -230,7 +230,7 @@ public class MyProductAlreadyCheckActivity extends Activity {
 								String summary = 	"分享了一个新产品【"+mList.get(arg2).getBrand()+"】，点击查看更多详细信息";
 				                params.putString(QzoneShare.SHARE_TO_QQ_TITLE, title);
 				                params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY,summary);
-				                params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://dajihui.npulse.cn/share/index?id="+mList.get(arg2).getId());
+				                params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, MyConstants.SHARE_URL+mList.get(arg2).getId()+".html");
 				                String imageUrl = MyUtlis.getHeadPic(mList.get(arg2).getPic(), MyProductAlreadyCheckActivity.this);
 				                // 支持传多个imageUrl
 				                ArrayList<String> imageUrls = new ArrayList<String>();

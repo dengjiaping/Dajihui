@@ -107,7 +107,7 @@ public class CompanyIntroduceActivity extends Activity {
 		aboutus_string1 = (TextView) findViewById(R.id.aboutus_string1);
 		aboutus_string2 = (TextView) findViewById(R.id.aboutus_string2);
 		aboutus_string3 = (TextView) findViewById(R.id.aboutus_string3);
-		aboutus_string4 = (TextView) findViewById(R.id.aboutus_string4);
+		aboutus_string4 = (TextView) findViewById(R.id.aboutus_4);
 		title_bar_title = (TextView) findViewById(R.id.title_bar_title);
 		title_bar_title.setText(getResources().getString(
 				R.string.introduce_company));

@@ -89,7 +89,7 @@ public class HttpMultipartPost extends AsyncTask<HttpResponse, Integer, String> 
 
 	@Override
 	protected void onPostExecute(String ui) {
-		// Log.i("print", "IUploadBackInfo------>"+ui);
+		 System.out.println(ui);
 		backInfo.getBackAttactInfo(ui);
 		pd.dismiss();
 	}

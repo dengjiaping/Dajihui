@@ -86,13 +86,47 @@
                 android:singleLine="false"
                 android:lineSpacingExtra="5sp"
                   />
-            <TextView
-                 android:id="@+id/aboutus_string4"
+            
+            
+                <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/qr_linear"
+            android:visibility="gone"
+            android:orientation="horizontal" >
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="180dp"
+                    android:contentDescription="@string/none"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                     android:padding="10dp"
+                     android:src="@drawable/qrcode1"
+                      />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="180dp"
+                    android:contentDescription="@string/none"
+                    android:scaleType="fitXY"
+                     android:padding="10dp"
+                      android:layout_weight="1"
+                     android:src="@drawable/qrcode2"
+                      />
+                </LinearLayout>
+                
+                
+           <TextView
+                 android:id="@+id/aboutus_4"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="3dp"
-                 android:textColor="#FF0000"
                   />
+           <View 
+                       android:layout_width="match_parent"
+                       android:layout_height="30dp"
+                       />
+                 
         </LinearLayout>
     </ScrollView>
 

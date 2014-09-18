@@ -25,6 +25,7 @@ import com.mzhou.merchant.activity.ActivityFankui;
 import com.mzhou.merchant.activity.ActivityHuoDong;
 import com.mzhou.merchant.activity.ActivityIndex;
 import com.mzhou.merchant.activity.ActivityLogin;
+import com.mzhou.merchant.activity.ActivityManual;
 import com.mzhou.merchant.activity.R;
 import com.mzhou.merchant.activity.UserControlCommonActivity;
 import com.mzhou.merchant.activity.UserControlEnterpriseActivity;
@@ -37,7 +38,7 @@ import com.mzhou.merchant.slidemenu.SlidingMenu;
 public class Right extends Fragment {
 
 	private TextView title_bar_user_center;
-	private TextView title_bar_version;
+	private TextView title_bar_abount_use;
 	private TextView title_bar_about;
 	private TextView title_bar_activity;
 	private SlidingMenu mSlidingMenu;
@@ -69,19 +70,12 @@ public class Right extends Fragment {
 	private void loadButton(View view) {
 		title_bar_user_center = (TextView) view
 				.findViewById(R.id.title_bar_user_center);
-		title_bar_version = (TextView) view
-				.findViewById(R.id.title_bar_version);
+		title_bar_abount_use = (TextView) view
+				.findViewById(R.id.title_bar_abount_use);
 		title_bar_about = (TextView) view.findViewById(R.id.title_bar_about);
 		title_bar_fankui = (TextView) view.findViewById(R.id.title_bar_fankui);
 		title_bar_exit = (TextView) view.findViewById(R.id.title_bar_exit);
 		title_bar_activity = (TextView) view.findViewById(R.id.title_bar_activity);
-		try {
-			title_bar_version.setText(context.getResources().getString(
-					R.string.version)
-					+ getVersionName());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 	}
 
@@ -131,12 +125,13 @@ public class Right extends Fragment {
 			}
 		});
 
-		title_bar_version.setOnClickListener(new OnClickListener() {
+		title_bar_abount_use.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Uri uri = Uri.parse("http://www.sj6.cn");
-				Intent it = new Intent(Intent.ACTION_VIEW, uri);
-				startActivity(it);
+				Intent intent = new Intent();
+				intent.setClass(getActivity(), ActivityManual.class);
+				startActivity(intent);
+				mSlidingMenu.showLeftView();
 			}
 		});
 		title_bar_activity.setOnClickListener(new OnClickListener() {

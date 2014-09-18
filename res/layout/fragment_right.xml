@@ -27,6 +27,15 @@
             android:id="@+id/title_bar_activity"
             style="@style/text_item"
             android:text="@string/title_bar_activity" />
+         <include
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            layout="@layout/utils_line" >
+        </include>
+        <TextView
+            android:id="@+id/title_bar_abount_use"
+            style="@style/text_item"
+            android:text="@string/about_use" />
         <include
             android:layout_width="fill_parent"
             android:layout_height="2dp"
@@ -46,17 +55,7 @@
             style="@style/text_item"
             android:text="@string/title_bar_about" />
       
-        <include
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-              android:visibility="gone"
-            layout="@layout/utils_line" >
-        </include>
-        <TextView
-            android:id="@+id/title_bar_version"
-            style="@style/text_item"
-            android:visibility="gone"
-            android:text="@string/title_bar_version" />
+       
         <include
             android:layout_width="fill_parent"
             android:layout_height="2dp"

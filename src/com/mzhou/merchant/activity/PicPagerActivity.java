@@ -54,6 +54,7 @@ public class PicPagerActivity extends Activity {
 	private RelativeLayout layout;
 	private ImagePagerAdapter adapter;
 	private String[] imageUrls;
+	private List<String> delUrls;
 	private int currentposition;
 	private String currentUrls ="";
 
@@ -61,12 +62,13 @@ public class PicPagerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
-	      
+		 
 		setContentView(R.layout.ac_image_pager);
 		int pagerPosition = init();
 		if (savedInstanceState != null) {
 			pagerPosition = savedInstanceState.getInt(STATE_POSITION);
 		}
+		delUrls = new ArrayList<String>();
 		loadbutton();
 		setdata(pagerPosition);
 		listenerbutton();
@@ -161,6 +163,13 @@ public class PicPagerActivity extends Activity {
 				intent.putExtra(
 						MyConstants.Extra.IMAGES,
 						imageUrls);
+				String[] delArray = new String[delUrls.size()];
+				for (int i = 0; i < delUrls.size(); i++) {
+					delArray[i] = delUrls.get(i);
+				}
+				intent.putExtra(
+						MyConstants.Extra.DEL_IMAGES,
+						delArray);
 				setResult(RESULT, intent);
 				finish();
 
@@ -172,6 +181,7 @@ public class PicPagerActivity extends Activity {
 			public void onClick(View v) {
 				layout.setVisibility(View.GONE);
 			String[]	deleteUrls = deleteBitmap(imageUrls, currentUrls);
+			
 			imageUrls = deleteUrls;
 				if (deleteUrls.length != 0 ) {
 					pager.removeAllViews();
@@ -320,6 +330,10 @@ public class PicPagerActivity extends Activity {
 		for (int i = 0; i < images.length; i++) {
 			if (!position.equals(images[i])) {
 				list.add(images[i]);
+			}else {
+				if (images[i].startsWith("http")) {
+					delUrls.add(images[i]);
+				}
 			}
 		}
 		String[] newStr = list.toArray(new String[list.size()]); // 返回一个包含所有对象的指定类型的数组

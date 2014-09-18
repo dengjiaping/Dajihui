@@ -66,7 +66,6 @@ public class ActivityIndex extends FragmentActivity {
 	public static void showRight() {
 		mSlidingMenu.showRightView();
 	}
-
 	public static class ViewPageFragment extends Fragment {
 
 		private MyAdapter mAdapter;

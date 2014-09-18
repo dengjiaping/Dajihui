@@ -1,16 +1,14 @@
 package com.mzhou.merchant.activity;
 
-import java.lang.Thread.UncaughtExceptionHandler;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ActivityAbout extends Activity {
@@ -23,7 +21,7 @@ public class ActivityAbout extends Activity {
 	private TextView aboutus_string4;
 	private TextView title_string;
 	private TextView title_bar_title;
-
+	private LinearLayout qr_linear;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -41,11 +39,14 @@ public class ActivityAbout extends Activity {
 		aboutus_string1 = (TextView) findViewById(R.id.aboutus_string1);
 		aboutus_string2 = (TextView) findViewById(R.id.aboutus_string2);
 		aboutus_string3 = (TextView) findViewById(R.id.aboutus_string3);
-		aboutus_string4 = (TextView) findViewById(R.id.aboutus_string4);
+		aboutus_string4 = (TextView) findViewById(R.id.aboutus_4);
 		title_bar_title = (TextView) findViewById(R.id.title_bar_title);
+		
+		qr_linear = (LinearLayout) findViewById(R.id.qr_linear);
 	}
 
 	private void setData() {
+		qr_linear.setVisibility(View.VISIBLE);
 		about_image.setImageResource(R.drawable.tubiao);
 		title_bar_title.setText(getResources().getString(
 				R.string.title_bar_about));

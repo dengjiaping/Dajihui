@@ -3,7 +3,7 @@
     package="com.mzhou.merchant.activity"
     android:installLocation="auto"
     android:versionCode="3" 
-    android:versionName="3.4.8" >
+    android:versionName="3.5.0" >
     
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
     <uses-feature android:name="android.hardware.camera" />
@@ -135,6 +135,10 @@
         </activity>
         <activity
             android:name="com.mzhou.merchant.activity.ActivityAbout"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mzhou.merchant.activity.ActivityManual"
             android:screenOrientation="portrait" >
         </activity>
         <activity

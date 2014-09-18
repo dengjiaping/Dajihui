@@ -2552,6 +2552,8 @@ com.mzhou.merchant.activity.ActivityLogoProduct
 com.mzhou.merchant.activity.ActivityLogoProduct: ActivityLogoProduct()
 com.mzhou.merchant.activity.ActivityMain
 com.mzhou.merchant.activity.ActivityMain: ActivityMain()
+com.mzhou.merchant.activity.ActivityManual
+com.mzhou.merchant.activity.ActivityManual: ActivityManual()
 com.mzhou.merchant.activity.ActivityPP
 com.mzhou.merchant.activity.ActivityPP: ActivityPP()
 com.mzhou.merchant.activity.ActivityQG

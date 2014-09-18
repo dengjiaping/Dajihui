@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/title_bar_layout" >
+
+        <ImageView
+            android:id="@id/title_bar_showleft"
+            style="@style/title_bar_leftimage"
+           
+            android:contentDescription="@string/none"
+            android:src="@drawable/my_back_normal" />
+
+        <TextView
+            android:id="@id/title_bar_title"
+            android:text="@string/about_use"
+            style="@style/title_bar_title"
+             />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_color"
+        android:fadingEdge="none"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+             android:layout_marginBottom="10dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+        
+
+            <TextView
+                android:id="@+id/aboutus_string1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="6dp"
+                android:textSize="15sp"
+                android:singleLine="false"
+                android:textStyle="bold"
+                android:textColor="@color/blue"
+                android:text="@string/about_use1"
+                android:lineSpacingExtra="5sp"
+                  />
+            <TextView
+                 android:id="@+id/aboutus_string2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="14sp"
+                android:singleLine="false"
+                android:text="@string/about_use2"
+                android:lineSpacingExtra="5sp"
+                  />
+            
+            <TextView
+                android:id="@+id/aboutus_string3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="6dp"
+                android:textSize="15sp"
+                android:singleLine="false"
+                android:textStyle="bold"
+                  android:textColor="@color/blue"
+                android:text="@string/about_use3"
+                android:lineSpacingExtra="5sp"
+                  />
+             <TextView
+                 android:id="@+id/aboutus_string4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:textSize="14sp"
+                android:singleLine="false"
+                android:text="@string/about_use4"
+                android:lineSpacingExtra="5sp"
+                  />
+                
+                   <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            
+            
+            android:orientation="horizontal"   >           
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/qrcode"
+                  android:contentDescription="@string/app_name"/>
+              <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                 android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:src="@drawable/publiccode"
+                  />
+        </LinearLayout>
+         <View 
+                       android:layout_width="match_parent"
+                       android:layout_height="10dp"
+                       />
+           <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                
+                android:singleLine="false"
+                android:text="@string/contact_string"
+                android:lineSpacingExtra="5sp"
+                  />
+                   
+                   <View 
+                       android:layout_width="match_parent"
+                       android:layout_height="30dp"
+                       />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

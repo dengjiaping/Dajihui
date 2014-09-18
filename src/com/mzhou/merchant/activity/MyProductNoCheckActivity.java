@@ -1,17 +1,12 @@
 package com.mzhou.merchant.activity;
 
-import java.lang.Thread.UncaughtExceptionHandler;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.StringTokenizer;
-
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.mzhou.merchant.activity.R;
-import com.mzhou.merchant.activity.R.color;
 import com.mzhou.merchant.activity.ShoujiCommenActivity;
 import com.mzhou.merchant.adapter.MyGridProductAdapter2;
 import com.mzhou.merchant.dao.IProduct.IDeleteProductInfo;
@@ -23,8 +18,6 @@ import com.mzhou.merchant.model.ProductsBean;
 import com.mzhou.merchant.model.PublishProductBean;
 import com.mzhou.merchant.model.UserInfoBean;
 import com.mzhou.merchant.myview.MyGridView;
-import com.mzhou.merchant.utlis.GetDataByPostUtil;
-import com.mzhou.merchant.utlis.JsonParse;
 import com.mzhou.merchant.utlis.MyConstants;
 import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
@@ -36,14 +29,11 @@ import com.tencent.tauth.UiError;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,8 +42,6 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -78,8 +66,6 @@ public class MyProductNoCheckActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		
-	        
 		setContentView(R.layout.view_pager_yifabu);
 		init();
 		loadButton();
@@ -87,7 +73,6 @@ public class MyProductNoCheckActivity extends Activity {
 		listenerButton();
 		getdata();
 	}
-
 	/**
 	 * 初始化
 	 * 
@@ -186,78 +171,7 @@ public class MyProductNoCheckActivity extends Activity {
 						}
 					}
 				});
-				share.setOnClickListener(new OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						dialog.dismiss();
-						 //share_qq_zone  share_qq  share_qq_cancel
-						AlertDialog.Builder builder = new AlertDialog.Builder(MyProductNoCheckActivity.this);
-						LayoutInflater inflater = LayoutInflater.from(MyProductNoCheckActivity.this);
-						View view = inflater.inflate(R.layout.share_to_qq, null);
-						view.setMinimumWidth(2000);
-						Button share_qq_cancel = (Button) view.findViewById(R.id.share_qq_cancel);
-						TextView share_qq = (TextView) view.findViewById(R.id.share_qq);
-						TextView share_qq_zone = (TextView) view.findViewById(R.id.share_qq_zone);
-						builder.setView(view);
-						final AlertDialog dialog = builder.create();
-						dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-						WindowManager.LayoutParams wmlp = dialog.getWindow()
-								.getAttributes();
-						wmlp.gravity = Gravity.BOTTOM;
-						dialog.show();
-						share_qq_cancel.setOnClickListener(new OnClickListener() {
-							
-							@Override
-							public void onClick(View v) {
-								 dialog.dismiss();
-							}
-						});
-						share_qq.setOnClickListener(new OnClickListener() {
-							
-							@Override
-							public void onClick(View v) {
-								dialog.dismiss();
-								//share to qq
-								final Bundle params = new Bundle();
-								String title = "【大机汇】"+"分享产品";
-								String summary = 	"分享了一个新产品【"+mList.get(arg2).getBrand()+"】，点击查看更多详细信息";
-								String imageUrl = MyUtlis.getHeadPic(mList.get(arg2).getPic(), MyProductNoCheckActivity.this);
-								params.putString(QQShare.SHARE_TO_QQ_TITLE, title);
-								params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://dajihui.npulse.cn/share/index?id="+mList.get(arg2).getId());
-								params.putString(QQShare.SHARE_TO_QQ_SUMMARY, summary);
-								params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL,imageUrl);
-								params.putString(QQShare.SHARE_TO_QQ_APP_NAME, "大机汇");
-								params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
-						        params.putInt(QQShare.SHARE_TO_QQ_EXT_INT,0x00);  
-						        doShareToQQ(params);
-							}
-						});
-						share_qq_zone.setOnClickListener(new OnClickListener() {
-							
-							@Override
-							public void onClick(View v) {
-								dialog.dismiss();
-								final Bundle params = new Bundle();
-				                params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneShare.SHARE_TO_QZONE_TYPE_IMAGE_TEXT);
-				            	String title = "【大机汇】"+"分享产品";
-								String summary = 	"分享了一个新产品【"+mList.get(arg2).getBrand()+"】，点击查看更多详细信息";
-				                params.putString(QzoneShare.SHARE_TO_QQ_TITLE, title);
-				                params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY,summary);
-				                params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, "http://dajihui.npulse.cn/share/index?id="+mList.get(arg2).getId());
-				                String imageUrl = MyUtlis.getHeadPic(mList.get(arg2).getPic(), MyProductNoCheckActivity.this);
-				                // 支持传多个imageUrl
-				                ArrayList<String> imageUrls = new ArrayList<String>();
-				                imageUrls.add(imageUrl);
-				                // String imageUrl = "XXX";
-				                // params.putString(Tencent.SHARE_TO_QQ_IMAGE_URL, imageUrl);
-				                params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageUrls);
-				                doShareToQzone(params);
-							}
-						});
-						
-					}
-				});
+				 
 				edit.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View arg0) {
@@ -306,47 +220,8 @@ public class MyProductNoCheckActivity extends Activity {
 		});
 
 	}
-    /**
-     * 用异步方式启动分享
-     * @param params
-     */
+ 
   
-   private void doShareToQQ(final Bundle params) {
-    	
-        final Activity activity = MyProductNoCheckActivity.this;
-        new Thread(new Runnable() {
-            
-            @Override
-            public void run() {
-                mQQShare.shareToQQ(activity, params, new IUiListener() {
-
-                    @Override
-                    public void onCancel() {
-                    	 
-                    }
-
-                    @Override
-                    public void onComplete(Object response) {
-                    	System.out.println("qq share --------");
-                    	System.out.println(response.toString());
-                    	System.out.println("qq share --------"); 
-                    	MyUtlis.toastInfo(MyProductNoCheckActivity.this, "分享成功!");
-                    }
-
-                    @Override
-                    public void onError(UiError e) {
-                         
-                    }
-
-                });
-            }
-        }).start();
-    } 
-	/**
-	 * 删除产品
-	 * 
-	 * @param arg2
-	 */
 	/**
 	 * 提示删除产品
 	 * 

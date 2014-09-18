@@ -30,6 +30,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Video.Thumbnails;
 import android.provider.MediaStore.Video.VideoColumns;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -330,31 +331,130 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 			}
 		
 		
-		
-		
-		GroupUsers groupUsers = getNameJson(name_enterprise);
-		if (groupUsers != null) {
-			name1.setText(groupUsers.getUsers().get(0).getName());
-			name2.setText(groupUsers.getUsers().get(1).getName());
-			name3.setText(groupUsers.getUsers().get(2).getName());
-			name4.setText(groupUsers.getUsers().get(3).getName());
-			name5.setText(groupUsers.getUsers().get(4).getName());
-			name6.setText(groupUsers.getUsers().get(5).getName());
-			name7.setText(groupUsers.getUsers().get(6).getName());
-			name8.setText(groupUsers.getUsers().get(7).getName());
-			name9.setText(groupUsers.getUsers().get(8).getName());
-			name10.setText(groupUsers.getUsers().get(9).getName());
-			nub1.setText(groupUsers.getUsers().get(0).getNumber());
-			nub2.setText(groupUsers.getUsers().get(1).getNumber());
-			nub3.setText(groupUsers.getUsers().get(2).getNumber());
-			nub4.setText(groupUsers.getUsers().get(3).getNumber());
-			nub5.setText(groupUsers.getUsers().get(4).getNumber());
-			nub6.setText(groupUsers.getUsers().get(5).getNumber());
-			nub7.setText(groupUsers.getUsers().get(6).getNumber());
-			nub8.setText(groupUsers.getUsers().get(7).getNumber());
-			nub9.setText(groupUsers.getUsers().get(8).getNumber());
-			nub10.setText(groupUsers.getUsers().get(9).getNumber());
+		if (!name_enterprise.equals("")) {
+			GroupUsers groupUsers = getNameJson(name_enterprise);
+			if (groupUsers != null) {
+				try {
+					name1.setText(groupUsers.getUsers().get(0).getName());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name2.setText(groupUsers.getUsers().get(1).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name3.setText(groupUsers.getUsers().get(2).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name4.setText(groupUsers.getUsers().get(3).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name5.setText(groupUsers.getUsers().get(4).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name6.setText(groupUsers.getUsers().get(5).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name7.setText(groupUsers.getUsers().get(6).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name8.setText(groupUsers.getUsers().get(7).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name9.setText(groupUsers.getUsers().get(8).getName());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					name10.setText(groupUsers.getUsers().get(9).getName());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub1.setText(groupUsers.getUsers().get(0).getNumber());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub2.setText(groupUsers.getUsers().get(1).getNumber());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub3.setText(groupUsers.getUsers().get(2).getNumber());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub4.setText(groupUsers.getUsers().get(3).getNumber());
+				
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub5.setText(groupUsers.getUsers().get(4).getNumber());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub6.setText(groupUsers.getUsers().get(5).getNumber());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub7.setText(groupUsers.getUsers().get(6).getNumber());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub8.setText(groupUsers.getUsers().get(7).getNumber());
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub9.setText(groupUsers.getUsers().get(8).getNumber());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					nub10.setText(groupUsers.getUsers().get(9).getNumber());
+					
+				} catch (Exception e) {
+				}
+				
+			
+			}
 		}
+		
 
 		pub_product_pingpai.setText("");
 		pub_product_xinghao.setText("");

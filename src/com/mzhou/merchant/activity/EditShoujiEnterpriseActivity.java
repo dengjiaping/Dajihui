@@ -9,11 +9,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
+
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -159,6 +164,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	private ImageView imageview_add;
 	private static final int CHOOSE_PIC = 34;
 	private static final int TAKE_PIC = 43;
+	private Set<String> delList;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -193,7 +199,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 		.considerExifParams(true)
 		.bitmapConfig(Bitmap.Config.RGB_565)
 		.build();
-		 
+		delList = new HashSet<String>();
 		productsManager = new ProductsManager();
 		isLast = true;
 		Intent intent = getIntent();
@@ -285,26 +291,124 @@ public class EditShoujiEnterpriseActivity extends Activity {
 								picfromServer = productsByIdBean.getPic();
 								GroupUsers groupUsers = getNameJson(productsByIdBean.getContact());
 								if (groupUsers != null) {
-									name1.setText(groupUsers.getUsers().get(0).getName());
-									name2.setText(groupUsers.getUsers().get(1).getName());
-									name3.setText(groupUsers.getUsers().get(2).getName());
-									name4.setText(groupUsers.getUsers().get(3).getName());
-									name5.setText(groupUsers.getUsers().get(4).getName());
-									name6.setText(groupUsers.getUsers().get(5).getName());
-									name7.setText(groupUsers.getUsers().get(6).getName());
-									name8.setText(groupUsers.getUsers().get(7).getName());
-									name9.setText(groupUsers.getUsers().get(8).getName());
-									name10.setText(groupUsers.getUsers().get(9).getName());
-									nub1.setText(groupUsers.getUsers().get(0).getNumber());
-									nub2.setText(groupUsers.getUsers().get(1).getNumber());
-									nub3.setText(groupUsers.getUsers().get(2).getNumber());
-									nub4.setText(groupUsers.getUsers().get(3).getNumber());
-									nub5.setText(groupUsers.getUsers().get(4).getNumber());
-									nub6.setText(groupUsers.getUsers().get(5).getNumber());
-									nub7.setText(groupUsers.getUsers().get(6).getNumber());
-									nub8.setText(groupUsers.getUsers().get(7).getNumber());
-									nub9.setText(groupUsers.getUsers().get(8).getNumber());
-									nub10.setText(groupUsers.getUsers().get(9).getNumber());
+									try {
+										name1.setText(groupUsers.getUsers().get(0).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name2.setText(groupUsers.getUsers().get(1).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name3.setText(groupUsers.getUsers().get(2).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name4.setText(groupUsers.getUsers().get(3).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name5.setText(groupUsers.getUsers().get(4).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name6.setText(groupUsers.getUsers().get(5).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name7.setText(groupUsers.getUsers().get(6).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name8.setText(groupUsers.getUsers().get(7).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name9.setText(groupUsers.getUsers().get(8).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										name10.setText(groupUsers.getUsers().get(9).getName());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub1.setText(groupUsers.getUsers().get(0).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub2.setText(groupUsers.getUsers().get(1).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub3.setText(groupUsers.getUsers().get(2).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub4.setText(groupUsers.getUsers().get(3).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub5.setText(groupUsers.getUsers().get(4).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub6.setText(groupUsers.getUsers().get(5).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub7.setText(groupUsers.getUsers().get(6).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub8.setText(groupUsers.getUsers().get(7).getNumber());
+									} catch (Exception e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									try {
+										nub9.setText(groupUsers.getUsers().get(8).getNumber());
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+									try {
+										nub10.setText(groupUsers.getUsers().get(9).getNumber());
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
 								}
 								if (picfromServer != null) {
 									StringTokenizer tokenizer = new StringTokenizer(
@@ -386,7 +490,6 @@ public class EditShoujiEnterpriseActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						EditShoujiEnterpriseActivity.this);
@@ -483,6 +586,16 @@ public class EditShoujiEnterpriseActivity extends Activity {
 									params.put("data[center]", center);
 									params.put("data[fax]", fax);
 									params.put("data[net]", net);
+									
+									Iterator<String> iterator = delList.iterator();
+									StringBuilder builder = new StringBuilder();
+									while (iterator.hasNext()) {
+										String type = (String) iterator.next();
+										builder.append(type);
+										builder.append(",");
+									}
+									params.put("data[deldata]", builder.toString());
+									
 									long picSize = 0;
 									for (int i = 0; i < array.length; i++) {
 										FileInputStream fis;
@@ -496,12 +609,6 @@ public class EditShoujiEnterpriseActivity extends Activity {
 											e.printStackTrace();
 										}
 									}
-								/*	if (picSize > 10 * 1024 * 1024) {
-										MyUtlis.toastInfo(
-												context,
-												getResources().getString(
-														R.string.picSize_big));
-									} else {*/
 										HttpMultipartPost task = new HttpMultipartPost(
 												context,
 												MyConstants.PRODUCT_URL, array,
@@ -553,7 +660,6 @@ public class EditShoujiEnterpriseActivity extends Activity {
 						MyUtlis.toastInfo(context,
 								getResources().getString(R.string.brand_null));
 					}
-//				}
 			}
 
 		});
@@ -815,7 +921,19 @@ public class EditShoujiEnterpriseActivity extends Activity {
 			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-			mList = Arrays.asList(arry);
+			
+			///
+			String[] delarry = data.getExtras().getStringArray(
+					MyConstants.Extra.DEL_IMAGES) ;
+					for (int i = 0; i < delarry.length; i++) {
+						delList.add(delarry[i]);
+					}
+					//
+					
+					
+	for (int i = 0; i < arry.length; i++) {
+				mList.add(arry[i]);
+			}
 			if (mList.size() < MAXSIZE) {
 				imageview_add.setVisibility(View.VISIBLE);
 			}

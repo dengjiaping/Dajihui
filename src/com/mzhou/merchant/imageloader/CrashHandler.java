@@ -87,7 +87,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
                 Log.e(TAG, "error : ", e);    
             }    
             
-            Intent intent = new Intent(application.getApplicationContext(), ActivityMain.class);  
+            /*Intent intent = new Intent(application.getApplicationContext(), ActivityMain.class);  
             PendingIntent restartIntent = PendingIntent.getActivity(    
                     application.getApplicationContext(), 0, intent,    
                     Intent.FLAG_ACTIVITY_NEW_TASK);                                                 
@@ -95,7 +95,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             AlarmManager mgr = (AlarmManager)application.getSystemService(Context.ALARM_SERVICE);    
             mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000,    
                     restartIntent); // 1秒钟后重启应用   
-            application.finishActivity(); 
+*/            application.finishActivity(); 
             //退出程序    
             android.os.Process.killProcess(android.os.Process.myPid());    
             System.exit(1);   
@@ -108,7 +108,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
      * @param ex  
      * @return true:如果处理了该异常信息;否则返回false.  
      */    
-    private boolean handleException(Throwable ex) {    
+    private boolean handleException(final Throwable ex) {    
         if (ex == null) {    
             return false;    
         }    
@@ -117,14 +117,15 @@ public class CrashHandler implements UncaughtExceptionHandler {
             @Override    
             public void run() {    
                 Looper.prepare();    
-//                Toast.makeText(mContext, "很抱歉,程序出现异常,即将退出.", Toast.LENGTH_LONG).show();    
+                Toast.makeText(mContext, "很抱歉,程序出现异常,即将退出.", Toast.LENGTH_LONG).show();   
+                //收集设备参数信息     
+                collectDeviceInfo(mContext);    
+                //保存日志文件     
+                saveCrashInfo2File(ex);  
                 Looper.loop();    
             }    
         }.start();    
-        //收集设备参数信息     
-        collectDeviceInfo(mContext);    
-        //保存日志文件     
-        saveCrashInfo2File(ex);    
+         
         return true;    
     }    
         

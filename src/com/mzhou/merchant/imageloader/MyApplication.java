@@ -32,8 +32,6 @@ public class MyApplication extends Application {
 			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
 					.detectAll().penaltyDeath().build());
 		}
-		// CrashHandler crashHandler = CrashHandler.getInstance();
-		// crashHandler.init(this);
 		super.onCreate();
 		 CrashHandler crashHandler = CrashHandler.getInstance();    
 	        crashHandler.init(getApplicationContext(),this);
