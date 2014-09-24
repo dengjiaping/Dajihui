@@ -260,6 +260,8 @@ public class EditShoujiEnterpriseActivity extends Activity {
 		gridView = (MyGridView) findViewById(R.id.publish_product_gridview);
 		
 		imageview_add = (ImageView) findViewById(R.id.imageview_add);
+		
+		imageview_add.setVisibility(View.GONE);
 	}
 
 	private void getdataFromWeb() throws Exception{
@@ -289,127 +291,8 @@ public class EditShoujiEnterpriseActivity extends Activity {
 								pub_product_address.setText(productsByIdBean.getAddress());		  
 								pub_product_net.setText(productsByIdBean.getNet()); 
 								picfromServer = productsByIdBean.getPic();
-								GroupUsers groupUsers = getNameJson(productsByIdBean.getContact());
-								if (groupUsers != null) {
-									try {
-										name1.setText(groupUsers.getUsers().get(0).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name2.setText(groupUsers.getUsers().get(1).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name3.setText(groupUsers.getUsers().get(2).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name4.setText(groupUsers.getUsers().get(3).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name5.setText(groupUsers.getUsers().get(4).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name6.setText(groupUsers.getUsers().get(5).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name7.setText(groupUsers.getUsers().get(6).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name8.setText(groupUsers.getUsers().get(7).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name9.setText(groupUsers.getUsers().get(8).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										name10.setText(groupUsers.getUsers().get(9).getName());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub1.setText(groupUsers.getUsers().get(0).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub2.setText(groupUsers.getUsers().get(1).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub3.setText(groupUsers.getUsers().get(2).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub4.setText(groupUsers.getUsers().get(3).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub5.setText(groupUsers.getUsers().get(4).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub6.setText(groupUsers.getUsers().get(5).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub7.setText(groupUsers.getUsers().get(6).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub8.setText(groupUsers.getUsers().get(7).getNumber());
-									} catch (Exception e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									try {
-										nub9.setText(groupUsers.getUsers().get(8).getNumber());
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
-									try {
-										nub10.setText(groupUsers.getUsers().get(9).getNumber());
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
-								}
+								String json_name = productsByIdBean.getContact();
+								setName(json_name);
 								if (picfromServer != null) {
 									StringTokenizer tokenizer = new StringTokenizer(
 											picfromServer, getResources()
@@ -431,6 +314,74 @@ public class EditShoujiEnterpriseActivity extends Activity {
 			finish();
 		}
 
+	}
+	
+	/**
+	 * 设置联系人的值
+	 * 
+	 * @param json_name
+	 */
+	private String nameString(GroupUsers groupUsers, int position) {
+		if (groupUsers != null) {
+			if (groupUsers.getUsers().size() - position > 0) {
+				return groupUsers.getUsers().get(position).getName().toString();
+			} else {
+				return "";
+			}
+
+		}
+		return "";
+	}
+
+	private String numberString(GroupUsers groupUsers, int position) {
+		if (groupUsers != null) {
+			if (groupUsers.getUsers().size() - position > 0) {
+				return groupUsers.getUsers().get(position).getNumber()
+						.toString();
+			} else {
+				return "";
+			}
+
+		}
+		return "";
+	}
+	private GroupUsers parseJson(String string) {
+		try {
+			if (string != null && !string.equals("") && !string.equals("[]")) {
+				GroupUsers groupUsers = JSON.parseObject(string, GroupUsers.class);
+				return groupUsers;
+			}
+			
+		} catch (Exception e) {
+			return null;
+		}
+		return null;
+	}
+	private void setName(String json_name) {
+		System.out.println("setName===="+json_name);
+		GroupUsers groupUsers = parseJson(json_name);
+		if (groupUsers != null) {
+			name1.setText(nameString(groupUsers, 0));
+			name2.setText(nameString(groupUsers, 1));
+			name3.setText(nameString(groupUsers, 2));
+			name4.setText(nameString(groupUsers, 3));
+			name5.setText(nameString(groupUsers, 4));
+			name6.setText(nameString(groupUsers, 5));
+			name7.setText(nameString(groupUsers, 6));
+			name8.setText(nameString(groupUsers, 7));
+			name9.setText(nameString(groupUsers, 8));
+			name10.setText(nameString(groupUsers, 9));
+			nub1.setText(numberString(groupUsers, 0));
+			nub2.setText(numberString(groupUsers, 1));
+			nub3.setText(numberString(groupUsers, 2));
+			nub4.setText(numberString(groupUsers, 3));
+			nub5.setText(numberString(groupUsers, 4));
+			nub6.setText(numberString(groupUsers, 5));
+			nub7.setText(numberString(groupUsers, 6));
+			nub8.setText(numberString(groupUsers, 7));
+			nub9.setText(numberString(groupUsers, 8));
+			nub10.setText(numberString(groupUsers, 9));
+		}
 	}
 
 	private void selectPicture() {
@@ -587,28 +538,20 @@ public class EditShoujiEnterpriseActivity extends Activity {
 									params.put("data[fax]", fax);
 									params.put("data[net]", net);
 									
-									Iterator<String> iterator = delList.iterator();
-									StringBuilder builder = new StringBuilder();
-									while (iterator.hasNext()) {
-										String type = (String) iterator.next();
-										builder.append(type);
-										builder.append(",");
-									}
-									params.put("data[deldata]", builder.toString());
-									
-									long picSize = 0;
-									for (int i = 0; i < array.length; i++) {
-										FileInputStream fis;
-										try {
-											File file = new File(array[i]);
-											fis = new FileInputStream(file);
-											int fileLen = fis.available();
-
-											picSize = picSize + fileLen;
-										} catch (Exception e) {
-											e.printStackTrace();
+									if (delList.size() != 0) {
+										Iterator<String> iterator = delList.iterator();
+										StringBuilder builder = new StringBuilder();
+										while (iterator.hasNext()) {
+											String type = (String) iterator.next();
+											builder.append(type);
+											builder.append(",");
 										}
+										builder.deleteCharAt(builder.length() - 1);
+										params.put("data[deldata]", builder.toString());
+									}else{
+										params.put("data[deldata]", "");
 									}
+									System.out.println(params.toString());
 										HttpMultipartPost task = new HttpMultipartPost(
 												context,
 												MyConstants.PRODUCT_URL, array,
@@ -863,40 +806,28 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	}
 
 	 
-	private String getImagePath(final Uri uri) {
-		String[] projection = { MediaStore.Images.Media.DATA };
-		Cursor cursor = MediaStore.Images.Media.query(getContentResolver(),
-				uri, projection);
-		cursor.moveToFirst();
-		String path = cursor.getString(cursor
-				.getColumnIndex(MediaStore.Images.Media.DATA));
-		cursor.close();
-		return path;
-	}
+ 
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {//choose picture 
 			if (mList.size() < MAXSIZE) {
-				ContentResolver resolver = getContentResolver();
 				Uri originalUri = data.getData();
-				try {
-					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-					if (photo != null) {
-						String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
-								String.valueOf(System.currentTimeMillis()));
-						if (choose_pic_path.length() > 0) {
-								mList.add("file:/"+choose_pic_path);
-								if (mList.size() == MAXSIZE) {
-									imageview_add.setVisibility(View.GONE);
-								}
-							adapter.notifyDataSetChanged();
-						} 
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+					String[] proj = {MediaStore.Images.Media.DATA};
+					Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
+					int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+					cursor.moveToFirst(); 
+					String choose_pic_path = cursor.getString(column_index); 
+					if (choose_pic_path.length() > 0) {
+							mList.add("file:/"+choose_pic_path);
+							if (mList.size() == MAXSIZE) {
+								imageview_add.setVisibility(View.GONE);
+							}
+						adapter.notifyDataSetChanged();
+					} 
+				
+				 
 			}else {
 				MyUtlis.toastInfo(context, "图片最多只能显示5张!");
 			}
@@ -921,12 +852,11 @@ public class EditShoujiEnterpriseActivity extends Activity {
 			mList.clear();
 			String[] arry = data.getExtras().getStringArray(
 					MyConstants.Extra.IMAGES);
-			
-			///
 			String[] delarry = data.getExtras().getStringArray(
 					MyConstants.Extra.DEL_IMAGES) ;
 					for (int i = 0; i < delarry.length; i++) {
 						delList.add(delarry[i]);
+						System.out.println(delarry[i]);
 					}
 					//
 					
@@ -950,18 +880,7 @@ public class EditShoujiEnterpriseActivity extends Activity {
 	}
 
  
-	private boolean deleteDir(File dir) {
-		if (dir.isDirectory()) {
-			String[] children = dir.list();
-			for (int i = 0; i < children.length; i++) {
-				boolean success = deleteDir(new File(dir, children[i]));
-				if (!success) {
-					return false;
-				}
-			}
-		}
-		return dir.delete();
-	}
+ 
 	/**
 	 * 照相
 	 */
@@ -991,13 +910,6 @@ public class EditShoujiEnterpriseActivity extends Activity {
 		super.onDestroy();
 	}
 
-	private GroupUsers getNameJson(String string) {
-
-		if (string != null && !string.equals("") && !string.equals("[]")) {
-			GroupUsers groupUsers = JSON.parseObject(string, GroupUsers.class);
-			return groupUsers;
-		}
-		return null;
-	}
+	 
 
 }

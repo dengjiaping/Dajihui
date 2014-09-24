@@ -32,7 +32,7 @@ public class MyConstants {
 	/**
 	 * share url
 	 */
-	public static final String SHARE_URL="http://web.www.sj6.cn/product/view/";
+	public static final String SHARE_URL="http://www.sj6.cn/share/index/";
 	/**
 	 * ad url
 	 * 

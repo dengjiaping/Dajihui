@@ -83,8 +83,15 @@ public class CompanyContactUsActivity extends Activity {
 		if (string != null && !string.equals("") && !string.equals("[]")) {
 			
 				
-			GroupUsers groupUsers = JSON.parseObject(string, GroupUsers.class);
-
+			GroupUsers groupUsers = null;
+			try {
+				groupUsers = JSON.parseObject(string, GroupUsers.class);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			if (groupUsers == null) {
+				return;
+			}
 			try {
 				user_manager_tv_name1.setText(groupUsers.getUsers().get(0)
 						.getName());

@@ -226,7 +226,7 @@ public class EditShoujiCommenActivity extends Activity {
 				R.string.edit_product_info));
 		
 		imageview_add = (ImageView) findViewById(R.id.imageview_add);
-
+		imageview_add.setVisibility(View.GONE);
 	}
 
 	private void getdataFromWeb() {
@@ -340,6 +340,7 @@ public class EditShoujiCommenActivity extends Activity {
 		openAlbumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 		startActivityForResult(openAlbumIntent, CHOOSE_PIC);
 	}
+	
 	private void listennerButton() {
 		user_manager_category.setOnClickListener(new OnClickListener() {
 
@@ -446,6 +447,7 @@ public class EditShoujiCommenActivity extends Activity {
 									param1.put("data[id]", productid);
 									param1.put("data[brand]", brand);
 									param1.put("data[classid]", classid);
+									param1.put("data[is_en]", "0");
 									param1.put("data[type]", type);
 									param1.put("data[chip]", chip);
 									param1.put("data[size]", size);
@@ -463,29 +465,20 @@ public class EditShoujiCommenActivity extends Activity {
 									param1.put("data[company]", company);
 									param1.put("data[net]", net);
 									
-									
-									Iterator<String> iterator = delList.iterator();
-									StringBuilder builder = new StringBuilder();
-									while (iterator.hasNext()) {
-										String type = (String) iterator.next();
-										builder.append(type);
-										builder.append(",");
-									}
-									param1.put("data[deldata]", builder.toString());
-									
-									long picSize = 0;
-									for (int i = 0; i < array.length; i++) {
-										FileInputStream fis;
-										try {
-											File file = new File(array[i]);
-											fis = new FileInputStream(file);
-											int fileLen = fis.available();
-											picSize = picSize + fileLen;
-										} catch (Exception e) {
-											e.printStackTrace();
+								 
+									if (delList.size() != 0) {
+										Iterator<String> iterator = delList.iterator();
+										StringBuilder builder = new StringBuilder();
+										while (iterator.hasNext()) {
+											String type = (String) iterator.next();
+											builder.append(type);
+											builder.append(",");
 										}
+										builder.deleteCharAt(builder.length() - 1);
+										param1.put("data[deldata]", builder.toString());
+									}else{
+										param1.put("data[deldata]", "");
 									}
-//									if (picSize < 10 * 1024 * 1024) {
 										HttpMultipartPost task = new HttpMultipartPost(
 												EditShoujiCommenActivity.this,
 												MyConstants.PRODUCT_URL, array,
@@ -518,12 +511,6 @@ public class EditShoujiCommenActivity extends Activity {
 
 											}
 										});
-									/*} else {
-										MyUtlis.toastInfo(
-												context,
-												getResources().getString(
-														R.string.picSize_big));
-									}*/
 
 								} else {
 									MyUtlis.toastInfo(context, getResources()
@@ -681,24 +668,21 @@ public class EditShoujiCommenActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {//choose picture 
 			if (mList.size() < MAXSIZE) {
-				ContentResolver resolver = getContentResolver();
 				Uri originalUri = data.getData();
-				try {
-					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-					if (photo != null) {
-						String choose_pic_path = ImageUtils.savePhotoToSDCard(photo, saveDir,
-								String.valueOf(System.currentTimeMillis()));
-						if (choose_pic_path.length() > 0) {
-								mList.add("file:/"+choose_pic_path);
-								if (mList.size() == MAXSIZE) {
-									imageview_add.setVisibility(View.GONE);
-								}
-							adapter.notifyDataSetChanged();
-						} 
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+					String[] proj = {MediaStore.Images.Media.DATA};
+					Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
+					int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+					cursor.moveToFirst(); 
+					String choose_pic_path = cursor.getString(column_index); 
+					if (choose_pic_path.length() > 0) {
+							mList.add("file:/"+choose_pic_path);
+							if (mList.size() == MAXSIZE) {
+								imageview_add.setVisibility(View.GONE);
+							}
+						adapter.notifyDataSetChanged();
+					} 
+				
+				 
 			}else {
 				MyUtlis.toastInfo(context, "图片最多只能显示5张!");
 			}

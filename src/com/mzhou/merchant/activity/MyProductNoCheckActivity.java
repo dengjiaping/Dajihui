@@ -59,9 +59,6 @@ public class MyProductNoCheckActivity extends Activity {
 	private boolean isEnterprise;
 	private String uptime;
 	private TextView tView;
- 	 private QQShare mQQShare = null;
- 	  private QzoneShare mQzoneShare = null;
- 	  private com.tencent.tauth.Tencent	mTencent = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -78,9 +75,6 @@ public class MyProductNoCheckActivity extends Activity {
 	 * 
 	 */
 	private void init() {
-		 mTencent = Tencent.createInstance(MyConstants.APP_ID, MyProductNoCheckActivity.this);
-    	mQQShare = new QQShare(MyProductNoCheckActivity.this, mTencent.getQQToken());
-    	 mQzoneShare = new QzoneShare(MyProductNoCheckActivity.this, mTencent.getQQToken());
 		if (DbLoginManager.getInstance(MyProductNoCheckActivity.this).getLoginStatus()) {
 			UserInfoBean userInfoBean = DbUserManager.getInstance(this).getLogingUserInfo();
 			if ( userInfoBean.getUsertype().equals("1")) {
@@ -551,56 +545,6 @@ public class MyProductNoCheckActivity extends Activity {
 
 		}
 	}
-	   @Override
-	    protected void onDestroy() {
-	        super.onDestroy();
-	        if (mQzoneShare != null) {
-	            mQzoneShare.releaseResource();
-	            mQzoneShare = null;
-	        }
-	        if (mQQShare != null) {
-	            mQQShare.releaseResource();
-	            mQQShare = null;
-	        }
-	         
-	        if (mTencent != null) {
-	        	mTencent = null;
-			}
-	    }
-	   
 
-	    /**
-	     * 用异步方式启动分享
-	     * @param params
-	     */
-	    private void doShareToQzone(final Bundle params) {
-	        final Activity activity = MyProductNoCheckActivity.this;
-	        new Thread(new Runnable() {
-	            
-	            @Override
-	            public void run() {
-	                // TODO Auto-generated method stub
-	            	mQzoneShare.shareToQzone(activity, params, new IUiListener() {
-
-	                    @Override
-	                    public void onCancel() {
-	                      System.out.println("oncancel  ");
-	                    }
-
-	                    @Override
-	                    public void onError(UiError e) {
-	                        // TODO Auto-generated method stub
-	                        System.out.println("----erro-----"+e.errorMessage);
-	                    }
-
-						@Override
-						public void onComplete(Object response) {
-							// TODO Auto-generated method stub
-							 System.out.println("onComplete: " + response.toString());
-						}
-
-	                });
-	            }
-	        }).start();
-	    }
+	 
 }

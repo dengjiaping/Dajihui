@@ -319,7 +319,7 @@ public class MyProductAlreadyCheckActivity extends Activity {
                     	System.out.println("qq share --------");
                     	System.out.println(response.toString());
                     	System.out.println("qq share --------"); 
-                    	MyUtlis.toastInfo(MyProductAlreadyCheckActivity.this, "分享成功!");
+                    	MyUtlis.toastInfo(MyProductAlreadyCheckActivity.this, "推送成功!");
                     }
 
                     @Override

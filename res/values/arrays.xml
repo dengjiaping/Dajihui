@@ -2,8 +2,8 @@
 <resources>
     <string-array name="category2">
         <item>品牌</item>
-        <item>五码</item>
-        <item>三码</item>
+        <item>三五</item>
+        <item>三防</item>
         <item>外单</item>
         <item>手表</item>
         <item>个性</item>

@@ -1072,15 +1072,15 @@ com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
-    767:776:private boolean deleteDir(java.io.File)
+    753:762:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.EditShoujiEnterpriseActivity:
     private static final int REQUEST_CODE
     private static final int REQUEST_CODE1
     private android.net.Uri mImageUri
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
-    867:874:private java.lang.String getImagePath(android.net.Uri)
-    954:963:private boolean deleteDir(java.io.File)
+    810:817:private java.lang.String getImagePath(android.net.Uri)
+    896:905:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.FabuShoujiCommenActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
@@ -1213,8 +1213,10 @@ com.mzhou.merchant.db.manager.DbUserManager:
     280:281:public boolean getLoginStatusByUsertype(java.lang.String)
 com.mzhou.merchant.fragment.Right:
     203:208:private java.lang.String getVersionName()
-com.mzhou.merchant.imageloader.CrashHandler:
-    public static final java.lang.String TAG
+com.mzhou.merchant.imageloader.CrashHandler
+com.mzhou.merchant.imageloader.CrashHandler$1
+com.mzhou.merchant.imageloader.MyApplication:
+    85:87:public void finishActivity()
 com.mzhou.merchant.myview.BaikeConstant:
     17:17:public BaikeConstant()
     34:36:public static java.lang.String replaceBreakLineToSpace(java.lang.String)
@@ -1246,6 +1248,7 @@ com.mzhou.merchant.utlis.CustomProgressDialog:
     69:69:public com.mzhou.merchant.utlis.CustomProgressDialog setTitile(java.lang.String)
 com.mzhou.merchant.utlis.GetDataByPostUtil:
     463:475:public static java.lang.String getProductCategoryInfo(android.content.Context,java.lang.String,java.lang.String)
+    565:581:public static java.lang.String saveErrorInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
     682:696:public static java.lang.String getProductMsgInfo(android.content.Context,java.lang.String,java.lang.String,int,int)
 com.mzhou.merchant.utlis.GetPhoneNum:
     private static final int PHONES_DISPLAY_NAME_INDEX

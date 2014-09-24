@@ -205,8 +205,16 @@ public class PicPagerActivity extends Activity {
 			intent.putExtra(
 					MyConstants.Extra.IMAGES,
 					imageUrls);
+			String[] delArray = new String[delUrls.size()];
+			for (int i = 0; i < delUrls.size(); i++) {
+				delArray[i] = delUrls.get(i);
+			}
+			intent.putExtra(
+					MyConstants.Extra.DEL_IMAGES,
+					delArray);
 			setResult(RESULT, intent);
 			finish();
+
 		}
 		return super.onKeyDown(keyCode, event);
 	}
@@ -331,7 +339,7 @@ public class PicPagerActivity extends Activity {
 			if (!position.equals(images[i])) {
 				list.add(images[i]);
 			}else {
-				if (images[i].startsWith("http")) {
+				if (images[i].contains("http")) {
 					delUrls.add(images[i]);
 				}
 			}

@@ -893,35 +893,21 @@ public class FabuShoujiEnterpriseActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {//choose picture 
 			if (mList.size() < MAXSIZE) {
-				ContentResolver resolver = getContentResolver();
 				Uri originalUri = data.getData();
-				try {
-					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-					if (photo != null) {
-						
-						String[] proj = {MediaStore.Images.Media.DATA};
-						Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
-						int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-						cursor.moveToFirst(); 
-						String choose_pic_path = cursor.getString(column_index); 
-						
-						
-//						Bitmap newBitmap = ImageUtils.compressImage(photo);
-//						photo.recycle();
-//						String choose_pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,
-//								String.valueOf(System.currentTimeMillis()));
-//						newBitmap.recycle();
-						if (choose_pic_path.length() > 0) {
-								mList.add("file:/"+choose_pic_path);
-								if (mList.size() == MAXSIZE) {
-									imageview_add.setVisibility(View.GONE);
-								}
-							adapter.notifyDataSetChanged();
-						} 
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+					String[] proj = {MediaStore.Images.Media.DATA};
+					Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
+					int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+					cursor.moveToFirst(); 
+					String choose_pic_path = cursor.getString(column_index); 
+					if (choose_pic_path.length() > 0) {
+							mList.add("file:/"+choose_pic_path);
+							if (mList.size() == MAXSIZE) {
+								imageview_add.setVisibility(View.GONE);
+							}
+						adapter.notifyDataSetChanged();
+					} 
+				
+				 
 			}else {
 				MyUtlis.toastInfo(context, "图片最多只能显示5张!");
 			}

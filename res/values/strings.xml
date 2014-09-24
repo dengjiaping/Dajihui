@@ -55,7 +55,7 @@
     <string name="refresh">刷新</string>
     <string name="delete">删除</string>
     <string name="look">查看</string>
-    <string name="share">分享</string>
+    <string name="share">推送</string>
     <string name="edit">修改</string>
     <string name="local">从手机相册选择</string>
     <string name="search_null">搜索关键字不为空！</string>
@@ -232,8 +232,8 @@
     <string name="title_bar_main">今日手机招商</string>
     <string name="title_bar_zhaoshang">最新供应信息</string>
     <string name="title_bar_qiugou">最新求购信息</string>
-    <string name="title_bar_sanma">三码（高仿）</string>
-    <string name="title_bar_wuma">五码（刻五）</string>
+    <string name="title_bar_sanma">三防手机</string>
+    <string name="title_bar_wuma">三五（高仿）</string>
     <string name="title_bar_gexing">个性手机</string>
     <string name="title_bar_waidan">外单手机</string>
     <string name="title_bar_td">手表手机</string>
@@ -404,7 +404,7 @@
 	    \n\n4.如果是用“QQ号码直接登陆注册会员”的用户，请绑定一个邮箱作为账号，也方便日后使用邮箱直接进入会员中心发布产品。
 	    \n\n5.登录会员，发布产品图片视频，有三种入口：\n\t\t第一，用安卓手机登录软件后台发布。\n\t\t第二，关注“大机汇”公众平台，点会员中心进入发布。\n\t\t第三，用电脑打开“大机汇”官网www.sj6.cn进入会员中心发布。
 	    \n\n6.进入会员中心后，填写会员资料就可以直接发布产品，上传产品时可以用手机当场拍照上传，也可以从手机/电脑相册里选择图片，发布图片视频完成之后，等待审核通过，才能显示在软件页首和相对应的页面，如当天有新机开盘的用户，请在早上9：00—10：00点，发布产品。
-	    \n\n7.“普通会员，企业会员”发布产品时，审核通过后，在相对应的类别显示出来。\n\t\t第一，“普通会员”分别有：“品牌国内”“五码刻五”“三码高仿”“外单手机”“个性手机”“手表手机”。\n\t\t第二，“企业会员”分别有：“2G3G手机”和“4G手机”。
+	    \n\n7.“普通会员，企业会员”发布产品时，审核通过后，在相对应的类别显示出来。\n\t\t第一，“普通会员”分别有：“品牌国内”“三五（高仿）”“三防手机”“外单手机”“个性手机”“手表手机”。\n\t\t第二，“企业会员”分别有：“2G3G手机”和“4G手机”。
 	    \n\n8."招商"这个页面只显示最近3天上传的图片。“产品首页”页面显示所有上传的产品，并不作分类，它是“大机汇”所有产品图片都会在这里出现，包括（普通会员，企业会员上传的产品）。不过，由于产品图片太多，有一些排名比较靠后，用户可以在会员中心将已发布的产品“刷新”一下，这样会有一次机会排在第一位。
 	    \n\n9.“品牌厂家”是汇集了国内拥有手机牌照的厂商。首先展示的是品牌LOGO（商标），让客户第一时间记住并且更加熟悉些手机牌子。其次点击品牌LOGO，一个独立的公司产品展示页面，全是该品牌的所有产品，让客户一目了然。点了其产品，可以看到产品的详细参数的和公司简介，还有联系方式。
 	    \n\n10.进入会员中心，点已发布的产品图片，有一个“推送”功能。可以推送到“QQ好友/QQ空间/QQ群/微信朋友圈”中显示，一次上传，多方面推广，增加曝光率，客户下单机会高，也省时省力。\n

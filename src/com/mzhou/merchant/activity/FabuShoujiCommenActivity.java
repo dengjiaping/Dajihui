@@ -445,6 +445,7 @@ private final String TAG="FabuShoujiCommenActivity";
 			}
 
 		});
+		 
 
 	}
 	private void postData() throws Exception{
@@ -462,6 +463,7 @@ private final String TAG="FabuShoujiCommenActivity";
 							param1.put("uid", uid);
 							param1.put("data[brand]", brand);
 							param1.put("data[classid]", classid);
+							param1.put("data[is_en]", "0");
 							param1.put("data[type]", type);
 							param1.put("data[chip]", chip);
 							param1.put("data[size]", size);
@@ -620,36 +622,21 @@ private final String TAG="FabuShoujiCommenActivity";
 		Log.i(TAG, "[onActivityResult]    requestCode="+requestCode+",resultCode="+resultCode+",mList="+mList.toString());
 		if (requestCode == CHOOSE_PIC && resultCode == RESULT_OK) {//choose picture 
 			if (mList.size() < MAXSIZE) {
-				ContentResolver resolver = getContentResolver();
 				Uri originalUri = data.getData();
-				try {
-					Bitmap photo = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-					if (photo != null) {
-						
-						String[] proj = {MediaStore.Images.Media.DATA};
-						Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
-						int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-						cursor.moveToFirst(); 
-						String choose_pic_path = cursor.getString(column_index); 
-						
-						
-//						Bitmap newBitmap = ImageUtils.compressImage(photo);
-//						photo.recycle();
-//						String choose_pic_path = ImageUtils.savePhotoToSDCard(newBitmap, saveDir,
-//								String.valueOf(System.currentTimeMillis()));
-//						newBitmap.recycle();
-						if (choose_pic_path.length() > 0) {
-							Log.i(TAG, "[onActivityResult]    choose_pic_path="+choose_pic_path);
-								mList.add("file:/"+choose_pic_path);
-								if (mList.size() == MAXSIZE) {
-									imageview_add.setVisibility(View.GONE);
-								}
-							adapter.notifyDataSetChanged();
-						} 
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+					String[] proj = {MediaStore.Images.Media.DATA};
+					Cursor cursor = managedQuery(originalUri, proj, null, null, null); 
+					int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+					cursor.moveToFirst(); 
+					String choose_pic_path = cursor.getString(column_index); 
+					if (choose_pic_path.length() > 0) {
+							mList.add("file:/"+choose_pic_path);
+							if (mList.size() == MAXSIZE) {
+								imageview_add.setVisibility(View.GONE);
+							}
+						adapter.notifyDataSetChanged();
+					} 
+				
+				 
 			}else {
 				MyUtlis.toastInfo(context, "图片最多只能显示5张!");
 			}
