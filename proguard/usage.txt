@@ -1072,15 +1072,13 @@ com.mzhou.merchant.activity.BuildConfig
 com.mzhou.merchant.activity.EditShoujiCommenActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
-    753:762:private boolean deleteDir(java.io.File)
+    751:760:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.EditShoujiEnterpriseActivity:
     private static final int REQUEST_CODE
     private static final int REQUEST_CODE1
     private android.net.Uri mImageUri
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
-    810:817:private java.lang.String getImagePath(android.net.Uri)
-    896:905:private boolean deleteDir(java.io.File)
 com.mzhou.merchant.activity.FabuShoujiCommenActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
@@ -1088,11 +1086,6 @@ com.mzhou.merchant.activity.FabuShoujiEnterpriseActivity:
     private static final int CHOOSE_PIC
     private static final int TAKE_PIC
     private android.net.Uri mImageUri
-com.mzhou.merchant.activity.MyProductNoCheckActivity:
-    577:605:private void doShareToQzone(android.os.Bundle)
-    63:63:static synthetic com.tencent.connect.share.QzoneShare access$13(com.mzhou.merchant.activity.MyProductNoCheckActivity)
-com.mzhou.merchant.activity.MyProductNoCheckActivity$11
-com.mzhou.merchant.activity.MyProductNoCheckActivity$11$1
 com.mzhou.merchant.activity.PicPagerActivity:
     private static final java.lang.String STATE_POSITION
 com.mzhou.merchant.activity.R:
@@ -1136,7 +1129,7 @@ com.mzhou.merchant.activity.R$styleable:
     public static final int PullToRefresh_ptrShowIndicator
     public static final int PullToRefresh_ptrSubHeaderTextAppearance
     public static final int TogglePrefAttrs_android_preferenceLayoutChild
-    1326:1326:public R$styleable()
+    1329:1329:public R$styleable()
 com.mzhou.merchant.activity.R$xml
 com.mzhou.merchant.activity.UserControlCommonActivity:
     private static final int REQUEST_CODE
@@ -1213,10 +1206,8 @@ com.mzhou.merchant.db.manager.DbUserManager:
     280:281:public boolean getLoginStatusByUsertype(java.lang.String)
 com.mzhou.merchant.fragment.Right:
     203:208:private java.lang.String getVersionName()
-com.mzhou.merchant.imageloader.CrashHandler
-com.mzhou.merchant.imageloader.CrashHandler$1
-com.mzhou.merchant.imageloader.MyApplication:
-    85:87:public void finishActivity()
+com.mzhou.merchant.imageloader.CrashHandler:
+    public static final java.lang.String TAG
 com.mzhou.merchant.myview.BaikeConstant:
     17:17:public BaikeConstant()
     34:36:public static java.lang.String replaceBreakLineToSpace(java.lang.String)
@@ -1248,7 +1239,6 @@ com.mzhou.merchant.utlis.CustomProgressDialog:
     69:69:public com.mzhou.merchant.utlis.CustomProgressDialog setTitile(java.lang.String)
 com.mzhou.merchant.utlis.GetDataByPostUtil:
     463:475:public static java.lang.String getProductCategoryInfo(android.content.Context,java.lang.String,java.lang.String)
-    565:581:public static java.lang.String saveErrorInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
     682:696:public static java.lang.String getProductMsgInfo(android.content.Context,java.lang.String,java.lang.String,int,int)
 com.mzhou.merchant.utlis.GetPhoneNum:
     private static final int PHONES_DISPLAY_NAME_INDEX
@@ -1334,8 +1324,8 @@ com.mzhou.merchant.utlis.MyConstants$Config
 com.mzhou.merchant.utlis.MyConstants$Extra
 com.mzhou.merchant.utlis.MyUtlis:
     28:28:public MyUtlis()
-    177:192:public static void sortLogoOrder(java.util.LinkedList)
-    387:402:public static java.lang.String readFiles(java.lang.String,android.content.Context)
+    183:198:public static void sortLogoOrder(java.util.LinkedList)
+    393:408:public static java.lang.String readFiles(java.lang.String,android.content.Context)
 com.mzhou.merchant.utlis.MyUtlis$1
 com.mzhou.merchant.utlis.PictureUtil:
     18:18:public PictureUtil()

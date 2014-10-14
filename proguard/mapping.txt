@@ -6835,10 +6835,7 @@ com.mzhou.merchant.activity.MyProductNoCheckActivity -> com.mzhou.merchant.activ
     boolean isEnterprise -> j
     java.lang.String uptime -> k
     android.widget.TextView tView -> l
-    com.tencent.connect.share.QQShare mQQShare -> m
-    com.tencent.connect.share.QzoneShare mQzoneShare -> n
-    com.tencent.tauth.Tencent mTencent -> o
-    android.os.Handler handler -> p
+    android.os.Handler handler -> m
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void loadButton() -> b
@@ -6847,7 +6844,6 @@ com.mzhou.merchant.activity.MyProductNoCheckActivity -> com.mzhou.merchant.activ
     void showRefreshDialog(android.content.Context,int) -> b
     void getdata() -> d
     void refreshListener() -> e
-    void onDestroy() -> onDestroy
     java.util.LinkedList access$0(com.mzhou.merchant.activity.MyProductNoCheckActivity) -> a
     com.mzhou.merchant.adapter.MyGridProductAdapter2 access$1(com.mzhou.merchant.activity.MyProductNoCheckActivity) -> b
     void access$2(com.mzhou.merchant.activity.MyProductNoCheckActivity,android.content.Context,int) -> a
@@ -7149,6 +7145,9 @@ com.mzhou.merchant.activity.ShoujiCommenActivity -> com.mzhou.merchant.activity.
     android.widget.LinearLayout linear -> G
     android.widget.ScrollView scroll_linear -> H
     android.widget.Button btn_back -> I
+    android.widget.LinearLayout video_liear -> J
+    android.widget.ImageView video_thumb -> K
+    com.mzhou.merchant.model.ProductsByIdBean bean -> L
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
     void onPause() -> onPause
@@ -7162,32 +7161,36 @@ com.mzhou.merchant.activity.ShoujiCommenActivity -> com.mzhou.merchant.activity.
     java.lang.String[] access$3(com.mzhou.merchant.activity.ShoujiCommenActivity) -> d
     com.mzhou.merchant.activity.ShoujiCommenActivity$ImageItemAdapter access$4(com.mzhou.merchant.activity.ShoujiCommenActivity) -> e
     java.lang.String access$5(com.mzhou.merchant.activity.ShoujiCommenActivity) -> f
-    android.widget.TextView access$6(com.mzhou.merchant.activity.ShoujiCommenActivity) -> g
-    android.widget.TextView access$7(com.mzhou.merchant.activity.ShoujiCommenActivity) -> h
-    android.widget.TextView access$8(com.mzhou.merchant.activity.ShoujiCommenActivity) -> i
-    void access$9(com.mzhou.merchant.activity.ShoujiCommenActivity,java.lang.String) -> a
+    com.mzhou.merchant.model.ProductsByIdBean access$6(com.mzhou.merchant.activity.ShoujiCommenActivity) -> g
+    void access$7(com.mzhou.merchant.activity.ShoujiCommenActivity,com.mzhou.merchant.model.ProductsByIdBean) -> a
+    android.widget.LinearLayout access$8(com.mzhou.merchant.activity.ShoujiCommenActivity) -> h
+    android.widget.ImageView access$9(com.mzhou.merchant.activity.ShoujiCommenActivity) -> i
     android.widget.TextView access$10(com.mzhou.merchant.activity.ShoujiCommenActivity) -> j
     android.widget.TextView access$11(com.mzhou.merchant.activity.ShoujiCommenActivity) -> k
     android.widget.TextView access$12(com.mzhou.merchant.activity.ShoujiCommenActivity) -> l
-    void access$13(com.mzhou.merchant.activity.ShoujiCommenActivity,java.lang.String) -> b
+    void access$13(com.mzhou.merchant.activity.ShoujiCommenActivity,java.lang.String) -> a
     android.widget.TextView access$14(com.mzhou.merchant.activity.ShoujiCommenActivity) -> m
     android.widget.TextView access$15(com.mzhou.merchant.activity.ShoujiCommenActivity) -> n
     android.widget.TextView access$16(com.mzhou.merchant.activity.ShoujiCommenActivity) -> o
-    android.widget.TextView access$17(com.mzhou.merchant.activity.ShoujiCommenActivity) -> p
-    android.widget.TextView access$18(com.mzhou.merchant.activity.ShoujiCommenActivity) -> q
-    android.widget.TextView access$19(com.mzhou.merchant.activity.ShoujiCommenActivity) -> r
-    android.widget.TextView access$20(com.mzhou.merchant.activity.ShoujiCommenActivity) -> s
-    android.widget.TextView access$21(com.mzhou.merchant.activity.ShoujiCommenActivity) -> t
-    android.widget.TextView access$22(com.mzhou.merchant.activity.ShoujiCommenActivity) -> u
-    android.widget.TextView access$23(com.mzhou.merchant.activity.ShoujiCommenActivity) -> v
-    android.widget.TextView access$24(com.mzhou.merchant.activity.ShoujiCommenActivity) -> w
-    java.lang.String access$25(com.mzhou.merchant.activity.ShoujiCommenActivity) -> x
-    void access$26(com.mzhou.merchant.activity.ShoujiCommenActivity,java.lang.String[]) -> a
-    android.widget.Gallery access$27(com.mzhou.merchant.activity.ShoujiCommenActivity) -> y
-    com.mzhou.merchant.activity.ShoujiCommenActivity$ImageAdapter access$28(com.mzhou.merchant.activity.ShoujiCommenActivity) -> z
-    android.content.Context access$29(com.mzhou.merchant.activity.ShoujiCommenActivity) -> A
-    android.widget.ScrollView access$30(com.mzhou.merchant.activity.ShoujiCommenActivity) -> B
-    android.widget.LinearLayout access$31(com.mzhou.merchant.activity.ShoujiCommenActivity) -> C
+    void access$17(com.mzhou.merchant.activity.ShoujiCommenActivity,java.lang.String) -> b
+    android.widget.TextView access$18(com.mzhou.merchant.activity.ShoujiCommenActivity) -> p
+    android.widget.TextView access$19(com.mzhou.merchant.activity.ShoujiCommenActivity) -> q
+    android.widget.TextView access$20(com.mzhou.merchant.activity.ShoujiCommenActivity) -> r
+    android.widget.TextView access$21(com.mzhou.merchant.activity.ShoujiCommenActivity) -> s
+    android.widget.TextView access$22(com.mzhou.merchant.activity.ShoujiCommenActivity) -> t
+    android.widget.TextView access$23(com.mzhou.merchant.activity.ShoujiCommenActivity) -> u
+    android.widget.TextView access$24(com.mzhou.merchant.activity.ShoujiCommenActivity) -> v
+    android.widget.TextView access$25(com.mzhou.merchant.activity.ShoujiCommenActivity) -> w
+    android.widget.TextView access$26(com.mzhou.merchant.activity.ShoujiCommenActivity) -> x
+    android.widget.TextView access$27(com.mzhou.merchant.activity.ShoujiCommenActivity) -> y
+    android.widget.TextView access$28(com.mzhou.merchant.activity.ShoujiCommenActivity) -> z
+    java.lang.String access$29(com.mzhou.merchant.activity.ShoujiCommenActivity) -> A
+    void access$30(com.mzhou.merchant.activity.ShoujiCommenActivity,java.lang.String[]) -> a
+    android.widget.Gallery access$31(com.mzhou.merchant.activity.ShoujiCommenActivity) -> B
+    com.mzhou.merchant.activity.ShoujiCommenActivity$ImageAdapter access$32(com.mzhou.merchant.activity.ShoujiCommenActivity) -> C
+    android.content.Context access$33(com.mzhou.merchant.activity.ShoujiCommenActivity) -> D
+    android.widget.ScrollView access$34(com.mzhou.merchant.activity.ShoujiCommenActivity) -> E
+    android.widget.LinearLayout access$35(com.mzhou.merchant.activity.ShoujiCommenActivity) -> F
 com.mzhou.merchant.activity.ShoujiCommenActivity$1 -> com.mzhou.merchant.activity.ki:
     com.mzhou.merchant.activity.ShoujiCommenActivity this$0 -> a
     void onClick(android.view.View) -> onClick
@@ -7205,14 +7208,17 @@ com.mzhou.merchant.activity.ShoujiCommenActivity$5 -> com.mzhou.merchant.activit
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.ShoujiCommenActivity$6 -> com.mzhou.merchant.activity.kn:
     com.mzhou.merchant.activity.ShoujiCommenActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.mzhou.merchant.activity.ShoujiCommenActivity$7 -> com.mzhou.merchant.activity.ko:
+    com.mzhou.merchant.activity.ShoujiCommenActivity this$0 -> a
     void getProductInfoById(com.mzhou.merchant.model.ProductsByIdBean) -> a
-com.mzhou.merchant.activity.ShoujiCommenActivity$ImageAdapter -> com.mzhou.merchant.activity.ko:
+com.mzhou.merchant.activity.ShoujiCommenActivity$ImageAdapter -> com.mzhou.merchant.activity.kp:
     com.mzhou.merchant.activity.ShoujiCommenActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.mzhou.merchant.activity.ShoujiCommenActivity$ImageItemAdapter -> com.mzhou.merchant.activity.kp:
+com.mzhou.merchant.activity.ShoujiCommenActivity$ImageItemAdapter -> com.mzhou.merchant.activity.kq:
     com.mzhou.merchant.activity.ShoujiCommenActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
@@ -7250,6 +7256,9 @@ com.mzhou.merchant.activity.ShoujiEnterpriseActivity -> com.mzhou.merchant.activ
     android.widget.LinearLayout bottom_linearlayout -> C
     android.widget.ScrollView scroll_linear -> D
     android.widget.Button btn_back -> E
+    android.widget.LinearLayout video_liear -> F
+    android.widget.ImageView video_thumb -> G
+    com.mzhou.merchant.model.ProductsEnterpriseByIdBean bean -> H
     void onCreate(android.os.Bundle) -> onCreate
     void onResume() -> onResume
     void onPause() -> onPause
@@ -7259,59 +7268,66 @@ com.mzhou.merchant.activity.ShoujiEnterpriseActivity -> com.mzhou.merchant.activ
     void getdata() -> d
     java.util.LinkedList access$0(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> a
     com.nostra13.universalimageloader.core.DisplayImageOptions access$1(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> b
-    java.lang.String[] access$2(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> c
-    com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageItemAdapter access$3(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> d
-    java.lang.String access$4(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> e
-    android.content.Context access$5(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> f
-    com.mzhou.merchant.model.ProductsEnterpriseByIdBean access$6(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> g
-    void access$7(com.mzhou.merchant.activity.ShoujiEnterpriseActivity,com.mzhou.merchant.model.ProductsEnterpriseByIdBean) -> a
-    void access$8(com.mzhou.merchant.activity.ShoujiEnterpriseActivity,java.lang.String) -> a
-    android.widget.TextView access$9(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> h
-    android.widget.TextView access$10(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> i
-    android.widget.TextView access$11(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> j
-    android.widget.TextView access$12(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> k
-    android.widget.TextView access$13(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> l
-    android.widget.TextView access$14(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> m
-    android.widget.TextView access$15(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> n
-    android.widget.TextView access$16(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> o
-    android.widget.TextView access$17(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> p
-    android.widget.TextView access$18(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> q
-    android.widget.TextView access$19(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> r
-    java.lang.String access$20(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> s
-    void access$21(com.mzhou.merchant.activity.ShoujiEnterpriseActivity,java.lang.String[]) -> a
-    android.widget.Gallery access$22(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> t
-    com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageAdapter access$23(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> u
-    android.widget.LinearLayout access$24(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> v
-    android.widget.ScrollView access$25(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> w
-    android.widget.LinearLayout access$26(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> x
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$1 -> com.mzhou.merchant.activity.kq:
+    com.mzhou.merchant.model.ProductsEnterpriseByIdBean access$2(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> c
+    java.lang.String[] access$3(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> d
+    com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageItemAdapter access$4(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> e
+    java.lang.String access$5(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> f
+    android.content.Context access$6(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> g
+    com.mzhou.merchant.model.ProductsEnterpriseByIdBean access$7(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> h
+    void access$8(com.mzhou.merchant.activity.ShoujiEnterpriseActivity,com.mzhou.merchant.model.ProductsEnterpriseByIdBean) -> a
+    android.widget.LinearLayout access$9(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> i
+    android.widget.ImageView access$10(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> j
+    void access$11(com.mzhou.merchant.activity.ShoujiEnterpriseActivity,com.mzhou.merchant.model.ProductsEnterpriseByIdBean) -> b
+    void access$12(com.mzhou.merchant.activity.ShoujiEnterpriseActivity,java.lang.String) -> a
+    android.widget.TextView access$13(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> k
+    android.widget.TextView access$14(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> l
+    android.widget.TextView access$15(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> m
+    android.widget.TextView access$16(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> n
+    android.widget.TextView access$17(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> o
+    android.widget.TextView access$18(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> p
+    android.widget.TextView access$19(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> q
+    android.widget.TextView access$20(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> r
+    android.widget.TextView access$21(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> s
+    android.widget.TextView access$22(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> t
+    android.widget.TextView access$23(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> u
+    java.lang.String access$24(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> v
+    void access$25(com.mzhou.merchant.activity.ShoujiEnterpriseActivity,java.lang.String[]) -> a
+    android.widget.Gallery access$26(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> w
+    com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageAdapter access$27(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> x
+    android.widget.LinearLayout access$28(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> y
+    android.widget.ScrollView access$29(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> z
+    android.widget.LinearLayout access$30(com.mzhou.merchant.activity.ShoujiEnterpriseActivity) -> A
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$1 -> com.mzhou.merchant.activity.kr:
+    com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$2 -> com.mzhou.merchant.activity.ks:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$2 -> com.mzhou.merchant.activity.kr:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$3 -> com.mzhou.merchant.activity.kt:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$3 -> com.mzhou.merchant.activity.ks:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$4 -> com.mzhou.merchant.activity.ku:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$4 -> com.mzhou.merchant.activity.kt:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$5 -> com.mzhou.merchant.activity.kv:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$5 -> com.mzhou.merchant.activity.ku:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$6 -> com.mzhou.merchant.activity.kw:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$6 -> com.mzhou.merchant.activity.kv:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$7 -> com.mzhou.merchant.activity.kx:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$7 -> com.mzhou.merchant.activity.kw:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$8 -> com.mzhou.merchant.activity.ky:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     void getProductInfoById(com.mzhou.merchant.model.ProductsEnterpriseByIdBean) -> a
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageAdapter -> com.mzhou.merchant.activity.kx:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageAdapter -> com.mzhou.merchant.activity.kz:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageItemAdapter -> com.mzhou.merchant.activity.ky:
+com.mzhou.merchant.activity.ShoujiEnterpriseActivity$ImageItemAdapter -> com.mzhou.merchant.activity.la:
     com.mzhou.merchant.activity.ShoujiEnterpriseActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
@@ -7347,20 +7363,20 @@ com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity -> com.mzhou.merchant.a
     com.mzhou.merchant.dao.biz.ProductsManager access$6(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> g
     java.lang.String access$7(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> h
     java.util.List access$8(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity) -> i
-com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$1 -> com.mzhou.merchant.activity.kz:
+com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$1 -> com.mzhou.merchant.activity.lb:
     com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$2 -> com.mzhou.merchant.activity.la:
+com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$2 -> com.mzhou.merchant.activity.lc:
     com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$3 -> com.mzhou.merchant.activity.lb:
+com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$3 -> com.mzhou.merchant.activity.ld:
     com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity this$0 -> a
     void onClick(android.view.View) -> onClick
     com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity access$0(com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$3) -> a
-com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$3$1 -> com.mzhou.merchant.activity.lc:
+com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$3$1 -> com.mzhou.merchant.activity.le:
     com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$3 this$1 -> a
     void getBackAttactInfo(com.mzhou.merchant.model.BackBean) -> a
-com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$4 -> com.mzhou.merchant.activity.ld:
+com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity$4 -> com.mzhou.merchant.activity.lf:
     com.mzhou.merchant.activity.ShoujiLeaveWordsFabuActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity -> com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity:
@@ -7394,34 +7410,34 @@ com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity -> com.mzhou.merchant.a
     java.lang.String access$8(com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity) -> h
     int access$9(com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity) -> i
     void access$10(com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity,int) -> a
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$1 -> com.mzhou.merchant.activity.le:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$1 -> com.mzhou.merchant.activity.lg:
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$2 -> com.mzhou.merchant.activity.lf:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$2 -> com.mzhou.merchant.activity.lh:
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$3 -> com.mzhou.merchant.activity.lg:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$3 -> com.mzhou.merchant.activity.li:
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity this$0 -> a
     void getCommentInfo(java.util.List) -> a
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4 -> com.mzhou.merchant.activity.lh:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4 -> com.mzhou.merchant.activity.lj:
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity this$0 -> a
     void onPullDownToRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> a
     void onPullUpToRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> b
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity access$0(com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4) -> a
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4$1 -> com.mzhou.merchant.activity.li:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4$1 -> com.mzhou.merchant.activity.lk:
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4 this$1 -> a
     void getCommentInfo(java.util.List) -> a
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4$2 -> com.mzhou.merchant.activity.lj:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4$2 -> com.mzhou.merchant.activity.ll:
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$4 this$1 -> a
     void getCommentInfo(java.util.List) -> a
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$ZSAdapter -> com.mzhou.merchant.activity.lk:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$ZSAdapter -> com.mzhou.merchant.activity.lm:
     android.content.Context mContext -> b
     com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$ZSAdapter$ViewHolder -> com.mzhou.merchant.activity.ll:
+com.mzhou.merchant.activity.ShoujiLeaveWordsListActivity$ZSAdapter$ViewHolder -> com.mzhou.merchant.activity.ln:
     android.widget.TextView content -> a
     android.widget.TextView date -> b
     android.widget.TextView name -> c
@@ -7447,10 +7463,10 @@ com.mzhou.merchant.activity.UserControlAleterPasswdActivity -> com.mzhou.merchan
     android.widget.EditText access$3(com.mzhou.merchant.activity.UserControlAleterPasswdActivity) -> d
     java.lang.String access$4(com.mzhou.merchant.activity.UserControlAleterPasswdActivity) -> e
     java.lang.String access$5(com.mzhou.merchant.activity.UserControlAleterPasswdActivity) -> f
-com.mzhou.merchant.activity.UserControlAleterPasswdActivity$1 -> com.mzhou.merchant.activity.lm:
+com.mzhou.merchant.activity.UserControlAleterPasswdActivity$1 -> com.mzhou.merchant.activity.lo:
     com.mzhou.merchant.activity.UserControlAleterPasswdActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlAleterPasswdActivity$2 -> com.mzhou.merchant.activity.ln:
+com.mzhou.merchant.activity.UserControlAleterPasswdActivity$2 -> com.mzhou.merchant.activity.lp:
     com.mzhou.merchant.activity.UserControlAleterPasswdActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlCommonActivity -> com.mzhou.merchant.activity.UserControlCommonActivity:
@@ -7540,88 +7556,88 @@ com.mzhou.merchant.activity.UserControlCommonActivity -> com.mzhou.merchant.acti
     void access$25(com.mzhou.merchant.activity.UserControlCommonActivity,boolean) -> b
     android.widget.TextView access$26(com.mzhou.merchant.activity.UserControlCommonActivity) -> x
     java.util.List access$27(com.mzhou.merchant.activity.UserControlCommonActivity) -> y
-com.mzhou.merchant.activity.UserControlCommonActivity$1 -> com.mzhou.merchant.activity.lo:
+com.mzhou.merchant.activity.UserControlCommonActivity$1 -> com.mzhou.merchant.activity.lq:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$10 -> com.mzhou.merchant.activity.lp:
+com.mzhou.merchant.activity.UserControlCommonActivity$10 -> com.mzhou.merchant.activity.lr:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$11 -> com.mzhou.merchant.activity.lq:
+com.mzhou.merchant.activity.UserControlCommonActivity$11 -> com.mzhou.merchant.activity.ls:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$12 -> com.mzhou.merchant.activity.lr:
+com.mzhou.merchant.activity.UserControlCommonActivity$12 -> com.mzhou.merchant.activity.lt:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$13 -> com.mzhou.merchant.activity.ls:
+com.mzhou.merchant.activity.UserControlCommonActivity$13 -> com.mzhou.merchant.activity.lu:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$14 -> com.mzhou.merchant.activity.lt:
+com.mzhou.merchant.activity.UserControlCommonActivity$14 -> com.mzhou.merchant.activity.lv:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$15 -> com.mzhou.merchant.activity.lu:
+com.mzhou.merchant.activity.UserControlCommonActivity$15 -> com.mzhou.merchant.activity.lw:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$16 -> com.mzhou.merchant.activity.lv:
+com.mzhou.merchant.activity.UserControlCommonActivity$16 -> com.mzhou.merchant.activity.lx:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$17 -> com.mzhou.merchant.activity.lw:
+com.mzhou.merchant.activity.UserControlCommonActivity$17 -> com.mzhou.merchant.activity.ly:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     java.lang.String val$pw -> b
     void getBackAttactInfo(java.lang.String) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$18 -> com.mzhou.merchant.activity.lx:
+com.mzhou.merchant.activity.UserControlCommonActivity$18 -> com.mzhou.merchant.activity.lz:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     android.widget.EditText val$un -> b
     android.widget.EditText val$pw -> c
     android.app.Dialog val$dialog -> d
     void onClick(android.view.View) -> onClick
     com.mzhou.merchant.activity.UserControlCommonActivity access$0(com.mzhou.merchant.activity.UserControlCommonActivity$18) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$18$1 -> com.mzhou.merchant.activity.ly:
+com.mzhou.merchant.activity.UserControlCommonActivity$18$1 -> com.mzhou.merchant.activity.ma:
     com.mzhou.merchant.activity.UserControlCommonActivity$18 this$1 -> a
     android.widget.EditText val$un -> b
     android.widget.EditText val$pw -> c
     void getBinderInfo(com.mzhou.merchant.model.AllBean) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$19 -> com.mzhou.merchant.activity.lz:
+com.mzhou.merchant.activity.UserControlCommonActivity$19 -> com.mzhou.merchant.activity.mb:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     android.app.Dialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$2 -> com.mzhou.merchant.activity.ma:
+com.mzhou.merchant.activity.UserControlCommonActivity$2 -> com.mzhou.merchant.activity.mc:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$20 -> com.mzhou.merchant.activity.mb:
+com.mzhou.merchant.activity.UserControlCommonActivity$20 -> com.mzhou.merchant.activity.md:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.mzhou.merchant.activity.UserControlCommonActivity$3 -> com.mzhou.merchant.activity.mc:
+com.mzhou.merchant.activity.UserControlCommonActivity$3 -> com.mzhou.merchant.activity.me:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$4 -> com.mzhou.merchant.activity.md:
+com.mzhou.merchant.activity.UserControlCommonActivity$4 -> com.mzhou.merchant.activity.mf:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$5 -> com.mzhou.merchant.activity.me:
+com.mzhou.merchant.activity.UserControlCommonActivity$5 -> com.mzhou.merchant.activity.mg:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$6 -> com.mzhou.merchant.activity.mf:
+com.mzhou.merchant.activity.UserControlCommonActivity$6 -> com.mzhou.merchant.activity.mh:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$7 -> com.mzhou.merchant.activity.mg:
+com.mzhou.merchant.activity.UserControlCommonActivity$7 -> com.mzhou.merchant.activity.mi:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$8 -> com.mzhou.merchant.activity.mh:
+com.mzhou.merchant.activity.UserControlCommonActivity$8 -> com.mzhou.merchant.activity.mj:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
     com.mzhou.merchant.activity.UserControlCommonActivity access$0(com.mzhou.merchant.activity.UserControlCommonActivity$8) -> a
-com.mzhou.merchant.activity.UserControlCommonActivity$8$1 -> com.mzhou.merchant.activity.mi:
+com.mzhou.merchant.activity.UserControlCommonActivity$8$1 -> com.mzhou.merchant.activity.mk:
     com.mzhou.merchant.activity.UserControlCommonActivity$8 this$1 -> a
     android.app.AlertDialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$8$2 -> com.mzhou.merchant.activity.mj:
+com.mzhou.merchant.activity.UserControlCommonActivity$8$2 -> com.mzhou.merchant.activity.ml:
     com.mzhou.merchant.activity.UserControlCommonActivity$8 this$1 -> a
     android.app.AlertDialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$8$3 -> com.mzhou.merchant.activity.mk:
+com.mzhou.merchant.activity.UserControlCommonActivity$8$3 -> com.mzhou.merchant.activity.mm:
     com.mzhou.merchant.activity.UserControlCommonActivity$8 this$1 -> a
     android.app.AlertDialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCommonActivity$9 -> com.mzhou.merchant.activity.ml:
+com.mzhou.merchant.activity.UserControlCommonActivity$9 -> com.mzhou.merchant.activity.mn:
     com.mzhou.merchant.activity.UserControlCommonActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlCompanyActivity -> com.mzhou.merchant.activity.UserControlCompanyActivity:
@@ -7630,10 +7646,10 @@ com.mzhou.merchant.activity.UserControlCompanyActivity -> com.mzhou.merchant.act
     android.widget.Button publish -> c
     void onCreate(android.os.Bundle) -> onCreate
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControlCompanyActivity) -> a
-com.mzhou.merchant.activity.UserControlCompanyActivity$1 -> com.mzhou.merchant.activity.mm:
+com.mzhou.merchant.activity.UserControlCompanyActivity$1 -> com.mzhou.merchant.activity.mo:
     com.mzhou.merchant.activity.UserControlCompanyActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlCompanyActivity$2 -> com.mzhou.merchant.activity.mn:
+com.mzhou.merchant.activity.UserControlCompanyActivity$2 -> com.mzhou.merchant.activity.mp:
     com.mzhou.merchant.activity.UserControlCompanyActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.activity.UserControlEnterpriseActivity:
@@ -7745,109 +7761,109 @@ com.mzhou.merchant.activity.UserControlEnterpriseActivity -> com.mzhou.merchant.
     android.widget.TextView access$22(com.mzhou.merchant.activity.UserControlEnterpriseActivity) -> u
     void access$23(com.mzhou.merchant.activity.UserControlEnterpriseActivity,boolean) -> b
     void access$24(com.mzhou.merchant.activity.UserControlEnterpriseActivity,java.lang.String) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$1 -> com.mzhou.merchant.activity.mo:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$1 -> com.mzhou.merchant.activity.mq:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$10 -> com.mzhou.merchant.activity.mp:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$10 -> com.mzhou.merchant.activity.mr:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$11 -> com.mzhou.merchant.activity.mq:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$11 -> com.mzhou.merchant.activity.ms:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$12 -> com.mzhou.merchant.activity.mr:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$12 -> com.mzhou.merchant.activity.mt:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$13 -> com.mzhou.merchant.activity.ms:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$13 -> com.mzhou.merchant.activity.mu:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$14 -> com.mzhou.merchant.activity.mt:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$14 -> com.mzhou.merchant.activity.mv:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$15 -> com.mzhou.merchant.activity.mu:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$15 -> com.mzhou.merchant.activity.mw:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$16 -> com.mzhou.merchant.activity.mv:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$16 -> com.mzhou.merchant.activity.mx:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$17 -> com.mzhou.merchant.activity.mw:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$17 -> com.mzhou.merchant.activity.my:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$18 -> com.mzhou.merchant.activity.mx:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$18 -> com.mzhou.merchant.activity.mz:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$19 -> com.mzhou.merchant.activity.my:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$19 -> com.mzhou.merchant.activity.na:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$2 -> com.mzhou.merchant.activity.mz:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$2 -> com.mzhou.merchant.activity.nb:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$20 -> com.mzhou.merchant.activity.na:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$20 -> com.mzhou.merchant.activity.nc:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$21 -> com.mzhou.merchant.activity.nb:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$21 -> com.mzhou.merchant.activity.nd:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$22 -> com.mzhou.merchant.activity.nc:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$22 -> com.mzhou.merchant.activity.ne:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$23 -> com.mzhou.merchant.activity.nd:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$23 -> com.mzhou.merchant.activity.nf:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$24 -> com.mzhou.merchant.activity.ne:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$24 -> com.mzhou.merchant.activity.ng:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$25 -> com.mzhou.merchant.activity.nf:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$25 -> com.mzhou.merchant.activity.nh:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     java.lang.String val$pw -> b
     void getBackAttactInfo(java.lang.String) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$26 -> com.mzhou.merchant.activity.ng:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$26 -> com.mzhou.merchant.activity.ni:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     android.widget.EditText val$un -> b
     android.widget.EditText val$pw -> c
     android.app.Dialog val$dialog -> d
     void onClick(android.view.View) -> onClick
     com.mzhou.merchant.activity.UserControlEnterpriseActivity access$0(com.mzhou.merchant.activity.UserControlEnterpriseActivity$26) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$26$1 -> com.mzhou.merchant.activity.nh:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$26$1 -> com.mzhou.merchant.activity.nj:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity$26 this$1 -> a
     android.widget.EditText val$pw -> b
     android.widget.EditText val$un -> c
     void getBinderInfo(com.mzhou.merchant.model.AllBean) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$27 -> com.mzhou.merchant.activity.ni:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$27 -> com.mzhou.merchant.activity.nk:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     android.app.Dialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$3 -> com.mzhou.merchant.activity.nj:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$3 -> com.mzhou.merchant.activity.nl:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$4 -> com.mzhou.merchant.activity.nk:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$4 -> com.mzhou.merchant.activity.nm:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$5 -> com.mzhou.merchant.activity.nl:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$5 -> com.mzhou.merchant.activity.nn:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$6 -> com.mzhou.merchant.activity.nm:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$6 -> com.mzhou.merchant.activity.no:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$7 -> com.mzhou.merchant.activity.nn:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$7 -> com.mzhou.merchant.activity.np:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
     com.mzhou.merchant.activity.UserControlEnterpriseActivity access$0(com.mzhou.merchant.activity.UserControlEnterpriseActivity$7) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$7$1 -> com.mzhou.merchant.activity.no:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$7$1 -> com.mzhou.merchant.activity.nq:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity$7 this$1 -> a
     android.app.AlertDialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$7$2 -> com.mzhou.merchant.activity.np:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$7$2 -> com.mzhou.merchant.activity.nr:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity$7 this$1 -> a
     android.app.AlertDialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$7$3 -> com.mzhou.merchant.activity.nq:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$7$3 -> com.mzhou.merchant.activity.ns:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity$7 this$1 -> a
     android.app.AlertDialog val$dialog -> b
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$8 -> com.mzhou.merchant.activity.nr:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$8 -> com.mzhou.merchant.activity.nt:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseActivity$9 -> com.mzhou.merchant.activity.ns:
+com.mzhou.merchant.activity.UserControlEnterpriseActivity$9 -> com.mzhou.merchant.activity.nu:
     com.mzhou.merchant.activity.UserControlEnterpriseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlEnterpriseNameActivity -> com.mzhou.merchant.activity.UserControlEnterpriseNameActivity:
@@ -7880,10 +7896,10 @@ com.mzhou.merchant.activity.UserControlEnterpriseNameActivity -> com.mzhou.merch
     void loadButton() -> c
     com.mzhou.merchant.model.GroupUsers init() -> d
     java.lang.String access$0(com.mzhou.merchant.activity.UserControlEnterpriseNameActivity) -> a
-com.mzhou.merchant.activity.UserControlEnterpriseNameActivity$1 -> com.mzhou.merchant.activity.nt:
+com.mzhou.merchant.activity.UserControlEnterpriseNameActivity$1 -> com.mzhou.merchant.activity.nv:
     com.mzhou.merchant.activity.UserControlEnterpriseNameActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlEnterpriseNameActivity$2 -> com.mzhou.merchant.activity.nu:
+com.mzhou.merchant.activity.UserControlEnterpriseNameActivity$2 -> com.mzhou.merchant.activity.nw:
     com.mzhou.merchant.activity.UserControlEnterpriseNameActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlFaxActivity -> com.mzhou.merchant.activity.UserControlFaxActivity:
@@ -7892,10 +7908,10 @@ com.mzhou.merchant.activity.UserControlFaxActivity -> com.mzhou.merchant.activit
     android.widget.Button publish -> c
     void onCreate(android.os.Bundle) -> onCreate
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControlFaxActivity) -> a
-com.mzhou.merchant.activity.UserControlFaxActivity$1 -> com.mzhou.merchant.activity.nv:
+com.mzhou.merchant.activity.UserControlFaxActivity$1 -> com.mzhou.merchant.activity.nx:
     com.mzhou.merchant.activity.UserControlFaxActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlFaxActivity$2 -> com.mzhou.merchant.activity.nw:
+com.mzhou.merchant.activity.UserControlFaxActivity$2 -> com.mzhou.merchant.activity.ny:
     com.mzhou.merchant.activity.UserControlFaxActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlNameActivity -> com.mzhou.merchant.activity.UserControlNameActivity:
@@ -7907,10 +7923,10 @@ com.mzhou.merchant.activity.UserControlNameActivity -> com.mzhou.merchant.activi
     void loadButton(java.lang.String) -> a
     java.lang.String init() -> b
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControlNameActivity) -> a
-com.mzhou.merchant.activity.UserControlNameActivity$1 -> com.mzhou.merchant.activity.nx:
+com.mzhou.merchant.activity.UserControlNameActivity$1 -> com.mzhou.merchant.activity.nz:
     com.mzhou.merchant.activity.UserControlNameActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlNameActivity$2 -> com.mzhou.merchant.activity.ny:
+com.mzhou.merchant.activity.UserControlNameActivity$2 -> com.mzhou.merchant.activity.oa:
     com.mzhou.merchant.activity.UserControlNameActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlNetActivity -> com.mzhou.merchant.activity.UserControlNetActivity:
@@ -7919,10 +7935,10 @@ com.mzhou.merchant.activity.UserControlNetActivity -> com.mzhou.merchant.activit
     android.widget.Button publish -> c
     void onCreate(android.os.Bundle) -> onCreate
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControlNetActivity) -> a
-com.mzhou.merchant.activity.UserControlNetActivity$1 -> com.mzhou.merchant.activity.nz:
+com.mzhou.merchant.activity.UserControlNetActivity$1 -> com.mzhou.merchant.activity.ob:
     com.mzhou.merchant.activity.UserControlNetActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlNetActivity$2 -> com.mzhou.merchant.activity.oa:
+com.mzhou.merchant.activity.UserControlNetActivity$2 -> com.mzhou.merchant.activity.oc:
     com.mzhou.merchant.activity.UserControlNetActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlNicknameActivity -> com.mzhou.merchant.activity.UserControlNicknameActivity:
@@ -7931,10 +7947,10 @@ com.mzhou.merchant.activity.UserControlNicknameActivity -> com.mzhou.merchant.ac
     android.widget.Button publish -> c
     void onCreate(android.os.Bundle) -> onCreate
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControlNicknameActivity) -> a
-com.mzhou.merchant.activity.UserControlNicknameActivity$1 -> com.mzhou.merchant.activity.ob:
+com.mzhou.merchant.activity.UserControlNicknameActivity$1 -> com.mzhou.merchant.activity.od:
     com.mzhou.merchant.activity.UserControlNicknameActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlNicknameActivity$2 -> com.mzhou.merchant.activity.oc:
+com.mzhou.merchant.activity.UserControlNicknameActivity$2 -> com.mzhou.merchant.activity.oe:
     com.mzhou.merchant.activity.UserControlNicknameActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlPhonenubActivity -> com.mzhou.merchant.activity.UserControlPhonenubActivity:
@@ -7943,10 +7959,10 @@ com.mzhou.merchant.activity.UserControlPhonenubActivity -> com.mzhou.merchant.ac
     android.widget.Button publish -> c
     void onCreate(android.os.Bundle) -> onCreate
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControlPhonenubActivity) -> a
-com.mzhou.merchant.activity.UserControlPhonenubActivity$1 -> com.mzhou.merchant.activity.od:
+com.mzhou.merchant.activity.UserControlPhonenubActivity$1 -> com.mzhou.merchant.activity.of:
     com.mzhou.merchant.activity.UserControlPhonenubActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlPhonenubActivity$2 -> com.mzhou.merchant.activity.oe:
+com.mzhou.merchant.activity.UserControlPhonenubActivity$2 -> com.mzhou.merchant.activity.og:
     com.mzhou.merchant.activity.UserControlPhonenubActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControlQQActivity -> com.mzhou.merchant.activity.UserControlQQActivity:
@@ -7955,10 +7971,10 @@ com.mzhou.merchant.activity.UserControlQQActivity -> com.mzhou.merchant.activity
     android.widget.Button publish -> c
     void onCreate(android.os.Bundle) -> onCreate
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControlQQActivity) -> a
-com.mzhou.merchant.activity.UserControlQQActivity$1 -> com.mzhou.merchant.activity.of:
+com.mzhou.merchant.activity.UserControlQQActivity$1 -> com.mzhou.merchant.activity.oh:
     com.mzhou.merchant.activity.UserControlQQActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControlQQActivity$2 -> com.mzhou.merchant.activity.og:
+com.mzhou.merchant.activity.UserControlQQActivity$2 -> com.mzhou.merchant.activity.oi:
     com.mzhou.merchant.activity.UserControlQQActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.UserControladressActivity -> com.mzhou.merchant.activity.UserControladressActivity:
@@ -7967,10 +7983,10 @@ com.mzhou.merchant.activity.UserControladressActivity -> com.mzhou.merchant.acti
     android.widget.Button publish -> c
     void onCreate(android.os.Bundle) -> onCreate
     android.widget.EditText access$0(com.mzhou.merchant.activity.UserControladressActivity) -> a
-com.mzhou.merchant.activity.UserControladressActivity$1 -> com.mzhou.merchant.activity.oh:
+com.mzhou.merchant.activity.UserControladressActivity$1 -> com.mzhou.merchant.activity.oj:
     com.mzhou.merchant.activity.UserControladressActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.UserControladressActivity$2 -> com.mzhou.merchant.activity.oi:
+com.mzhou.merchant.activity.UserControladressActivity$2 -> com.mzhou.merchant.activity.ok:
     com.mzhou.merchant.activity.UserControladressActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.mzhou.merchant.activity.XinwenCommentFabuActivity -> com.mzhou.merchant.activity.XinwenCommentFabuActivity:
@@ -7989,14 +8005,14 @@ com.mzhou.merchant.activity.XinwenCommentFabuActivity -> com.mzhou.merchant.acti
     android.widget.EditText access$1(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> b
     com.mzhou.merchant.dao.biz.NewsManager access$2(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> c
     java.lang.String access$3(com.mzhou.merchant.activity.XinwenCommentFabuActivity) -> d
-com.mzhou.merchant.activity.XinwenCommentFabuActivity$1 -> com.mzhou.merchant.activity.oj:
+com.mzhou.merchant.activity.XinwenCommentFabuActivity$1 -> com.mzhou.merchant.activity.ol:
     com.mzhou.merchant.activity.XinwenCommentFabuActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.XinwenCommentFabuActivity$2 -> com.mzhou.merchant.activity.ok:
+com.mzhou.merchant.activity.XinwenCommentFabuActivity$2 -> com.mzhou.merchant.activity.om:
     com.mzhou.merchant.activity.XinwenCommentFabuActivity this$0 -> a
     void onClick(android.view.View) -> onClick
     com.mzhou.merchant.activity.XinwenCommentFabuActivity access$0(com.mzhou.merchant.activity.XinwenCommentFabuActivity$2) -> a
-com.mzhou.merchant.activity.XinwenCommentFabuActivity$2$1 -> com.mzhou.merchant.activity.ol:
+com.mzhou.merchant.activity.XinwenCommentFabuActivity$2$1 -> com.mzhou.merchant.activity.on:
     com.mzhou.merchant.activity.XinwenCommentFabuActivity$2 this$1 -> a
     void getBackAttactInfo(com.mzhou.merchant.model.BackBean) -> a
 com.mzhou.merchant.activity.XinwenCommentListActivity -> com.mzhou.merchant.activity.XinwenCommentListActivity:
@@ -8031,34 +8047,34 @@ com.mzhou.merchant.activity.XinwenCommentListActivity -> com.mzhou.merchant.acti
     int access$10(com.mzhou.merchant.activity.XinwenCommentListActivity) -> j
     void access$11(com.mzhou.merchant.activity.XinwenCommentListActivity,int) -> a
     android.widget.ListView access$12(com.mzhou.merchant.activity.XinwenCommentListActivity) -> k
-com.mzhou.merchant.activity.XinwenCommentListActivity$1 -> com.mzhou.merchant.activity.om:
+com.mzhou.merchant.activity.XinwenCommentListActivity$1 -> com.mzhou.merchant.activity.oo:
     com.mzhou.merchant.activity.XinwenCommentListActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.XinwenCommentListActivity$2 -> com.mzhou.merchant.activity.on:
+com.mzhou.merchant.activity.XinwenCommentListActivity$2 -> com.mzhou.merchant.activity.op:
     com.mzhou.merchant.activity.XinwenCommentListActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.XinwenCommentListActivity$3 -> com.mzhou.merchant.activity.oo:
+com.mzhou.merchant.activity.XinwenCommentListActivity$3 -> com.mzhou.merchant.activity.oq:
     com.mzhou.merchant.activity.XinwenCommentListActivity this$0 -> a
     void onPullDownToRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> a
     void onPullUpToRefresh(com.handmark.pulltorefresh.library.PullToRefreshBase) -> b
     com.mzhou.merchant.activity.XinwenCommentListActivity access$0(com.mzhou.merchant.activity.XinwenCommentListActivity$3) -> a
-com.mzhou.merchant.activity.XinwenCommentListActivity$3$1 -> com.mzhou.merchant.activity.op:
+com.mzhou.merchant.activity.XinwenCommentListActivity$3$1 -> com.mzhou.merchant.activity.or:
     com.mzhou.merchant.activity.XinwenCommentListActivity$3 this$1 -> a
     void getNewsCommentInfo(java.util.List) -> a
-com.mzhou.merchant.activity.XinwenCommentListActivity$3$2 -> com.mzhou.merchant.activity.oq:
+com.mzhou.merchant.activity.XinwenCommentListActivity$3$2 -> com.mzhou.merchant.activity.os:
     com.mzhou.merchant.activity.XinwenCommentListActivity$3 this$1 -> a
     void getNewsCommentInfo(java.util.List) -> a
-com.mzhou.merchant.activity.XinwenCommentListActivity$4 -> com.mzhou.merchant.activity.or:
+com.mzhou.merchant.activity.XinwenCommentListActivity$4 -> com.mzhou.merchant.activity.ot:
     com.mzhou.merchant.activity.XinwenCommentListActivity this$0 -> a
     void getNewsCommentInfo(java.util.List) -> a
-com.mzhou.merchant.activity.XinwenCommentListActivity$ZSAdapter -> com.mzhou.merchant.activity.os:
+com.mzhou.merchant.activity.XinwenCommentListActivity$ZSAdapter -> com.mzhou.merchant.activity.ou:
     android.content.Context mContext -> b
     com.mzhou.merchant.activity.XinwenCommentListActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
     android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.mzhou.merchant.activity.XinwenCommentListActivity$ZSAdapter$ViewHolder -> com.mzhou.merchant.activity.ot:
+com.mzhou.merchant.activity.XinwenCommentListActivity$ZSAdapter$ViewHolder -> com.mzhou.merchant.activity.ov:
     android.widget.TextView content -> a
     android.widget.TextView date -> b
     android.widget.TextView name -> c
@@ -8094,19 +8110,19 @@ com.mzhou.merchant.activity.XinwenContentActivity -> com.mzhou.merchant.activity
     void access$8(com.mzhou.merchant.activity.XinwenContentActivity,java.lang.String[]) -> a
     android.widget.Gallery access$9(com.mzhou.merchant.activity.XinwenContentActivity) -> i
     com.mzhou.merchant.activity.XinwenContentActivity$ImageAdapter access$10(com.mzhou.merchant.activity.XinwenContentActivity) -> j
-com.mzhou.merchant.activity.XinwenContentActivity$1 -> com.mzhou.merchant.activity.ou:
+com.mzhou.merchant.activity.XinwenContentActivity$1 -> com.mzhou.merchant.activity.ow:
     com.mzhou.merchant.activity.XinwenContentActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.mzhou.merchant.activity.XinwenContentActivity$2 -> com.mzhou.merchant.activity.ov:
+com.mzhou.merchant.activity.XinwenContentActivity$2 -> com.mzhou.merchant.activity.ox:
     com.mzhou.merchant.activity.XinwenContentActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.XinwenContentActivity$3 -> com.mzhou.merchant.activity.ow:
+com.mzhou.merchant.activity.XinwenContentActivity$3 -> com.mzhou.merchant.activity.oy:
     com.mzhou.merchant.activity.XinwenContentActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.XinwenContentActivity$4 -> com.mzhou.merchant.activity.ox:
+com.mzhou.merchant.activity.XinwenContentActivity$4 -> com.mzhou.merchant.activity.oz:
     com.mzhou.merchant.activity.XinwenContentActivity this$0 -> a
     void getNewsByIdInfo(com.mzhou.merchant.model.NewsByIdBean) -> a
-com.mzhou.merchant.activity.XinwenContentActivity$ImageAdapter -> com.mzhou.merchant.activity.oy:
+com.mzhou.merchant.activity.XinwenContentActivity$ImageAdapter -> com.mzhou.merchant.activity.pa:
     com.mzhou.merchant.activity.XinwenContentActivity this$0 -> a
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
@@ -8160,10 +8176,10 @@ com.mzhou.merchant.activity.ZhaopinContentActivity -> com.mzhou.merchant.activit
     java.lang.String access$22(com.mzhou.merchant.activity.ZhaopinContentActivity) -> o
     android.widget.TextView access$23(com.mzhou.merchant.activity.ZhaopinContentActivity) -> p
     java.lang.String access$24(com.mzhou.merchant.activity.ZhaopinContentActivity) -> q
-com.mzhou.merchant.activity.ZhaopinContentActivity$1 -> com.mzhou.merchant.activity.oz:
+com.mzhou.merchant.activity.ZhaopinContentActivity$1 -> com.mzhou.merchant.activity.pb:
     com.mzhou.merchant.activity.ZhaopinContentActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.mzhou.merchant.activity.ZhaopinContentActivity$AsynJobByInfo -> com.mzhou.merchant.activity.pa:
+com.mzhou.merchant.activity.ZhaopinContentActivity$AsynJobByInfo -> com.mzhou.merchant.activity.pc:
     java.lang.String id -> b
     java.lang.String subject -> c
     com.mzhou.merchant.activity.ZhaopinContentActivity this$0 -> a
@@ -8612,7 +8628,7 @@ com.mzhou.merchant.dao.biz.ProductsManager -> com.mzhou.merchant.dao.biz.Product
     com.mzhou.merchant.dao.IBack$IBackInfo backInfo -> g
     com.mzhou.merchant.dao.IProduct$IDeleteProductInfo deleteProduct -> h
     void AsynGetCompany(android.content.Context,java.lang.String) -> a
-    void AsynDelProduct(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    void AsynDelProduct(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     void AsynRefreshProduct(android.content.Context,java.lang.String,java.lang.String) -> a
     void AsynGetLogoItemHasDialog(android.content.Context,int,int,java.lang.String) -> a
     void AsynGetLogoHasDialog(android.content.Context,java.lang.String,int,java.lang.String) -> a
@@ -8645,6 +8661,7 @@ com.mzhou.merchant.dao.biz.ProductsManager$AsynDeleteProduct -> com.mzhou.mercha
     java.lang.String is_en -> d
     java.lang.String uid -> e
     java.lang.String id -> f
+    java.lang.String youkuid -> g
     com.mzhou.merchant.dao.biz.ProductsManager this$0 -> a
     void onPreExecute() -> onPreExecute
     void onCancelled() -> onCancelled
@@ -10555,10 +10572,31 @@ com.mzhou.merchant.fragment.XianshiZhaoShang$AsynAttact -> com.mzhou.merchant.c.
     void onPostExecute(java.util.List) -> a
     void onPostExecute(java.lang.Object) -> onPostExecute
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.mzhou.merchant.imageloader.CrashHandler -> com.mzhou.merchant.imageloader.a:
+    java.lang.Thread$UncaughtExceptionHandler mDefaultHandler -> a
+    com.mzhou.merchant.imageloader.CrashHandler INSTANCE -> b
+    android.content.Context mContext -> c
+    java.util.Map infos -> d
+    java.text.DateFormat formatter -> e
+    com.mzhou.merchant.imageloader.MyApplication application -> f
+    com.mzhou.merchant.imageloader.CrashHandler getInstance() -> a
+    void init(android.content.Context,com.mzhou.merchant.imageloader.MyApplication) -> a
+    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    boolean handleException(java.lang.Throwable) -> a
+    void collectDeviceInfo(android.content.Context) -> a
+    java.lang.String saveCrashInfo2File(java.lang.Throwable) -> b
+    java.lang.String save2file(java.lang.StringBuffer) -> a
+    android.content.Context access$0(com.mzhou.merchant.imageloader.CrashHandler) -> a
+    java.lang.String access$1(com.mzhou.merchant.imageloader.CrashHandler,java.lang.Throwable) -> a
+com.mzhou.merchant.imageloader.CrashHandler$1 -> com.mzhou.merchant.imageloader.b:
+    com.mzhou.merchant.imageloader.CrashHandler this$0 -> a
+    java.lang.Throwable val$ex -> b
+    void run() -> run
 com.mzhou.merchant.imageloader.MyApplication -> com.mzhou.merchant.imageloader.MyApplication:
     void onCreate() -> onCreate
     void initImageLoader(android.content.Context) -> a
     boolean deleteDir(java.io.File) -> a
+    void finishActivity() -> a
 com.mzhou.merchant.model.AboutCompany -> com.mzhou.merchant.model.AboutCompany:
     long serialVersionUID -> serialVersionUID
     java.lang.String cotitle -> cotitle
@@ -10954,6 +10992,7 @@ com.mzhou.merchant.model.ProductsBean -> com.mzhou.merchant.model.ProductsBean:
     java.lang.String pic -> pic
     java.lang.String order_sort -> order_sort
     java.lang.String category -> category
+    java.lang.String youkuid -> youkuid
     java.lang.String getId() -> getId
     void setId(java.lang.String) -> setId
     java.lang.String getCtime() -> getCtime
@@ -10974,6 +11013,8 @@ com.mzhou.merchant.model.ProductsBean -> com.mzhou.merchant.model.ProductsBean:
     void setCategory(java.lang.String) -> setCategory
     java.lang.String toString() -> toString
     int compareTo(com.mzhou.merchant.model.ProductsBean) -> compareTo
+    java.lang.String getYoukuid() -> getYoukuid
+    void setYoukuid(java.lang.String) -> setYoukuid
     int compareTo(java.lang.Object) -> compareTo
 com.mzhou.merchant.model.ProductsByIdBean -> com.mzhou.merchant.model.ProductsByIdBean:
     long serialVersionUID -> serialVersionUID
@@ -10999,6 +11040,7 @@ com.mzhou.merchant.model.ProductsByIdBean -> com.mzhou.merchant.model.ProductsBy
     java.lang.String distinguish -> distinguish
     java.lang.String rom -> rom
     java.lang.String ah -> ah
+    java.lang.String youkuid -> youkuid
     java.lang.String toString() -> toString
     java.lang.String getId() -> getId
     void setId(java.lang.String) -> setId
@@ -11044,6 +11086,8 @@ com.mzhou.merchant.model.ProductsByIdBean -> com.mzhou.merchant.model.ProductsBy
     void setRom(java.lang.String) -> setRom
     java.lang.String getAh() -> getAh
     void setAh(java.lang.String) -> setAh
+    java.lang.String getYoukuid() -> getYoukuid
+    void setYoukuid(java.lang.String) -> setYoukuid
 com.mzhou.merchant.model.ProductsEnterpriseByIdBean -> com.mzhou.merchant.model.ProductsEnterpriseByIdBean:
     long serialVersionUID -> serialVersionUID
     java.lang.String id -> id
@@ -11071,6 +11115,7 @@ com.mzhou.merchant.model.ProductsEnterpriseByIdBean -> com.mzhou.merchant.model.
     java.lang.String rom -> rom
     java.lang.String ah -> ah
     java.lang.String videopic -> videopic
+    java.lang.String youkuid -> youkuid
     java.lang.String toString() -> toString
     java.lang.String getVideopic() -> getVideopic
     void setVideopic(java.lang.String) -> setVideopic
@@ -11122,6 +11167,8 @@ com.mzhou.merchant.model.ProductsEnterpriseByIdBean -> com.mzhou.merchant.model.
     void setRom(java.lang.String) -> setRom
     java.lang.String getAh() -> getAh
     void setAh(java.lang.String) -> setAh
+    java.lang.String getYoukuid() -> getYoukuid
+    void setYoukuid(java.lang.String) -> setYoukuid
 com.mzhou.merchant.model.PublishProductBean -> com.mzhou.merchant.model.PublishProductBean:
     long serialVersionUID -> serialVersionUID
     java.lang.String id -> id
@@ -11353,11 +11400,12 @@ com.mzhou.merchant.utlis.GetDataByPostUtil -> com.mzhou.merchant.utlis.GetDataBy
     java.lang.String getProductInfo(android.content.Context,java.lang.String,java.lang.String,int,int,java.lang.String) -> a
     java.lang.String getMyProductInfo(android.content.Context,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     java.lang.String getPhoneNumberInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    java.lang.String saveErrorInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> b
     java.lang.String getLogoItemInfo(android.content.Context,java.lang.String,java.lang.String,int,int,java.lang.String) -> b
     java.lang.String getLogoInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,java.lang.String) -> b
     java.lang.String getProductInfoById(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> c
     java.lang.String FreshProductInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> d
-    java.lang.String DeleteProductInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> b
+    java.lang.String DeleteProductInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     java.lang.String PubProductLeaveMsgInfo(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> b
     java.lang.String GetProductLeaveMsgInfo(android.content.Context,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String) -> b
     java.lang.String GetJobInfo(android.content.Context,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String) -> c
@@ -11436,12 +11484,14 @@ com.mzhou.merchant.utlis.MyConstants -> com.mzhou.merchant.utlis.l:
     java.lang.String CLIENT_SECRET -> c
 com.mzhou.merchant.utlis.MyUtlis -> com.mzhou.merchant.utlis.m:
     java.lang.String getHeadPic(java.lang.String,android.content.Context) -> a
-    java.lang.String ToDBC(java.lang.String) -> a
-    boolean isEmpity(java.lang.String) -> b
+    java.lang.String getYouKuThumb(java.lang.String) -> a
+    java.lang.String getYouKuVideo(java.lang.String) -> b
+    java.lang.String ToDBC(java.lang.String) -> c
+    boolean isEmpity(java.lang.String) -> d
     long getdays(int) -> a
-    java.lang.String TimeStamp2Date(java.lang.String) -> c
+    java.lang.String TimeStamp2Date(java.lang.String) -> e
     java.lang.String TimeStamp2DateList(java.lang.String,android.content.Context) -> b
-    java.lang.String TimeStamp2DateGrid(java.lang.String) -> d
+    java.lang.String TimeStamp2DateGrid(java.lang.String) -> f
     void toastInfo(android.content.Context,java.lang.String) -> a
     void sortAdOrder(java.util.List) -> a
     void sortListOrder(java.util.LinkedList) -> a

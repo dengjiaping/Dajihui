@@ -26,6 +26,8 @@ public class ProductsByIdBean implements Serializable
 	private String distinguish;
 	private String rom;
 	private String ah;
+	
+	private String youkuid;
 	 
 	public ProductsByIdBean(String id, String content, String ctime, String classid, String uid, String brand, String type,
 			String chip, String size, String system, String pic, String contact, String phone, String qq, String company,
@@ -243,5 +245,13 @@ public class ProductsByIdBean implements Serializable
 	public ProductsByIdBean()
 	{
 		super();
+	}
+
+	public String getYoukuid() {
+		return youkuid;
+	}
+
+	public void setYoukuid(String youkuid) {
+		this.youkuid = youkuid;
 	}
 }

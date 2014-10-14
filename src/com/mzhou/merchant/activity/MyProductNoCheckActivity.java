@@ -229,8 +229,12 @@ public class MyProductNoCheckActivity extends Activity {
         builder.setPositiveButton("是", new android.content.DialogInterface.OnClickListener(){
 
 			public void onClick(DialogInterface dialog, int which) {
+				String youkuid = "";
+				if (mList.get(arg2).getYoukuid() != null && !mList.get(arg2).getYoukuid().trim().equals("") && !mList.get(arg2).getYoukuid().equalsIgnoreCase("null")) {
+					youkuid = mList.get(arg2).getYoukuid();
+				}
 				productsManager.AsynDelProduct(MyProductNoCheckActivity.this, mList.get(arg2).getIs_en(), uid, mList
-						.get(arg2).getId());
+						.get(arg2).getId(),youkuid);
 			 productsManager.deleteProduct(new IDeleteProductInfo() {
 				
 				@Override

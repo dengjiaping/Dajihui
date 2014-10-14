@@ -669,7 +669,7 @@ public class GetDataByPostUtil extends Activity {
 			params1.add(new BasicNameValuePair("subject", subject));
 			httppost.setEntity(new UrlEncodedFormEntity(params1));
 			String data = queryStringForPost(httppost, context);
-			// Log.i("print", "GetAttactInfo--return--result-->"+data);
+			  Log.i("print", "getProductInfoById--return--result-->"+data);
 			return data;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -738,13 +738,14 @@ public class GetDataByPostUtil extends Activity {
 	 * @return
 	 */
 	public static String DeleteProductInfo(Context context, String url,
-			String is_en, String subject, String uid, String id) {
+			String is_en, String subject, String uid, String id,String youkuid) {
 		HttpPost httppost = new HttpPost(url);
 		try {
 			List<NameValuePair> params1 = new ArrayList<NameValuePair>();
 			params1.add(new BasicNameValuePair("is_en", is_en));
 			params1.add(new BasicNameValuePair("id", id));
 			params1.add(new BasicNameValuePair("uid", uid));
+			params1.add(new BasicNameValuePair("youkuid", youkuid));
 			params1.add(new BasicNameValuePair("subject", subject));
 			Log.i("print", "params1--return--result-->" + params1);
 			httppost.setEntity(new UrlEncodedFormEntity(params1));

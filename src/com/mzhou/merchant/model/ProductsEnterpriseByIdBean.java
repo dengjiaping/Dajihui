@@ -29,7 +29,7 @@ public class ProductsEnterpriseByIdBean implements Serializable
 	private String rom; 
 	private String ah; 
 	private String videopic;
-
+	private String youkuid;
 
  
 	public ProductsEnterpriseByIdBean(String id, String ctime, String content,
@@ -283,6 +283,14 @@ public class ProductsEnterpriseByIdBean implements Serializable
 
 	public ProductsEnterpriseByIdBean() {
 		super();
+	}
+
+	public String getYoukuid() {
+		return youkuid;
+	}
+
+	public void setYoukuid(String youkuid) {
+		this.youkuid = youkuid;
 	}
 
 }

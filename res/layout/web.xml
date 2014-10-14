@@ -13,8 +13,9 @@
                 android:src="@drawable/logo_menu_press5" />
 
             <TextView
+                android:layout_toRightOf="@id/title_bar_showleft"
                 android:id="@id/title_bar_title"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:textSize="13sp"
                 android:singleLine="true"

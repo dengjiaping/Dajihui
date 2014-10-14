@@ -34,6 +34,7 @@ import com.mzhou.merchant.dao.biz.ProductsManager;
 import com.mzhou.merchant.db.manager.DbProductManager;
 import com.mzhou.merchant.model.ProductsByIdBean;
 import com.mzhou.merchant.utlis.MyConstants;
+import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -77,6 +78,12 @@ public class ShoujiCommenActivity extends Activity {
 	private LinearLayout linear;
 	private ScrollView scroll_linear;
 	private Button btn_back;
+	
+	//视频布局
+	private LinearLayout video_liear;
+	private ImageView video_thumb;
+	private ProductsByIdBean bean;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -187,6 +194,18 @@ public class ShoujiCommenActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		video_thumb.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (bean != null) {
+					Intent viewIntent = new Intent(
+							"android.intent.action.VIEW",
+							Uri.parse(MyUtlis.getYouKuVideo(bean.getYoukuid())));
+					startActivity(viewIntent);
+				}
+			}
+		});
 	}
 
 	private void loadButton() {
@@ -216,8 +235,11 @@ public class ShoujiCommenActivity extends Activity {
 		linear = (LinearLayout) findViewById(R.id.linear);
 		scroll_linear = (ScrollView) findViewById(R.id.scroll_linear);
 		btn_back = (Button) findViewById(R.id.btn_back);
+		
+		video_liear = (LinearLayout) findViewById(R.id.video_liear);
+		video_thumb = (ImageView) findViewById(R.id.video_thumb);
 	}
-
+	
 	private void getdata() throws Exception{
 		if (WebIsConnectUtil.showNetState(context)) {
 			productsManager.GetProductInfoById(ShoujiCommenActivity.this, productid);
@@ -225,7 +247,16 @@ public class ShoujiCommenActivity extends Activity {
 				@Override
 				public void getProductInfoById(ProductsByIdBean productsByIdBean) {
 					if (productsByIdBean != null) {
-						 
+						bean = productsByIdBean;
+						 //么有视频不显示
+						if (productsByIdBean.getYoukuid() == null || productsByIdBean.getYoukuid().trim().equalsIgnoreCase("") || productsByIdBean.getYoukuid().equalsIgnoreCase("null") ) {
+							video_liear.setVisibility(View.GONE);
+						}else {
+							video_liear.setVisibility(View.VISIBLE);
+							imageLoader.displayImage(MyUtlis.getYouKuThumb(productsByIdBean.getYoukuid()), video_thumb, options);
+						}
+						
+						
 						user_manager_name.setText(productsByIdBean.getContact());
 						user_manager_qq.setText(productsByIdBean.getQq());
 						user_manager_phonnumber.setText(productsByIdBean

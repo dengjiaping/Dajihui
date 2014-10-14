@@ -3,7 +3,7 @@
     package="com.mzhou.merchant.activity"
     android:installLocation="auto"
     android:versionCode="3" 
-    android:versionName="3.5.1" >
+    android:versionName="3.5.2" >
     
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
     <uses-feature android:name="android.hardware.camera" />

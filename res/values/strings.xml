@@ -302,14 +302,15 @@
     <string name="pub_product_uploadpicture">上传图片 </string>
     <string name="pub_product_uploadpicture_toast">第1张图片竖着拍,第2-5张横着拍\n点击图片可以预览/删除/重拍 </string>
     <string name="pub_product_uploadvideo">上传视频 </string>
+    <string name="pub_product_uploadvideo_toast">如果您要上传视频，请用手机直接拍摄好视频，再把视频复制到电脑上，然后打开网页 www.sj6.cn 进入会员中心快速上传,谢谢! </string>
     <string name="pub_product_record_video">录制 </string>
     <string name="pub_product_del_video">移除 </string>
     <string name="pub_product_re_video">重录 </string>
     <string name="pub_product_pre_video">播放 </string>
     <string name="pub_product_max_video">视频文件大于10M,请重新录制 </string>
     <!-- display_parameters -->
-    <string name="display_parameters_video">演示视频:</string>
-    <string name="display_parameters_video1">演示视频</string>
+    <string name="display_parameters_video">视频欣赏:</string>
+    <string name="display_parameters_video1">视频欣赏</string>
     <string name="display_parameters_instruction">普通简介:</string>
     <string name="display_parameters_instruction1">普通简介</string>
     <string name="display_parameters_parameter">详细参数</string>

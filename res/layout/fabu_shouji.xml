@@ -65,7 +65,7 @@
                             android:layout_marginRight="10.0dip"
                             android:layout_marginTop="5.0dip"
                             android:layout_weight="1"
-                            android:singleLine="true"
+                            
                             android:textColor="#666"
                             android:textSize="16sp" />
 
@@ -105,8 +105,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:hint="大机汇"
-                            android:maxLength="10"
-                            android:singleLine="true" />
+                             />
                     </LinearLayout>
 
                     <LinearLayout
@@ -124,9 +123,9 @@
                             style="@style/MMLineEditText"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:maxLength="10"
+                            
                             android:hint="A888"
-                            android:singleLine="true" />
+                             />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -151,10 +150,10 @@
                             android:id="@+id/pub_product_xinpian"
                             style="@style/MMLineEditText"
                             android:layout_width="fill_parent"
-                            android:maxLength="10"
+                            
                             android:layout_height="wrap_content"
                             android:hint="MTK6595"
-                            android:singleLine="true" />
+                             />
                     </LinearLayout>
 
                     <LinearLayout
@@ -172,9 +171,9 @@
                             style="@style/MMLineEditText"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:maxLength="10"
+                            
                             android:hint="5.1英寸"
-                            android:singleLine="true" />
+                             />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -201,8 +200,8 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:hint="1280*1920"
-                            android:maxLength="10"
-                            android:singleLine="true" />
+                            
+                             />
                     </LinearLayout>
 
                     <LinearLayout
@@ -220,9 +219,9 @@
                             style="@style/MMLineEditText"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:maxLength="10"
+                            
                             android:hint="安卓4.3"
-                            android:singleLine="true" />
+                             />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -248,9 +247,9 @@
                             style="@style/MMLineEditText"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:maxLength="10"
+                            
                             android:hint="500万"
-                            android:singleLine="true" />
+                             />
                     </LinearLayout>
 
                     <LinearLayout
@@ -268,9 +267,9 @@
                             style="@style/MMLineEditText"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:maxLength="10"
+                            
                             android:hint="1300万"
-                            android:singleLine="true" />
+                             />
                     </LinearLayout>
                 </LinearLayout>
  <LinearLayout
@@ -296,8 +295,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="4+2"
-                        android:maxLength="10"
-                        android:singleLine="true" />
+                        
+                         />
                 </LinearLayout>
 
                 <LinearLayout
@@ -315,9 +314,9 @@
                         style="@style/MMLineEditText"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="10"
+                        
                         android:hint="2400毫安"
-                        android:singleLine="true" />
+                         />
                 </LinearLayout>
             </LinearLayout>
                 <TextView
@@ -332,7 +331,6 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                  
                     android:background="@drawable/mm_edit"
                     android:layout_margin="4dp"
                     android:orientation="vertical" >
@@ -346,7 +344,6 @@
                         android:background="@null"
                         android:gravity="top"
                         android:minLines="5"
-                        android:maxLength="1000"
                         android:singleLine="false"
                         android:textSize="16sp" />
 
@@ -402,6 +399,22 @@
                     android:numColumns="5"
                     android:verticalSpacing="2dp" >
                 </com.mzhou.merchant.myview.MyGridView>
+<TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/pub_product_uploadvideo"
+                        android:textColor="@color/blue"
+                        android:textSize="18sp" />
+ <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/pub_product_uploadvideo_toast"
+                        android:textSize="14sp" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -410,7 +423,7 @@
                     android:padding="4dp" >
 
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
@@ -422,8 +435,8 @@
                         style="@style/MMLineEditText"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="20"
-                        android:singleLine="true"
+                        
+                        
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
 
@@ -434,7 +447,7 @@
                     android:padding="4dp" >
 
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
@@ -456,7 +469,7 @@
                     android:padding="4dp" >
 
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
@@ -479,7 +492,7 @@
                     android:padding="4dp" >
 
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
@@ -491,7 +504,7 @@
                         style="@style/MMLineEditText"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="20"
+                        
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
 
@@ -503,7 +516,7 @@
                     android:padding="4dp" >
 
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
@@ -515,8 +528,6 @@
                         style="@style/MMLineEditText"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="20"
-                        
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
 
@@ -528,7 +539,7 @@
                     android:padding="4dp" >
 
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="2dp"
                         android:gravity="center"
@@ -540,7 +551,6 @@
                         style="@style/MMLineEditText"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:maxLength="20"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
 
