@@ -49,8 +49,8 @@ public class ProductsManager extends Activity {
 	 * @param uid
 	 * @param id
 	 */
-	public void AsynDelProduct(Context context,  String is_en,String uid,String id) {
-		AsynDeleteProduct asynGetProductsInfo = new AsynDeleteProduct( context,  "drop",  is_en, uid, id);
+	public void AsynDelProduct(Context context,  String is_en,String uid,String id,String youkuid) {
+		AsynDeleteProduct asynGetProductsInfo = new AsynDeleteProduct( context,  "drop",  is_en, uid, id,youkuid);
 		asynGetProductsInfo.execute();
 	}
 	
@@ -635,13 +635,15 @@ public class ProductsManager extends Activity {
 		private String is_en;
 		private String uid;
 		private String id;
+		private String youkuid;
 		
-		public AsynDeleteProduct(Context context, String subject, String is_en,String uid,String id) {
+		public AsynDeleteProduct(Context context, String subject, String is_en,String uid,String id,String youkuid) {
 			this.subject = subject;
 			this.is_en = is_en;
 			this.context = context;
 			this.uid = uid;
 			this.id = id;
+			this.youkuid = youkuid;
 		}
 		
 		@Override
@@ -662,7 +664,7 @@ public class ProductsManager extends Activity {
 			
 			String jsonString = GetDataByPostUtil.DeleteProductInfo(
 					getBaseContext(), MyConstants.PRODUCT_URL,
-					is_en, subject, uid, id);
+					is_en, subject, uid, id,youkuid);
 				return jsonString;
 		}
 		

@@ -47,6 +47,12 @@ public class MyUtlis {
 		}
 		return MyConstants.PICTURE_URL;
 	}
+	public static  String getYouKuThumb(String youkuid){
+		return "http://www.sj6.cn/video/thumb/" + youkuid+".html";
+	}
+	public static  String getYouKuVideo(String youkuid){
+		return "http://www.sj6.cn/video/youku/" + youkuid+".html";
+	}
 	/**
 	 * 将textview中的字符全角化。即将所有的数字、字母及标点全部转为全角字符，使它们与汉字同占两个字节，这样就可以避免由于占位导致的排版混乱问题了
 	 * @param input

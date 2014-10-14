@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +34,7 @@ import com.mzhou.merchant.dao.biz.ProductsManager;
 import com.mzhou.merchant.db.manager.DbProductManager;
 import com.mzhou.merchant.model.ProductsEnterpriseByIdBean;
 import com.mzhou.merchant.utlis.MyConstants;
+import com.mzhou.merchant.utlis.MyUtlis;
 import com.mzhou.merchant.utlis.WebIsConnectUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -73,6 +75,10 @@ public class ShoujiEnterpriseActivity extends Activity {
 	private LinearLayout bottom_linearlayout;
 	private ScrollView scroll_linear;
 	private Button btn_back;
+	
+	private LinearLayout video_liear;
+	private ImageView video_thumb;
+	private ProductsEnterpriseByIdBean bean;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -132,6 +138,18 @@ public class ShoujiEnterpriseActivity extends Activity {
 	}
 
 	private void listenerClick() {
+video_thumb.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (bean != null) {
+					Intent viewIntent = new Intent(
+							"android.intent.action.VIEW",
+							Uri.parse(MyUtlis.getYouKuVideo(bean.getYoukuid())));
+					startActivity(viewIntent);
+				}
+			}
+		});
 		gallery.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -230,6 +248,9 @@ public class ShoujiEnterpriseActivity extends Activity {
 		scroll_linear = (ScrollView) findViewById(R.id.scroll_linear);
 		btn_back = (Button) findViewById(R.id.btn_back);
 		bottom_linearlayout = (LinearLayout) findViewById(R.id.bottom_linearlayout);
+		
+		video_liear = (LinearLayout) findViewById(R.id.video_liear);
+		video_thumb = (ImageView) findViewById(R.id.video_thumb);
 	}
 
 	private void getdata() throws Exception{
@@ -243,6 +264,15 @@ public class ShoujiEnterpriseActivity extends Activity {
 						public void getProductInfoById(
 								ProductsEnterpriseByIdBean productsByIdBean) {
 							if (productsByIdBean != null) {
+								bean = productsByIdBean;
+								 //么有视频不显示
+								if (productsByIdBean.getYoukuid() == null || productsByIdBean.getYoukuid().trim().equalsIgnoreCase("") || productsByIdBean.getYoukuid().equalsIgnoreCase("null") ) {
+									video_liear.setVisibility(View.GONE);
+								}else {
+									video_liear.setVisibility(View.VISIBLE);
+									imageLoader.displayImage(MyUtlis.getYouKuThumb(productsByIdBean.getYoukuid()), video_thumb, options);
+								}
+								
 								p = productsByIdBean;
 								picfromServer = productsByIdBean.getPic();
 								pub_product_xinpian.setText(productsByIdBean

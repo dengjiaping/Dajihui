@@ -81,7 +81,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -101,7 +101,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -129,7 +129,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -149,7 +149,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -177,7 +177,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -196,7 +196,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -224,7 +224,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -243,7 +243,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -270,7 +270,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -289,7 +289,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:singleLine="true"
+                             
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -329,7 +329,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
@@ -341,7 +341,6 @@
                         android:layout_width="fill_parent"
                         android:layout_height="25dp"
                         android:gravity="center_vertical"
-                        android:singleLine="true"
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
@@ -353,7 +352,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
@@ -365,7 +364,6 @@
                         android:layout_width="fill_parent"
                         android:layout_height="25dp"
                         android:gravity="center_vertical"
-                        android:singleLine="true"
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
@@ -376,7 +374,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
@@ -388,7 +386,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:singleLine="true"
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
 
@@ -412,7 +409,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
@@ -423,7 +420,6 @@
                         android:id="@+id/user_manager_company"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
@@ -436,7 +432,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
@@ -447,7 +443,6 @@
                         android:id="@+id/user_manager_address"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
@@ -460,7 +455,7 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
@@ -471,7 +466,6 @@
                         android:id="@+id/user_manager_net"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>

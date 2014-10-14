@@ -13,6 +13,7 @@ public class ProductsBean implements Serializable ,Comparable<ProductsBean>
 	private String pic;
 	private String order_sort;
 	private String category;
+	private String youkuid;
 	public String getId() {
 		return id;
 	}
@@ -92,6 +93,12 @@ public class ProductsBean implements Serializable ,Comparable<ProductsBean>
 		}
 		return 0;
 	
+	}
+	public String getYoukuid() {
+		return youkuid;
+	}
+	public void setYoukuid(String youkuid) {
+		this.youkuid = youkuid;
 	}
 	 
 	 

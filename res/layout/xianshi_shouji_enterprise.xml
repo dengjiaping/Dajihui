@@ -350,6 +350,26 @@
                         android:textColor="#000"
                         android:textSize="@dimen/LargeTextSize" />
                 </LinearLayout>
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/video_liear"
+                        android:orientation="vertical" >
+		<TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/display_parameters_video1"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+		<ImageView 
+		    android:id="@+id/video_thumb"
+		    android:layout_width="150dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+		    />
+		</LinearLayout>
             </LinearLayout>
 
             <Button
